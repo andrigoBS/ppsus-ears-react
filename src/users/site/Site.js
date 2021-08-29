@@ -5,7 +5,7 @@ import LoginSite from "./pages/login/LoginSite";
 function Site() {
     return (
         <div>
-            <p>Site</p>
+            <p>Siteeee</p>
             <Switch>
                 <Route path={'/site/login'}>
                     <LoginSite/>
