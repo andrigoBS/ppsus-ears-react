@@ -1,10 +1,10 @@
 import React from "react";
 import {BrowserRouter,Route} from "react-router-dom"
-import Admin from "./users/admin/Admin";
-import Institution from "./users/institution/Institution";
-import Researches from "./users/researches/Researches";
-import Site from "./users/site/Site";
-import Therapist from "./users/therapist/Therapist";
+import Admin from "./views/admin/Admin";
+import Institution from "./views/institution/Institution";
+import Researches from "./views/researches/Researches";
+import Site from "./views/site/Site";
+import Therapist from "./views/therapist/Therapist";
 
 function App() {
   return (

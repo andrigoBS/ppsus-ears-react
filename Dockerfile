@@ -14,7 +14,7 @@
 FROM node:lts-alpine
 WORKDIR /usr/src/react
 COPY package*.json /usr/src/react/
-RUN npm ci --production
+RUN npm i --production
 COPY . .
 
 #FROM nginx:stable-alpine as prod
