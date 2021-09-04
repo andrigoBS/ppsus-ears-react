@@ -6,7 +6,7 @@ import Researches from "./views/researches/Researches";
 import Site from "./views/site/Site";
 import Therapist from "./views/therapist/Therapist";
 
-function App() {
+function Routes() {
   return (
       <BrowserRouter>
           <Route exact path={'/'}>
@@ -28,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default Routes;

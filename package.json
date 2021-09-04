@@ -12,8 +12,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "build": "react-scripts build",
-    "build:watch": "nodemon -L --ignore ./build --ignore ./node_modules --exec npm run build"
+    "build": "./node_modules/react-scripts build",
+    "build:watch": "./node_modules/nodemon -L --ignore ./build --ignore ./node_modules --exec npm run build"
   },
   "browserslist": {
     "production": [
