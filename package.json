@@ -8,12 +8,12 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
+    "react-scripts": "4.0.3"
   },
   "scripts": {
-    "build": "./node_modules/react-scripts build",
-    "build:watch": "./node_modules/nodemon -L --ignore ./build --ignore ./node_modules --exec npm run build"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:watch": "nodemon --ignore ./build --ignore ./node_modules --exec npm run build"
   },
   "browserslist": {
     "production": [

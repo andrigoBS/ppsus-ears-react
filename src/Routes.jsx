@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter,Route} from "react-router-dom"
+import {BrowserRouter, Route} from "react-router-dom"
 import Admin from "./views/admin/Admin";
 import Institution from "./views/institution/Institution";
 import Researches from "./views/researches/Researches";
