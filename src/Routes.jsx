@@ -5,6 +5,7 @@ import Institution from "./views/institution/Institution";
 import Researches from "./views/researches/Researches";
 import Site from "./views/site/Site";
 import Therapist from "./views/therapist/Therapist";
+import Preview from "./views/preview/Preview";
 
 function Routes() {
   return (
@@ -23,6 +24,9 @@ function Routes() {
           </Route>
           <Route path={'/therapist'}>
               <Therapist/>
+          </Route>
+          <Route path={'/preview'}>
+              <Preview/>
           </Route>
       </BrowserRouter>
   );

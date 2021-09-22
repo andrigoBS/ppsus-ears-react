@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './Routes';
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { createTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+import { CssBaseline, createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material';
 
 let theme = createTheme({
     palette: {
         primary: {
-            main: '#38E0B6'
+            main: '#3862e0'
         },
         secondary: {
             main: "#2DAD8D"
