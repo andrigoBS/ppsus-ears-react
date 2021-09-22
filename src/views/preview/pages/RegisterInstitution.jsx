@@ -9,6 +9,7 @@ function RegisterInstitution() {
         paper:{
             width: '30%',
             marginLeft: '30%',
+            marginRight: '30%',
             marginTop: '20px',
             marginBottom: '20px',
             padding: '30px',

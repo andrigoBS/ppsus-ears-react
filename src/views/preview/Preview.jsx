@@ -4,6 +4,7 @@ import RegisterTherapist from "./pages/RegisterTherapist";
 import RegisterInstitution from "./pages/RegisterInstitution";
 import RegisterReferralService from "./pages/RegisterReferralService";
 import RegisterSecretary from "./pages/RegisterSecretary";
+import Consultation from "./pages/Consultation/Consultation";
 
 
 function Preview() {
@@ -21,6 +22,9 @@ function Preview() {
                 </Route>
                 <Route path={'/preview/register-secretary'}>
                     <RegisterSecretary/>
+                </Route>
+                <Route path={'/preview/register-consultation'}>
+                    <Consultation/>
                 </Route>
             </Switch>
         </div>
