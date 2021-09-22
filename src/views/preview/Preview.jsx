@@ -9,25 +9,23 @@ import Consultation from "./pages/Consultation/Consultation";
 
 function Preview() {
     return (
-        <div>
-            <Switch>
-                <Route path={'/preview/register-therapist'}>
-                    <RegisterTherapist/>
-                </Route>
-                <Route path={'/preview/register-institution'}>
-                    <RegisterInstitution/>
-                </Route>
-                <Route path={'/preview/register-referral-service'}>
-                    <RegisterReferralService/>
-                </Route>
-                <Route path={'/preview/register-secretary'}>
-                    <RegisterSecretary/>
-                </Route>
-                <Route path={'/preview/register-consultation'}>
-                    <Consultation/>
-                </Route>
-            </Switch>
-        </div>
+        <Switch>
+            <Route path={'/preview/register-therapist'}>
+                <RegisterTherapist/>
+            </Route>
+            <Route path={'/preview/register-institution'}>
+                <RegisterInstitution/>
+            </Route>
+            <Route path={'/preview/register-referral-service'}>
+                <RegisterReferralService/>
+            </Route>
+            <Route path={'/preview/register-secretary'}>
+                <RegisterSecretary/>
+            </Route>
+            <Route path={'/preview/register-consultation'}>
+                <Consultation/>
+            </Route>
+        </Switch>
     );
 }
 

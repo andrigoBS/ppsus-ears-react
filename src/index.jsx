@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './Routes';
 import { CssBaseline, createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material';
+import Routes from './Routes';
+import HtmlHead from "./components/HtmlHead";
 
 let theme = createTheme({
     palette: {
@@ -13,7 +14,10 @@ let theme = createTheme({
         },
         tertiary: {
             main: "#99ffe4"
-        }
+        },
+        background: {
+            default: "#fafafa"
+        },
     },
 });
 theme = responsiveFontSizes(theme);
@@ -21,8 +25,9 @@ theme = responsiveFontSizes(theme);
 const App = () => {
     return <React.StrictMode>
         <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Routes />
+            <CssBaseline/>
+            <HtmlHead/>
+            <Routes/>
         </ThemeProvider>
     </React.StrictMode>
 }
