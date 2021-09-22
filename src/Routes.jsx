@@ -26,7 +26,7 @@ function Routes() {
               <Therapist/>
           </Route>
           <Route path={'/preview'}>
-              <Preview/>
+              <Preview />
           </Route>
       </BrowserRouter>
   );
