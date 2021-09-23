@@ -16,12 +16,9 @@ export default function Consultation() {
     const [skipped, setSkipped] = React.useState(new Set());
 
     const styles = {
-        paper: {
-            width: '30%',
-            marginLeft: '30%',
-            marginRight: '30%',
-            marginTop: '20px',
-            marginBottom: '20px',
+        paper:{
+            width: '60%',
+            margin: '4%',
             padding: '30px',
         },
     }

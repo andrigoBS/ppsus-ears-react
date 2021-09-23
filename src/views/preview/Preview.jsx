@@ -6,24 +6,23 @@ import RegisterReferralService from "./pages/RegisterReferralService";
 import RegisterSecretary from "./pages/RegisterSecretary";
 import Consultation from "./pages/Consultation/Consultation";
 
-
 function Preview() {
     return (
         <div>
             <Switch>
-                <Route path={'/preview/register-therapist'}>
+                <Route path={'/previa/registrarfono'}>
                     <RegisterTherapist/>
                 </Route>
-                <Route path={'/preview/register-institution'}>
+                <Route path={'/previa/registrarinstituicao'}>
                     <RegisterInstitution/>
                 </Route>
-                <Route path={'/preview/register-referral-service'}>
+                <Route path={'/previa/registrarservicoreferencia'}>
                     <RegisterReferralService/>
                 </Route>
-                <Route path={'/preview/register-secretary'}>
+                <Route path={'/previa/registrarsecretaria'}>
                     <RegisterSecretary/>
                 </Route>
-                <Route path={'/preview/register-consultation'}>
+                <Route path={'/previa/registrarconsulta'}>
                     <Consultation/>
                 </Route>
             </Switch>

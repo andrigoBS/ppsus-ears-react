@@ -25,7 +25,7 @@ function Routes() {
           <Route path={'/therapist'}>
               <Therapist/>
           </Route>
-          <Route path={'/preview'}>
+          <Route path={'/previa'}>
               <Preview />
           </Route>
       </BrowserRouter>

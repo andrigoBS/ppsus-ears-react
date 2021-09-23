@@ -7,11 +7,8 @@ import {Button} from "@mui/material";
 function RegisterInstitution() {
     const styles = {
         paper:{
-            width: '30%',
-            marginLeft: '30%',
-            marginRight: '30%',
-            marginTop: '20px',
-            marginBottom: '20px',
+            width: '60%',
+            margin: '4%',
             padding: '30px',
         },
         grid:{
