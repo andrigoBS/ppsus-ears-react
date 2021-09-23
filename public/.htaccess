@@ -1,0 +1,12 @@
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+<IfModule mod_rewrite.c>
+	Options -MultiViews
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ index.html [QSA,L]
+</IfModule>

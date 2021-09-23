@@ -7,7 +7,7 @@ function Therapist() {
         <div>
             <p>Therapist</p>
             <Switch>
-                <Route path={'/site/login'}>
+                <Route path={'/therapist/login'}>
                     <LoginTherapist/>
                 </Route>
             </Switch>

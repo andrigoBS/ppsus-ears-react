@@ -7,6 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import HtmlHead from "../../../components/HtmlHead";
 
 function RegisterTherapist() {
     const styles = {
@@ -35,6 +36,7 @@ function RegisterTherapist() {
 
     return (
         <Paper sx={styles.paper}>
+            <HtmlHead view={'Fono'} subTitle={'Cadastro'}/>
             <h1 style={styles.text}>Cadastro Fono</h1>
             <Box sx={styles.grid}>
                 <TextField label="Nome" variant="outlined" size="small"/>

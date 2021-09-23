@@ -7,7 +7,7 @@ function Site() {
         <div>
             <p>Site</p>
             <Switch>
-                <Route path={'/site/login'}>
+                <Route path={'/login'}>
                     <LoginSite/>
                 </Route>
             </Switch>
