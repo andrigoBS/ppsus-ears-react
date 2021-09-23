@@ -29,6 +29,9 @@ function RegisterResponsible() {
                 <h4>Informações pessoais</h4>
                 <TextField label="Nome" variant="outlined" size="small"/>
                 <TextField label="Idade" variant="outlined" size="small"/>
+
+                <TextField label="Indicadores" variant="outlined" size="small"/>
+
                 <h4>Contato</h4>
                 <TextField label="Telefone" variant="outlined" size="small"/>
                 <TextField label="Apelido para o telefone" variant="outlined" size="small"/>
