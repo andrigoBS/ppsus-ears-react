@@ -8,8 +8,9 @@ import Paper from "@mui/material/Paper";
 import RegisterResponsible from "./components/RegisterResponsible";
 import RegisterBaby from "./components/RegisterBaby";
 import RegisterResults from "./components/RegisterResults";
+import RegisterMother from "./components/RegisterMother";
 
-const steps = ['Cadastro mãe e/ou responsável', 'Cadastro Bebe', 'Registro dos resultados'];
+const steps = ['Cadastro mãe', 'Cadastro outro responsável' , 'Cadastro Bebe', 'Registro dos resultados'];
 
 export default function Consultation() {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -17,7 +18,7 @@ export default function Consultation() {
 
     const styles = {
         paper:{
-            width: '60%',
+            width: 'auto',
             margin: '4%',
             padding: '30px',
         },
@@ -59,9 +60,10 @@ export default function Consultation() {
                     })}
                 </Stepper>
                 <React.Fragment>
-                    {activeStep === 0 && <RegisterResponsible/>}
-                    {activeStep === 1 && <RegisterBaby/>}
-                    {activeStep === 2 && <RegisterResults/>}
+                    {activeStep === 0 && <RegisterMother/>}
+                    {activeStep === 1 && <RegisterResponsible/>}
+                    {activeStep === 2 && <RegisterBaby/>}
+                    {activeStep === 3 && <RegisterResults/>}
 
                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                         <Button

@@ -9,7 +9,7 @@ function RegisterBaby() {
     const styles = {
         grid:{
             display: 'grid',
-            width: '90%',
+            width: '85%',
             gap: 2,
             padding: '40px'
         },

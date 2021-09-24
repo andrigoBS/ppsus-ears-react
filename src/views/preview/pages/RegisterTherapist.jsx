@@ -12,13 +12,13 @@ import HtmlHead from "../../../components/HtmlHead";
 function RegisterTherapist() {
     const styles = {
         paper:{
-            width: '60%',
+            width: 'auto',
             margin: '4%',
             padding: '30px',
         },
         grid:{
             display: 'grid',
-            width: '90%',
+            width: '85%',
             gap: 2,
             padding: '40px'
         },
