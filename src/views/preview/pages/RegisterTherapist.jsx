@@ -26,7 +26,7 @@ function RegisterTherapist() {
             marginLeft: '30px'
         },
         button:{
-            width: '50%'
+            width: '40%'
         },
         finalButton:{
             width: '50%',

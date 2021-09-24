@@ -11,7 +11,7 @@ function Routes() {
   return (
       <BrowserRouter basename="/testeore">
           <Route exact path={'/'}>
-              <Redirect to={'/preview/register-therapist'}/>
+              <Redirect to={'/previa/registrarfono'}/>
               <Site/>
           </Route>
           <Route path={'/admin'}>

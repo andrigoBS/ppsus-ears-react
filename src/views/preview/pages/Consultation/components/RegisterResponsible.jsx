@@ -32,6 +32,7 @@ function RegisterResponsible() {
 
                 <TextField label="Indicadores" variant="outlined" size="small"/>
 
+
                 <h4>Contato</h4>
                 <TextField label="Telefone" variant="outlined" size="small"/>
                 <TextField label="Apelido para o telefone" variant="outlined" size="small"/>
