@@ -6,6 +6,10 @@ import {Button} from "@mui/material";
 import {useForm} from "react-hook-form";
 import HtmlHead from "../../../components/HtmlHead";
 import BrazilianPhoneField from "../../../components/BrazilianPhoneField";
+import FormControl from "@mui/material/FormControl";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Radio from "@mui/material/Radio";
 
 const styles = {
     paper: {
@@ -33,7 +37,6 @@ const styles = {
 
 function RegisterInstitution() {
     const { register, handleSubmit, formState: { errors } } = useForm();
-
     const onSubmit = (data) => {
         // @TODO Criar um httpHelper
     }
@@ -49,6 +52,14 @@ function RegisterInstitution() {
                     <TextField {...register("passwordConfirm")} label="Confirmação de Senha" type="password" variant="outlined" size="small"/>
                     <TextField {...register("CNPJ")} label="CNPJ" variant="outlined" size="small"/>
                     <TextField {...register("CNES")} label="CNES" variant="outlined" size="small"/>
+
+                    <h4>Tipo de Instituição</h4>
+                    <FormControl>
+                        <RadioGroup {...register("institutionType")} defaultValue={"Hospital"}>
+                            <FormControlLabel value={"Hospital"} control={<Radio/>} label="Hospital"/>
+                            <FormControlLabel value={"Maternidade"} control={<Radio/>} label="Maternidade"/>
+                        </RadioGroup>
+                    </FormControl>
 
                     <h4>Contato</h4>
                     <TextField {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined" size="small" required/>
