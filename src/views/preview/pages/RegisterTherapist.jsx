@@ -55,18 +55,19 @@ function RegisterTherapist() {
                         </Select>
                     </FormControl>
                     <h4>Contato</h4>
-                    <TextField label="E-mail Principal" variant="outlined" size="small" required/>
-                    <TextField label="E-mail Alternativo" variant="outlined" size="small"/>
+                    <TextField {...register("preferentialEmail")} label="E-mail Principal" variant="outlined" size="small" required/>
+                    <TextField {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined" size="small"/>
                     <BrazilianPhoneField register={register} name="phonePrimary" error={errors.phonePrimary}
                                          label="Telefone Principal" variant="outlined" size="small" required
                     />
                     <BrazilianPhoneField register={register} name="phoneSecond" error={errors.phoneSecond}
                                          label="Telefone Alternativo" variant="outlined" size="small"
                     />
+
                     <h4>Local de trabalho</h4>
                     <FormControl sx={{maxWidth: 450 }} size="small">
                         <InputLabel>Instituição</InputLabel>
-                        <Select label="Instituição">
+                        <Select {...register("institution")} label="Instituição">
                             <MenuItem value={0}>HOSPITAL DE FLORIANOPOLIS</MenuItem>
                             <MenuItem value={1}>HOSPITAL SANTO ANTONIO IMAS</MenuItem>
                             <MenuItem value={2}>HOSPITAL SANTA JULIANA</MenuItem>
