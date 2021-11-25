@@ -8,23 +8,28 @@ import HttpTherapistHelper from "../../../helpers/HttpTherapistHelper";
 const styles = {
     paper:{
         width: 'auto',
-        margin: '4%',
-        padding: '30px',
+        marginLeft: '10%',
+        marginRight: '10%',
+        marginTop: '30px',
+        marginBottom: '30px',
+        padding: '50px',
     },
     grid:{
         display: 'grid',
-        width: '85%',
         gap: 2,
-        padding: '40px'
     },
     text:{
-        marginLeft: '30px'
+        color: '#646464'
+    },
+    textTitle:{
+        color: '#646464',
+        marginBottom: '40px'
     },
     button:{
-        width: '40%'
+        width: '300px'
     },
     finalButton:{
-        width: '50%',
+        width: '300px',
         marginTop: '35px'
     }
 }
@@ -38,23 +43,23 @@ function RegisterTherapist() {
     return (
         <Paper sx={styles.paper}>
             <HtmlHead view={'Fono'} subTitle={'Cadastro'}/>
-            <h1 style={styles.text}>Cadastro Fonoaudiólogo</h1>
+            <h2 style={styles.textTitle}>Cadastro Fonoaudiólogo</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={styles.grid}>
-                    <TextField {...register("name")} label="Nome Completo" variant="outlined" size="small"/>
-                    <TextField {...register("password")} label="Senha" type="password" variant="outlined" size="small"/>
-                    <TextField {...register("passwordConfirm")} label="Confirmação de Senha" type="password" variant="outlined" size="small"/>
-                    <TextField {...register("crfa")} label="CRFa" variant="outlined" size="small"/>
-                    <FormControl sx={{maxWidth: 450 }} size="small">
+                    <TextField {...register("name")} label="Nome Completo" variant="outlined" size="small" required/>
+                    <TextField {...register("password")} label="Senha" type="password" variant="outlined" size="small" required/>
+                    <TextField {...register("passwordConfirm")} label="Confirmação de Senha" type="password" variant="outlined" size="small" required/>
+                    <TextField {...register("crfa")} label="CRFa" variant="outlined" size="small" required/>
+                    <FormControl sx={{maxWidth: 450 }} size="small" required>
                         <InputLabel>Tempo de experiência</InputLabel>
                         <Select label="Tempo de experiência" {...register("xp")}>
                             <MenuItem value={0}>Menos de 1 ano</MenuItem>
-                            <MenuItem value={1}>De 1 á 3 anos</MenuItem>
-                            <MenuItem value={2}>De 3 á 5 anos</MenuItem>
+                            <MenuItem value={1}>De 1 a 3 anos</MenuItem>
+                            <MenuItem value={2}>De 3 a 5 anos</MenuItem>
                             <MenuItem value={2}>Mais de 5 anos</MenuItem>
                         </Select>
                     </FormControl>
-                    <h4>Contato</h4>
+                    <h4 style={styles.text}>Contato</h4>
                     <TextField {...register("preferentialEmail")} label="E-mail Principal" variant="outlined" size="small" required/>
                     <TextField {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined" size="small"/>
                     <BrazilianPhoneField register={register} name="phonePrimary" error={errors.phonePrimary}
@@ -64,8 +69,8 @@ function RegisterTherapist() {
                                          label="Telefone Alternativo" variant="outlined" size="small"
                     />
 
-                    <h4>Local de trabalho</h4>
-                    <FormControl sx={{maxWidth: 450 }} size="small">
+                    <h4 style={styles.text}>Local de trabalho</h4>
+                    <FormControl sx={{maxWidth: 450 }} size="small" required>
                         <InputLabel>Instituição</InputLabel>
                         <Select {...register("institution")} label="Instituição">
                             <MenuItem value={0}>HOSPITAL DE FLORIANOPOLIS</MenuItem>
@@ -73,10 +78,10 @@ function RegisterTherapist() {
                             <MenuItem value={2}>HOSPITAL SANTA JULIANA</MenuItem>
                         </Select>
                     </FormControl>
-                    <Button sx={styles.button} variant="contained">
+                    <Button sx={styles.button} color="secondary" variant="contained">
                         Adicionar instituição
                     </Button>
-                    <Button sx={styles.finalButton} variant="outlined" type="submit">
+                    <Button sx={styles.finalButton} color="secondary" variant="outlined" type="submit">
                         Finalizar cadastro
                     </Button>
                 </Box>

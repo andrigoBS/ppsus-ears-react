@@ -13,23 +13,25 @@ import BrazilianPhoneField from "../../../components/BrazilianPhoneField";
 const styles = {
     paper: {
         width: 'auto',
-        margin: '4%',
-        padding: '30px',
+        marginLeft: '10%',
+        marginRight: '10%',
+        marginTop: '30px',
+        marginBottom: '30px',
+        padding: '50px',
     },
     grid: {
         display: 'grid',
-        width: '85%',
         gap: 2,
-        padding: '40px'
     },
     text: {
-        marginLeft: '30px'
+        color: '#646464',
     },
-    button: {
-        width: '40%'
+    textTitle:{
+        color: '#646464',
+        marginBottom: '40px'
     },
     finalButton: {
-        width: '50%',
+        width: '300px',
         marginTop: '35px'
     }
 }
@@ -42,14 +44,14 @@ function RegisterReferralService() {
 
     return (
         <Paper sx={styles.paper}>
-            <h1 style={styles.text}>Cadastro Serviço de Referência</h1>
+            <h2 style={styles.textTitle}>Cadastro Serviço de Referência</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={styles.grid}>
-                    <TextField {...register("name")} label="Nome do Serviço" variant="outlined" size="small"/>
+                    <TextField {...register("name")} label="Nome do Serviço" variant="outlined" size="small" required/>
                     <TextField {...register("CNPJ")} label="CNPJ" variant="outlined" size="small"/>
-                    <TextField {...register("CNES")} label="CNES" variant="outlined" size="small"/>
+                    <TextField {...register("CNES")} label="CNES" variant="outlined" size="small" required/>
 
-                    <h4>Tipo de Serviço</h4>
+                    <h4 style={styles.text}>Tipo de Serviço</h4>
                     <FormControl>
                         <RadioGroup {...register("referralServiceType")} defaultValue={"SUS"}>
                             <FormControlLabel value={"SUS"} control={<Radio/>} label="SUS"/>
@@ -58,7 +60,7 @@ function RegisterReferralService() {
                         </RadioGroup>
                     </FormControl>
 
-                    <h4>Contato</h4>
+                    <h4 style={styles.text}>Contato</h4>
                     <TextField {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined"
                                size="small" required/>
                     <TextField {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined"
@@ -70,19 +72,19 @@ function RegisterReferralService() {
                                          label="Telefone Celular Institucional" variant="outlined" size="small"
                     />
 
-                    <h4>Endereço</h4>
-                    <TextField {...register("CEP")} label="CEP" variant="outlined" size="small"/>
-                    <TextField {...register("street")} label="Logradouro" variant="outlined" size="small"/>
+                    <h4 style={styles.text}>Endereço</h4>
+                    <TextField {...register("CEP")} label="CEP" variant="outlined" size="small" required/>
+                    <TextField {...register("street")} label="Logradouro" variant="outlined" size="small" required/>
                     <TextField {...register("number")} label="Número" variant="outlined" size="small"/>
-                    <TextField {...register("state")} label="Estado" variant="outlined" size="small"/>
-                    <TextField {...register("city")} label="Cidade" variant="outlined" size="small"/>
+                    <TextField {...register("state")} label="Estado" variant="outlined" size="small" required/>
+                    <TextField {...register("city")} label="Cidade" variant="outlined" size="small" required/>
                     <TextField {...register("complement")} label="Complemento" variant="outlined" size="small"/>
 
-                    <h4>Dados do Responsável do Serviço</h4>
+                    <h4 style={styles.text}>Dados do Responsável do Serviço</h4>
                     <TextField {...register("nameOfResponsible")} label="Nome do Responsável" variant="outlined"
-                               size="small"/>
+                               size="small" required/>
                     <TextField {...register("postOfResponsible")} label="Cargo" variant="outlined" size="small"/>
-                    <Button sx={styles.finalButton} variant="outlined">
+                    <Button sx={styles.finalButton} color="secondary" variant="contained">
                         Finalizar cadastro
                     </Button>
                 </Box>

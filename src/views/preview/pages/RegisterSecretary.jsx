@@ -6,45 +6,50 @@ import {Button} from "@mui/material";
 
 function RegisterSecretary() {
     const styles = {
-        paper:{
+        paper: {
             width: 'auto',
-            margin: '4%',
-            padding: '30px',
+            marginLeft: '10%',
+            marginRight: '10%',
+            marginTop: '30px',
+            marginBottom: '30px',
+            padding: '50px',
         },
         grid:{
             display: 'grid',
-            width: '85%',
             gap: 2,
-            padding: '40px'
         },
         text:{
-            marginLeft: '30px'
+            color: '#646464'
+        },
+        textTitle:{
+            color: '#646464',
+            marginBottom: '40px'
         },
         button:{
-            width: '40%'
+            width: '300px'
         },
         finalButton:{
-            width: '50%',
+            width: '300px',
             marginTop: '35px'
         }
     }
 
     return (
         <Paper sx={styles.paper}>
-            <h1 style={styles.text}>Cadastro Secretaria do Estado</h1>
+            <h2 style={styles.textTitle}>Cadastro Secretaria do Estado</h2>
             <Box sx={styles.grid}>
-                <TextField label="Nome" variant="outlined" size="small"/>
-                <TextField label="Senha" type="password" variant="outlined" size="small"/>
-                <h4>Contato</h4>
-                <TextField label="E-mail" variant="outlined" size="small"/>
+                <TextField label="Nome" variant="outlined" size="small" required/>
+                <TextField label="Senha" type="password" variant="outlined" size="small" required/>
+                <h4 style={styles.text}>Contato</h4>
+                <TextField label="E-mail Principal" variant="outlined" size="small" required/>
                 <TextField label="Apelido para o e-mail" variant="outlined" size="small"/>
-                <Button sx={styles.button} variant="contained">
+                <Button sx={styles.button} color="secondary" variant="contained">
                     Adicionar e-mail
                 </Button>
-                <h4>Endereço</h4>
-                <TextField label="Estado" variant="outlined" size="small"/>
-                <TextField label="Cidade" variant="outlined" size="small"/>
-                <Button sx={styles.finalButton} variant="outlined">
+                <h4 style={styles.text}>Endereço</h4>
+                <TextField label="Estado" variant="outlined" size="small" required/>
+                <TextField label="Cidade" variant="outlined" size="small" required/>
+                <Button sx={styles.finalButton} color="secondary" variant="contained">
                     Finalizar cadastro
                 </Button>
             </Box>

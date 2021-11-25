@@ -7,10 +7,10 @@ import HtmlHead from "./components/HtmlHead";
 let theme = createTheme({
     palette: {
         primary: {
-            main: '#3862e0'
+            main: '#5D307A'
         },
         secondary: {
-            main: "#2DAD8D"
+            main: "#E83268"
         },
         tertiary: {
             main: "#99ffe4"

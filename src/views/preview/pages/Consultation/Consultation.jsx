@@ -19,8 +19,11 @@ export default function Consultation() {
     const styles = {
         paper:{
             width: 'auto',
-            margin: '4%',
-            padding: '30px',
+            marginLeft: '10%',
+            marginRight: '10%',
+            marginTop: '30px',
+            marginBottom: '30px',
+            padding: '50px',
         },
     }
 
@@ -72,10 +75,10 @@ export default function Consultation() {
                             onClick={handleBack}
                             sx={{ mr: 1 }}
                         >
-                            Back
+                            Anterior
                         </Button>
                         <Button onClick={handleNext}>
-                            Next
+                            Próximo
                         </Button>
                     </Box>
                 </React.Fragment>

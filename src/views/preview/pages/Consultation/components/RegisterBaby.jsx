@@ -9,15 +9,10 @@ import {useForm} from "react-hook-form";
 const styles = {
     grid: {
         display: 'grid',
-        width: '85%',
         gap: 2,
-        padding: '40px'
     },
-    text: {
-        marginLeft: '30px'
-    },
-    button: {
-        width: '50%'
+    margin: {
+        marginTop: '40px'
     },
 }
 
@@ -31,7 +26,7 @@ function RegisterBaby() {
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={styles.grid}>
-                    <TextField {...register("name")} label="Nome do Bebê" variant="outlined" size="small"/>
+                    <TextField {...register("name")} style={styles.margin} label="Nome do Bebê" variant="outlined" size="small"/>
                     <TextField {...register("weight")} label="Peso" variant="outlined" size="small"/>
                     <TextField {...register("height")} label="Altura" variant="outlined" size="small"/>
                     <TextField {...register("cephalicPerimeter")} label="Perímetro Cefálico" variant="outlined" size="small"/>

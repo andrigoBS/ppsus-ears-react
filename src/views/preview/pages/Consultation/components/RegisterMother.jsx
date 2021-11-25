@@ -7,20 +7,15 @@ import BrazilianPhoneField from "../../../../../components/BrazilianPhoneField";
 const styles = {
     grid: {
         display: 'grid',
-        width: '85%',
         gap: 2,
-        padding: '40px'
+    },
+    textTitle:{
+        color: '#646464',
+        marginTop: '40px'
     },
     text: {
-        marginLeft: '30px'
+        color: '#646464'
     },
-    button: {
-        width: '50%'
-    },
-    finalButton: {
-        width: '60%',
-        marginTop: '35px'
-    }
 }
 
 function RegisterMother() {
@@ -34,11 +29,11 @@ function RegisterMother() {
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={styles.grid}>
-                    <h4>Informações pessoais</h4>
-                    <TextField {...register("name")} label="Nome completo da mãe" variant="outlined" size="small"/>
-                    <TextField {...register("birthdate")} label="Data de nascimento" variant="outlined" size="small"/>
+                    <h4 style={styles.textTitle}>Informações pessoais</h4>
+                    <TextField {...register("name")} label="Nome completo da mãe" variant="outlined" size="small" required/>
+                    <TextField {...register("birthdate")} label="Data de nascimento" variant="outlined" size="small" required/>
 
-                    <h4>Contato</h4>
+                    <h4 style={styles.text}>Contato</h4>
                     <TextField {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined" size="small" required/>
                     <TextField {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined" size="small"/>
                     <BrazilianPhoneField register={register} name="phonePrimary" error={errors.phonePrimary}
@@ -48,12 +43,12 @@ function RegisterMother() {
                                          label="Telefone Celular" variant="outlined" size="small"
                     />
 
-                    <h4>Endereço</h4>
-                    <TextField {...register("CEP")} label="CEP" variant="outlined" size="small"/>
-                    <TextField {...register("street")} label="Logradouro" variant="outlined" size="small"/>
+                    <h4 style={styles.text}>Endereço</h4>
+                    <TextField {...register("CEP")} label="CEP" variant="outlined" size="small" required/>
+                    <TextField {...register("street")} label="Logradouro" variant="outlined" size="small" required/>
                     <TextField {...register("number")} label="Número" variant="outlined" size="small"/>
-                    <TextField {...register("state")} label="Estado" variant="outlined" size="small"/>
-                    <TextField {...register("city")} label="Cidade" variant="outlined" size="small"/>
+                    <TextField {...register("state")} label="Estado" variant="outlined" size="small" required/>
+                    <TextField {...register("city")} label="Cidade" variant="outlined" size="small" required/>
                     <TextField {...register("complement")} label="Complemento" variant="outlined" size="small"/>
                 </Box>
             </form>

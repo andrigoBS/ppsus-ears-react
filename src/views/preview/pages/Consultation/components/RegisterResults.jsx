@@ -17,18 +17,16 @@ import {Button} from "@mui/material";
 const styles = {
     grid: {
         display: 'grid',
-        width: '85%',
         gap: 2,
-        padding: '40px'
     },
     text: {
-        marginLeft: '30px'
+        color: '#646464'
     },
-    button: {
-        width: '50%'
+    margin: {
+        marginTop: '40px'
     },
     finalButton: {
-        width: '60%',
+        width: '300px',
         marginTop: '35px'
     }
 }
@@ -44,7 +42,7 @@ function RegisterResults() {
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={styles.grid}>
-                    <TextField {...register("avaliationDate")} label="Data da avaliação" variant="outlined" size="small"/>
+                    <TextField {...register("avaliationDate")} style={styles.margin} label="Data da avaliação" variant="outlined" size="small"/>
                     <FormControl sx={{maxWidth: 450}} size={"small"}>
                         <InputLabel id="label">Equipamento</InputLabel>
                         <Select {...register("equipment")} label="Equipamento">
@@ -54,7 +52,7 @@ function RegisterResults() {
                         </Select>
                     </FormControl>
 
-                    <h4>IRDA</h4>
+                    <h4 style={styles.text}>IRDA</h4>
                     <FormControl {...register("IRDA")} component="fieldset" variant="standard">
                         <FormGroup>
                             <FormControlLabel
@@ -72,12 +70,13 @@ function RegisterResults() {
                         </FormGroup>
                     </FormControl>
 
-                    <h4>Resultado Teste</h4>
+                    <h4 style={styles.text}>Resultado Teste</h4>
                     <FormControl sx={{maxWidth: 450 }} size="small">
                         <InputLabel>Tipo de teste</InputLabel>
                         <Select label="Tipo de teste" {...register("type")}>
-                            <MenuItem value={0}>EOAE-1</MenuItem>
-                            <MenuItem value={1}>Peate</MenuItem>
+                            <MenuItem value={0}>EOET</MenuItem>
+                            <MenuItem value={1}>PEATE-A</MenuItem>
+                            <MenuItem value={2}>EOET + PEATE-A</MenuItem>
                         </Select>
                     </FormControl>
 
@@ -96,7 +95,7 @@ function RegisterResults() {
                         </RadioGroup>
                     </FormControl>
 
-                    <h4>Informações adicionais</h4>
+                    <h4 style={styles.text}>Informações adicionais</h4>
                     <TextField label="Observação" multiline variant="outlined" size="small"/>
                     <FormControl sx={{maxWidth: 450 }} size="small">
                         <InputLabel>Conduta</InputLabel>
@@ -116,7 +115,7 @@ function RegisterResults() {
                             <MenuItem value={2}>Orientação salva 4</MenuItem>
                         </Select>
                     </FormControl>
-                    <Button sx={styles.button} variant="contained">
+                    <Button sx={styles.finalButton} color="secondary" variant="contained">
                         Adicionar uma nova orientação
                     </Button>
                 </Box>

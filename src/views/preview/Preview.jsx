@@ -5,10 +5,20 @@ import RegisterInstitution from "./pages/RegisterInstitution";
 import RegisterReferralService from "./pages/RegisterReferralService";
 import RegisterSecretary from "./pages/RegisterSecretary";
 import Consultation from "./pages/Consultation/Consultation";
+import {AppBar, IconButton, Toolbar, Typography} from "@mui/material";
+import icone from './pages/images/MEU1ALO_RGB_WHITE.png';
+
 
 function Preview() {
     return (
         <div>
+            <AppBar color="primary" position="static">
+                <Toolbar variant="dense">
+                    <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+                        <img src={icone} alt="iconeWhite" width='120px'/>
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
             <Switch>
                 <Route path={'/previa/registrarfono'}>
                     <RegisterTherapist/>
