@@ -1,18 +1,18 @@
 import React from "react";
 import {Routes, Route} from "react-router-dom"
-import LoginSite from "./pages/login/LoginSite";
+import LoginSecretary from "./pages/login/LoginSecretary";
 
-function Site() {
+function Secretary() {
     return (
         <div>
-            <p>Site</p>
+            <p>Admin</p>
             <Routes>
                 <Route path={'/login'}>
-                    <LoginSite/>
+                    <LoginSecretary/>
                 </Route>
             </Routes>
         </div>
     );
 }
 
-export default Site;
+export default Secretary;

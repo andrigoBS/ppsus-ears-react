@@ -1,6 +1,6 @@
 import React from "react";
 
-function LoginAdmin() {
+function LoginSecretary() {
     return (
         <div>
             <p>Login Admin</p>
@@ -8,6 +8,6 @@ function LoginAdmin() {
     );
 }
 
-export default LoginAdmin;
+export default LoginSecretary;
 
 

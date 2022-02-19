@@ -1,16 +1,16 @@
 import React from "react";
-import {Switch,Route} from "react-router-dom"
+import {Routes, Route} from "react-router-dom"
 import LoginResearches from "./pages/login/LoginResearches";
 
 function Researches() {
     return (
         <div>
             <p>Researches</p>
-            <Switch>
+            <Routes>
                 <Route path={'/researches/login'}>
                     <LoginResearches/>
                 </Route>
-            </Switch>
+            </Routes>
         </div>
     );
 }

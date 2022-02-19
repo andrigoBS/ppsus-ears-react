@@ -1,16 +1,16 @@
 import React from "react";
-import {Switch,Route} from "react-router-dom"
+import {Routes, Route} from "react-router-dom"
 import LoginTherapist from "./pages/login/LoginTherapist";
 
 function Therapist() {
     return (
         <div>
             <p>Therapist</p>
-            <Switch>
+            <Routes>
                 <Route path={'/therapist/login'}>
                     <LoginTherapist/>
                 </Route>
-            </Switch>
+            </Routes>
         </div>
     );
 }
