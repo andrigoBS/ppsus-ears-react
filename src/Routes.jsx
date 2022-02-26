@@ -11,11 +11,11 @@ function Routes() {
   return (
       <BrowserRouter>
           <RoutesRouter>
-              <Route exact path={'/'} element={<Navigate to={'/previa/registrarfono'}/>} />
-              <Route path={'/secretary/*'} element={<Secretary/>} />
-              <Route path={'/institution/*'} element={<Institution/>} />
-              <Route path={'/researches/*'} element={<Researches/>} />
-              <Route path={'/therapist/*'} element={<Therapist/>} />
+              <Route exact path={'/'} element={<Site/>} />
+              <Route path={'/secretaria/*'} element={<Secretary/>} />
+              <Route path={'/instituicional/*'} element={<Institution/>} />
+              <Route path={'/pesquisa/*'} element={<Researches/>} />
+              <Route path={'/fono/*'} element={<Therapist/>} />
               <Route path={'/previa/*'} element={<Preview />} />
           </RoutesRouter>
       </BrowserRouter>

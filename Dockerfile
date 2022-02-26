@@ -10,17 +10,3 @@ USER node
 WORKDIR /usr/src/react
 COPY --chown=node:node --from=build /usr/src/app/node_modules /usr/src/react/node_modules
 COPY --chown=node:node . /usr/src/react
-
-
-FROM node:lts-alpine AS dev
-WORKDIR /usr/src/react
-ENV NODE_ENV=development
-
-COPY package*.json /usr/src/react/
-RUN npm install -g react-script
-RUN npm install
-
-COPY ./public /usr/src/react/public
-COPY ./src /usr/src/react/src
-
-CMD ["npm", "start"]
