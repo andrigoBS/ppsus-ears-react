@@ -1,17 +1,13 @@
 import React from "react";
-import {Routes, Route} from "react-router-dom"
-import LoginSite from "./pages/login/LoginSite";
+import TopBar from "../../components/TopBar";
+import CrefonoSVGIcon from "../../components/svgsIcons/CrefonoSVGIcon";
 
 function Site() {
     return (
-        <div>
-            <p>Site</p>
-            <Routes>
-                <Route path={'/login'}>
-                    <LoginSite/>
-                </Route>
-            </Routes>
-        </div>
+        <TopBar>
+            <p>Siteee</p>
+            <CrefonoSVGIcon size="20rem"/>
+        </TopBar>
     );
 }
 

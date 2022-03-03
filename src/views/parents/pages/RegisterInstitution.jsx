@@ -91,7 +91,6 @@ function RegisterInstitution() {
                 </Box>
             </form>
         </Paper>
-
     );
 }
 

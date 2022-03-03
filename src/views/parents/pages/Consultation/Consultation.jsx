@@ -47,7 +47,6 @@ export default function Consultation() {
     };
 
     return (
-
         <Paper sx={styles.paper}>
             <Box sx={{ width: '100%' }}>
                 <Stepper activeStep={activeStep}>
@@ -84,6 +83,5 @@ export default function Consultation() {
                 </React.Fragment>
             </Box>
         </Paper>
-
     );
 }

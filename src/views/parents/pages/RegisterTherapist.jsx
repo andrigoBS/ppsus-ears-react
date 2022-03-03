@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import {Box, Button, FormControl, InputLabel, MenuItem, Paper, Select, TextField} from "@mui/material";
 import HtmlHead from "../../../components/HtmlHead";
 import BrazilianPhoneField from "../../../components/BrazilianPhoneField";
-import HttpTherapistHelper from "../../../helpers/HttpTherapistHelper";
 
 const styles = {
     paper:{
@@ -38,7 +37,6 @@ function RegisterTherapist() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         console.log(data);
-        //HttpTherapistHelper.register(data, (response) => alert(response));
     }
     return (
         <Paper sx={styles.paper}>

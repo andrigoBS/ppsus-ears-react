@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { CssBaseline, createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material';
-import Routes from './Routes';
+import Routes from './views/Routes';
 import HtmlHead from "./components/HtmlHead";
 
 let theme = createTheme({

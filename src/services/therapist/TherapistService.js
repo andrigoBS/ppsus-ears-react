@@ -1,6 +1,6 @@
-import HttpHelper from "./HttpHelper";
+import HttpHelper from "../HttpHelper";
 
-export default class HttpTherapistHelper {
+export default class TherapistService {
     static getAll(callback){
         HttpHelper.get('therapist','', callback);
     }
