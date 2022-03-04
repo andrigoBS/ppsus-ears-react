@@ -19,6 +19,6 @@ export default class HttpHelper {
             }
         }
         if(data) init["body"] = JSON.stringify(data);
-        fetch(process.env._REACT_APP_SERVER_URL+"/"+view+"/"+path, init).then(response => response.json()).then(callback);
+        fetch(process.env.REACT_APP_SERVER_URL+"/"+view+"/"+path, init).then(response => response.json()).then(callback);
     }
 }
