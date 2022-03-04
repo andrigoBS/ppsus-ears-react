@@ -1,4 +1,7 @@
 FROM node:lts-alpine AS build
+ENV REACT_APP_PROJECT_NAME  Meu Primeiro Alô
+ENV REACT_APP_SERVER_URL api.meuprimeiroalo.com.br
+ENV REACT_APP_HOST_NAME meuprimeiroalo.com.br
 WORKDIR /usr/src/app
 COPY package*.json /usr/src/app/
 RUN npm install
