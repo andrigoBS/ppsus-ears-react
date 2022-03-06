@@ -3,7 +3,7 @@ import React from "react";
 function LoginSecretary() {
     return (
         <div>
-            <p>Login Admin</p>
+            <p>Login Secretary</p>
         </div>
     );
 }

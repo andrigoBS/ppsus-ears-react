@@ -1,17 +1,20 @@
 import React from "react";
 import {Routes, Route} from "react-router-dom"
+import TopBar from "../../components/TopBar";
+import RegisterSecretary from "./pages/login/RegisterSecretary";
 import LoginSecretary from "./pages/login/LoginSecretary";
+import HomeSecretary from "./pages/HomeSecretary";
 
 function Secretary() {
     return (
-        <div>
-            <p>Admin</p>
+        <TopBar>
+            <p>Secretary</p>
             <Routes>
-                <Route path={'/login'}>
-                    <LoginSecretary/>
-                </Route>
+                <Route path={'/'} element={<HomeSecretary/>} />
+                <Route path={'/login'} element={<LoginSecretary/>} />
+                <Route path={'/register'} element={<RegisterSecretary/>} />
             </Routes>
-        </div>
+        </TopBar>
     );
 }
 

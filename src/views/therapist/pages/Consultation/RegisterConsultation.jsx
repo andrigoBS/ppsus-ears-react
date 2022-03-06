@@ -12,7 +12,7 @@ import RegisterMother from "./components/RegisterMother";
 
 const steps = ['Cadastro mãe', 'Cadastro outro responsável' , 'Cadastro Bebe', 'Registro dos resultados'];
 
-export default function Consultation() {
+export default function RegisterConsultation() {
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
 

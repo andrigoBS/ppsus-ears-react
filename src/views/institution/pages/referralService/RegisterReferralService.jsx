@@ -3,13 +3,12 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import {Button} from "@mui/material";
-import {useForm} from "react-hook-form";
-import HtmlHead from "../../../components/HtmlHead";
-import BrazilianPhoneField from "../../../components/BrazilianPhoneField";
-import FormControl from "@mui/material/FormControl";
-import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControl from "@mui/material/FormControl";
+import {useForm} from "react-hook-form";
+import BrazilianPhoneField from "../../../../components/BrazilianPhoneField";
 
 const styles = {
     paper: {
@@ -24,12 +23,12 @@ const styles = {
         display: 'grid',
         gap: 2,
     },
+    text: {
+        color: '#646464',
+    },
     textTitle:{
         color: '#646464',
         marginBottom: '40px'
-    },
-    text: {
-        color: '#646464'
     },
     finalButton: {
         width: '300px',
@@ -37,36 +36,35 @@ const styles = {
     }
 }
 
-function RegisterInstitution() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+function RegisterReferralService() {
+    const {register, handleSubmit, formState: {errors}} = useForm();
     const onSubmit = (data) => {
         // @TODO Criar um httpHelper
     }
 
     return (
         <Paper sx={styles.paper}>
-            <HtmlHead view={'Instituição'} subTitle={'Cadastro'}/>
-            <h2 style={styles.textTitle}>Cadastro Instituição</h2>
+            <h2 style={styles.textTitle}>Cadastro Serviço de Referência</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={styles.grid}>
-                    <TextField {...register("nameOfInstitution")} label="Nome instituição" variant="outlined" size="small" required/>
-                    <TextField {...register("password")} label="Senha" type="password" variant="outlined" size="small" required/>
-                    <TextField {...register("passwordConfirm")} label="Confirmação de Senha" type="password" variant="outlined" size="small" required/>
+                    <TextField {...register("name")} label="Nome do Serviço" variant="outlined" size="small" required/>
                     <TextField {...register("CNPJ")} label="CNPJ" variant="outlined" size="small"/>
                     <TextField {...register("CNES")} label="CNES" variant="outlined" size="small" required/>
 
-                    <h4 style={styles.text}>Tipo de Instituição</h4>
-                    <FormControl required>
-                        <RadioGroup {...register("institutionType")} defaultValue={"Hospital"}>
-                            <FormControlLabel value={"Hospital"} control={<Radio/>} label="Hospital"/>
-                            <FormControlLabel value={"Maternidade"} control={<Radio/>} label="Maternidade"/>
-                            <FormControlLabel value={"Maternidade"} control={<Radio/>} label="Hospital e Maternidade"/>
+                    <h4 style={styles.text}>Tipo de Serviço</h4>
+                    <FormControl>
+                        <RadioGroup {...register("referralServiceType")} defaultValue={"SUS"}>
+                            <FormControlLabel value={"SUS"} control={<Radio/>} label="SUS"/>
+                            <FormControlLabel value={"Privado"} control={<Radio/>} label="Privado"/>
+                            <FormControlLabel value={"Misto"} control={<Radio/>} label="Misto"/>
                         </RadioGroup>
                     </FormControl>
 
                     <h4 style={styles.text}>Contato</h4>
-                    <TextField {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined" size="small" required/>
-                    <TextField {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined" size="small"/>
+                    <TextField {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined"
+                               size="small" required/>
+                    <TextField {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined"
+                               size="small"/>
                     <BrazilianPhoneField register={register} name="phonePrimary" error={errors.phonePrimary}
                                          label="Telefone Institucional" variant="outlined" size="small" required
                     />
@@ -82,8 +80,9 @@ function RegisterInstitution() {
                     <TextField {...register("city")} label="Cidade" variant="outlined" size="small" required/>
                     <TextField {...register("complement")} label="Complemento" variant="outlined" size="small"/>
 
-                    <h4 style={styles.text}>Dados do Responsável da Instituição</h4>
-                    <TextField {...register("nameOfResponsible")} label="Nome do Responsável" variant="outlined" size="small" required/>
+                    <h4 style={styles.text}>Dados do Responsável do Serviço</h4>
+                    <TextField {...register("nameOfResponsible")} label="Nome do Responsável" variant="outlined"
+                               size="small" required/>
                     <TextField {...register("postOfResponsible")} label="Cargo" variant="outlined" size="small"/>
                     <Button sx={styles.finalButton} color="secondary" variant="contained">
                         Finalizar cadastro
@@ -94,4 +93,4 @@ function RegisterInstitution() {
     );
 }
 
-export default RegisterInstitution;
+export default RegisterReferralService;

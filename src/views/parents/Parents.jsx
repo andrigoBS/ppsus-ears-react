@@ -1,21 +1,15 @@
 import React from "react";
-import {Routes,Route} from "react-router-dom"
-import RegisterTherapist from "./pages/RegisterTherapist";
-import RegisterInstitution from "./pages/RegisterInstitution";
-import RegisterReferralService from "./pages/RegisterReferralService";
-import RegisterSecretary from "./pages/RegisterSecretary";
-import Consultation from "./pages/Consultation/Consultation";
+import {Routes, Route} from "react-router-dom"
 import TopBar from "../../components/TopBar";
+import HomeParents from "./pages/HomeParents";
+import LoginParents from "./pages/login/LoginParents";
 
 function Parents() {
     return (
         <TopBar>
             <Routes>
-                <Route path={'/registrarfono'} element={<RegisterTherapist/>} />
-                <Route path={'/registrarinstituicao'} element={<RegisterInstitution/>} />
-                <Route path={'/registrarservicoreferencia'} element={<RegisterReferralService/>} />
-                <Route path={'/registrarsecretaria'} element={<RegisterSecretary/>} />
-                <Route path={'/registrarconsulta'} element={<Consultation/>} />
+                <Route path={'/'} element={<HomeParents/>} />
+                <Route path={'/login'} element={<LoginParents/>} />
             </Routes>
         </TopBar>
     );

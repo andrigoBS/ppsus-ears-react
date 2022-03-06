@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import {Box, Button, FormControl, InputLabel, MenuItem, Paper, Select, TextField} from "@mui/material";
-import HtmlHead from "../../../components/HtmlHead";
-import BrazilianPhoneField from "../../../components/BrazilianPhoneField";
+import HtmlHead from "../../../../components/HtmlHead";
+import BrazilianPhoneField from "../../../../components/BrazilianPhoneField";
 
 const styles = {
     paper:{
