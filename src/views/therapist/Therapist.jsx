@@ -9,11 +9,10 @@ import RegisterConsultation from "./pages/Consultation/RegisterConsultation";
 function Therapist() {
     return (
         <TopBar>
-            <p>Therapist</p>
             <Routes>
                 <Route path={'/'} element={<HomeTherapist/>} />
                 <Route path={'/login'} element={<LoginTherapist/>} />
-                <Route path={'/register'} element={<RegisterTherapist/>} />
+                <Route path={'/cadastro'} element={<RegisterTherapist/>} />
                 <Route path={'/consulta'} element={<RegisterConsultation/>} />
             </Routes>
         </TopBar>

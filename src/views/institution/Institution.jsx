@@ -9,11 +9,10 @@ import RegisterReferralService from "./pages/referralService/RegisterReferralSer
 function Institution() {
     return (
         <TopBar>
-            <p>Institution</p>
             <Routes>
                 <Route path={'/'} element={<HomeInstitution/>} />
                 <Route path={'/login'} element={<LoginInstitution/>} />
-                <Route path={'/register'} element={<RegisterInstitution/>} />
+                <Route path={'/cadastro'} element={<RegisterInstitution/>} />
                 <Route path={'/sevico-referencia'} element={<RegisterReferralService/>} />
             </Routes>
         </TopBar>

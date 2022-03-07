@@ -8,11 +8,10 @@ import HomeSecretary from "./pages/HomeSecretary";
 function Secretary() {
     return (
         <TopBar>
-            <p>Secretary</p>
             <Routes>
                 <Route path={'/'} element={<HomeSecretary/>} />
                 <Route path={'/login'} element={<LoginSecretary/>} />
-                <Route path={'/register'} element={<RegisterSecretary/>} />
+                <Route path={'/cadastro'} element={<RegisterSecretary/>} />
             </Routes>
         </TopBar>
     );
