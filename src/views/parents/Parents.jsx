@@ -4,7 +4,7 @@ import TopBar from "../../components/TopBar";
 import HomeParents from "./pages/HomeParents";
 import LoginParents from "./pages/login/LoginParents";
 
-function Parents() {
+const Parents = () => {
     return (
         <TopBar>
             <Routes>

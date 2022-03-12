@@ -6,7 +6,7 @@ import Site from "./site/Site";
 import Therapist from "./therapist/Therapist";
 import Parents from "./parents/Parents";
 
-function Routes() {
+const Routes = () => {
   return (
       <BrowserRouter>
           <RoutesRouter>

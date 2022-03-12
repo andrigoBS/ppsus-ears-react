@@ -6,7 +6,7 @@ import HomeInstitution from "./pages/HomeInstitution";
 import TopBar from "../../components/TopBar";
 import RegisterReferralService from "./pages/referralService/RegisterReferralService";
 
-function Institution() {
+const Institution = () => {
     return (
         <TopBar>
             <Routes>

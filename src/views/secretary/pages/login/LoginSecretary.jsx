@@ -1,6 +1,6 @@
 import React from "react";
 
-function LoginSecretary() {
+const LoginSecretary = () => {
     return (
         <div>
             <p>Login Secretary</p>

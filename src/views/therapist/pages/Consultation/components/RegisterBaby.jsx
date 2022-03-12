@@ -16,7 +16,7 @@ const styles = {
     },
 }
 
-function RegisterBaby() {
+const RegisterBaby = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const onSubmit = (data) => {
         // @TODO Criar um httpHelper

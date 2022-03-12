@@ -36,7 +36,7 @@ const styles = {
     }
 }
 
-function RegisterReferralService() {
+const RegisterReferralService = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const onSubmit = (data) => {
         // @TODO Criar um httpHelper

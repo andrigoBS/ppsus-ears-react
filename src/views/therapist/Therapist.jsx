@@ -6,7 +6,7 @@ import LoginTherapist from "./pages/login/LoginTherapist";
 import RegisterTherapist from "./pages/login/RegisterTherapist";
 import RegisterConsultation from "./pages/Consultation/RegisterConsultation";
 
-function Therapist() {
+const Therapist = () => {
     return (
         <TopBar>
             <Routes>

@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import {Button} from "@mui/material";
 
-function RegisterSecretary() {
+const RegisterSecretary = () => {
     const styles = {
         paper: {
             width: 'auto',

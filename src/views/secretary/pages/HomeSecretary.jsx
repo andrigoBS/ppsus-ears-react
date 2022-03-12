@@ -1,6 +1,6 @@
 import React from "react";
 
-function HomeSecretary() {
+const HomeSecretary = () => {
     return (
         <div>
             <p>Home Secretary</p>

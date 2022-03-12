@@ -1,6 +1,6 @@
 import React from "react";
 
-function HomeParents() {
+const HomeParents = () => {
     return (
         <div>
             <p>Home Parents</p>

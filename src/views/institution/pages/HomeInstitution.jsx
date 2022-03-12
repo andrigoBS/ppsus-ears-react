@@ -1,6 +1,6 @@
 import React from "react";
 
-function HomeInstitution() {
+const HomeInstitution = () => {
     return (
         <div>
             <p>Home Institution</p>

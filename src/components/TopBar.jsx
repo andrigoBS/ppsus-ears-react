@@ -2,7 +2,7 @@ import React, {Fragment} from "react";
 import {AppBar, IconButton, Toolbar} from "@mui/material";
 import MPAWhiteSVGIcon from "./svgsIcons/MPAWhiteSVGIcon";
 
-function TopBar({children}) {
+const TopBar = ({children}) => {
     return (
         <Fragment>
             <AppBar color="primary" position="static">

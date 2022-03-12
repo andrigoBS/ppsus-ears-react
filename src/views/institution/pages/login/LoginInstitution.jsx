@@ -1,6 +1,6 @@
 import React from "react";
 
-function LoginInstitution() {
+const LoginInstitution = () => {
     return (
         <div>
             <p>Login Institution</p>

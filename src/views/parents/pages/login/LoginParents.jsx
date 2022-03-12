@@ -1,6 +1,6 @@
 import React from "react";
 
-function LoginParents() {
+const LoginParents = () => {
     return (
         <div>
             <p>Login Parents</p>

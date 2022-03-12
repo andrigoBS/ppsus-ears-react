@@ -1,6 +1,6 @@
 import React from "react";
 
-function LoginTherapist() {
+const LoginTherapist = () => {
     return (
         <div>
             <p>Login Therapist</p>

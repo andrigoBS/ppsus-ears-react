@@ -23,7 +23,7 @@ const styles = {
     }
 }
 
-function RegisterResponsible() {
+const RegisterResponsible = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const onSubmit = (data) => {
         // @TODO Criar um httpHelper

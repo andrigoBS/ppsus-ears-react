@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { IMaskInput } from 'react-imask';
 import TextField from "@mui/material/TextField";
 
-export default function BrazilianPhoneField({register, name, required, ...other}) {
+const BrazilianPhoneField = ({register, name, required, ...other}) => {
     return (
         <PhoneFieldMasked
             {...other}
@@ -15,6 +15,7 @@ export default function BrazilianPhoneField({register, name, required, ...other}
         />
     );
 }
+
 BrazilianPhoneField.propTypes = {
     register: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
@@ -75,3 +76,5 @@ const getMask = (value) => {
     if (valueClear.length < 11) return "(0#) 0000-00000";
     return "(0#) 00000-0000";
 }
+
+export default BrazilianPhoneField;

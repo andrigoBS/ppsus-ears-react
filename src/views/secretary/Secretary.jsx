@@ -5,7 +5,7 @@ import RegisterSecretary from "./pages/login/RegisterSecretary";
 import LoginSecretary from "./pages/login/LoginSecretary";
 import HomeSecretary from "./pages/HomeSecretary";
 
-function Secretary() {
+const Secretary = () => {
     return (
         <TopBar>
             <Routes>

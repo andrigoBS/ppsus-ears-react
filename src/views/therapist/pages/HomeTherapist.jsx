@@ -1,6 +1,6 @@
 import React from "react";
 
-function HomeTherapist() {
+const HomeTherapist = () => {
     return (
         <div>
             <p>Home Therapist</p>

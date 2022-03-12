@@ -18,7 +18,7 @@ const styles = {
     },
 }
 
-function RegisterMother() {
+const RegisterMother = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
 
     const onSubmit = (data) => {

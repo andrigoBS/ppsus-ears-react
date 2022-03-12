@@ -9,10 +9,11 @@ import RegisterResponsible from "./components/RegisterResponsible";
 import RegisterBaby from "./components/RegisterBaby";
 import RegisterResults from "./components/RegisterResults";
 import RegisterMother from "./components/RegisterMother";
+import HomeTherapist from "../HomeTherapist";
 
 const steps = ['Cadastro mãe', 'Cadastro outro responsável' , 'Cadastro Bebe', 'Registro dos resultados'];
 
-export default function RegisterConsultation() {
+const RegisterConsultation = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
 
@@ -85,3 +86,5 @@ export default function RegisterConsultation() {
         </Paper>
     );
 }
+
+export default RegisterConsultation;

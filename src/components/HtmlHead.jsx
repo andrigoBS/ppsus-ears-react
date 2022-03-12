@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from 'react-helmet';
 import {useTheme} from "@mui/material";
 
-function HtmlHead({view, subTitle}) {
+const HtmlHead = ({view, subTitle}) => {
     const theme = useTheme();
     let titleFull = process.env.REACT_APP_PROJECT_NAME;
     if(view){
