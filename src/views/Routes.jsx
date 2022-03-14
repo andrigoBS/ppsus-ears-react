@@ -13,7 +13,7 @@ const Routes = () => {
               <Route exact path={'/'} element={<Site/>} />
               <Route path={'/pais/*'} element={<Parents/>} />
               <Route path={'/secretaria/*'} element={<Secretary/>} />
-              <Route path={'/instituicional/*'} element={<Institution/>} />
+              <Route path={'/institucional/*'} element={<Institution/>} />
               <Route path={'/fono/*'} element={<Therapist/>} />
           </RoutesRouter>
       </BrowserRouter>

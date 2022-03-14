@@ -1,60 +1,58 @@
 import React from "react";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import {Button} from "@mui/material";
+import {Button, Grid, Typography} from "@mui/material";
+import {useForm} from "react-hook-form";
+import GenericRegisterPaper from "../../../generic/GenericRegisterPaper";
+import SecretaryService from "../../../../services/secretary/SecretaryService";
+
+const styles = {
+    text: {
+        color: '#646464',
+        fontWeight: 'bold',
+    },
+    textField:{
+        width: '100%',
+    }
+};
 
 const RegisterSecretary = () => {
-    const styles = {
-        paper: {
-            width: 'auto',
-            marginLeft: '10%',
-            marginRight: '10%',
-            marginTop: '30px',
-            marginBottom: '30px',
-            padding: '50px',
-        },
-        grid:{
-            display: 'grid',
-            gap: 2,
-        },
-        text:{
-            color: '#646464'
-        },
-        textTitle:{
-            color: '#646464',
-            marginBottom: '40px'
-        },
-        button:{
-            width: '300px'
-        },
-        finalButton:{
-            width: '300px',
-            marginTop: '35px'
-        }
-    }
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     return (
-        <Paper sx={styles.paper}>
-            <h2 style={styles.textTitle}>Cadastro Secretaria do Estado</h2>
-            <Box sx={styles.grid}>
-                <TextField label="Nome" variant="outlined" size="small" required/>
-                <TextField label="Senha" type="password" variant="outlined" size="small" required/>
-                <h4 style={styles.text}>Contato</h4>
-                <TextField label="E-mail Principal" variant="outlined" size="small" required/>
-                <TextField label="Apelido para o e-mail" variant="outlined" size="small"/>
-                <Button sx={styles.button} color="secondary" variant="contained">
-                    Adicionar e-mail
-                </Button>
-                <h4 style={styles.text}>Endereço</h4>
-                <TextField label="Estado" variant="outlined" size="small" required/>
-                <TextField label="Cidade" variant="outlined" size="small" required/>
-                <Button sx={styles.finalButton} color="secondary" variant="contained">
-                    Finalizar cadastro
-                </Button>
-            </Box>
-        </Paper>
+        <GenericRegisterPaper handleSubmit={handleSubmit} title={"Secretaria"} service={SecretaryService}>
+            <Grid item xs={12} sm={12} md={12}>
+                <TextField sx={styles.textField} {...register("nameOfSecretary")} label="Nome Secretaria" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField sx={styles.textField} {...register("password")} label="Senha" type="password" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField sx={styles.textField} {...register("passwordConfirm")} label="Confirmação de Senha" type="password" variant="outlined" size="small" required/>
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={12}>
+                <Typography style={styles.text} variant={"h6"}>
+                    Contato
+                </Typography>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField sx={styles.textField} {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField sx={styles.textField}  {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined" size="small"/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <Typography style={styles.text} variant={"h6"}>
+                    Endereço
+                </Typography>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField style={styles.textField} {...register("state")} label="Estado" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField style={styles.textField} {...register("city")} label="Cidade" variant="outlined" size="small" required/>
+            </Grid>
+        </GenericRegisterPaper>
     );
 }
-
 export default RegisterSecretary;

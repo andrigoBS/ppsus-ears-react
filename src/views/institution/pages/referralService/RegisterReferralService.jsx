@@ -1,96 +1,104 @@
 import React from "react";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
+
 import TextField from "@mui/material/TextField";
-import {Button} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
 import {useForm} from "react-hook-form";
 import BrazilianPhoneField from "../../../../components/BrazilianPhoneField";
+import ReferralService from "../../../../services/refererralService/ReferralService";
+import GenericRegisterPaper from "../../../generic/GenericRegisterPaper";
 
 const styles = {
-    paper: {
-        width: 'auto',
-        marginLeft: '10%',
-        marginRight: '10%',
-        marginTop: '30px',
-        marginBottom: '30px',
-        padding: '50px',
-    },
-    grid: {
-        display: 'grid',
-        gap: 2,
-    },
     text: {
         color: '#646464',
+        fontWeight: 'bold',
     },
-    textTitle:{
-        color: '#646464',
-        marginBottom: '40px'
-    },
-    finalButton: {
-        width: '300px',
-        marginTop: '35px'
+    textField:{
+        width: '100%',
     }
 }
 
 const RegisterReferralService = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
-    const onSubmit = (data) => {
-        // @TODO Criar um httpHelper
-    }
 
     return (
-        <Paper sx={styles.paper}>
-            <h2 style={styles.textTitle}>Cadastro Serviço de Referência</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <Box sx={styles.grid}>
-                    <TextField {...register("name")} label="Nome do Serviço" variant="outlined" size="small" required/>
-                    <TextField {...register("CNPJ")} label="CNPJ" variant="outlined" size="small"/>
-                    <TextField {...register("CNES")} label="CNES" variant="outlined" size="small" required/>
-
-                    <h4 style={styles.text}>Tipo de Serviço</h4>
-                    <FormControl>
-                        <RadioGroup {...register("referralServiceType")} defaultValue={"SUS"}>
-                            <FormControlLabel value={"SUS"} control={<Radio/>} label="SUS"/>
-                            <FormControlLabel value={"Privado"} control={<Radio/>} label="Privado"/>
-                            <FormControlLabel value={"Misto"} control={<Radio/>} label="Misto"/>
-                        </RadioGroup>
-                    </FormControl>
-
-                    <h4 style={styles.text}>Contato</h4>
-                    <TextField {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined"
-                               size="small" required/>
-                    <TextField {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined"
-                               size="small"/>
-                    <BrazilianPhoneField register={register} name="phonePrimary" error={errors.phonePrimary}
-                                         label="Telefone Institucional" variant="outlined" size="small" required
-                    />
-                    <BrazilianPhoneField register={register} name="phoneSecond" error={errors.phoneSecond}
-                                         label="Telefone Celular Institucional" variant="outlined" size="small"
-                    />
-
-                    <h4 style={styles.text}>Endereço</h4>
-                    <TextField {...register("CEP")} label="CEP" variant="outlined" size="small" required/>
-                    <TextField {...register("street")} label="Logradouro" variant="outlined" size="small" required/>
-                    <TextField {...register("number")} label="Número" variant="outlined" size="small"/>
-                    <TextField {...register("state")} label="Estado" variant="outlined" size="small" required/>
-                    <TextField {...register("city")} label="Cidade" variant="outlined" size="small" required/>
-                    <TextField {...register("complement")} label="Complemento" variant="outlined" size="small"/>
-
-                    <h4 style={styles.text}>Dados do Responsável do Serviço</h4>
-                    <TextField {...register("nameOfResponsible")} label="Nome do Responsável" variant="outlined"
-                               size="small" required/>
-                    <TextField {...register("postOfResponsible")} label="Cargo" variant="outlined" size="small"/>
-                    <Button sx={styles.finalButton} color="secondary" variant="contained">
-                        Finalizar cadastro
-                    </Button>
-                </Box>
-            </form>
-        </Paper>
+        <GenericRegisterPaper handleSubmit={handleSubmit} title={"Serviço de Referência"} service={ReferralService}>
+            <Grid item xs={12} sm={12} md={12}>
+                <TextField sx={styles.textField} {...register("name")} label="Nome do Serviço" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField sx={styles.textField} {...register("CNPJ")} label="CNPJ" variant="outlined" size="small"/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField sx={styles.textField} {...register("CNES")} label="CNES" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <Typography style={styles.text} variant={"h6"}>
+                    Tipo de Serviço
+                </Typography>
+                <FormControl>
+                    <RadioGroup {...register("referralServiceType")} defaultValue={"SUS"}>
+                        <FormControlLabel value={"SUS"} control={<Radio/>} label="SUS"/>
+                        <FormControlLabel value={"Privado"} control={<Radio/>} label="Privado"/>
+                        <FormControlLabel value={"Misto"} control={<Radio/>} label="Misto"/>
+                    </RadioGroup>
+                </FormControl>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <Typography style={styles.text} variant={"h6"}>
+                    Contato
+                </Typography>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField sx={styles.textField} {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField sx={styles.textField}  {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined" size="small"/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <BrazilianPhoneField sx={styles.textField} register={register} name="phonePrimary" error={errors.phonePrimary}
+                                     label="Telefone Institucional" variant="outlined" size="small" required
+                />
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <BrazilianPhoneField sx={styles.textField} register={register} name="phoneSecond" error={errors.phoneSecond}
+                                     label="Telefone Celular Institucional" variant="outlined" size="small"
+                />
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <Typography style={styles.text} variant={"h6"}>
+                    Endereço
+                </Typography>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField style={styles.textField} {...register("CEP")} label="CEP" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField style={styles.textField} {...register("street")} label="Logradouro" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField style={styles.textField} {...register("state")} label="Estado" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField style={styles.textField} {...register("city")} label="Cidade" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField style={styles.textField} {...register("number")} label="Número" variant="outlined" size="small"/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField style={styles.textField} {...register("complement")} label="Complemento" variant="outlined" size="small"/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <Typography style={styles.text} variant={"h6"}>
+                    Dados do Responsável do Serviço
+                </Typography>
+                <TextField style={styles.textField} {...register("nameOfResponsible")} label="Nome do Responsável" variant="outlined"
+                           size="small" required/>
+            </Grid>
+        </GenericRegisterPaper>
     );
 }
-
 export default RegisterReferralService;
