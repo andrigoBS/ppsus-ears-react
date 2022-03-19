@@ -1,9 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import {Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography} from "@mui/material";
-import BrazilianPhoneField from "../../../../components/BrazilianPhoneField";
+import BrazilianPhoneField from "../../../../components/fileds/BrazilianPhoneField";
 import TherapistService from "../../../../services/therapist/TherapistService";
-import GenericRegisterPaper from "../../../generic/GenericRegisterPaper";
+import BaseRegisterPaper from "../../../../components/bases/BaseRegisterPaper";
 
 const styles = {
     button:{
@@ -22,7 +22,7 @@ const RegisterTherapist = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     return (
-        <GenericRegisterPaper handleSubmit={handleSubmit} title={"Fonoaudiólogo"} service={TherapistService}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={"Fonoaudiólogo"} service={TherapistService}>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField sx={styles.textField} {...register("name")} label="Nome Completo" variant="outlined" size="small" required/>
             </Grid>
@@ -85,7 +85,7 @@ const RegisterTherapist = () => {
                     Adicionar instituição
                 </Button>
             </Grid>
-        </GenericRegisterPaper>
+        </BaseRegisterPaper>
     );
 }
 export default RegisterTherapist;

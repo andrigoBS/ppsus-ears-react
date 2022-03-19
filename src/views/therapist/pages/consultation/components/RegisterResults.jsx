@@ -1,48 +1,49 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormLabel from "@mui/material/FormLabel";
-import FormControl from "@mui/material/FormControl";
-import RadioGroup from "@mui/material/RadioGroup";
-import Radio from "@mui/material/Radio";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormGroup from "@mui/material/FormGroup";
-import Checkbox from "@mui/material/Checkbox";
-import {useForm} from "react-hook-form";
-import {Button} from "@mui/material";
+import React, {Fragment} from "react";
+import {
+    Grid,
+    InputLabel,
+    TextField,
+    FormControl,
+    FormGroup,
+    FormControlLabel,
+    Checkbox,
+    Select,
+    MenuItem,
+    RadioGroup,
+    Button,
+    Radio,
+    FormLabel,
+    Typography
+} from "@mui/material";
 
 const styles = {
-    grid: {
-        display: 'grid',
-        gap: 2,
+    textTitle:{
+        color: '#646464',
+        marginTop: '40px'
     },
     text: {
         color: '#646464'
     },
-    margin: {
-        marginTop: '40px'
-    },
     finalButton: {
         width: '300px',
         marginTop: '35px'
+    },
+    textField:{
+        width: '100%',
     }
 }
 
-const RegisterResults = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
-        //TherapistService.register(data, (response) => alert(response));
-    }
-
+const RegisterResults = ({register, errors}) => {
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <Box sx={styles.grid}>
-                <TextField {...register("avaliationDate")} style={styles.margin} label="Data da avaliação" variant="outlined" size="small"/>
-                <FormControl sx={{maxWidth: 450}} size={"small"}>
+        <Fragment>
+            <Grid item xs={12} sm={12} md={12}>
+                <Typography variant="h6" style={styles.textTitle}>Resultados dos Testes</Typography>
+            </Grid>
+            <Grid item xs={12} sm={12} md={3}>
+                <TextField {...register("avaliationDate")} label="Data da avaliação" variant="outlined" size="small" sx={styles.textField}/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={9}>
+                <FormControl sx={styles.textField} size="small">
                     <InputLabel id="label">Equipamento</InputLabel>
                     <Select {...register("equipment")} label="Equipamento">
                         <MenuItem value={10}>Equipamento 1</MenuItem>
@@ -50,9 +51,12 @@ const RegisterResults = () => {
                         <MenuItem value={30}>Equipamento 3</MenuItem>
                     </Select>
                 </FormControl>
-
-                <h4 style={styles.text}>IRDA</h4>
-                <FormControl {...register("IRDA")} component="fieldset" variant="standard">
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <Typography variant="h6" style={styles.text}>IRDA</Typography>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <FormControl {...register("IRDA")} component="fieldset" variant="standard" size="small" sx={styles.textField}>
                     <FormGroup>
                         <FormControlLabel
                             control={<Checkbox/>}
@@ -68,9 +72,12 @@ const RegisterResults = () => {
                         />
                     </FormGroup>
                 </FormControl>
-
-                <h4 style={styles.text}>Resultado Teste</h4>
-                <FormControl sx={{maxWidth: 450 }} size="small">
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <Typography variant="h6" style={styles.text}>Resultado Teste</Typography>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <FormControl sx={styles.textField} size="small">
                     <InputLabel>Tipo de teste</InputLabel>
                     <Select label="Tipo de teste" {...register("type")}>
                         <MenuItem value={0}>EOET</MenuItem>
@@ -78,25 +85,33 @@ const RegisterResults = () => {
                         <MenuItem value={2}>EOET + PEATE-A</MenuItem>
                     </Select>
                 </FormControl>
-
-                <FormControl component="fieldset">
-                    <FormLabel component="legend"> Orelha Direita</FormLabel>
-                    <RadioGroup {...register("resultRightEar")} defaultValue="passou">
-                        <FormControlLabel value="passou" control={<Radio/>} label="Passou"/>
-                        <FormControlLabel value="falhou" control={<Radio/>} label="Falhou"/>
-                    </RadioGroup>
-                </FormControl>
-                <FormControl component="fieldset">
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <FormControl component="fieldset" size="small" sx={styles.textField}>
                     <FormLabel component="legend"> Orelha Esquerda</FormLabel>
                     <RadioGroup {...register("resultLeftEar")} defaultValue="passou">
                         <FormControlLabel value="passou" control={<Radio/>} label="Passou"/>
                         <FormControlLabel value="falhou" control={<Radio/>} label="Falhou"/>
                     </RadioGroup>
                 </FormControl>
-
-                <h4 style={styles.text}>Informações adicionais</h4>
-                <TextField label="Observação" multiline variant="outlined" size="small"/>
-                <FormControl sx={{maxWidth: 450 }} size="small">
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <FormControl component="fieldset" size="small" sx={styles.textField}>
+                    <FormLabel component="legend"> Orelha Direita</FormLabel>
+                    <RadioGroup {...register("resultRightEar")} defaultValue="passou">
+                        <FormControlLabel value="passou" control={<Radio/>} label="Passou"/>
+                        <FormControlLabel value="falhou" control={<Radio/>} label="Falhou"/>
+                    </RadioGroup>
+                </FormControl>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <Typography variant="h6" style={styles.text}>Informações adicionais</Typography>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <TextField label="Observação" multiline variant="outlined" size="small" sx={styles.textField}/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <FormControl sx={styles.textField} size="small">
                     <InputLabel>Conduta</InputLabel>
                     <Select label="Conduta" {...register("conduct")}>
                         <MenuItem value={0}>Conduta1</MenuItem>
@@ -105,7 +120,9 @@ const RegisterResults = () => {
                         <MenuItem value={2}>Conduta4</MenuItem>
                     </Select>
                 </FormControl>
-                <FormControl sx={{maxWidth: 450 }} size="small">
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <FormControl sx={styles.textField} size="small">
                     <InputLabel>Orientação</InputLabel>
                     <Select label="Orientação" {...register("orientation")}>
                         <MenuItem value={0}>Orientação salva 1</MenuItem>
@@ -117,8 +134,8 @@ const RegisterResults = () => {
                 <Button sx={styles.finalButton} color="secondary" variant="contained">
                     Adicionar uma nova orientação
                 </Button>
-            </Box>
-        </form>
+            </Grid>
+        </Fragment>
     );
 }
 

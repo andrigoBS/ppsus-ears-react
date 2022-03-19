@@ -1,5 +1,5 @@
 import {Box, Button, Grid, Paper, Typography, useTheme} from "@mui/material";
-import HtmlHead from "../../components/HtmlHead";
+import HtmlHead from "../HtmlHead";
 
 import React from "react";
 
@@ -35,7 +35,7 @@ const createStyles = (theme) => ({
     },
 });
 
-const GenericRegisterPaper = ({children, service,title, handleSubmit}) => {
+const BaseRegisterPaper = ({children, service, title, handleSubmit, notSubmitButton}) => {
     const theme = useTheme();
     const styles = createStyles(theme);
     const onSubmit = (data) => {
@@ -55,18 +55,18 @@ const GenericRegisterPaper = ({children, service,title, handleSubmit}) => {
                 <Box sx={styles.grid}>
                     <Grid container spacing={2}>
                         {children}
-                        <Grid item xs={12} sm={12} md={12}>
+                        {!notSubmitButton && <Grid item xs={12} sm={12} md={12}>
                             <Button sx={styles.finalButton}
                                     color="secondary"
                                     type="submit"
                                     variant="contained">
                                 Finalizar cadastro
                             </Button>
-                        </Grid>
+                        </Grid>}
                     </Grid>
                 </Box>
             </form>
         </Paper>
     );
 }
-export default GenericRegisterPaper;
+export default BaseRegisterPaper;

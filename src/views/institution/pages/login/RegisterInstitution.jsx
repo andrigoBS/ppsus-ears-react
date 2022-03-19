@@ -2,8 +2,8 @@ import React from "react";
 
 import {useForm} from "react-hook-form";
 import {TextField, FormControl, RadioGroup, FormControlLabel, Radio, Grid, Typography} from "@mui/material";
-import BrazilianPhoneField from "../../../../components/BrazilianPhoneField";
-import GenericRegisterPaper from "../../../generic/GenericRegisterPaper";
+import BrazilianPhoneField from "../../../../components/fileds/BrazilianPhoneField";
+import BaseRegisterPaper from "../../../../components/bases/BaseRegisterPaper";
 import InstitutionService from "../../../../services/institution/InstitutionService";
 
 const styles = {
@@ -20,7 +20,7 @@ const RegisterInstitution = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     return (
-        <GenericRegisterPaper handleSubmit={handleSubmit} title={"Instituição"} service={InstitutionService}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={"Instituição"} service={InstitutionService}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField sx={styles.textField} {...register("nameOfInstitution")} label="Nome instituição" variant="outlined" size="small" required/>
             </Grid>
@@ -103,7 +103,7 @@ const RegisterInstitution = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField style={styles.textField} {...register("postOfResponsible")} label="Cargo" variant="outlined" size="small"/>
             </Grid>
-        </GenericRegisterPaper>
+        </BaseRegisterPaper>
     );
 }
 export default RegisterInstitution;

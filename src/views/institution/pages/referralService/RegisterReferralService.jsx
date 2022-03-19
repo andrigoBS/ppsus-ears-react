@@ -7,9 +7,9 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
 import {useForm} from "react-hook-form";
-import BrazilianPhoneField from "../../../../components/BrazilianPhoneField";
+import BrazilianPhoneField from "../../../../components/fileds/BrazilianPhoneField";
 import ReferralService from "../../../../services/refererralService/ReferralService";
-import GenericRegisterPaper from "../../../generic/GenericRegisterPaper";
+import BaseRegisterPaper from "../../../../components/bases/BaseRegisterPaper";
 
 const styles = {
     text: {
@@ -25,7 +25,7 @@ const RegisterReferralService = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
 
     return (
-        <GenericRegisterPaper handleSubmit={handleSubmit} title={"Serviço de Referência"} service={ReferralService}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={"Serviço de Referência"} service={ReferralService}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField sx={styles.textField} {...register("name")} label="Nome do Serviço" variant="outlined" size="small" required/>
             </Grid>
@@ -98,7 +98,7 @@ const RegisterReferralService = () => {
                 <TextField style={styles.textField} {...register("nameOfResponsible")} label="Nome do Responsável" variant="outlined"
                            size="small" required/>
             </Grid>
-        </GenericRegisterPaper>
+        </BaseRegisterPaper>
     );
 }
 export default RegisterReferralService;

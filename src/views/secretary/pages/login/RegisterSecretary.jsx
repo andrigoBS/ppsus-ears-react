@@ -1,8 +1,8 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import {Button, Grid, Typography} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 import {useForm} from "react-hook-form";
-import GenericRegisterPaper from "../../../generic/GenericRegisterPaper";
+import BaseRegisterPaper from "../../../../components/bases/BaseRegisterPaper";
 import SecretaryService from "../../../../services/secretary/SecretaryService";
 
 const styles = {
@@ -19,7 +19,7 @@ const RegisterSecretary = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     return (
-        <GenericRegisterPaper handleSubmit={handleSubmit} title={"Secretaria"} service={SecretaryService}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={"Secretaria"} service={SecretaryService}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField sx={styles.textField} {...register("nameOfSecretary")} label="Nome Secretaria" variant="outlined" size="small" required/>
             </Grid>
@@ -52,7 +52,7 @@ const RegisterSecretary = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField style={styles.textField} {...register("city")} label="Cidade" variant="outlined" size="small" required/>
             </Grid>
-        </GenericRegisterPaper>
+        </BaseRegisterPaper>
     );
 }
 export default RegisterSecretary;

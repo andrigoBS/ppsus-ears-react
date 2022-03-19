@@ -4,7 +4,7 @@ import TopBar from "../../components/TopBar";
 import HomeTherapist from "./pages/HomeTherapist";
 import LoginTherapist from "./pages/login/LoginTherapist";
 import RegisterTherapist from "./pages/login/RegisterTherapist";
-import RegisterConsultation from "./pages/Consultation/RegisterConsultation";
+import RegisterConsultation from "./pages/consultation/RegisterConsultation";
 
 const Therapist = () => {
     return (
