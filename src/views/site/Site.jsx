@@ -2,10 +2,12 @@ import React from "react";
 import TopBar from "../../components/TopBar";
 import Footer from "./components/Footer";
 import VideoAndText from "./components/VideoAndText";
-import {Box, Typography, Link, Grid, useTheme} from "@mui/material";
+import {Box, Typography, Link, Grid, Button, useTheme} from "@mui/material";
 import CrefonoSVGIcon from "../../components/svgsIcons/CrefonoSVGIcon";
+import {useNavigate} from "react-router-dom";
 
 const Site = () => {
+    let navigate = useNavigate();
     const theme = useTheme();
 
     const partners = [
@@ -32,7 +34,16 @@ const Site = () => {
     ];
 
     return (
-        <TopBar>
+        <TopBar rightElement={
+                <Button color="secondary"
+                        type="submit"
+                        variant="contained"
+                        onClick={() => navigate('/pais')}
+                >
+                    Área dos pais
+                </Button>
+            }
+        >
             <Box sx={{padding: '45px 20%', textAlign: 'center'}}>
                 <Typography variant="h4" color={'primary'} sx={{marginBottom: '20px'}}>O que é?</Typography>
                 <Typography variant="p">{lorem}</Typography>
