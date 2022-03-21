@@ -25,9 +25,7 @@ const createStyles = (theme) => ({
         },
     },
     textTitle:{
-        color: '#646464',
         marginBottom: '40px',
-        fontWeight: 'bold'
     },
     finalButton: {
         marginTop: '35px',
@@ -35,14 +33,13 @@ const createStyles = (theme) => ({
     },
 });
 
-const BaseRegisterPaper = ({children, service, title, handleSubmit, notSubmitButton}) => {
+const BaseRegisterPaper = ({children, serviceFunction, title, handleSubmit, notSubmitButton}) => {
     const theme = useTheme();
     const styles = createStyles(theme);
     const onSubmit = (data) => {
-        // @TODO Criar um httpHelper
         alert(data)
         console.log(data)
-
+        serviceFunction(data)
     }
 
     return (

@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import { IMaskInput } from 'react-imask';
 import TextField from "@mui/material/TextField";
 
-const BrazilianPhoneField = ({register, name, required, ...other}) => {
+const BrazilianPhoneField = ({register, name, formErrors, required, label, ...other}) => {
     return (
         <PhoneFieldMasked
+            variant="outlined"
+            size="small"
+            label={label}
             {...other}
+            error={formErrors[name]}
             required={required}
             {...register(name, {
                 required: required,
@@ -19,6 +23,8 @@ const BrazilianPhoneField = ({register, name, required, ...other}) => {
 BrazilianPhoneField.propTypes = {
     register: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
+    formErrors: PropTypes.object.isRequired,
+    label: PropTypes.string.isRequired,
     required: PropTypes.bool,
 };
 

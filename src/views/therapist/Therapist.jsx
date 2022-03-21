@@ -13,7 +13,7 @@ const Therapist = () => {
                 <Route path={'/'} element={<HomeTherapist/>} />
                 <Route path={'/login'} element={<LoginTherapist/>} />
                 <Route path={'/cadastro'} element={<RegisterTherapist/>} />
-                <Route path={'/consulta'} element={<RegisterConsultation/>} />
+                <Route path={'/consulta/cadastro'} element={<RegisterConsultation/>} />
             </Routes>
         </TopBar>
     );

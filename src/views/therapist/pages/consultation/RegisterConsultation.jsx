@@ -6,6 +6,7 @@ import RegisterMother from "./components/RegisterMother";
 import BaseRegisterPaper from "../../../../components/bases/BaseRegisterPaper";
 import {useForm} from "react-hook-form";
 import {Box, Button, Grid, Step, StepLabel, Stepper} from "@mui/material";
+import TherapistService from "../../../../services/therapist/TherapistService";
 
 const RegisterConsultation = () => {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -32,7 +33,7 @@ const RegisterConsultation = () => {
     ];
 
     return (
-        <BaseRegisterPaper title={"Consulta"} handleSubmit={handleSubmit} service={null} notSubmitButton={true}>
+        <BaseRegisterPaper title={"Consulta"} handleSubmit={handleSubmit} serviceFunction={TherapistService.consultationRegister} notSubmitButton={true}>
             <Grid item xs={12} sm={12} md={12}>
                 <Stepper activeStep={activeStep} alternativeLabel>
                     {steps.map(({label}) => (<Step key={label}><StepLabel>{label}</StepLabel></Step>))}

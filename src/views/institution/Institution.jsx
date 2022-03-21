@@ -13,7 +13,7 @@ const Institution = () => {
                 <Route path={'/'} element={<HomeInstitution/>} />
                 <Route path={'/login'} element={<LoginInstitution/>} />
                 <Route path={'/cadastro'} element={<RegisterInstitution/>} />
-                <Route path={'/servico-referencia'} element={<RegisterReferralService/>} />
+                <Route path={'/servico-referencia/cadastro'} element={<RegisterReferralService/>} />
             </Routes>
         </TopBar>
     );

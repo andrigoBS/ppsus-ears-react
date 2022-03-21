@@ -19,6 +19,40 @@ let theme = createTheme({
             default: "#fafafa"
         },
     },
+    components: {
+        MuiTypography: {
+            styleOverrides: {
+                root: {
+                    color: '#646464',
+                },
+                h1: {
+                    fontWeight: 'bold',
+                },
+                h2: {
+                    fontWeight: 'bold',
+                },
+                h3: {
+                    fontWeight: 'bold',
+                },
+                h4: {
+                    fontWeight: 'bold',
+                },
+                h5: {
+                    fontWeight: 'bold',
+                },
+                h6: {
+                    fontWeight: 'bold',
+                },
+            }
+        },
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    width: '100%'
+                },
+            },
+        },
+    },
 });
 theme = responsiveFontSizes(theme);
 

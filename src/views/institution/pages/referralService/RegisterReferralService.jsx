@@ -11,32 +11,22 @@ import BrazilianPhoneField from "../../../../components/fileds/BrazilianPhoneFie
 import ReferralService from "../../../../services/refererralService/ReferralService";
 import BaseRegisterPaper from "../../../../components/bases/BaseRegisterPaper";
 
-const styles = {
-    text: {
-        color: '#646464',
-        fontWeight: 'bold',
-    },
-    textField:{
-        width: '100%',
-    }
-}
-
 const RegisterReferralService = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
 
     return (
         <BaseRegisterPaper handleSubmit={handleSubmit} title={"Serviço de Referência"} service={ReferralService}>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField sx={styles.textField} {...register("name")} label="Nome do Serviço" variant="outlined" size="small" required/>
+                <TextField  {...register("name")} label="Nome do Serviço" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField sx={styles.textField} {...register("CNPJ")} label="CNPJ" variant="outlined" size="small"/>
+                <TextField  {...register("CNPJ")} label="CNPJ" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField sx={styles.textField} {...register("CNES")} label="CNES" variant="outlined" size="small" required/>
+                <TextField  {...register("CNES")} label="CNES" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <Typography style={styles.text} variant={"h6"}>
+                <Typography  variant={"h6"}>
                     Tipo de Serviço
                 </Typography>
                 <FormControl>
@@ -48,54 +38,54 @@ const RegisterReferralService = () => {
                 </FormControl>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <Typography style={styles.text} variant={"h6"}>
+                <Typography  variant={"h6"}>
                     Contato
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField sx={styles.textField} {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined" size="small" required/>
+                <TextField  {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField sx={styles.textField}  {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined" size="small"/>
+                <TextField   {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField sx={styles.textField} register={register} name="phonePrimary" error={errors.phonePrimary}
+                <BrazilianPhoneField  register={register} name="phonePrimary" formErrors={errors}
                                      label="Telefone Institucional" variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField sx={styles.textField} register={register} name="phoneSecond" error={errors.phoneSecond}
+                <BrazilianPhoneField  register={register} name="phoneSecond" formErrors={errors}
                                      label="Telefone Celular Institucional" variant="outlined" size="small"
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <Typography style={styles.text} variant={"h6"}>
+                <Typography  variant={"h6"}>
                     Endereço
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField style={styles.textField} {...register("CEP")} label="CEP" variant="outlined" size="small" required/>
+                <TextField  {...register("CEP")} label="CEP" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField style={styles.textField} {...register("street")} label="Logradouro" variant="outlined" size="small" required/>
+                <TextField  {...register("street")} label="Logradouro" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField style={styles.textField} {...register("state")} label="Estado" variant="outlined" size="small" required/>
+                <TextField  {...register("state")} label="Estado" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField style={styles.textField} {...register("city")} label="Cidade" variant="outlined" size="small" required/>
+                <TextField  {...register("city")} label="Cidade" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField style={styles.textField} {...register("number")} label="Número" variant="outlined" size="small"/>
+                <TextField  {...register("number")} label="Número" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField style={styles.textField} {...register("complement")} label="Complemento" variant="outlined" size="small"/>
+                <TextField  {...register("complement")} label="Complemento" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <Typography style={styles.text} variant={"h6"}>
+                <Typography  variant={"h6"}>
                     Dados do Responsável do Serviço
                 </Typography>
-                <TextField style={styles.textField} {...register("nameOfResponsible")} label="Nome do Responsável" variant="outlined"
+                <TextField  {...register("nameOfResponsible")} label="Nome do Responsável" variant="outlined"
                            size="small" required/>
             </Grid>
         </BaseRegisterPaper>

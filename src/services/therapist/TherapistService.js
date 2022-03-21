@@ -10,4 +10,7 @@ export default class TherapistService {
     static register(data, callback){
         HttpHelper.post('therapist','', data, callback);
     }
+    static consultationRegister(data, callback){
+        HttpHelper.post('therapist','consultation', data, callback);
+    }
 }

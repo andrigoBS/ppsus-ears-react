@@ -9,12 +9,8 @@ const styles = {
     button:{
         width: 'fit-content',
     },
-    text: {
-        color: '#646464',
-        fontWeight: 'bold',
-    },
-    textField:{
-        width: '100%',
+    select: {
+        width: '100%'
     }
 }
 
@@ -22,21 +18,21 @@ const RegisterTherapist = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={"Fonoaudiólogo"} service={TherapistService}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={"Fonoaudiólogo"} serviceFunction={TherapistService.register}>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField sx={styles.textField} {...register("name")} label="Nome Completo" variant="outlined" size="small" required/>
+                <TextField  {...register("name")} label="Nome Completo" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField sx={styles.textField} {...register("crfa")} label="CRFa" variant="outlined" size="small" required/>
+                <TextField  {...register("crfa")} label="CRFa" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField sx={styles.textField} {...register("password")} label="Senha" type="password" variant="outlined" size="small" required/>
+                <TextField  {...register("password")} label="Senha" type="password" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField sx={styles.textField} {...register("passwordConfirm")} label="Confirmação de Senha" type="password" variant="outlined" size="small" required/>
+                <TextField  {...register("passwordConfirm")} label="Confirmação de Senha" type="password" variant="outlined" size="small" required/>
             </Grid>
-            <Grid item xs={12} sm={12} md={12}>
-                <FormControl sx={styles.textField} size="small" required>
+            <Grid item xs={12} sm={12} md={6}>
+                <FormControl sx={styles.select} size="small" required>
                     <InputLabel>Tempo de experiência</InputLabel>
                     <Select label="Tempo de experiência" {...register("xp")}>
                         <MenuItem value={0}>Menos de 1 ano</MenuItem>
@@ -47,31 +43,31 @@ const RegisterTherapist = () => {
                 </FormControl>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <Typography style={styles.text} variant={"h6"}>
+                <Typography variant={"h6"}>
                     Contato
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField sx={styles.textField} {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined" size="small" required/>
+                <TextField  {...register("preferentialEmail")} label="E-mail Preferencial" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField sx={styles.textField}  {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined" size="small"/>
+                <TextField   {...register("alternativeEmail")} label="E-mail Alternativo" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField sx={styles.textField} register={register} name="phonePrimary" error={errors.phonePrimary}
+                <BrazilianPhoneField  register={register} name="phonePrimary" formErrors={errors}
                                      label="Telefone Principal" variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField sx={styles.textField} register={register} name="phoneSecond" error={errors.phoneSecond}
+                <BrazilianPhoneField  register={register} name="phoneSecond" formErrors={errors}
                                      label="Telefone Alternativo" variant="outlined" size="small"
                 />
             </Grid>
-            <Grid item xs={12} sm={12} md={12}>
-                <Typography style={styles.text} variant={"h6"}>
+            <Grid item xs={12} sm={12} md={6}>
+                <Typography variant={"h6"}>
                     Local de trabalho
                 </Typography>
-                <FormControl sx={styles.textField} size="small" required>
+                <FormControl sx={styles.select} size="small" required>
                     <InputLabel>Instituição</InputLabel>
                     <Select {...register("institution")} label="Instituição">
                         <MenuItem value={0}>HOSPITAL DE FLORIANOPOLIS</MenuItem>
