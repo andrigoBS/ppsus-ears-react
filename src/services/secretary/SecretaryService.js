@@ -1,6 +1,6 @@
 import HttpHelper from "../HttpHelper";
 
-const SecretaryService = () => {
+const SecretaryService = function () {
 
      const pathName = 'secretary';
 

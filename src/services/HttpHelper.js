@@ -9,7 +9,7 @@ export default class HttpHelper {
     }
 
     static put(path, data){
-        return this._genericFetch('PUT', view, path, data);
+        return this._genericFetch('PUT', path, data);
     }
 
     static _genericFetch(method, path, data){

@@ -1,6 +1,6 @@
 import HttpHelper from "../HttpHelper";
 
-const InstitutionService = () => {
+const InstitutionService = function () {
 
     const pathName = 'institution';
 
@@ -9,11 +9,11 @@ const InstitutionService = () => {
     }
 
     this.get = (id) => {
-        return HttpHelper.get(`${this.pathName}/${id}`);
+        return HttpHelper.get(`${pathName}/${id}`);
     }
 
     this.register = (data) => {
-        return HttpHelper.post(this.pathName, data);
+        return HttpHelper.post(pathName, data);
     }
 }
 

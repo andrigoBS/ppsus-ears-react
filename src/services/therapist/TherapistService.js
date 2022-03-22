@@ -1,6 +1,6 @@
 import HttpHelper from "../HttpHelper";
 
- const TherapistService = () => {
+ const TherapistService = function () {
 
      const pathName = 'therapist'
 

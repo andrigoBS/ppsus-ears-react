@@ -1,6 +1,6 @@
 import HttpHelper from "../HttpHelper";
 
-const ReferralService = () => {
+const ReferralService = function () {
 
     const pathName = 'referralService';
 
