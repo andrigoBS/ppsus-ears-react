@@ -1,13 +1,20 @@
 import HttpHelper from "../HttpHelper";
 
-export default class ReferralService {
-    static getAll(callback){
-        HttpHelper.get('referralService','', callback);
+const ReferralService = () => {
+
+    const pathName = 'referralService';
+
+    this.getAll = () => {
+        return HttpHelper.get(pathName);
     }
-    static get(id, callback){
-        HttpHelper.get('referralService', id, callback);
+
+    this.get = (id) => {
+        return HttpHelper.get(`${pathName}/${id}`);
     }
-    static register(data, callback){
-        HttpHelper.post('referralService','', data, callback);
+
+    this.register = (data) => {
+        return HttpHelper.post(pathName, data);
     }
 }
+
+export default new ReferralService();

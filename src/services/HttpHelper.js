@@ -1,17 +1,18 @@
 export default class HttpHelper {
-    static get(view, path, callback){
-        this._genericFetch('GET', view, path, null, callback);
+
+    static get(path){
+        return this._genericFetch('GET', path, null);
     }
 
-    static post(view, path, data, callback){
-        this._genericFetch('POST', view, path, data, callback);
+    static post(path, data){
+        return this._genericFetch('POST', path, data);
     }
 
-    static put(view, path, data, callback){
-        this._genericFetch('PUT', view, path, data, callback);
+    static put(path, data){
+        return this._genericFetch('PUT', view, path, data);
     }
 
-    static _genericFetch(method, view, path, data, callback){
+    static _genericFetch(method, path, data){
         let init = {
             method: method,
             headers: {
@@ -19,6 +20,7 @@ export default class HttpHelper {
             }
         }
         if(data) init["body"] = JSON.stringify(data);
-        fetch(process.env.REACT_APP_SERVER_URL+"/"+view+"/"+path, init).then(response => response.json()).then(callback);
+        return fetch(`${process.env.REACT_APP_SERVER_URL}/${path}`, init)
+            .then(response => response.json());
     }
 }

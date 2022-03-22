@@ -1,13 +1,20 @@
 import HttpHelper from "../HttpHelper";
 
-export default class InstitutionService {
-    static getAll(callback){
-        HttpHelper.get('institution','', callback);
+const InstitutionService = () => {
+
+    const pathName = 'institution';
+
+    this.getAll = () => {
+        return HttpHelper.get(pathName);
     }
-    static get(id, callback){
-        HttpHelper.get('institution', id, callback);
+
+    this.get = (id) => {
+        return HttpHelper.get(`${this.pathName}/${id}`);
     }
-    static register(data, callback){
-        HttpHelper.post('institution','', data, callback);
+
+    this.register = (data) => {
+        return HttpHelper.post(this.pathName, data);
     }
 }
+
+export default new InstitutionService();

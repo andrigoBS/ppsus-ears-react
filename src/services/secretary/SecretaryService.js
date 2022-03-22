@@ -1,13 +1,20 @@
 import HttpHelper from "../HttpHelper";
 
-export default class SecretaryService {
-    static getAll(callback){
-        HttpHelper.get('secretary','', callback);
+const SecretaryService = () => {
+
+     const pathName = 'secretary';
+
+     this.getAll = () => {
+        return HttpHelper.get(pathName);
     }
-    static get(id, callback){
-        HttpHelper.get('secretary', id, callback);
+
+    this.get = (id) => {
+        return HttpHelper.get(`${pathName}/${id}`);
     }
-    static register(data, callback){
-        HttpHelper.post('secretary','', data, callback);
+
+    this.register = (data) => {
+        return HttpHelper.post(pathName, data);
     }
 }
+
+export default new SecretaryService();
