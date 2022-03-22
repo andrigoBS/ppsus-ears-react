@@ -5,10 +5,17 @@ import VideoAndText from "./components/VideoAndText";
 import {Box, Typography, Link, Grid, Button, useTheme} from "@mui/material";
 import CrefonoSVGIcon from "../../components/svgsIcons/CrefonoSVGIcon";
 import {useNavigate} from "react-router-dom";
+import TextParagraph from "./components/TextParagraph";
+import VideoParagraph from "./components/VideoParagraph";
+
+const createStyle = (theme) => ({
+
+});
 
 const Site = () => {
     let navigate = useNavigate();
     const theme = useTheme();
+    const styles = createStyle(theme);
 
     const partners = [
         {
@@ -44,27 +51,9 @@ const Site = () => {
                 </Button>
             }
         >
-            <Box sx={{padding: '45px 20%', textAlign: 'center'}}>
-                <Typography variant="h4" color={'primary'} sx={{marginBottom: '20px'}}>O que é?</Typography>
-                <Typography variant="p">{lorem}</Typography>
-            </Box>
-            <Box sx={{
-                padding: '45px 20% 40px 20%',
-                backgroundColor: theme.palette.tertiary.main
-            }}>
-                <iframe title={'o que é?'}
-                        width={'100%'}
-                        height={'360px'}
-                        src={'https://www.youtube.com/embed/_6l27TjGSEU'}
-                        frameBorder="0"
-                        allow="accelerometer, autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                />
-            </Box>
-            <Box sx={{padding: '45px 20%', textAlign: 'center'}}>
-                <Typography variant="h4" color={'primary'} sx={{marginBottom: '20px'}}>Objetivos</Typography>
-                <Typography variant="p">{lorem}</Typography>
-            </Box>
+            <TextParagraph title={'O que é?'} description={lorem}/>
+            <VideoParagraph title={'O que é?'} url={'https://www.youtube.com/embed/_6l27TjGSEU'} />
+            <TextParagraph title={'Objetivos'} description={lorem}/>
             <VideoAndText title={'Dicas para os pais'} description={lorem} videoUrl={'https://www.youtube.com/embed/_6l27TjGSEU'}/>
             <Box sx={{padding: '45px', textAlign: 'center'}}>
                 <Typography variant="h4" color={'primary'} sx={{marginBottom: '20px'}}>Parceiros</Typography>

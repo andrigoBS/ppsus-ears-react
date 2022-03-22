@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, Typography, Link, useTheme, Divider} from "@mui/material";
 import {Link as LinkRouter} from 'react-router-dom';
+import MailIcon from '@mui/icons-material/Mail';
 import MPAWhiteSVGIcon from "../../../components/svgsIcons/MPAWhiteSVGIcon";
 
 const createStyle = (theme) => {
@@ -37,7 +38,7 @@ const Footer = () => {
     const styles = createStyle(theme);
 
     return (
-        <Grid container sx={styles.container} justifyContent={'center'}>
+        <Grid container sx={styles.container} spacing={1} justifyContent={'center'}>
             {links.map((link) => (
                 <Grid item xs={12} md={'auto'} sx={styles.toCenter}>
                     <Link href={link.route} underline="hover" target={'_blank'} color={'white'}>
@@ -50,6 +51,10 @@ const Footer = () => {
             </Grid>
             <Grid item xs={12} sx={styles.toCenter}>
                 <LinkRouter to={'/'}><MPAWhiteSVGIcon size="10rem"/></LinkRouter>
+            </Grid>
+            <Grid item xs={12} sx={{...styles.toCenter, display: 'block'}}>
+                <MailIcon sx={{color: 'white', margin: '6px 6px -6px 0px'}}/>
+                <Typography variant="p" color='white' sx={{paddingTop: '25px'}} >meuprimeiroalo@univali.br</Typography>
             </Grid>
             <Grid item xs={12} sx={styles.toCenter}>
                 <Typography variant="p" color='white' sx={{paddingTop: '25px'}} >2022 - Univali - Equipe PPSUS</Typography>
