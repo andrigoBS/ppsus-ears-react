@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import {AppBar, IconButton, Toolbar, Box} from "@mui/material";
-import MPAWhiteSVGIcon from "./svgsIcons/MPAWhiteSVGIcon";
+import MPAWhiteIcon from "./icons/MPAWhiteIcon";
 import {Link} from "react-router-dom";
 
 const TopBar = ({children, viewTitle, viewHome, rightElement}) => {
@@ -10,7 +10,7 @@ const TopBar = ({children, viewTitle, viewHome, rightElement}) => {
                 <Toolbar variant="dense">
                     <Link to={viewHome || '/'}>
                         <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-                            <MPAWhiteSVGIcon size="10rem"/>
+                            <MPAWhiteIcon size="10rem"/>
                         </IconButton>
                     </Link>
                     <Box sx={{flexGrow: 1}}>{viewTitle}</Box>

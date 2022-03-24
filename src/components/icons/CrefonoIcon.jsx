@@ -1,9 +1,9 @@
 import React from "react";
 import {SvgIcon} from "@mui/material";
 
-const CrefonoSVGIcon = ({size, sx}) => {
+const CrefonoIcon = ({size, sx}) => {
     return (
-        <SvgIcon sx={{...sx, width: size, height: "auto"}} width="880" height="180" viewBox="115 100 880 180" fill="none">
+        <SvgIcon sx={{...sx, width: size, height: "auto"}} viewBox="115 100 880 180" fill="none">
             <g>
                 <path fill="#346FA9" stroke="#3470AA" strokeWidth="1.2948" strokeMiterlimit="10" d="M190.32,216.17
 					c-7.44,1.74-15.88,2.61-25.32,2.61c-30.95,0-46.42-9.26-46.42-27.79c0-17.53,15.47-26.3,46.42-26.3
@@ -167,4 +167,4 @@ const CrefonoSVGIcon = ({size, sx}) => {
     );
 }
 
-export default CrefonoSVGIcon;
+export default CrefonoIcon;

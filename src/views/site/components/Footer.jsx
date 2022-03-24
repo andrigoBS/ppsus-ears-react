@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Typography, Link, useTheme, Divider} from "@mui/material";
 import {Link as LinkRouter} from 'react-router-dom';
 import MailIcon from '@mui/icons-material/Mail';
-import MPAWhiteSVGIcon from "../../../components/svgsIcons/MPAWhiteSVGIcon";
+import MPAWhiteIcon from "../../../components/icons/MPAWhiteIcon";
 
 const createStyle = (theme) => {
     return {
@@ -33,6 +33,8 @@ const links = [
     {route: '/fono', title: 'Área dos Fonoaudiólogos'}
 ]
 
+const email = 'meuprimeiroalo@univali.br';
+
 const Footer = () => {
     const theme = useTheme();
     const styles = createStyle(theme);
@@ -50,11 +52,13 @@ const Footer = () => {
                 <Divider sx={styles.divider} />
             </Grid>
             <Grid item xs={12} sx={styles.toCenter}>
-                <LinkRouter to={'/'}><MPAWhiteSVGIcon size="10rem"/></LinkRouter>
+                <LinkRouter to={'/'}><MPAWhiteIcon size="12rem"/></LinkRouter>
             </Grid>
             <Grid item xs={12} sx={{...styles.toCenter, display: 'block'}}>
-                <MailIcon sx={{color: 'white', margin: '6px 6px -6px 0px'}}/>
-                <Typography variant="p" color='white' sx={{paddingTop: '25px'}} >meuprimeiroalo@univali.br</Typography>
+                <Link href={'mailTo:'+email} underline="hover" target={'_blank'} color={'white'}>
+                    <MailIcon sx={{color: 'white', margin: '6px 6px -6px 0px'}}/>
+                    <Typography variant="p" color='white' sx={{paddingTop: '25px'}} >{email}</Typography>
+                </Link>
             </Grid>
             <Grid item xs={12} sx={styles.toCenter}>
                 <Typography variant="p" color='white' sx={{paddingTop: '25px'}} >2022 - Univali - Equipe PPSUS</Typography>

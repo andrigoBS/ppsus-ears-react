@@ -1,7 +1,7 @@
 import React from "react";
 import {SvgIcon} from "@mui/material";
 
-const MPAWhiteSVGIcon = ({size, sx}) => {
+const MPAWhiteIcon = ({size, sx}) => {
     return (
         <SvgIcon sx={{...sx, width: size, height: "auto"}} width="650" height="228" viewBox="80 183 680 228" fill="none">
             <g>
@@ -105,4 +105,4 @@ const MPAWhiteSVGIcon = ({size, sx}) => {
     );
 }
 
-export default MPAWhiteSVGIcon;
+export default MPAWhiteIcon;
