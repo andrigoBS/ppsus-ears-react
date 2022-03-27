@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import {AppBar, IconButton, Toolbar, Box} from "@mui/material";
+import {AppBar, IconButton, Toolbar, Typography} from "@mui/material";
 import MPAWhiteIcon from "./icons/MPAWhiteIcon";
 import {Link} from "react-router-dom";
 
@@ -13,7 +13,7 @@ const TopBar = ({children, viewTitle, viewHome, rightElement}) => {
                             <MPAWhiteIcon size="10rem"/>
                         </IconButton>
                     </Link>
-                    <Box sx={{flexGrow: 1}}>{viewTitle}</Box>
+                    <Typography sx={{flexGrow: 1}} variant={'h5'} color={'white'}>{viewTitle}</Typography>
                     {rightElement}
                 </Toolbar>
             </AppBar>

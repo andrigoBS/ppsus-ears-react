@@ -45,7 +45,7 @@ const BaseRegisterPaper = ({children, serviceFunction, title, handleSubmit, notS
     return (
         <Paper sx={styles.paper}>
             <HtmlHead view={title} subTitle={'Cadastro'}/>
-            <Typography style={styles.textTitle} variant={"h4"}>
+            <Typography sx={styles.textTitle} variant={"h4"}>
                 Cadastro {title}
             </Typography>
             <form onSubmit={handleSubmit(onSubmit)}>

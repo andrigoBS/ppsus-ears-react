@@ -1,10 +1,9 @@
 import React from "react";
+import BaseLoginPaper from "../../../../components/bases/BaseLoginPaper";
 
 const LoginParents = () => {
     return (
-        <div>
-            <p>Login Parents</p>
-        </div>
+        <BaseLoginPaper title={'Área dos Pais'} />
     );
 }
 

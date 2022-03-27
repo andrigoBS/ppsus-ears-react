@@ -6,7 +6,7 @@ import LoginParents from "./pages/login/LoginParents";
 
 const Parents = () => {
     return (
-        <TopBar>
+        <TopBar viewTitle={'Área dos Pais'} viewHome={'/pais'}>
             <Routes>
                 <Route path={'/'} element={<HomeParents/>} />
                 <Route path={'/login'} element={<LoginParents/>} />
