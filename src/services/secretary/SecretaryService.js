@@ -15,6 +15,10 @@ const SecretaryService = function () {
     this.register = (data) => {
         return HttpHelper.post(pathName, data);
     }
+
+    this.login = (login, password) => {
+         return HttpHelper.login(pathName+'/login', login, password);
+    }
 }
 
 export default new SecretaryService();

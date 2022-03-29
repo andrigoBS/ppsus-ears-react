@@ -15,6 +15,14 @@ const InstitutionService = function () {
     this.register = (data) => {
         return HttpHelper.post(pathName, data);
     }
+
+    this.login = (login, password) => {
+        return HttpHelper.login(pathName+'/login', login, password);
+    }
+
+    this.referralServiceRegister = (data) => {
+        return HttpHelper.post(`${pathName}/referral-service`, data);
+    }
 }
 
 export default new InstitutionService();

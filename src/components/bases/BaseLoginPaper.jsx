@@ -37,14 +37,14 @@ const createStyles = (theme) => {
     };
 }
 
-const BaseLoginPaper = ({children, title, registerRoute}) => {
+const BaseLoginPaper = ({children, title, registerRoute, loginServiceFunction}) => {
     const theme = useTheme();
     const styles = createStyles(theme);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubmit = () => {
-
+    const onSubmit = (data) => {
+        loginServiceFunction(data.login, data.password);
     }
 
     return (

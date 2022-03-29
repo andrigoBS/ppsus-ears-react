@@ -16,6 +16,10 @@ import HttpHelper from "../HttpHelper";
          return HttpHelper.post(pathName, data);
      }
 
+     this.login = (login, password) => {
+         return HttpHelper.login(pathName+'/login', login, password);
+     }
+
      this.consultationRegister = (data) => {
          return HttpHelper.post(`${pathName}/consultation`, data);
      }

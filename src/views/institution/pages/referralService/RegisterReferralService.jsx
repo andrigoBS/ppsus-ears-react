@@ -8,14 +8,14 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
 import {useForm} from "react-hook-form";
 import BrazilianPhoneField from "../../../../components/fileds/BrazilianPhoneField";
-import ReferralService from "../../../../services/refererralService/ReferralService";
+import InstitutionService from "../../../../services/institution/InstitutionService";
 import BaseRegisterPaper from "../../../../components/bases/BaseRegisterPaper";
 
 const RegisterReferralService = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={"Serviço de Referência"} service={ReferralService}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={"Serviço de Referência"} service={InstitutionService.referralServiceRegister}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register("name")} label="Nome do Serviço" variant="outlined" size="small" required/>
             </Grid>
