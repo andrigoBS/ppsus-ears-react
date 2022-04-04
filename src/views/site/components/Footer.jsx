@@ -28,9 +28,9 @@ const createStyle = (theme) => {
 
 const links = [
     {route: '/institucional', title: 'Área Instituicional'},
-    {route: '/pais', title: 'Área para os Pais'},
-    {route: '/secretaria', title: 'Área das Secretarias'},
-    {route: '/fono', title: 'Área dos Fonoaudiólogos'}
+    {route: '/pais', title: 'Área dos Pais'},
+    {route: '/secretaria', title: 'Área da Secretaria'},
+    {route: '/fono', title: 'Área do Fonoaudiólogo'}
 ]
 
 const email = 'meuprimeiroalo@univali.br';

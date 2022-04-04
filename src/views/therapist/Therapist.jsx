@@ -5,17 +5,24 @@ import HomeTherapist from "./pages/HomeTherapist";
 import LoginTherapist from "./pages/login/LoginTherapist";
 import RegisterTherapist from "./pages/login/RegisterTherapist";
 import RegisterConsultation from "./pages/consultation/RegisterConsultation";
+import {ViewConfigurationProvider} from "../../providers/viewConfiguration/ViewConfiguration";
+import TherapistService from "../../services/therapist/TherapistService";
+import {AuthProvider} from "../../providers/auth/Auth";
 
 const Therapist = () => {
     return (
-        <TopBar>
-            <Routes>
-                <Route path={'/'} element={<HomeTherapist/>} />
-                <Route path={'/login'} element={<LoginTherapist/>} />
-                <Route path={'/cadastro'} element={<RegisterTherapist/>} />
-                <Route path={'/consulta/cadastro'} element={<RegisterConsultation/>} />
-            </Routes>
-        </TopBar>
+        <ViewConfigurationProvider service={TherapistService} title={'Área do Fonoaudiólogo'} baseRoute={'/fono'} loginRoute={'/login'}>
+            {/*<AuthProvider>*/}
+                <TopBar>
+                    <Routes>
+                        <Route path={'/'} element={<HomeTherapist/>} />
+                        <Route path={'/login'} element={<LoginTherapist/>} />
+                        <Route path={'/cadastro'} element={<RegisterTherapist/>} />
+                        <Route path={'/consulta/cadastro'} element={<RegisterConsultation/>} />
+                    </Routes>
+                </TopBar>
+            {/*</AuthProvider>*/}
+        </ViewConfigurationProvider>
     );
 }
 
