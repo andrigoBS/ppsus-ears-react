@@ -4,7 +4,7 @@ import {Grid, Typography, useTheme} from "@mui/material";
 const createStyle = (theme) => {
     return {
         container: {
-            padding: "0px 100px",
+            padding: "0 100px",
         },
         toCenter: {
             display: 'flex',
@@ -12,16 +12,22 @@ const createStyle = (theme) => {
             textAlign: 'center'
         },
         videoBox: {
-            padding: '45px 45px 40px 45px',
-            backgroundColor: theme.palette.secondaryBlue.main
+            padding: '35px 35px 30px 35px',
+            backgroundColor: theme.palette.secondaryBlue.main,
+            [theme.breakpoints.up('md')]: {
+                padding: '50px 50px 45px 50px',
+            },
         },
         textBox:{
-            padding: '45px',
+            padding: '35px',
+            [theme.breakpoints.up('md')]: {
+                padding: '50px',
+            },
         }
     }
 };
 
-const VideoAndText = ({title, description, videoUrl}) => {
+const VideoAndText = ({title, children, videoUrl}) => {
     const theme = useTheme();
     const styles = createStyle(theme);
 
@@ -29,7 +35,7 @@ const VideoAndText = ({title, description, videoUrl}) => {
         <Grid container justifyContent={'center'} alignItems={'center'}>
             <Grid item xs={12} md={6} sx={styles.textBox}>
                 <Typography variant="h4" color={'primary'} sx={{marginBottom: '20px'}}>{title}</Typography>
-                <Typography variant="p">{description}</Typography>
+                <Typography variant="p">{children}</Typography>
             </Grid>
             <Grid item xs={12} md={6} sx={styles.videoBox}>
                 <iframe title={title}

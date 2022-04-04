@@ -1,9 +1,11 @@
 import React from "react";
 import {Button, Paper, TextField, Typography, Grid, useTheme, Link} from "@mui/material";
-import {Link as RouterLink} from 'react-router-dom';
+import {Link as RouterLink, Navigate} from 'react-router-dom';
 import HtmlHead from "../HtmlHead";
 import {useForm} from "react-hook-form";
 import MPAWhiteIcon from "../icons/MPAWhiteIcon";
+import {useAuth} from "../../providers/auth/Auth";
+import {useViewConfiguration} from "../../providers/viewConfiguration/ViewConfiguration";
 
 const createStyles = (theme) => {
     return {
@@ -37,19 +39,21 @@ const createStyles = (theme) => {
     };
 }
 
-const BaseLoginPaper = ({children, title, registerRoute, loginServiceFunction}) => {
+const BaseLoginPaper = ({registerRoute}) => {
     const theme = useTheme();
     const styles = createStyles(theme);
-
     const { register, handleSubmit, formState: { errors } } = useForm();
+    let auth = useAuth();
+    let configuration = useViewConfiguration();
 
-    const onSubmit = (data) => {
-        loginServiceFunction(data.login, data.password);
+    const onSubmit = (data, event) => {
+        event.preventDefault();
+        auth.login(data.login, data.password);
     }
 
     return (
         <Paper sx={styles.paper}>
-            <HtmlHead view={title} subTitle={'Login'}/>
+            <HtmlHead view={configuration.title} subTitle={'Login'}/>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Grid container spacing={2} justifyContent={'center'} alignItems={'center'}>
                     <Grid item xs={12} sm={12} md={12}>
@@ -59,12 +63,12 @@ const BaseLoginPaper = ({children, title, registerRoute, loginServiceFunction}) 
                     </Grid>
                     <Grid item xs={12} sm={12} md={12}>
                         <Typography variant={"h4"} color={'primary'}>
-                            Seja bem-Vindo a {title}
+                            Seja bem-Vindo a {configuration.title}
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12}>
                         <Typography variant={"h6"} color={'primary'}>
-                            Para continuar é preciso que você se identifiquei, insira abaixo suas informações de acesso:
+                            Para continuar é preciso que você se identifique, insira abaixo suas informações de acesso:
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12}>

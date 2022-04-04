@@ -4,10 +4,10 @@ import {Box, Typography, useTheme} from "@mui/material";
 const createStyle = (theme) => ({
     textBox: {
         textAlign: 'left',
-        padding: '45px',
+        padding: '35px',
 
         [theme.breakpoints.up('md')]: {
-            padding: '45px 20%',
+            padding: '50px 20%',
             textAlign: 'center',
         },
     },
@@ -16,14 +16,14 @@ const createStyle = (theme) => ({
     }
 })
 
-const TextParagraph = ({title, description}) => {
+const TextParagraph = ({title, children}) => {
     const theme = useTheme();
     const styles = createStyle(theme);
 
     return (
         <Box sx={styles.textBox}>
             <Typography variant="h4" color={'primary'} sx={styles.title}>{title}</Typography>
-            <Typography variant="p">{description}</Typography>
+            <Typography variant="p">{children}</Typography>
         </Box>
     );
 }

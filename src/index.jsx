@@ -46,6 +46,12 @@ let theme = createTheme({
                 h6: {
                     fontWeight: 'bold',
                 },
+                subtitle1: {
+                    fontWeight: 'bold',
+                },
+                subtitle2: {
+                    fontWeight: 'bold',
+                },
             }
         },
         MuiTextField: {
