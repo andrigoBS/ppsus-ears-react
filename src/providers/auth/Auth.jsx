@@ -6,8 +6,9 @@ let AuthContext = React.createContext(null);
 export const AuthProvider = ({ children }) => {
     let navigate = useNavigate();
     let location = useLocation();
-    let from = location.state?.from?.pathname || "/";
     let configuration = useViewConfiguration();
+
+    let from = location.state?.from?.pathname || configuration.baseRoute;
     let service = configuration.service;
 
     let [user, setUser] = React.useState(service.getUser());

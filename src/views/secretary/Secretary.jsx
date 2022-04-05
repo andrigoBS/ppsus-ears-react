@@ -7,6 +7,7 @@ import HomeSecretary from "./pages/HomeSecretary";
 import {ViewConfigurationProvider} from "../../providers/viewConfiguration/ViewConfiguration";
 import SecretaryService from "../../services/secretary/SecretaryService";
 import {AuthProvider} from "../../providers/auth/Auth";
+import PageNotFound from "../site/pages/PageNotFound";
 
 const Secretary = () => {
     return (
@@ -17,6 +18,7 @@ const Secretary = () => {
                         <Route path={'/'} element={<HomeSecretary/>} />
                         <Route path={'/login'} element={<LoginSecretary/>} />
                         <Route path={'/cadastro'} element={<RegisterSecretary/>} />
+                        <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>
             {/*</AuthProvider>*/}

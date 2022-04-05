@@ -8,6 +8,7 @@ import RegisterReferralService from "./pages/referralService/RegisterReferralSer
 import {ViewConfigurationProvider} from "../../providers/viewConfiguration/ViewConfiguration";
 import InstitutionService from "../../services/institution/InstitutionService";
 import {AuthProvider} from "../../providers/auth/Auth";
+import PageNotFound from "../site/pages/PageNotFound";
 
 const Institution = () => {
     return (
@@ -19,6 +20,7 @@ const Institution = () => {
                         <Route path={'/login'} element={<LoginInstitution/>} />
                         <Route path={'/cadastro'} element={<RegisterInstitution/>} />
                         <Route path={'/servico-referencia/cadastro'} element={<RegisterReferralService/>} />
+                        <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>
             {/*</AuthProvider>*/}

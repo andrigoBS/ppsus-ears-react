@@ -8,6 +8,7 @@ import RegisterConsultation from "./pages/consultation/RegisterConsultation";
 import {ViewConfigurationProvider} from "../../providers/viewConfiguration/ViewConfiguration";
 import TherapistService from "../../services/therapist/TherapistService";
 import {AuthProvider} from "../../providers/auth/Auth";
+import PageNotFound from "../site/pages/PageNotFound";
 
 const Therapist = () => {
     return (
@@ -19,6 +20,7 @@ const Therapist = () => {
                         <Route path={'/login'} element={<LoginTherapist/>} />
                         <Route path={'/cadastro'} element={<RegisterTherapist/>} />
                         <Route path={'/consulta/cadastro'} element={<RegisterConsultation/>} />
+                        <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>
             {/*</AuthProvider>*/}
