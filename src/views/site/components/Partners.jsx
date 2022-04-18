@@ -7,7 +7,7 @@ import UnieduIcon from "../../../components/icons/UnieduIcon";
 import CrefonoIcon from "../../../components/icons/CrefonoIcon";
 import NascerIcon from "../../../components/icons/NascerIcon";
 
-const Partners = () => {
+const Partners = ({color}) => {
     const partners = [
         {
             url: 'https://univali.br',
@@ -36,7 +36,7 @@ const Partners = () => {
     ];
 
     return (
-        <Box sx={{padding: '45px', textAlign: 'center'}}>
+        <Box sx={{padding: '45px', textAlign: 'center', backgroundColor: color}}>
             <Typography variant="h4" color={'primary'} sx={{marginBottom: '30px'}}>Parceiros</Typography>
             <Grid container spacing={5} justifyContent={'center'} alignItems={'center'}>
                 {partners.map((partner) => (
