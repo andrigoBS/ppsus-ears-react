@@ -35,6 +35,9 @@ const createStyles = (theme) => {
         },
         iconHeart: {
 
+        },
+        loginDescription: {
+            fontSize: "14px"
         }
     };
 }
@@ -67,11 +70,11 @@ const BaseLoginPaper = ({registerRoute}) => {
                             <Grid container spacing={2} justifyContent={'center'} alignItems={'center'}>
                                 <Grid item xs={12} sm={12} md={12}>
                                     <Typography variant={"h4"} color={'primary'}>
-                                        Seja bem-Vindo a {configuration.title}
+                                        Seja bem-vindo a {configuration.title}
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={12} sm={12} md={12}>
-                                    <Typography variant={"h6"} color={'primary'}>
+                                <Grid item xs={12} sm={12} md={12} >
+                                    <Typography variant={"h6"} color={'primary'} style={{fontSize: "14px"}}>
                                         Para continuar é preciso que você se identifique, insira abaixo suas informações de acesso:
                                     </Typography>
                                 </Grid>
