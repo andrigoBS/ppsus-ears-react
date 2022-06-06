@@ -27,8 +27,8 @@ const Site = () => {
                 }
             >
                 <TextParagraph title={'Bem-Vindo à Meu primeiro alô'}>
-                    Um plataforma de ratreamento do teste da orelhinha,
-                    que foi desenvolvida pelo programa de pesquisa para o sus, edital fapesc 16/2020.
+                    Um plataforma de rastreamento do teste da orelhinha,
+                    que foi desenvolvida pelo programa de pesquisa para o SUS, edital fapesc 16/2020. <br/>
                     O desenvolvimento foi realizado por alunos e professores  dos cursos de  ciência  da computação e
                     fonoaudiologia da UNIVALI em parceria com a Secretaria de Estado da Saúde e apoio do Conselho Regional
                     de Fonoaudiologia  3ª Região.
