@@ -2,7 +2,7 @@ import React from "react";
 import TextParagraph from "../components/TextParagraph";
 import Footer from "../components/Footer";
 import Partners from "../components/Partners";
-import {Box, Button, Link, Typography, useTheme} from "@mui/material";
+import {Box, Link, Typography, useTheme} from "@mui/material";
 import {useLocation} from "react-router-dom";
 import {useViewConfiguration} from "../../../providers/viewConfiguration/ViewConfiguration";
 
