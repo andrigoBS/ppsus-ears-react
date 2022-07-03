@@ -17,7 +17,7 @@ const Institution = () => {
             <AuthProvider>
                 <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>}>
                     <Routes>
-                        <Route path={'/'} element={<RequireAuth> <HomeInstitution/> </RequireAuth>} />
+                        <Route path={'/'} element={/*<RequireAuth>*/ <HomeInstitution/> /*</RequireAuth>*/} />
                         <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
                         <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterInstitution/> </RedirectIfAuth>} />
                         <Route path={'/servico-referencia/cadastro'} element={<RequireAuth> <RegisterReferralService/> </RequireAuth>} />
