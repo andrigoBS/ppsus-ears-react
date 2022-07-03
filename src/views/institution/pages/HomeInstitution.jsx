@@ -8,7 +8,7 @@ import {array} from "prop-types";
 
 const HomeInstitution = () => {
     const [response, setResponse] = useState("");
-    const auth = useAuth();
+    const auth = {user: {name: "test"}}; //useAuth();
 
     useEffect(() => {
         InstitutionService.getAll().then(setResponse);
