@@ -5,7 +5,7 @@ import {getGraphicColors} from "../../Theme";
 
 Chart.register(BarElement, CategoryScale, LinearScale, Legend, Title, Tooltip);
 
-export function GraphicBar({title, labels, quantities, onClickElement}) {
+export function GraphicBar({title, labels, quantities, onClickElement, isVertical}) {
     const options = {
         plugins: {
             legend: {
@@ -16,7 +16,7 @@ export function GraphicBar({title, labels, quantities, onClickElement}) {
                 text: title
             },
         },
-        // indexAxis: 'y',
+        indexAxis: isVertical? 'y' : 'x',
         onClick: (_event, element) => {
             onClickElement(element[0].index);
         }

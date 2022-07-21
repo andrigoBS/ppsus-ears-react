@@ -2,9 +2,7 @@ import React, {useEffect, useState} from "react";
 import InstitutionService from "../../../services/institution/InstitutionService";
 import {GraphicDoughnut} from "../../../components/graphics/GraphicDoughnut";
 import {Grid, Typography} from "@mui/material";
-import {useAuth} from "../../../providers/auth/Auth";
 import {GraphicBar} from "../../../components/graphics/GraphicBar";
-import {array} from "prop-types";
 
 const HomeInstitution = () => {
     const [response, setResponse] = useState("");
@@ -62,7 +60,7 @@ const HomeInstitution = () => {
                 <GraphicBar
                     title={'Titulo do grafico 5'}
                     labels={Array(5).fill(1).map((value, index) => "teste "+index)}
-                    quantities={Array(5).fill(1).map((value) => Math.random() * 100)}
+                    quantities={Array(5).fill(1).map(() => Math.random() * 100)}
                     onClickElement={(elementIndex) => alert(elementIndex)}
                 />
             </Grid>
@@ -71,8 +69,18 @@ const HomeInstitution = () => {
                 <GraphicBar
                     title={'Titulo do grafico 5'}
                     labels={Array(50).fill(1).map((value, index) => "teste "+index)}
-                    quantities={Array(50).fill(1).map((value) => Math.random() * 100)}
+                    quantities={Array(50).fill(1).map(() => Math.random() * 100)}
                     onClickElement={(elementIndex) => alert(elementIndex)}
+                />
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={6}>
+                <GraphicBar
+                    title={'Titulo do grafico 5'}
+                    labels={Array(50).fill(1).map((value, index) => "teste "+index)}
+                    quantities={Array(50).fill(1).map(() => Math.random() * 100)}
+                    onClickElement={(elementIndex) => alert(elementIndex)}
+                    isVertical
                 />
             </Grid>
         </Grid>
