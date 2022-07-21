@@ -12,8 +12,8 @@ export const ViewConfigurationProvider = ({ children, service, baseRoute, loginR
             {children}
         </ViewContext.Provider>
     );
-}
+};
 
 export const useViewConfiguration = () => {
     return React.useContext(ViewContext);
-}
+};

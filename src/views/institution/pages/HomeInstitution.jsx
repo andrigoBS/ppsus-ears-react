@@ -78,6 +78,6 @@ const HomeInstitution = () => {
         </Grid>
 
     );
-}
+};
 
 export default HomeInstitution;

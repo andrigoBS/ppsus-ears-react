@@ -27,7 +27,7 @@ const styles = {
     select: {
         width: '100%'
     }
-}
+};
 
 const RegisterResults = ({register, errors}) => {
     return (
@@ -133,6 +133,6 @@ const RegisterResults = ({register, errors}) => {
             </Grid>
         </Fragment>
     );
-}
+};
 
 export default RegisterResults;

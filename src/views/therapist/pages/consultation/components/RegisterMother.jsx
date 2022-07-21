@@ -6,7 +6,7 @@ const styles = {
     textTitle:{
         marginTop: '40px'
     },
-}
+};
 
 const RegisterMother = ({register, errors}) => {
     return (
@@ -62,6 +62,6 @@ const RegisterMother = ({register, errors}) => {
             </Grid>
         </Fragment>
     );
-}
+};
 
 export default RegisterMother;

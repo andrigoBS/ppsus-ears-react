@@ -29,11 +29,11 @@ export const AuthProvider = ({ children }) => {
     let value = { user: user.user, token: user.token, login, logout };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
+};
 
 export const useAuth = () => {
     return React.useContext(AuthContext);
-}
+};
 
 export const RequireAuth = ({ children }) => {
     let auth = useAuth();
@@ -45,7 +45,7 @@ export const RequireAuth = ({ children }) => {
     }
 
     return children;
-}
+};
 
 export const RedirectIfAuth = ({ children }) => {
     let auth = useAuth();
@@ -56,4 +56,4 @@ export const RedirectIfAuth = ({ children }) => {
     }
 
     return children;
-}
+};

@@ -37,10 +37,10 @@ const BaseRegisterPaper = ({children, serviceFunction, title, handleSubmit, notS
     const theme = useTheme();
     const styles = createStyles(theme);
     const onSubmit = (data) => {
-        alert(data)
-        console.log(data)
-        serviceFunction(data)
-    }
+        alert(data);
+        console.log(data);
+        serviceFunction(data);
+    };
 
     return (
         <Paper sx={styles.paper}>
@@ -65,5 +65,5 @@ const BaseRegisterPaper = ({children, serviceFunction, title, handleSubmit, notS
             </form>
         </Paper>
     );
-}
+};
 export default BaseRegisterPaper;

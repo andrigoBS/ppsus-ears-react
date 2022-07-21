@@ -22,6 +22,6 @@ const HtmlHead = ({view, subTitle}) => {
             <link rel="manifest" href={process.env.REACT_APP_HOST_NAME+"/manifest.json"} />
         </Helmet>
     );
-}
+};
 
 export default HtmlHead;

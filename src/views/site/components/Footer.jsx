@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Grid, Typography, Link, useTheme, Divider} from "@mui/material";
 import {Link as LinkRouter} from 'react-router-dom';
 import MailIcon from '@mui/icons-material/Mail';
@@ -24,14 +24,14 @@ const createStyle = (theme) => {
             textAlign: 'center'
         }
     };
-}
+};
 
 const links = [
     {route: '/institucional', title: 'Área Instituicional'},
     {route: '/pais', title: 'Área dos Pais'},
     {route: '/secretaria', title: 'Área da Secretaria'},
     {route: '/fono', title: 'Área do Fonoaudiólogo'}
-]
+];
 
 const email = 'meuprimeiroalo@univali.br';
 
@@ -64,7 +64,7 @@ const Footer = () => {
                 <Typography variant="p" color='white' sx={{paddingTop: '25px'}} >2022 - Univali - Equipe PPSUS</Typography>
             </Grid>
         </Grid>
-    )
+    );
 };
 
 export default Footer;

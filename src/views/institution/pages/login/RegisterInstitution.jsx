@@ -89,5 +89,5 @@ const RegisterInstitution = () => {
             </Grid>
         </BaseRegisterPaper>
     );
-}
+};
 export default RegisterInstitution;

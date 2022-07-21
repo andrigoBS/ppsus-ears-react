@@ -6,6 +6,6 @@ const HomeParents = () => {
             <p>Home Parents</p>
         </div>
     );
-}
+};
 
 export default HomeParents;

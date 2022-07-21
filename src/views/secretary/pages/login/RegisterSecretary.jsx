@@ -43,5 +43,5 @@ const RegisterSecretary = () => {
             </Grid>
         </BaseRegisterPaper>
     );
-}
+};
 export default RegisterSecretary;

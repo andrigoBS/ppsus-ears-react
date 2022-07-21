@@ -6,6 +6,6 @@ const HomeTherapist = () => {
             <p>Home Therapist</p>
         </div>
     );
-}
+};
 
 export default HomeTherapist;

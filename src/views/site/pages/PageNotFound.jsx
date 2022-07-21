@@ -56,6 +56,6 @@ const PageNotFound = () => {
             <Footer/>
         </>
     );
-}
+};
 
 export default PageNotFound;

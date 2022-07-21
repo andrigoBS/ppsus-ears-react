@@ -35,7 +35,7 @@ export function GraphicBar({title, labels, quantities, onClickElement}) {
                 hoverOffset: 4,
             },
         ],
-    }
+    };
 
     return (
         <Bar type={'bar'} data={data} options={options}/>

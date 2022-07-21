@@ -6,6 +6,6 @@ const HomeSecretary = () => {
             <p>Home Secretary</p>
         </div>
     );
-}
+};
 
 export default HomeSecretary;

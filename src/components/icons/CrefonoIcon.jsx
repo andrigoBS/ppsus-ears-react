@@ -165,6 +165,6 @@ const CrefonoIcon = ({size, sx}) => {
 				s397.07,9.01,380.68-89.34C939.94,84.49,587.75,118.15,587.75,118.15z"/>
         </SvgIcon>
     );
-}
+};
 
 export default CrefonoIcon;

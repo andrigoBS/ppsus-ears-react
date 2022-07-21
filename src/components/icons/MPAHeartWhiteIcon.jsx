@@ -34,6 +34,6 @@ const MPAWhiteIcon = ({size, sx}) => {
             </g>
         </SvgIcon>
     );
-}
+};
 
 export default MPAWhiteIcon;

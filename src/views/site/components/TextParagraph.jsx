@@ -14,7 +14,7 @@ const createStyle = (theme) => ({
     title: {
         marginBottom: '20px'
     }
-})
+});
 
 const TextParagraph = ({title, children}) => {
     const theme = useTheme();
@@ -26,6 +26,6 @@ const TextParagraph = ({title, children}) => {
             <Typography variant="p">{children}</Typography>
         </Box>
     );
-}
+};
 
 export default TextParagraph;

@@ -60,6 +60,6 @@ const RegisterConsultation = () => {
             </Grid>
         </BaseRegisterPaper>
     );
-}
+};
 
 export default RegisterConsultation;

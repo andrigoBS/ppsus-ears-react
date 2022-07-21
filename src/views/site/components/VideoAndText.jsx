@@ -24,7 +24,7 @@ const createStyle = (theme) => {
                 padding: '50px',
             },
         }
-    }
+    };
 };
 
 const VideoAndText = ({title, children, videoUrl}) => {

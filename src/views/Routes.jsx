@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter, Routes as RoutesRouter, Route } from "react-router-dom"
+import {BrowserRouter, Routes as RoutesRouter, Route } from "react-router-dom";
 import Secretary from "./secretary/Secretary";
 import Institution from "./institution/Institution";
 import Site from "./site/Site";
@@ -28,6 +28,6 @@ const Routes = () => {
           </RoutesRouter>
       </BrowserRouter>
   );
-}
+};
 
 export default Routes;

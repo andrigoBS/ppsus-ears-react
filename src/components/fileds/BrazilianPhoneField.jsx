@@ -18,7 +18,7 @@ const BrazilianPhoneField = ({register, name, formErrors, required, label, ...ot
             })}
         />
     );
-}
+};
 
 BrazilianPhoneField.propTypes = {
     register: PropTypes.func.isRequired,
@@ -34,7 +34,7 @@ const PhoneFieldMasked = ({onChange, value, ...other}) => {
     const handleOnChange = (event) => {
         setData(event.target.value);
         onChange(event);
-    }
+    };
 
     return (
         <TextField
@@ -46,7 +46,7 @@ const PhoneFieldMasked = ({onChange, value, ...other}) => {
             }}
         />
     );
-}
+};
 
 const PhoneMask = React.forwardRef(function (props, ref) {
     const { onChange, name, ...other } = props;
@@ -55,7 +55,7 @@ const PhoneMask = React.forwardRef(function (props, ref) {
     const onAccept = (value) => {
         setMask(getMask(value));
         onChange({target: {name: name, value: value}});
-    }
+    };
 
     return (
         <IMaskInput
@@ -81,6 +81,6 @@ const getMask = (value) => {
     if (valueClear.substring(0, 4) === '0800') return "0800 000 0000";
     if (valueClear.length < 11) return "(0#) 0000-00000";
     return "(0#) 00000-0000";
-}
+};
 
 export default BrazilianPhoneField;

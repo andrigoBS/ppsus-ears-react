@@ -32,7 +32,7 @@ export function GraphicDoughnut({title, labels, quantities, onClickElement}) {
                 hoverOffset: 4,
             },
         ],
-    }
+    };
 
     return (
         <Doughnut type={'doughnut'} data={data} options={options}/>

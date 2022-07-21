@@ -89,6 +89,6 @@ const Site = () => {
             </TopBar>
         </ViewConfigurationProvider>
     );
-}
+};
 
 export default Site;

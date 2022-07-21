@@ -1,5 +1,5 @@
 import React from "react";
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route} from "react-router-dom";
 import RegisterInstitution from "./pages/login/RegisterInstitution";
 import HomeInstitution from "./pages/HomeInstitution";
 import TopBar from "../../components/TopBar";
@@ -27,6 +27,6 @@ const Institution = () => {
             </AuthProvider>
         </ViewConfigurationProvider>
     );
-}
+};
 
 export default Institution;

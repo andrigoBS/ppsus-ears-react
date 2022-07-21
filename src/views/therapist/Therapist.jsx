@@ -1,5 +1,5 @@
 import React from "react";
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route} from "react-router-dom";
 import TopBar from "../../components/TopBar";
 import HomeTherapist from "./pages/HomeTherapist";
 import RegisterTherapist from "./pages/login/RegisterTherapist";
@@ -27,6 +27,6 @@ const Therapist = () => {
             </AuthProvider>
         </ViewConfigurationProvider>
     );
-}
+};
 
 export default Therapist;

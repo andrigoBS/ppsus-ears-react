@@ -1,5 +1,5 @@
 import React from "react";
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route} from "react-router-dom";
 import TopBar from "../../components/TopBar";
 import RegisterSecretary from "./pages/login/RegisterSecretary";
 import HomeSecretary from "./pages/HomeSecretary";
@@ -25,6 +25,6 @@ const Secretary = () => {
             </AuthProvider>
         </ViewConfigurationProvider>
     );
-}
+};
 
 export default Secretary;

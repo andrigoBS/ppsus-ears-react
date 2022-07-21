@@ -27,6 +27,6 @@ const TopBar = ({children, rightElement}) => {
             {children}
         </Fragment>
     );
-}
+};
 
 export default TopBar;

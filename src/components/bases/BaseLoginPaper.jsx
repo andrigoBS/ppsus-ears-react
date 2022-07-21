@@ -40,7 +40,7 @@ const createStyles = (theme) => {
             fontSize: "14px"
         }
     };
-}
+};
 
 const BaseLoginPaper = ({registerRoute}) => {
     const theme = useTheme();
@@ -52,7 +52,7 @@ const BaseLoginPaper = ({registerRoute}) => {
     const onSubmit = (data, event) => {
         event.preventDefault();
         auth.login(data.login, data.password);
-    }
+    };
 
     return (
         <>
@@ -110,6 +110,6 @@ const BaseLoginPaper = ({registerRoute}) => {
             </Grid>
         </>
     );
-}
+};
 
 export default BaseLoginPaper;

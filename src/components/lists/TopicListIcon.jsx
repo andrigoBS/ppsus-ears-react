@@ -32,6 +32,6 @@ const TopicListIcon = ({topics, icon}) => {
             ))}
         </Box>
     );
-}
+};
 
 export default TopicListIcon;

@@ -90,5 +90,5 @@ const RegisterReferralService = () => {
             </Grid>
         </BaseRegisterPaper>
     );
-}
+};
 export default RegisterReferralService;

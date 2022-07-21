@@ -31,6 +31,6 @@ const VideoParagraph = ({title, url}) => {
             />
         </Box>
     );
-}
+};
 
 export default VideoParagraph;

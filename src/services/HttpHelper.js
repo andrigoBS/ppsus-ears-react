@@ -22,7 +22,7 @@ export default class HttpHelper {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }
+        };
         if(auth) init.headers['authorization'] = auth;
         if(data) init["body"] = JSON.stringify(data);
         return fetch(process.env.REACT_APP_SERVER_URL+'/'+path, init)

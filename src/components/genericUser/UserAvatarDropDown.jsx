@@ -112,6 +112,6 @@ const UserAvatarDropDown = ({withNotification}) => {
             </Menu>
         </Box>
     );
-}
+};
 
 export default UserAvatarDropDown;

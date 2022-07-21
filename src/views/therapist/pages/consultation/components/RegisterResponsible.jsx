@@ -10,7 +10,7 @@ const styles = {
         width: '300px',
         marginTop: '35px'
     },
-}
+};
 
 const RegisterResponsible = ({register, errors}) => {
     return (
@@ -71,6 +71,6 @@ const RegisterResponsible = ({register, errors}) => {
             </Grid>
         </Fragment>
     );
-}
+};
 
 export default RegisterResponsible;

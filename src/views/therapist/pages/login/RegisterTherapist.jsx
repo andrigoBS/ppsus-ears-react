@@ -12,7 +12,7 @@ const styles = {
     select: {
         width: '100%'
     }
-}
+};
 
 const RegisterTherapist = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -83,5 +83,5 @@ const RegisterTherapist = () => {
             </Grid>
         </BaseRegisterPaper>
     );
-}
+};
 export default RegisterTherapist;
