@@ -1,4 +1,4 @@
-import HttpHelper from "../HttpHelper";
+import HttpHelper from '../HttpHelper';
 
 const ParentsService = function () {
     const pathName = 'parents';
@@ -25,7 +25,7 @@ const ParentsService = function () {
     };
 
     this.getUser = () => {
-        return JSON.parse(sessionStorage.getItem(sessionStorageKey)) || {user: null, token: null};
+        return JSON.parse(sessionStorage.getItem(sessionStorageKey)) || { user: null, token: null };
     };
 };
 

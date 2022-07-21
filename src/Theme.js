@@ -21,16 +21,16 @@ export const getMuiTheme = () => ({
             main: '#5D307A'
         },
         secondary: {
-            main: "#E83268"
+            main: '#E83268'
         },
         tertiary: {
-            main: "#fbbc43"
+            main: '#fbbc43'
         },
         secondaryBlue: {
-            main: "#2db7bc"
+            main: '#2db7bc'
         },
         background: {
-            default: "#fafafa"
+            default: '#fafafa'
         },
     },
     components: {

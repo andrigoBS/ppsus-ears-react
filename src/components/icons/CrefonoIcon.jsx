@@ -1,9 +1,9 @@
-import React from "react";
-import {SvgIcon} from "@mui/material";
+import React from 'react';
+import { SvgIcon } from '@mui/material';
 
-const CrefonoIcon = ({size, sx}) => {
+const CrefonoIcon = ({ size, sx }) => {
     return (
-        <SvgIcon sx={{...sx, width: size, height: "auto"}} viewBox="115 100 880 180" fill="none">
+        <SvgIcon sx={{ ...sx, width: size, height: 'auto' }} viewBox="115 100 880 180" fill="none">
             <g>
                 <path fill="#346FA9" stroke="#3470AA" strokeWidth="1.2948" strokeMiterlimit="10" d="M190.32,216.17
 					c-7.44,1.74-15.88,2.61-25.32,2.61c-30.95,0-46.42-9.26-46.42-27.79c0-17.53,15.47-26.3,46.42-26.3
@@ -158,8 +158,8 @@ const CrefonoIcon = ({size, sx}) => {
 					c-3.97,0-7.19,0.98-9.67,2.95C825.38,152.82,823.7,156.26,822.82,161.18z"/>
             </g>
             <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="784.5564" y1="273.1989" x2="784.5564" y2="106.8856">
-                <stop offset="0" style={{"stop-color": "#3570AA"}}/>
-                <stop offset="1" style={{"stop-color": "#80C342"}}/>
+                <stop offset="0" style={{ 'stop-color': '#3570AA' }}/>
+                <stop offset="1" style={{ 'stop-color': '#80C342' }}/>
             </linearGradient>
             <path fill="url(#SVGID_1_)" d="M587.75,118.15c0,0,405.26-53.09,406.56,71.22c1.21,116.28-419.51,77.69-419.51,77.69
 				s397.07,9.01,380.68-89.34C939.94,84.49,587.75,118.15,587.75,118.15z"/>

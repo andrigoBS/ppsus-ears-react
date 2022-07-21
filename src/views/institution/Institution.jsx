@@ -1,15 +1,15 @@
-import React from "react";
-import {Routes, Route} from "react-router-dom";
-import RegisterInstitution from "./pages/login/RegisterInstitution";
-import HomeInstitution from "./pages/HomeInstitution";
-import TopBar from "../../components/TopBar";
-import RegisterReferralService from "./pages/referralService/RegisterReferralService";
-import {ViewConfigurationProvider} from "../../providers/viewConfiguration/ViewConfiguration";
-import InstitutionService from "../../services/institution/InstitutionService";
-import {AuthProvider, RedirectIfAuth, RequireAuth} from "../../providers/auth/Auth";
-import PageNotFound from "../site/pages/PageNotFound";
-import UserAvatarDropDown from "../../components/genericUser/UserAvatarDropDown";
-import BaseLoginPaper from "../../components/bases/BaseLoginPaper";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import RegisterInstitution from './pages/login/RegisterInstitution';
+import HomeInstitution from './pages/HomeInstitution';
+import TopBar from '../../components/TopBar';
+import RegisterReferralService from './pages/referralService/RegisterReferralService';
+import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
+import InstitutionService from '../../services/institution/InstitutionService';
+import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
+import PageNotFound from '../site/pages/PageNotFound';
+import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
+import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
 
 const Institution = () => {
     return (

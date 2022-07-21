@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Typography, useTheme} from "@mui/material";
+import { Box, Typography, useTheme } from '@mui/material';
 
 const createStyle = (theme) => ({
     textBox: {
@@ -16,7 +16,7 @@ const createStyle = (theme) => ({
     }
 });
 
-const TextParagraph = ({title, children}) => {
+const TextParagraph = ({ title, children }) => {
     const theme = useTheme();
     const styles = createStyle(theme);
 

@@ -1,32 +1,32 @@
-import React from "react";
-import {Navigate, useLocation, useNavigate} from "react-router-dom";
-import {useViewConfiguration} from "../viewConfiguration/ViewConfiguration";
+import React from 'react';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useViewConfiguration } from '../viewConfiguration/ViewConfiguration';
 
-let AuthContext = React.createContext(null);
+const AuthContext = React.createContext(null);
 export const AuthProvider = ({ children }) => {
-    let navigate = useNavigate();
-    let location = useLocation();
-    let configuration = useViewConfiguration();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const configuration = useViewConfiguration();
 
-    let from = location.state?.from?.pathname || configuration.baseRoute;
-    let service = configuration.service;
+    const from = location.state?.from?.pathname || configuration.baseRoute;
+    const service = configuration.service;
 
-    let [user, setUser] = React.useState(service.getUser());
+    const [user, setUser] = React.useState(service.getUser());
 
-    let login = (login, password) => {
-        service.login(login, password).then(({body}) => {
+    const login = (login, password) => {
+        service.login(login, password).then(({ body }) => {
             setUser(body); //TODO: fazer tratamento de erro, status diferente de 200
             navigate(from, { replace: true });
         });
     };
 
-    let logout = (redirectTo) => {
+    const logout = (redirectTo) => {
         service.logout(); //TODO: Criar logout backend
         setUser(service.getUser());
-        if(redirectTo) navigate(redirectTo, { replace: true });
+        if(redirectTo) { navigate(redirectTo, { replace: true }); }
     };
 
-    let value = { user: user.user, token: user.token, login, logout };
+    const value = { user: user.user, token: user.token, login, logout };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
@@ -36,9 +36,9 @@ export const useAuth = () => {
 };
 
 export const RequireAuth = ({ children }) => {
-    let auth = useAuth();
-    let location = useLocation();
-    let configuration = useViewConfiguration();
+    const auth = useAuth();
+    const location = useLocation();
+    const configuration = useViewConfiguration();
 
     if (!auth.user) {
         return <Navigate to={configuration.loginRoute} state={{ from: location }} replace />;
@@ -48,8 +48,8 @@ export const RequireAuth = ({ children }) => {
 };
 
 export const RedirectIfAuth = ({ children }) => {
-    let auth = useAuth();
-    let configuration = useViewConfiguration();
+    const auth = useAuth();
+    const configuration = useViewConfiguration();
 
     if (auth.user) {
         return <Navigate to={configuration.baseRoute} replace />;

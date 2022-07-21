@@ -1,9 +1,9 @@
-import React from "react";
-import {SvgIcon} from "@mui/material";
+import React from 'react';
+import { SvgIcon } from '@mui/material';
 
-const MPAWhiteIcon = ({size, sx}) => {
+const MPAWhiteIcon = ({ size, sx }) => {
     return (
-        <SvgIcon sx={{...sx, width: size, height: "auto"}} width="250" height="228" viewBox="490 183 280 228" fill="none">
+        <SvgIcon sx={{ ...sx, width: size, height: 'auto' }} width="250" height="228" viewBox="490 183 280 228" fill="none">
             <g>
                 <path fill="#FFFFFF" d="M676.15,289.2c-3.49,0-6.32,1.25-8.5,3.76c-2.18,2.51-3.27,6.41-3.27,11.72c0,5.38,1.09,9.34,3.27,11.88
                         c2.18,2.54,5.01,3.81,8.5,3.81c3.49,0,6.34-1.27,8.56-3.81c2.22-2.54,3.32-6.5,3.32-11.88c0-5.3-1.11-9.21-3.32-11.72

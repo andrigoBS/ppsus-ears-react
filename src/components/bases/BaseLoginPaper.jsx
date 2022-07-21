@@ -1,14 +1,14 @@
-import React from "react";
-import {Button, Paper, TextField, Typography, Grid, useTheme, Link} from "@mui/material";
-import {Link as RouterLink, Navigate} from 'react-router-dom';
-import HtmlHead from "../HtmlHead";
-import {useForm} from "react-hook-form";
-import MPAWhiteIcon from "../icons/MPAWhiteIcon";
-import MPAHeartWhiteIcon from "../icons/MPAHeartWhiteIcon";
-import {useAuth} from "../../providers/auth/Auth";
-import {useViewConfiguration} from "../../providers/viewConfiguration/ViewConfiguration";
-import Partners from "../../views/site/components/Partners";
-import Footer from "../../views/site/components/Footer";
+import React from 'react';
+import { Button, Grid, Link, Paper, TextField, Typography, useTheme } from '@mui/material';
+import { Navigate, Link as RouterLink } from 'react-router-dom';
+import HtmlHead from '../HtmlHead';
+import { useForm } from 'react-hook-form';
+import MPAWhiteIcon from '../icons/MPAWhiteIcon';
+import MPAHeartWhiteIcon from '../icons/MPAHeartWhiteIcon';
+import { useAuth } from '../../providers/auth/Auth';
+import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
+import Partners from '../../views/site/components/Partners';
+import Footer from '../../views/site/components/Footer';
 
 const createStyles = (theme) => {
     return {
@@ -29,7 +29,7 @@ const createStyles = (theme) => {
             textAlign: 'center'
         },
         icon: {
-            padding: "20px",
+            padding: '20px',
             borderRadius: '10px',
             textAlign: 'center'
         },
@@ -37,17 +37,17 @@ const createStyles = (theme) => {
 
         },
         loginDescription: {
-            fontSize: "14px"
+            fontSize: '14px'
         }
     };
 };
 
-const BaseLoginPaper = ({registerRoute}) => {
+const BaseLoginPaper = ({ registerRoute }) => {
     const theme = useTheme();
     const styles = createStyles(theme);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    let auth = useAuth();
-    let configuration = useViewConfiguration();
+    const auth = useAuth();
+    const configuration = useViewConfiguration();
 
     const onSubmit = (data, event) => {
         event.preventDefault();
@@ -69,20 +69,20 @@ const BaseLoginPaper = ({registerRoute}) => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <Grid container spacing={2} justifyContent={'center'} alignItems={'center'}>
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <Typography variant={"h4"} color={'primary'}>
+                                    <Typography variant={'h4'} color={'primary'}>
                                         Seja bem-vindo a {configuration.title}
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12} >
-                                    <Typography variant={"h6"} color={'primary'} style={{fontSize: "14px"}}>
+                                    <Typography variant={'h6'} color={'primary'} style={{ fontSize: '14px' }}>
                                         Para continuar é preciso que você se identifique, insira abaixo suas informações de acesso:
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <TextField  {...register("login")} label="Email" variant="outlined" size="small" required/>
+                                    <TextField  {...register('login')} label="Email" variant="outlined" size="small" required/>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <TextField  {...register("password")} label="Senha" type="password" variant="outlined" size="small" required/>
+                                    <TextField  {...register('password')} label="Senha" type="password" variant="outlined" size="small" required/>
                                 </Grid>
                                 {registerRoute &&
                                     <Grid item xs={12} sm={12} md={12}>

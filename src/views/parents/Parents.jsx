@@ -1,13 +1,13 @@
-import React from "react";
-import {Routes, Route} from "react-router-dom";
-import TopBar from "../../components/TopBar";
-import HomeParents from "./pages/HomeParents";
-import {AuthProvider, RedirectIfAuth, RequireAuth} from "../../providers/auth/Auth";
-import ParentsService from "../../services/parents/ParentsService";
-import BaseLoginPaper from "../../components/bases/BaseLoginPaper";
-import UserAvatarDropDown from "../../components/genericUser/UserAvatarDropDown";
-import {ViewConfigurationProvider} from "../../providers/viewConfiguration/ViewConfiguration";
-import PageNotFound from "../site/pages/PageNotFound";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import TopBar from '../../components/TopBar';
+import HomeParents from './pages/HomeParents';
+import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
+import ParentsService from '../../services/parents/ParentsService';
+import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
+import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
+import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
+import PageNotFound from '../site/pages/PageNotFound';
 
 const Parents = () => {
     return (

@@ -1,11 +1,11 @@
 import React from 'react';
-import {Chart, ArcElement, Tooltip, Legend, Title} from 'chart.js';
+import { ArcElement, Chart, Legend, Title, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import {getGraphicColors} from "../../Theme";
+import { getGraphicColors } from '../../Theme';
 
 Chart.register(ArcElement, Tooltip, Legend, Title);
 
-export function GraphicDoughnut({title, labels, quantities, onClickElement}) {
+export function GraphicDoughnut({ title, labels, quantities, onClickElement }) {
     const options = {
         plugins: {
             legend: {

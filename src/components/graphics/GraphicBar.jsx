@@ -1,11 +1,11 @@
 import React from 'react';
-import {Chart, Tooltip, Legend, Title, CategoryScale, LinearScale, BarElement} from 'chart.js';
+import { BarElement, CategoryScale, Chart, Legend, LinearScale, Title, Tooltip } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import {getGraphicColors} from "../../Theme";
+import { getGraphicColors } from '../../Theme';
 
 Chart.register(BarElement, CategoryScale, LinearScale, Legend, Title, Tooltip);
 
-export function GraphicBar({title, labels, quantities, onClickElement, isVertical}) {
+export function GraphicBar({ title, labels, quantities, onClickElement, isVertical }) {
     const options = {
         plugins: {
             legend: {

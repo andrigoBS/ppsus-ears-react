@@ -1,10 +1,10 @@
-import React from "react";
-import HtmlHead from "../../components/HtmlHead";
+import React from 'react';
+import HtmlHead from '../../components/HtmlHead';
 
-let ViewContext = React.createContext(null);
+const ViewContext = React.createContext(null);
 export const ViewConfigurationProvider = ({ children, service, baseRoute, loginRoute, title }) => {
 
-    let value = { service, baseRoute, loginRoute: baseRoute+loginRoute, title };
+    const value = { service, baseRoute, loginRoute: baseRoute+loginRoute, title };
 
     return (
         <ViewContext.Provider value={value}>

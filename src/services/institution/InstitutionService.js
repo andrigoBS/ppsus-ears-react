@@ -1,4 +1,4 @@
-import HttpHelper from "../HttpHelper";
+import HttpHelper from '../HttpHelper';
 
 const InstitutionService = function () {
     const pathName = 'institution';
@@ -29,7 +29,7 @@ const InstitutionService = function () {
     };
 
     this.getUser = () => {
-        return JSON.parse(sessionStorage.getItem(sessionStorageKey)) || {user: null, token: null};
+        return JSON.parse(sessionStorage.getItem(sessionStorageKey)) || { user: null, token: null };
     };
 
     this.referralServiceRegister = (data) => {

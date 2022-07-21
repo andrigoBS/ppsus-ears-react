@@ -1,10 +1,10 @@
-import React from "react";
-import TextParagraph from "../components/TextParagraph";
-import Footer from "../components/Footer";
-import Partners from "../components/Partners";
-import {Box, Link, Typography, useTheme} from "@mui/material";
-import {useLocation} from "react-router-dom";
-import {useViewConfiguration} from "../../../providers/viewConfiguration/ViewConfiguration";
+import React from 'react';
+import TextParagraph from '../components/TextParagraph';
+import Footer from '../components/Footer';
+import Partners from '../components/Partners';
+import { Box, Link, Typography, useTheme } from '@mui/material';
+import { useLocation } from 'react-router-dom';
+import { useViewConfiguration } from '../../../providers/viewConfiguration/ViewConfiguration';
 
 const createStyles = (theme) => ({
     linksContainer: {
@@ -30,12 +30,12 @@ const createStyles = (theme) => ({
 });
 
 const PageNotFound = () => {
-    let location = useLocation();
-    let configuration = useViewConfiguration();
-    let theme = useTheme();
-    let styles = createStyles(theme);
+    const location = useLocation();
+    const configuration = useViewConfiguration();
+    const theme = useTheme();
+    const styles = createStyles(theme);
 
-    let from = location.state?.from?.pathname || configuration.baseRoute;
+    const from = location.state?.from?.pathname || configuration.baseRoute;
 
     return (
         <>
@@ -45,7 +45,7 @@ const PageNotFound = () => {
                 caso tenha chegado aqui pela propria plataforma por favor informar ao suporte.
             </TextParagraph>
             <Box sx={styles.linksContainer}>
-                <Link href={from} underline="hover" color={'white'} sx={{...styles.toCenter, ...styles.firstLinkBox}}>
+                <Link href={from} underline="hover" color={'white'} sx={{ ...styles.toCenter, ...styles.firstLinkBox }}>
                     <Typography variant="p" color='secondary' sx={styles.link}>Clique aqui para voltar a página anterior</Typography>
                 </Link>
                 <Link href={'/'} underline="hover" color={'white'} sx={styles.toCenter}>

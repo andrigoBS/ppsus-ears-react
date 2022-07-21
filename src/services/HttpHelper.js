@@ -17,14 +17,14 @@ export default class HttpHelper {
     }
 
     static _genericFetch(method, path, data, auth){
-        let init = {
+        const init = {
             method: method,
             headers: {
                 'Content-Type': 'application/json'
             }
         };
-        if(auth) init.headers['authorization'] = auth;
-        if(data) init["body"] = JSON.stringify(data);
+        if(auth) { init.headers['authorization'] = auth; }
+        if(data) { init['body'] = JSON.stringify(data); }
         return fetch(process.env.REACT_APP_SERVER_URL+'/'+path, init)
             .then(response => response.json());
     }

@@ -1,10 +1,10 @@
-import HttpHelper from "../HttpHelper";
+import HttpHelper from '../HttpHelper';
 
 const SecretaryService = function () {
-     const pathName = 'secretary';
+    const pathName = 'secretary';
     const sessionStorageKey = 'secretaryUser';
 
-     this.getAll = () => {
+    this.getAll = () => {
         return HttpHelper.get(pathName);
     };
 
@@ -29,7 +29,7 @@ const SecretaryService = function () {
     };
 
     this.getUser = () => {
-        return JSON.parse(sessionStorage.getItem(sessionStorageKey)) || {user: null, token: null};
+        return JSON.parse(sessionStorage.getItem(sessionStorageKey)) || { user: null, token: null };
     };
 };
 

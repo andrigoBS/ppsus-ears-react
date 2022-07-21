@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { CssBaseline, createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material';
 import Routes from './views/Routes';
-import HtmlHead from "./components/HtmlHead";
-import {getMuiTheme} from "./Theme";
+import HtmlHead from './components/HtmlHead';
+import { getMuiTheme } from './Theme';
 
 let theme = getMuiTheme();
 theme = createTheme(theme);
