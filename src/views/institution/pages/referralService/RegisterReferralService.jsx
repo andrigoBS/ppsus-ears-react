@@ -15,7 +15,7 @@ const RegisterReferralService = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={"Serviço de Referência"} service={InstitutionService.referralServiceRegister}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={"de Serviço de Saúde Auditiva"} service={InstitutionService.referralServiceRegister}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register("name")} label="Nome do Serviço" variant="outlined" size="small" required/>
             </Grid>
