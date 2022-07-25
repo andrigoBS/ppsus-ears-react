@@ -1,11 +1,11 @@
-import React from 'react';
 import { Box, Grid, Link, Typography } from '@mui/material';
-import UnivaliIcon from '../../../components/icons/UnivaliIcon';
-import SecretaryIcon from '../../../components/icons/SecretaryIcon';
 import CNPqIcon from '../../../components/icons/CNPqIcon';
-import UnieduIcon from '../../../components/icons/UnieduIcon';
 import CrefonoIcon from '../../../components/icons/CrefonoIcon';
 import NascerIcon from '../../../components/icons/NascerIcon';
+import React from 'react';
+import SecretaryIcon from '../../../components/icons/SecretaryIcon';
+import UnieduIcon from '../../../components/icons/UnieduIcon';
+import UnivaliIcon from '../../../components/icons/UnivaliIcon';
 
 const Partners = ({ color }) => {
     const partners = [
@@ -39,8 +39,8 @@ const Partners = ({ color }) => {
         <Box sx={{ padding: '45px', textAlign: 'center', backgroundColor: color }}>
             <Typography variant="h4" color={'primary'} sx={{ marginBottom: '30px' }}>Parceiros</Typography>
             <Grid container spacing={5} justifyContent={'center'} alignItems={'center'}>
-                {partners.map((partner) => (
-                    <Grid item>
+                {partners.map((partner, key) => (
+                    <Grid item key={'partners-'+key}>
                         <Link href={partner.url} underline="hover" target={'_blank'} color={'white'}>
                             {partner.element}
                         </Link>

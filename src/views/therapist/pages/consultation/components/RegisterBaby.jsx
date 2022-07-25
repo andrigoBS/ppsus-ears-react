@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
 import { Checkbox, FormControlLabel, FormGroup, Grid, TextField, Typography } from '@mui/material';
+import React, { Fragment } from 'react';
 
 const styles = {
     textTitle:{

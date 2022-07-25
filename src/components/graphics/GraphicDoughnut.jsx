@@ -1,6 +1,6 @@
-import React from 'react';
 import { ArcElement, Chart, Legend, Title, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import React from 'react';
 import { getGraphicColors } from '../../Theme';
 
 Chart.register(ArcElement, Tooltip, Legend, Title);

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { forwardRef, useState } from 'react';
 import { IMaskInput } from 'react-imask';
+import PropTypes from 'prop-types';
 import TextField from '@mui/material/TextField';
 
 const BrazilianPhoneField = ({ register, name, formErrors, required, label, ...other }) => {
@@ -48,7 +48,7 @@ const PhoneFieldMasked = ({ onChange, value, ...other }) => {
     );
 };
 
-const PhoneMask = React.forwardRef(function (props, ref) {
+const PhoneMask = forwardRef((props, ref) => {
     const { onChange, name, ...other } = props;
     const [mask, setMask] = useState('(0#) 00000-0000');
 

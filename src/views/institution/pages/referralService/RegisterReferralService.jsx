@@ -1,15 +1,9 @@
-import React from 'react';
-
-import TextField from '@mui/material/TextField';
-import { Grid, Typography } from '@mui/material';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControl from '@mui/material/FormControl';
-import { useForm } from 'react-hook-form';
+import { FormControl, FormControlLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@mui/material';
+import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
 import InstitutionService from '../../../../services/institution/InstitutionService';
-import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const RegisterReferralService = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();

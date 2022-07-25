@@ -1,5 +1,5 @@
-import React from 'react';
 import HtmlHead from '../../components/HtmlHead';
+import React from 'react';
 
 const ViewContext = React.createContext(null);
 export const ViewConfigurationProvider = ({ children, service, baseRoute, loginRoute, title }) => {

@@ -1,17 +1,15 @@
-import React from 'react';
-
-import Footer from './components/Footer';
-import TopBar from '../../components/TopBar';
-import Partners from './components/Partners';
-import VideoAndText from './components/VideoAndText';
-import TextParagraph from './components/TextParagraph';
-import VideoParagraph from './components/VideoParagraph';
-import TopicListIcon from '../../components/lists/TopicListIcon';
-
-import { useNavigate } from 'react-router-dom';
 import { Button, Typography } from '@mui/material';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
+import Footer from './components/Footer';
+import Partners from './components/Partners';
+import React from 'react';
+import TextParagraph from './components/TextParagraph';
+import TopBar from '../../components/TopBar';
+import TopicListIcon from '../../components/lists/TopicListIcon';
+import VideoAndText from './components/VideoAndText';
+import VideoParagraph from './components/VideoParagraph';
 import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
+import { useNavigate } from 'react-router-dom';
 
 const Site = () => {
     const navigate = useNavigate();

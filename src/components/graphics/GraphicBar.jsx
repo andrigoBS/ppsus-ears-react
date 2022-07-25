@@ -1,6 +1,6 @@
-import React from 'react';
 import { BarElement, CategoryScale, Chart, Legend, LinearScale, Title, Tooltip } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import React from 'react';
 import { getGraphicColors } from '../../Theme';
 
 Chart.register(BarElement, CategoryScale, LinearScale, Legend, Title, Tooltip);

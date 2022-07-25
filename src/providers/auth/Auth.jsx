@@ -1,5 +1,5 @@
-import React from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
 import { useViewConfiguration } from '../viewConfiguration/ViewConfiguration';
 
 const AuthContext = React.createContext(null);

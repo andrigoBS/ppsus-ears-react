@@ -1,8 +1,8 @@
-import React from 'react';
 import { Divider, Grid, Link, Typography, useTheme } from '@mui/material';
 import { Link as LinkRouter } from 'react-router-dom';
-import MailIcon from '@mui/icons-material/Mail';
 import MPAWhiteIcon from '../../../components/icons/MPAWhiteIcon';
+import MailIcon from '@mui/icons-material/Mail';
+import React from 'react';
 
 const createStyle = (theme) => {
     return {
@@ -41,8 +41,8 @@ const Footer = () => {
 
     return (
         <Grid container sx={styles.container} spacing={1} justifyContent={'center'}>
-            {links.map((link) => (
-                <Grid item xs={12} md={'auto'} sx={styles.toCenter}>
+            {links.map((link, key) => (
+                <Grid item xs={12} md={'auto'} sx={styles.toCenter} key={'footer-link-'+key}>
                     <Link href={link.route} underline="hover" target={'_blank'} color={'white'}>
                         <Typography variant="p" color='white' sx={styles.link}>{link.title}</Typography>
                     </Link>

@@ -1,14 +1,14 @@
-import React from 'react';
-import { Button, Grid, Link, Paper, TextField, Typography, useTheme } from '@mui/material';
-import { Navigate, Link as RouterLink } from 'react-router-dom';
-import HtmlHead from '../HtmlHead';
-import { useForm } from 'react-hook-form';
-import MPAWhiteIcon from '../icons/MPAWhiteIcon';
-import MPAHeartWhiteIcon from '../icons/MPAHeartWhiteIcon';
-import { useAuth } from '../../providers/auth/Auth';
-import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
-import Partners from '../../views/site/components/Partners';
+import { Button, Grid, Paper, TextField, Typography, useTheme } from '@mui/material';
 import Footer from '../../views/site/components/Footer';
+import HtmlHead from '../HtmlHead';
+import MPAHeartWhiteIcon from '../icons/MPAHeartWhiteIcon';
+import MPAWhiteIcon from '../icons/MPAWhiteIcon';
+import Partners from '../../views/site/components/Partners';
+import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import { useAuth } from '../../providers/auth/Auth';
+import { useForm } from 'react-hook-form';
+import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
 
 const createStyles = (theme) => {
     return {

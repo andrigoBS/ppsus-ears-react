@@ -1,5 +1,5 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
+import React from 'react';
 import { useTheme } from '@mui/material';
 
 const HtmlHead = ({ view, subTitle }) => {

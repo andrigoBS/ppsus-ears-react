@@ -1,4 +1,3 @@
-import React, { Fragment } from 'react';
 import {
     Button,
     Checkbox,
@@ -15,6 +14,7 @@ import {
     TextField,
     Typography
 } from '@mui/material';
+import React, { Fragment } from 'react';
 
 const styles = {
     textTitle:{

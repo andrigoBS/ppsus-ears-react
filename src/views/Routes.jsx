@@ -1,13 +1,13 @@
-import React from 'react';
 import { BrowserRouter, Route, Routes as RoutesRouter } from 'react-router-dom';
-import Secretary from './secretary/Secretary';
 import Institution from './institution/Institution';
+import PageNotFound from './site/pages/PageNotFound';
+import Parents from './parents/Parents';
+import React from 'react';
+import Secretary from './secretary/Secretary';
 import Site from './site/Site';
 import Therapist from './therapist/Therapist';
-import Parents from './parents/Parents';
-import { ViewConfigurationProvider } from '../providers/viewConfiguration/ViewConfiguration';
 import TopBar from '../components/TopBar';
-import PageNotFound from './site/pages/PageNotFound';
+import { ViewConfigurationProvider } from '../providers/viewConfiguration/ViewConfiguration';
 
 const Routes = () => {
     return (

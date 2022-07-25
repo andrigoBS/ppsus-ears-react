@@ -1,8 +1,8 @@
-import React from 'react';
-import TextParagraph from '../components/TextParagraph';
+import { Box, Link, Typography, useTheme } from '@mui/material';
 import Footer from '../components/Footer';
 import Partners from '../components/Partners';
-import { Box, Link, Typography, useTheme } from '@mui/material';
+import React from 'react';
+import TextParagraph from '../components/TextParagraph';
 import { useLocation } from 'react-router-dom';
 import { useViewConfiguration } from '../../../providers/viewConfiguration/ViewConfiguration';
 

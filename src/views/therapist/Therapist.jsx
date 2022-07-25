@@ -1,15 +1,15 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import TopBar from '../../components/TopBar';
-import HomeTherapist from './pages/HomeTherapist';
-import RegisterTherapist from './pages/login/RegisterTherapist';
-import RegisterConsultation from './pages/consultation/RegisterConsultation';
-import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
-import TherapistService from '../../services/therapist/TherapistService';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
-import PageNotFound from '../site/pages/PageNotFound';
-import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
+import { Route, Routes } from 'react-router-dom';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
+import HomeTherapist from './pages/HomeTherapist';
+import PageNotFound from '../site/pages/PageNotFound';
+import React from 'react';
+import RegisterConsultation from './pages/consultation/RegisterConsultation';
+import RegisterTherapist from './pages/login/RegisterTherapist';
+import TherapistService from '../../services/therapist/TherapistService';
+import TopBar from '../../components/TopBar';
+import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
+import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
 
 const Therapist = () => {
     return (

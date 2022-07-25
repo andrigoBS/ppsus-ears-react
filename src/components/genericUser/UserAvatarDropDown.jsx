@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../providers/auth/Auth';
-import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
 import {
     AccountCircle as AccountCircleIcon,
     Comment as CommentIcon,
     Logout as LogoutIcon
 } from '@mui/icons-material';
 import { Badge, Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
+import React, { useState } from 'react';
+import { useAuth } from '../../providers/auth/Auth';
+import { useNavigate } from 'react-router-dom';
+import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
 
 const style = {
     container: {

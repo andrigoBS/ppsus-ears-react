@@ -1,9 +1,8 @@
-import React from 'react';
-import TextField from '@mui/material/TextField';
-import { Grid, Typography } from '@mui/material';
-import { useForm } from 'react-hook-form';
+import { Grid, TextField, Typography } from '@mui/material';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
+import React from 'react';
 import SecretaryService from '../../../../services/secretary/SecretaryService';
+import { useForm } from 'react-hook-form';
 
 const RegisterSecretary = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();

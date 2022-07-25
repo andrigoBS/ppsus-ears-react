@@ -1,10 +1,9 @@
-import React from 'react';
-
-import { useForm } from 'react-hook-form';
 import { FormControl, FormControlLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@mui/material';
-import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
+import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
 import InstitutionService from '../../../../services/institution/InstitutionService';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const RegisterInstitution = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();

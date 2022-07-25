@@ -1,9 +1,9 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
 import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
+import React from 'react';
 import TherapistService from '../../../../services/therapist/TherapistService';
+import { useForm } from 'react-hook-form';
 
 const styles = {
     button:{

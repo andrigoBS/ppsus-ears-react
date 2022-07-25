@@ -88,7 +88,7 @@
     "curly": "error",
     "max-len": [
       "error",
-      200
+      190
     ],
     "brace-style": [
       "error",

@@ -1,14 +1,14 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import TopBar from '../../components/TopBar';
-import RegisterSecretary from './pages/login/RegisterSecretary';
-import HomeSecretary from './pages/HomeSecretary';
-import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
-import SecretaryService from '../../services/secretary/SecretaryService';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
-import PageNotFound from '../site/pages/PageNotFound';
-import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
+import { Route, Routes } from 'react-router-dom';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
+import HomeSecretary from './pages/HomeSecretary';
+import PageNotFound from '../site/pages/PageNotFound';
+import React from 'react';
+import RegisterSecretary from './pages/login/RegisterSecretary';
+import SecretaryService from '../../services/secretary/SecretaryService';
+import TopBar from '../../components/TopBar';
+import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
+import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
 
 const Secretary = () => {
     return (

@@ -1,12 +1,12 @@
-import * as React from 'react';
-import RegisterResponsible from './components/RegisterResponsible';
-import RegisterBaby from './components/RegisterBaby';
-import RegisterResults from './components/RegisterResults';
-import RegisterMother from './components/RegisterMother';
-import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
-import { useForm } from 'react-hook-form';
 import { Box, Button, Grid, Step, StepLabel, Stepper } from '@mui/material';
+import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
+import React from 'react';
+import RegisterBaby from './components/RegisterBaby';
+import RegisterMother from './components/RegisterMother';
+import RegisterResponsible from './components/RegisterResponsible';
+import RegisterResults from './components/RegisterResults';
 import TherapistService from '../../../../services/therapist/TherapistService';
+import { useForm } from 'react-hook-form';
 
 const RegisterConsultation = () => {
     const [activeStep, setActiveStep] = React.useState(0);

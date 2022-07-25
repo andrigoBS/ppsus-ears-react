@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import InstitutionService from '../../../services/institution/InstitutionService';
-import { GraphicDoughnut } from '../../../components/graphics/GraphicDoughnut';
 import { Grid, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { GraphicBar } from '../../../components/graphics/GraphicBar';
+import { GraphicDoughnut } from '../../../components/graphics/GraphicDoughnut';
+import InstitutionService from '../../../services/institution/InstitutionService';
 
 const HomeInstitution = () => {
     const [response, setResponse] = useState('');
