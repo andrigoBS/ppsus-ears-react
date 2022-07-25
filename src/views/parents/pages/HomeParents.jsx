@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const HomeParents = () => {
     return (
@@ -6,6 +6,6 @@ const HomeParents = () => {
             <p>Home Parents</p>
         </div>
     );
-}
+};
 
 export default HomeParents;

@@ -1,32 +1,32 @@
-import React from "react";
+import React from 'react';
 
-import Footer from "./components/Footer";
-import TopBar from "../../components/TopBar";
-import Partners from "./components/Partners";
-import VideoAndText from "./components/VideoAndText";
-import TextParagraph from "./components/TextParagraph";
-import VideoParagraph from "./components/VideoParagraph";
-import TopicListIcon from "../../components/lists/TopicListIcon";
+import Footer from './components/Footer';
+import TopBar from '../../components/TopBar';
+import Partners from './components/Partners';
+import VideoAndText from './components/VideoAndText';
+import TextParagraph from './components/TextParagraph';
+import VideoParagraph from './components/VideoParagraph';
+import TopicListIcon from '../../components/lists/TopicListIcon';
 
-import { useNavigate } from "react-router-dom";
-import { Typography, Button } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
+import { Button, Typography } from '@mui/material';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
-import { ViewConfigurationProvider } from "../../providers/viewConfiguration/ViewConfiguration";
+import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
 
 const Site = () => {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     return (
         <ViewConfigurationProvider baseRoute={'/'} title={''}>
             <TopBar rightElement={
-                    <Button color="secondary"
-                            type="submit"
-                            variant="contained"
-                            onClick={() => navigate('/pais')}
-                    >
+                <Button color="secondary"
+                    type="submit"
+                    variant="contained"
+                    onClick={() => navigate('/pais')}
+                >
                         área dos pais
-                    </Button>
-                }
+                </Button>
+            }
             >
                 <TextParagraph title={'Bem-Vindo à Meu primeiro alô'}>
                     Uma plataforma de rastreamento do teste da orelhinha,
@@ -38,7 +38,7 @@ const Site = () => {
                 <VideoParagraph title={'Bem-vindo'} url={'https://www.youtube.com/embed/'} />
 
                 <TextParagraph title={'O que é?'}>
-                    <div style={{textAlign: 'left'}}>
+                    <div style={{ textAlign: 'left' }}>
                         <Typography variant={'h6'} color={'secondary'}>Objetivos</Typography>
                         <Typography variant={'body1'}>
                             Nosso objetivo é <Typography variant={'subtitle1'} component={'b'} color={'secondary'}>rastrear </Typography>
@@ -50,11 +50,11 @@ const Site = () => {
                         <br/>
                         <Typography variant={'h6'} color={'secondary'}>Para quem é?</Typography>
                         <TopicListIcon icon={<FavoriteTwoToneIcon color='secondary'/>} topics={[
-                                'Todos os fonoaudiólogos poderão acessar e incluir informações do teste da orelhinha.',
-                                'A maternidade registrará os dados do recém-nascido.',
-                                'O Estado de Santa Catarina terá o registro dos bebês.',
-                                'Os pais acessarão  informações, resultados e encaminhamentos.',
-                            ]}
+                            'Todos os fonoaudiólogos poderão acessar e incluir informações do teste da orelhinha.',
+                            'A maternidade registrará os dados do recém-nascido.',
+                            'O Estado de Santa Catarina terá o registro dos bebês.',
+                            'Os pais acessarão  informações, resultados e encaminhamentos.',
+                        ]}
                         />
                         <br/>
                         <Typography variant={'h6'} color={'secondary'}>Como participar</Typography>
@@ -73,15 +73,15 @@ const Site = () => {
                 </TextParagraph>
 
                 <VideoAndText title={'Dicas para os pais'} videoUrl={'https://www.youtube.com/embed/'}>
-                   <b>Olá,</b> mamães e papais
+                    <b>Olá,</b> mamães e papais
                     <TopicListIcon icon={<FavoriteTwoToneIcon color='primary'/>} topics={[
-                            'Antes de seu bebê sair da maternidade ele deverá realizar o teste da orelhinha.',
-                            'Para realizar este exame o fonoaudiólogo irá colocar uma borrachinha (oliva) ligada a um aparelho na orelha do seu bebê.',
-                            'O teste da orelhinha é realizado de forma rápida e indolor.',
-                            'Com o teste é possível identificar como está a audição de seu filho.',
-                            'Caso não seja obtido o resultado esperado, o fonoaudiólogo irá solicitar o reteste, dentro do primeiro mês de vida do recém-nascido.',
-                            'O reteste é de extrema importância para sabermos como está a audição do seu bebê.',
-                        ]}
+                        'Antes de seu bebê sair da maternidade ele deverá realizar o teste da orelhinha.',
+                        'Para realizar este exame o fonoaudiólogo irá colocar uma borrachinha (oliva) ligada a um aparelho na orelha do seu bebê.',
+                        'O teste da orelhinha é realizado de forma rápida e indolor.',
+                        'Com o teste é possível identificar como está a audição de seu filho.',
+                        'Caso não seja obtido o resultado esperado, o fonoaudiólogo irá solicitar o reteste, dentro do primeiro mês de vida do recém-nascido.',
+                        'O reteste é de extrema importância para sabermos como está a audição do seu bebê.',
+                    ]}
                     />
                 </VideoAndText>
                 <Partners />
@@ -89,6 +89,6 @@ const Site = () => {
             </TopBar>
         </ViewConfigurationProvider>
     );
-}
+};
 
 export default Site;

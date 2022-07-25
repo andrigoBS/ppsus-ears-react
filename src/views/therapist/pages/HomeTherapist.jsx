@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const HomeTherapist = () => {
     return (
@@ -6,6 +6,6 @@ const HomeTherapist = () => {
             <p>Home Therapist</p>
         </div>
     );
-}
+};
 
 export default HomeTherapist;

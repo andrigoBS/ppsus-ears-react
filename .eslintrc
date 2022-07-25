@@ -1,0 +1,121 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "plugins": ["react", "jsx-a11y"],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "(R|r)eact"
+      }
+    ],
+    "react/prop-types": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/self-closing-comp": "warn",
+    "semi": "error",
+    "arrow-return-shorthand": "off",
+    "forin": "off",
+    "member-access": "off",
+    "no-require-imports": "off",
+    "no-console": "off",
+    "no-debugger": "error",
+    "no-var": "error",
+    "no-object-literal-type-assertion": "off",
+    "no-shadowed-variable": "off",
+    "no-submodule-imports": "off",
+    "sort-imports": "error",
+    "import-name": "off",
+    "match-default-export-name": "off",
+    "prefer-conditional-expression": "off",
+    "ban-comma-operator": "off",
+    "restrict-plus-operands": "off",
+    "max-classes-per-file": "error",
+    "no-increment-decrement": "off",
+    "member-ordering": "off",
+    "no-angle-bracket-type-assertion": "off",
+    "no-bitwise": "off",
+    "no-namespace": "off",
+    "object-literal-sort-keys": "off",
+    "jsx-no-lambda": "off",
+    "no-constant-condition": "error",
+    "no-null-keyword": "off",
+    "object-shorthand-properties-first": "off",
+    "quotes": ["error", "single"],
+    "prefer-template": "off",
+    "no-eval": "error",
+    "prefer-object-spread": "error",
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "all"
+      }
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never"
+      }
+    ],
+    "no-parameter-reassignment": "off",
+    "arrow-parens": "off",
+    "no-duplicate-imports": "error",
+    "no-trailing-spaces": "error",
+    "curly": "error",
+    "max-len": [
+      "error",
+      200
+    ],
+    "brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "no-else-return": "error",
+    "indent": "error",
+    "space-in-parens": [
+      "error",
+      "never"
+    ],
+    "array-bracket-spacing": [
+      "error",
+      "never"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "block-spacing": "error",
+    "no-return-await": "error",
+    "no-case-declarations": "error",
+    "prefer-switch": "off",
+    "no-unsafe-any": "off",
+    "radix": "error"
+  }
+}

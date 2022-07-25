@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { IMaskInput } from 'react-imask';
-import TextField from "@mui/material/TextField";
+import TextField from '@mui/material/TextField';
 
-const BrazilianPhoneField = ({register, name, formErrors, required, label, ...other}) => {
+const BrazilianPhoneField = ({ register, name, formErrors, required, label, ...other }) => {
     return (
         <PhoneFieldMasked
             variant="outlined"
@@ -18,7 +18,7 @@ const BrazilianPhoneField = ({register, name, formErrors, required, label, ...ot
             })}
         />
     );
-}
+};
 
 BrazilianPhoneField.propTypes = {
     register: PropTypes.func.isRequired,
@@ -28,13 +28,13 @@ BrazilianPhoneField.propTypes = {
     required: PropTypes.bool,
 };
 
-const PhoneFieldMasked = ({onChange, value, ...other}) => {
-    let [data, setData] = useState(value || '');
+const PhoneFieldMasked = ({ onChange, value, ...other }) => {
+    const [data, setData] = useState(value || '');
 
     const handleOnChange = (event) => {
         setData(event.target.value);
         onChange(event);
-    }
+    };
 
     return (
         <TextField
@@ -46,16 +46,16 @@ const PhoneFieldMasked = ({onChange, value, ...other}) => {
             }}
         />
     );
-}
+};
 
 const PhoneMask = React.forwardRef(function (props, ref) {
     const { onChange, name, ...other } = props;
-    let [mask, setMask] = useState("(0#) 00000-0000");
+    const [mask, setMask] = useState('(0#) 00000-0000');
 
     const onAccept = (value) => {
         setMask(getMask(value));
-        onChange({target: {name: name, value: value}});
-    }
+        onChange({ target: { name: name, value: value } });
+    };
 
     return (
         <IMaskInput
@@ -76,11 +76,11 @@ PhoneMask.propTypes = {
 };
 
 const getMask = (value) => {
-    let valueClear = value.replace(' ', '').replace('-', '').replace('(', '').replace(')', '');
+    const valueClear = value.replace(' ', '').replace('-', '').replace('(', '').replace(')', '');
 
-    if (valueClear.substring(0, 4) === '0800') return "0800 000 0000";
-    if (valueClear.length < 11) return "(0#) 0000-00000";
-    return "(0#) 00000-0000";
-}
+    if (valueClear.substring(0, 4) === '0800') { return '0800 000 0000'; }
+    if (valueClear.length < 11) { return '(0#) 0000-00000'; }
+    return '(0#) 00000-0000';
+};
 
 export default BrazilianPhoneField;

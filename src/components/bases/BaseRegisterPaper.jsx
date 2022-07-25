@@ -1,7 +1,7 @@
-import {Box, Button, Grid, Paper, Typography, useTheme} from "@mui/material";
-import HtmlHead from "../HtmlHead";
+import { Box, Button, Grid, Paper, Typography, useTheme } from '@mui/material';
+import HtmlHead from '../HtmlHead';
 
-import React from "react";
+import React from 'react';
 
 const createStyles = (theme) => ({
     paper: {
@@ -33,19 +33,19 @@ const createStyles = (theme) => ({
     },
 });
 
-const BaseRegisterPaper = ({children, serviceFunction, title, handleSubmit, notSubmitButton}) => {
+const BaseRegisterPaper = ({ children, serviceFunction, title, handleSubmit, notSubmitButton }) => {
     const theme = useTheme();
     const styles = createStyles(theme);
     const onSubmit = (data) => {
-        alert(data)
-        console.log(data)
-        serviceFunction(data)
-    }
+        alert(data);
+        console.log(data);
+        serviceFunction(data);
+    };
 
     return (
         <Paper sx={styles.paper}>
             <HtmlHead view={title} subTitle={'Cadastro'}/>
-            <Typography sx={styles.textTitle} variant={"h4"}>
+            <Typography sx={styles.textTitle} variant={'h4'}>
                 Cadastro {title}
             </Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -54,9 +54,9 @@ const BaseRegisterPaper = ({children, serviceFunction, title, handleSubmit, notS
                         {children}
                         {!notSubmitButton && <Grid item xs={12} sm={12} md={12}>
                             <Button sx={styles.finalButton}
-                                    color="secondary"
-                                    type="submit"
-                                    variant="contained">
+                                color="secondary"
+                                type="submit"
+                                variant="contained">
                                 Finalizar cadastro
                             </Button>
                         </Grid>}
@@ -65,5 +65,5 @@ const BaseRegisterPaper = ({children, serviceFunction, title, handleSubmit, notS
             </form>
         </Paper>
     );
-}
+};
 export default BaseRegisterPaper;

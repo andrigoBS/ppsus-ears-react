@@ -1,12 +1,12 @@
 import * as React from 'react';
-import RegisterResponsible from "./components/RegisterResponsible";
-import RegisterBaby from "./components/RegisterBaby";
-import RegisterResults from "./components/RegisterResults";
-import RegisterMother from "./components/RegisterMother";
-import BaseRegisterPaper from "../../../../components/bases/BaseRegisterPaper";
-import {useForm} from "react-hook-form";
-import {Box, Button, Grid, Step, StepLabel, Stepper} from "@mui/material";
-import TherapistService from "../../../../services/therapist/TherapistService";
+import RegisterResponsible from './components/RegisterResponsible';
+import RegisterBaby from './components/RegisterBaby';
+import RegisterResults from './components/RegisterResults';
+import RegisterMother from './components/RegisterMother';
+import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
+import { useForm } from 'react-hook-form';
+import { Box, Button, Grid, Step, StepLabel, Stepper } from '@mui/material';
+import TherapistService from '../../../../services/therapist/TherapistService';
 
 const RegisterConsultation = () => {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -33,10 +33,10 @@ const RegisterConsultation = () => {
     ];
 
     return (
-        <BaseRegisterPaper title={"Consulta"} handleSubmit={handleSubmit} serviceFunction={TherapistService.consultationRegister} notSubmitButton={true}>
+        <BaseRegisterPaper title={'Consulta'} handleSubmit={handleSubmit} serviceFunction={TherapistService.consultationRegister} notSubmitButton={true}>
             <Grid item xs={12} sm={12} md={12}>
                 <Stepper activeStep={activeStep} alternativeLabel>
-                    {steps.map(({label}) => (<Step key={label}><StepLabel>{label}</StepLabel></Step>))}
+                    {steps.map(({ label }) => (<Step key={label}><StepLabel>{label}</StepLabel></Step>))}
                 </Stepper>
             </Grid>
             {steps[activeStep].element}
@@ -53,13 +53,13 @@ const RegisterConsultation = () => {
                     {
                         activeStep === steps.length - 1?
                             <Button type="submit">Finalizar Cadastro</Button>
-                        :
+                            :
                             <Button onClick={() => setActiveStep(activeStep + 1)}>Próximo</Button>
                     }
                 </Box>
             </Grid>
         </BaseRegisterPaper>
     );
-}
+};
 
 export default RegisterConsultation;

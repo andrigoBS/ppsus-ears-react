@@ -1,13 +1,13 @@
-import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {useAuth} from "../../providers/auth/Auth";
-import {useViewConfiguration} from "../../providers/viewConfiguration/ViewConfiguration";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../providers/auth/Auth';
+import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
 import {
-    Logout as LogoutIcon,
+    AccountCircle as AccountCircleIcon,
     Comment as CommentIcon,
-    AccountCircle as AccountCircleIcon
-} from "@mui/icons-material";
-import {Badge, Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip} from "@mui/material";
+    Logout as LogoutIcon
+} from '@mui/icons-material';
+import { Badge, Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 
 const style = {
     container: {
@@ -32,7 +32,7 @@ const style = {
     },
 };
 
-const UserAvatarDropDown = ({withNotification}) => {
+const UserAvatarDropDown = ({ withNotification }) => {
     const auth = useAuth();
     const navigate = useNavigate();
     const configuration = useViewConfiguration();
@@ -48,7 +48,7 @@ const UserAvatarDropDown = ({withNotification}) => {
     };
 
     if (!auth.user) {
-        let title = "Entrar na plataforma";
+        const title = 'Entrar na plataforma';
         return (
             <Tooltip title={title}>
                 <IconButton color="inherit" aria-label={title} component="span"
@@ -77,11 +77,11 @@ const UserAvatarDropDown = ({withNotification}) => {
             }
             <Tooltip title={'Minha conta'} arrow>
                 <IconButton color="inherit" component="span"
-                            aria-label="Minha conta"
-                            aria-haspopup="true"
-                            aria-controls={openMenu ? 'account-menu' : undefined}
-                            aria-expanded={openMenu ? 'true' : undefined}
-                            onClick={handleClick}
+                    aria-label="Minha conta"
+                    aria-haspopup="true"
+                    aria-controls={openMenu ? 'account-menu' : undefined}
+                    aria-expanded={openMenu ? 'true' : undefined}
+                    onClick={handleClick}
                 >
                     <AccountCircleIcon/>
                 </IconButton>
@@ -103,7 +103,7 @@ const UserAvatarDropDown = ({withNotification}) => {
                     {auth.user.name}
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={() => {auth.logout(configuration.baseRoute);}}>
+                <MenuItem onClick={() => { auth.logout(configuration.baseRoute); }}>
                     <ListItemIcon>
                         <LogoutIcon fontSize="small" />
                     </ListItemIcon>
@@ -112,6 +112,6 @@ const UserAvatarDropDown = ({withNotification}) => {
             </Menu>
         </Box>
     );
-}
+};
 
 export default UserAvatarDropDown;

@@ -1,13 +1,13 @@
-import React from "react";
-import {Box, Grid, Link, Typography} from "@mui/material";
-import UnivaliIcon from "../../../components/icons/UnivaliIcon";
-import SecretaryIcon from "../../../components/icons/SecretaryIcon";
-import CNPqIcon from "../../../components/icons/CNPqIcon";
-import UnieduIcon from "../../../components/icons/UnieduIcon";
-import CrefonoIcon from "../../../components/icons/CrefonoIcon";
-import NascerIcon from "../../../components/icons/NascerIcon";
+import React from 'react';
+import { Box, Grid, Link, Typography } from '@mui/material';
+import UnivaliIcon from '../../../components/icons/UnivaliIcon';
+import SecretaryIcon from '../../../components/icons/SecretaryIcon';
+import CNPqIcon from '../../../components/icons/CNPqIcon';
+import UnieduIcon from '../../../components/icons/UnieduIcon';
+import CrefonoIcon from '../../../components/icons/CrefonoIcon';
+import NascerIcon from '../../../components/icons/NascerIcon';
 
-const Partners = ({color}) => {
+const Partners = ({ color }) => {
     const partners = [
         {
             url: 'https://univali.br',
@@ -36,8 +36,8 @@ const Partners = ({color}) => {
     ];
 
     return (
-        <Box sx={{padding: '45px', textAlign: 'center', backgroundColor: color}}>
-            <Typography variant="h4" color={'primary'} sx={{marginBottom: '30px'}}>Parceiros</Typography>
+        <Box sx={{ padding: '45px', textAlign: 'center', backgroundColor: color }}>
+            <Typography variant="h4" color={'primary'} sx={{ marginBottom: '30px' }}>Parceiros</Typography>
             <Grid container spacing={5} justifyContent={'center'} alignItems={'center'}>
                 {partners.map((partner) => (
                     <Grid item>

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const HomeSecretary = () => {
     return (
@@ -6,6 +6,6 @@ const HomeSecretary = () => {
             <p>Home Secretary</p>
         </div>
     );
-}
+};
 
 export default HomeSecretary;
