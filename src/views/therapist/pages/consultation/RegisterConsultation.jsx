@@ -15,25 +15,25 @@ const RegisterConsultation = () => {
 
     const steps = [
         {
-            label: 'Cadastro mãe',
+            label: 'Cadastrar Mãe',
             element: <RegisterMother register={register} errors={errors}/>
         },
         {
-            label: 'Cadastro outro responsável',
+            label: 'Cadastrar Outro Responsável',
             element: <RegisterResponsible register={register} errors={errors}/>
         },
         {
-            label: 'Cadastro Bebê',
+            label: 'Cadastrar Bebê',
             element: <RegisterBaby register={register} errors={errors}/>
         },
         {
-            label: 'Registro dos resultados',
+            label: 'Registrar Resultados',
             element: <RegisterResults register={register} errors={errors}/>
         }
     ];
 
     return (
-        <BaseRegisterPaper title={'Consulta'} handleSubmit={handleSubmit} serviceFunction={TherapistService.consultationRegister} notSubmitButton={true}>
+        <BaseRegisterPaper title={'Resultado da Triagem'} handleSubmit={handleSubmit} serviceFunction={TherapistService.consultationRegister} notSubmitButton={true}>
             <Grid item xs={12} sm={12} md={12}>
                 <Stepper activeStep={activeStep} alternativeLabel>
                     {steps.map(({ label }) => (<Step key={label}><StepLabel>{label}</StepLabel></Step>))}

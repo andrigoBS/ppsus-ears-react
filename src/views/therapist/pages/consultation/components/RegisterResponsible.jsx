@@ -22,25 +22,25 @@ const RegisterResponsible = ({ register, errors }) => {
                 <TextField {...register('responsibleName')} label="Nome completo do Responsável" variant="outlined" size="small"  />
             </Grid>
             <Grid item xs={12} sm={12} md={3}>
-                <TextField {...register('responsibleBirthdate')} label="Data de Nascimento" variant="outlined" size="small"  />
+                <TextField {...register('responsibleBirthdate')} label="Data de nascimento" variant="outlined" size="small"  />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant="h6" >Contato</Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('responsiblePreferentialEmail')} label="E-mail Preferencial" variant="outlined" size="small"  required/>
+                <TextField {...register('responsiblePreferentialEmail')} label="E-mail preferencial" variant="outlined" size="small"  required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('responsibleAlternativeEmail')} label="E-mail Alternativo" variant="outlined" size="small" />
+                <TextField {...register('responsibleAlternativeEmail')} label="E-mail alternativo" variant="outlined" size="small" />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <BrazilianPhoneField register={register} name="responsiblePhonePrimary" formErrors={errors}
-                    label="Telefone Residencial" variant="outlined" size="small"  required
+                    label="Telefone residencial" variant="outlined" size="small"  required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <BrazilianPhoneField register={register} name="responsiblePhoneSecond" formErrors={errors}
-                    label="Telefone Celular" variant="outlined" size="small"
+                    label="Telefone celular" variant="outlined" size="small"
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>

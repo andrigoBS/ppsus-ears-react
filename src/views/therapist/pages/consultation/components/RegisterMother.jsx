@@ -24,19 +24,19 @@ const RegisterMother = ({ register, errors }) => {
                 <Typography variant="h6" >Contato</Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('motherPreferentialEmail')} label="E-mail Preferencial" variant="outlined" size="small" sx={styles.textField} required/>
+                <TextField {...register('motherPreferentialEmail')} label="E-mail preferencial" variant="outlined" size="small" sx={styles.textField} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('motherAlternativeEmail')} label="E-mail Alternativo" variant="outlined" size="small" sx={styles.textField} />
+                <TextField {...register('motherAlternativeEmail')} label="E-mail alternativo" variant="outlined" size="small" sx={styles.textField} />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <BrazilianPhoneField register={register} name="motherPhonePrimary" formErrors={errors}
-                    label="Telefone Residencial" variant="outlined" size="small" sx={styles.textField} required
+                    label="Telefone residencial" variant="outlined" size="small" sx={styles.textField} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <BrazilianPhoneField register={register} name="motherPhoneSecond" formErrors={errors}
-                    label="Telefone Celular" size="small" sx={styles.textField} variant="outlined"
+                    label="Telefone celular" size="small" sx={styles.textField} variant="outlined"
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>

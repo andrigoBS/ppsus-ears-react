@@ -29,12 +29,9 @@ const styles = {
     }
 };
 
-const RegisterResults = ({ register, errors }) => {
+const RegisterResults = ({ register, /*errors*/ }) => {
     return (
         <Fragment>
-            <Grid item xs={12} sm={12} md={12}>
-                <Typography variant="h6" sx={styles.textTitle}>Resultados dos Testes</Typography>
-            </Grid>
             <Grid item xs={12} sm={12} md={3}>
                 <TextField {...register('avaliationDate')} label="Data da avaliação" variant="outlined" size="small" />
             </Grid>
@@ -47,9 +44,6 @@ const RegisterResults = ({ register, errors }) => {
                         <MenuItem value={30}>Equipamento 3</MenuItem>
                     </Select>
                 </FormControl>
-            </Grid>
-            <Grid item xs={12} sm={12} md={12}>
-                <Typography variant="h6" >IRDA</Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <FormControl {...register('IRDA')} component="fieldset" sx={styles.select} variant="standard" size="small" >
@@ -68,9 +62,6 @@ const RegisterResults = ({ register, errors }) => {
                         />
                     </FormGroup>
                 </FormControl>
-            </Grid>
-            <Grid item xs={12} sm={12} md={12}>
-                <Typography variant="h6" >Resultado Teste</Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <FormControl sx={styles.select} size="small">

@@ -1,5 +1,5 @@
-import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import { Route, Routes } from 'react-router-dom';
+import { AuthProvider, /*RedirectIfAuth, RequireAuth*/ } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
 import HomeTherapist from './pages/HomeTherapist';
 import PageNotFound from '../site/pages/PageNotFound';
@@ -17,10 +17,10 @@ const Therapist = () => {
             <AuthProvider>
                 <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>}>
                     <Routes>
-                        <Route path={'/'} element={<RequireAuth> <HomeTherapist/> </RequireAuth>} />
-                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
-                        <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterTherapist/> </RedirectIfAuth>} />
-                        <Route path={'/consulta/cadastro'} element={<RequireAuth> <RegisterConsultation/> </RequireAuth>} />
+                        <Route path={'/'} element={/*<RequireAuth> */<HomeTherapist/> /*</RequireAuth>*/} />
+                        <Route path={'/login'} element={/*<RedirectIfAuth> */<BaseLoginPaper/> /*</RedirectIfAuth>*/} />
+                        <Route path={'/cadastro'} element={/*<RedirectIfAuth> */<RegisterTherapist/> /*</RedirectIfAuth>*/} />
+                        <Route path={'/consulta/cadastro'} element={/*<RequireAuth> */<RegisterConsultation/> /*</RequireAuth>*/} />
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>

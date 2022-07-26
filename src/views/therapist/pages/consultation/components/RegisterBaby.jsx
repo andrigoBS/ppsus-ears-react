@@ -14,7 +14,7 @@ const RegisterBaby = ({ register }) => {
                 <Typography variant="h6" sx={styles.textTitle}>Informações do Bebê</Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField {...register('babyName')} label="Nome do Bebê" variant="outlined" size="small" />
+                <TextField {...register('babyName')} label="Nome do bebê" variant="outlined" size="small" />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField {...register('babyWeight')} label="Peso" variant="outlined" size="small" />
@@ -23,7 +23,7 @@ const RegisterBaby = ({ register }) => {
                 <TextField {...register('babyHeight')} label="Altura" variant="outlined" size="small" />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('babyCephalicPerimeter')} label="Perímetro Cefálico" variant="outlined" size="small" />
+                <TextField {...register('babyCephalicPerimeter')} label="Perímetro cefálico" variant="outlined" size="small" />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField {...register('babyBirthdate')} label="Data de nascimento" variant="outlined" size="small" />
