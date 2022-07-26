@@ -11,7 +11,7 @@ const RegisterInstitution = () => {
     return (
         <BaseRegisterPaper handleSubmit={handleSubmit} title={'Instituição'} serviceFunction={InstitutionService.register}>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField  {...register('nameOfInstitution')} label="Nome instituição" variant="outlined" size="small" required/>
+                <TextField  {...register('institutionName')} label="Nome instituição" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('password')} label="Senha" type="password" variant="outlined" size="small" required/>
@@ -20,10 +20,10 @@ const RegisterInstitution = () => {
                 <TextField  {...register('passwordConfirm')} label="Confirmação de Senha" type="password" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('CNES')} label="CNES" variant="outlined" size="small" required/>
+                <TextField  {...register('cnes')} label="CNES" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('CNPJ')} label="CNPJ" variant="outlined" size="small"/>
+                <TextField  {...register('cnpj')} label="CNPJ" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography  variant={'h6'}>
@@ -31,9 +31,9 @@ const RegisterInstitution = () => {
                 </Typography>
                 <FormControl required>
                     <RadioGroup {...register('institutionType')} defaultValue={'Hospital'}>
-                        <FormControlLabel value={'Hospital'} control={<Radio/>} label="Hospital"/>
-                        <FormControlLabel value={'Maternidade'} control={<Radio/>} label="Maternidade"/>
-                        <FormControlLabel value={'Hospital e Maternidade'} control={<Radio/>} label="Hospital e Maternidade"/>
+                        <FormControlLabel value={'HOSPITAL'} control={<Radio/>} label="Hospital"/>
+                        <FormControlLabel value={'MATERNITY'} control={<Radio/>} label="Maternidade"/>
+                        <FormControlLabel value={'HOSPITAL_AND_MATERNITY'} control={<Radio/>} label="Hospital e Maternidade"/>
                     </RadioGroup>
                 </FormControl>
             </Grid>
@@ -43,22 +43,22 @@ const RegisterInstitution = () => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('preferentialEmail')} label="E-mail Preferencial" variant="outlined" size="small" required/>
+                <TextField  {...register('email')} label="E-mail Preferencial" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField   {...register('alternativeEmail')} label="E-mail Alternativo" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField register={register} name="phonePrimary" formErrors={errors} label="Telefone Institucional" required />
+                <BrazilianPhoneField register={register} name="institutionPhone" formErrors={errors} label="Telefone Institucional" required />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField register={register} name="phoneSecond" formErrors={errors} label="Telefone Celular Institucional"/>
+                <BrazilianPhoneField register={register} name="institutionPhoneSecond" formErrors={errors} label="Telefone Celular Institucional"/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant={'h6'}>Endereço</Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('CEP')} label="CEP" variant="outlined" size="small" required/>
+                <TextField  {...register('cep')} label="CEP" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('street')} label="Logradouro" variant="outlined" size="small" required/>
@@ -81,10 +81,10 @@ const RegisterInstitution = () => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('nameOfResponsible')} label="Nome do Responsável" variant="outlined" size="small" required/>
+                <TextField  {...register('responsibleName')} label="Nome do Responsável" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('postOfResponsible')} label="Cargo" variant="outlined" size="small"/>
+                <TextField  {...register('responsibleRole')} label="Cargo" variant="outlined" size="small"/>
             </Grid>
         </BaseRegisterPaper>
     );

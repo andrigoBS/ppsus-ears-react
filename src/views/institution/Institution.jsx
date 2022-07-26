@@ -19,8 +19,8 @@ const Institution = () => {
                     <Routes>
                         <Route path={'/'} element={/*<RequireAuth>*/ <HomeInstitution/> /*</RequireAuth>*/} />
                         <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
-                        <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterInstitution/> </RedirectIfAuth>} />
-                        <Route path={'/servico-referencia/cadastro'} element={<RequireAuth> <RegisterReferralService/> </RequireAuth>} />
+                        <Route path={'/cadastro'} element={/*<RedirectIfAuth>*/ <RegisterInstitution/> /*</RedirectIfAuth>*/} />
+                        <Route path={'/servico-referencia/cadastro'} element={/*<RequireAuth>*/ <RegisterReferralService/> /*</RequireAuth>*/} />
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>
