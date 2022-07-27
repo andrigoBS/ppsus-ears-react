@@ -1,15 +1,16 @@
 import { FormControl, FormControlLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@mui/material';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
-import InstitutionService from '../../../../services/institution/InstitutionService';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const RegisterInstitution = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const configuration = useViewConfiguration();
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Instituição'} serviceFunction={InstitutionService.register}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Instituição'} serviceFunction={configuration.service.register}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register('institutionName')} label="Nome instituição" variant="outlined" size="small" required/>
             </Grid>

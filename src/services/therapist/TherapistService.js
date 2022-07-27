@@ -1,40 +1,14 @@
+import GenericService from '../GenericService';
 import HttpHelper from '../HttpHelper';
 
-const TherapistService = function () {
-    const pathName = 'therapist';
-    const sessionStorageKey = 'therapistUser';
+const TherapistService = () => {
+    const generic = GenericService('therapist','therapistUser');
 
-    this.getAll = () => {
-        return HttpHelper.get(pathName);
+    const consultationRegister = (data) => {
+        return HttpHelper.post(`${generic.pathName}/consultation`, data);
     };
 
-    this.get = (id) => {
-        return HttpHelper.get(`${pathName}/${id}`);
-    };
-
-    this.register = (data) => {
-        return HttpHelper.post(pathName, data);
-    };
-
-    this.login = (login, password) => {
-        return HttpHelper.login(pathName+'/login', login, password).then((r) => {
-            sessionStorage.setItem(sessionStorageKey, JSON.stringify(r.body));
-            return r;
-        });
-    };
-
-    this.logout = () => {
-        sessionStorage.removeItem(sessionStorageKey);
-        //TODO: Criar logout backend
-    };
-
-    this.getUser = () => {
-        return JSON.parse(sessionStorage.getItem(sessionStorageKey)) || { user: null, token: null };
-    };
-
-    this.consultationRegister = (data) => {
-        return HttpHelper.post(`${pathName}/consultation`, data);
-    };
+    return { ...generic, consultationRegister };
 };
 
-export default new TherapistService();
+export default TherapistService();

@@ -48,6 +48,7 @@ const PhoneFieldMasked = ({ onChange, value, ...other }) => {
     );
 };
 
+// eslint-disable-next-line react/display-name
 const PhoneMask = forwardRef((props, ref) => {
     const { onChange, name, ...other } = props;
     const [mask, setMask] = useState('(0#) 00000-0000');

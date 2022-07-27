@@ -1,15 +1,16 @@
 import { FormControl, FormControlLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@mui/material';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
-import InstitutionService from '../../../../services/institution/InstitutionService';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const RegisterReferralService = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const configuration = useViewConfiguration();
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={"de Serviço de Saúde Auditiva"} service={InstitutionService.referralServiceRegister}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'de Serviço de Saúde Auditiva'} service={configuration.service.referralServiceRegister}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register('name')} label="Nome do Serviço" variant="outlined" size="small" required/>
             </Grid>

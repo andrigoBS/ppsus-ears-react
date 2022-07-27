@@ -1,5 +1,5 @@
-import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import { Route, Routes } from 'react-router-dom';
+import { AuthProvider } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
 import HomeInstitution from './pages/HomeInstitution';
 import InstitutionService from '../../services/institution/InstitutionService';
@@ -18,7 +18,7 @@ const Institution = () => {
                 <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>}>
                     <Routes>
                         <Route path={'/'} element={/*<RequireAuth>*/ <HomeInstitution/> /*</RequireAuth>*/} />
-                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
+                        <Route path={'/login'} element={/*<RedirectIfAuth>*/ <BaseLoginPaper/> /*</RedirectIfAuth> */} />
                         <Route path={'/cadastro'} element={/*<RedirectIfAuth>*/ <RegisterInstitution/> /*</RedirectIfAuth>*/} />
                         <Route path={'/servico-referencia/cadastro'} element={/*<RequireAuth>*/ <RegisterReferralService/> /*</RequireAuth>*/} />
                         <Route path={'*'} element={<PageNotFound/>} />

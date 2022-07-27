@@ -1,40 +1,14 @@
+import GenericService from '../GenericService';
 import HttpHelper from '../HttpHelper';
 
-const InstitutionService = function () {
-    const pathName = 'institution';
-    const sessionStorageKey = 'institutionUser';
+const InstitutionService = () => {
+    const generic = GenericService('institution', 'institutionUser');
 
-    this.getAll = () => {
-        return HttpHelper.get(pathName);
+    const referralServiceRegister = (data) => {
+        return HttpHelper.post('referral-service', data);
     };
 
-    this.get = (id) => {
-        return HttpHelper.get(`${pathName}/${id}`);
-    };
-
-    this.register = (data) => {
-        return HttpHelper.post(pathName, data);
-    };
-
-    this.login = (login, password) => {
-        return HttpHelper.login(pathName+'/login', login, password).then((r) => {
-            sessionStorage.setItem(sessionStorageKey, JSON.stringify(r.body));
-            return r;
-        });
-    };
-
-    this.logout = () => {
-        sessionStorage.removeItem(sessionStorageKey);
-        //TODO: Criar logout backend
-    };
-
-    this.getUser = () => {
-        return JSON.parse(sessionStorage.getItem(sessionStorageKey)) || { user: null, token: null };
-    };
-
-    this.referralServiceRegister = (data) => {
-        return HttpHelper.post(`${pathName}/referral-service`, data);
-    };
+    return { ...generic, referralServiceRegister };
 };
 
-export default new InstitutionService();
+export default InstitutionService();

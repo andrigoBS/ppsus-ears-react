@@ -1,14 +1,15 @@
 import { Grid, TextField, Typography } from '@mui/material';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import React from 'react';
-import SecretaryService from '../../../../services/secretary/SecretaryService';
 import { useForm } from 'react-hook-form';
+import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const RegisterSecretary = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const configuration = useViewConfiguration();
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Secretaria'} serviceFunction={SecretaryService.register}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Secretaria'} serviceFunction={configuration.service.register}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register('nameOfSecretary')} label="Nome Secretaria" variant="outlined" size="small" required/>
             </Grid>

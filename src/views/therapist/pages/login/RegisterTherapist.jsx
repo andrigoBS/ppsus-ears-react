@@ -2,8 +2,8 @@ import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typ
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
 import React from 'react';
-import TherapistService from '../../../../services/therapist/TherapistService';
 import { useForm } from 'react-hook-form';
+import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const styles = {
     button:{
@@ -16,9 +16,10 @@ const styles = {
 
 const RegisterTherapist = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const configuration = useViewConfiguration();
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Fonoaudiólogo'} serviceFunction={TherapistService.register}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Fonoaudiólogo'} serviceFunction={configuration.service.register}>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('name')} label="Nome Completo" variant="outlined" size="small" required/>
             </Grid>
