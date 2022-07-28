@@ -53,7 +53,7 @@ const RegisterInstitution = () => {
                 <BrazilianPhoneField register={register} name="institutionPhone" formErrors={errors} label="Telefone Institucional" required />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField register={register} name="institutionPhoneSecond" formErrors={errors} label="Telefone Celular Institucional"/>
+                <BrazilianPhoneField register={register} name="institutionCellphone" formErrors={errors} label="Telefone Celular Institucional"/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant={'h6'}>Endereço</Typography>
@@ -62,7 +62,7 @@ const RegisterInstitution = () => {
                 <TextField  {...register('cep')} label="CEP" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('street')} label="Logradouro" variant="outlined" size="small" required/>
+                <TextField  {...register('publicArea')} label="Logradouro" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('state')} label="Estado" variant="outlined" size="small" required/>
