@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { AuthProvider } from '../../providers/auth/Auth';
+import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
 import MetaLinkMenu from '../therapist/MetaLinkMenu';
 import HomeInstitution from './pages/HomeInstitution';

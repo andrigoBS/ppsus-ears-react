@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router-dom';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
