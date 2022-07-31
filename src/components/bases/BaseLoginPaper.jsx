@@ -48,6 +48,7 @@ const BaseLoginPaper = ({ registerRoute }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const auth = useAuth();
     const configuration = useViewConfiguration();
+    configuration.setLinkMenu(null);
 
     const onSubmit = (data, event) => {
         event.preventDefault();

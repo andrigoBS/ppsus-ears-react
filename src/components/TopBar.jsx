@@ -1,8 +1,9 @@
-import { AppBar, IconButton, Toolbar, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Box, IconButton, Toolbar, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import MPAWhiteIcon from './icons/MPAWhiteIcon';
 import { useViewConfiguration } from '../providers/viewConfiguration/ViewConfiguration';
+import Menu from './lists/Menu';
 
 const TopBar = ({ children, rightElement }) => {
     const configuration = useViewConfiguration();
@@ -14,7 +15,7 @@ const TopBar = ({ children, rightElement }) => {
             <AppBar color="primary" position="static">
                 <Toolbar variant="dense" sx={{ marginRight: isDesktop? '0px' : '-12px' }}>
                     <Link to={configuration.baseRoute || '/'}>
-                        <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: isDesktop? 2: 0 }}>
+                        <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: isDesktop ? 2 : 0 }}>
                             <MPAWhiteIcon size={isDesktop? '10rem' : '8rem'}/>
                         </IconButton>
                     </Link>
@@ -24,7 +25,10 @@ const TopBar = ({ children, rightElement }) => {
                     {rightElement}
                 </Toolbar>
             </AppBar>
-            {children}
+            <Box sx={{ display: configuration.linkMenu ? 'flex' : 'block' }}>
+                {configuration.linkMenu && <Menu data={configuration.linkMenu}/>}
+                {children}
+            </Box>
         </Fragment>
     );
 };
