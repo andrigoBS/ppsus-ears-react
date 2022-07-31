@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { AuthProvider,  RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
-import MetaLinkMenu from '../therapist/MetaLinkMenu';
+import MetaLinkMenu from '../secretary/MetaLinkMenu';
 import HomeSecretary from './pages/HomeSecretary';
 import PageNotFound from '../site/pages/PageNotFound';
 import React from 'react';

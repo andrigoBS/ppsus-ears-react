@@ -1,4 +1,5 @@
 import React from 'react';
+import { TbCheckupList } from 'react-icons/tb';
 
 const data = [
     { title: 'Consultar',

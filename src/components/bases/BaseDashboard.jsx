@@ -1,10 +1,22 @@
-import { CircularProgress, Grid, Typography } from '@mui/material';
+import { CircularProgress, Grid, Paper, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { GraphicBar } from '../graphics/GraphicBar';
 import { GraphicDoughnut } from '../graphics/GraphicDoughnut';
 
 const isSmall = (length) => length <= 10;
 const isMedium = (length) => length <= 30;
+
+const styles = {
+    grid: {
+        alignItems: 'center',
+        display: 'flex',
+        backgroundColor: '#f3f3f3',
+        marginRight: '15px',
+        marginBottom: '15px',
+        borderRadius: '10px',
+        padding: '20px'
+    }
+};
 
 const RecommendedGraphic = ({ title, labels, quantities, onClickElement }) => {
     if(isSmall(labels.length)) {
@@ -48,7 +60,8 @@ const Graphic = ({ type, getReport }) => {
     if(!data) { return (<CircularProgress />); }
 
     return (
-        <Grid item {...getSizes(data.labels.length)} sx={{ alignItems: 'center', display: 'flex', }}>
+        // <Paper sx={{ backgroundColor: '#cccccc' }}>
+        <Grid item {...getSizes(data.labels.length)} sx={styles.grid}>
             <RecommendedGraphic
                 isSmall={isSmall}
                 title={data.title}
@@ -57,6 +70,7 @@ const Graphic = ({ type, getReport }) => {
                 onClickElement={(elementIndex) => console.log('report type', type, 'clicked element index', elementIndex)}
             />
         </Grid>
+        // </Paper>
     );
 };
 
@@ -68,7 +82,7 @@ const BaseDashboard = ({ getDashboard, getReport, user }) => {
     }, []);
 
     return (
-        <Grid container sx={{ padding: '15px 50px;' }} justifyContent='center' spacing={6}>
+        <Grid container sx={{ padding: '15px 50px;' }} justifyContent='center' >
             <Grid item xs={12}>
                 <Typography component='h3' variant='h3' sx={{ paddingBottom: '15px' }}>
                     Olá {(user && user.name) || ''}
