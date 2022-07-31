@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { AuthProvider } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
+import MetaLinkMenu from '../therapist/MetaLinkMenu';
 import HomeInstitution from './pages/HomeInstitution';
 import InstitutionService from '../../services/institution/InstitutionService';
 import PageNotFound from '../site/pages/PageNotFound';
@@ -15,7 +16,7 @@ const Institution = () => {
     return (
         <ViewConfigurationProvider service={InstitutionService} title={'Área Institucional'} baseRoute={'/institucional'} loginRoute={'/login'}>
             <AuthProvider>
-                <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>}>
+                <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>} linkMenu={MetaLinkMenu}>
                     <Routes>
                         <Route path={'/'} element={<RequireAuth> <HomeInstitution/> </RequireAuth>} />
                         <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />

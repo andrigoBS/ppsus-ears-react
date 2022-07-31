@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { AuthProvider,  RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
+import MetaLinkMenu from '../therapist/MetaLinkMenu';
 import HomeSecretary from './pages/HomeSecretary';
 import PageNotFound from '../site/pages/PageNotFound';
 import React from 'react';
@@ -14,7 +15,7 @@ const Secretary = () => {
     return (
         <ViewConfigurationProvider service={SecretaryService} title={'Área da Secretaria'} baseRoute={'/secretaria'} loginRoute={'/login'}>
             <AuthProvider>
-                <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>}>
+                <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>} linkMenu={MetaLinkMenu}>
                     <Routes>
                         <Route path={'/'} element={<RequireAuth> <HomeSecretary/> </RequireAuth>} />
                         <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />

@@ -1,6 +1,7 @@
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import { Route, Routes } from 'react-router-dom';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
+import MetaLinkMenu from '../therapist/MetaLinkMenu';
 import HomeParents from './pages/HomeParents';
 import PageNotFound from '../site/pages/PageNotFound';
 import ParentsService from '../../services/parents/ParentsService';
@@ -13,7 +14,7 @@ const Parents = () => {
     return (
         <ViewConfigurationProvider service={ParentsService} title={'Área dos Pais'} loginRoute={'/login'} baseRoute={'/pais'}>
             <AuthProvider>
-                <TopBar rightElement={<UserAvatarDropDown withNotification={false}/>}>
+                <TopBar rightElement={<UserAvatarDropDown withNotification={false}/>} linkMenu={MetaLinkMenu}>
                     <Routes>
                         <Route path={'/'} element={<RequireAuth> <HomeParents/> </RequireAuth>}/>
                         <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>}/>
