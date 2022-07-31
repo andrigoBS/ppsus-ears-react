@@ -1,4 +1,4 @@
-import { TbWritingSign } from 'react-icons/tb';
+import { TbWriting } from 'react-icons/tb';
 import BaseDashboard from '../../../components/bases/BaseDashboard';
 import React, { useEffect } from 'react';
 import { useAuth } from '../../../providers/auth/Auth';
@@ -12,7 +12,7 @@ const HomeParents = () => {
         { title: 'Consultar',
             options: [
                 {
-                    icon: <TbWritingSign size={25}/>,
+                    icon: <TbCheckupList size={25}/>,
                     label: 'Resultados de triagens'
                 }
             ]

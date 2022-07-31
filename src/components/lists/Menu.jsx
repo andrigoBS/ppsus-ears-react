@@ -18,7 +18,7 @@ export default function Menu({ data }) {
                             <b color={'#646464'}>{item.title}</b>
                         </ListItemButton>
                         {item.options.map((option) => (
-                            <ListItemButton key={option.label} onClick={() => { navigate(item.route); }}>
+                            <ListItemButton key={option.label} onClick={() => { navigate(option.route); }}>
                                 <ListItemIcon sx={{ color: 'inherit' }}>
                                     {option.icon}
                                 </ListItemIcon>

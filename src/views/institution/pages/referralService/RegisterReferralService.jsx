@@ -12,7 +12,7 @@ const RegisterReferralService = () => {
     return (
         <BaseRegisterPaper handleSubmit={handleSubmit} title={'de Serviço de Saúde Auditiva'} service={configuration.service.referralServiceRegister}>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField  {...register('name')} label="Nome do Serviço" variant="outlined" size="small" required/>
+                <TextField  {...register('name')} label="Nome do serviço" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('CNPJ')} label="CNPJ" variant="outlined" size="small"/>
@@ -22,7 +22,7 @@ const RegisterReferralService = () => {
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography  variant={'h6'}>
-                    Tipo de Serviço
+                    Tipo de serviço
                 </Typography>
                 <FormControl>
                     <RadioGroup {...register('referralServiceType')} defaultValue={'SUS'}>
@@ -38,19 +38,19 @@ const RegisterReferralService = () => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('preferentialEmail')} label="E-mail Preferencial" variant="outlined" size="small" required/>
+                <TextField  {...register('preferentialEmail')} label="E-mail preferencial" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField   {...register('alternativeEmail')} label="E-mail Alternativo" variant="outlined" size="small"/>
+                <TextField   {...register('alternativeEmail')} label="E-mail alternativo" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <BrazilianPhoneField  register={register} name="phonePrimary" formErrors={errors}
-                    label="Telefone Institucional" variant="outlined" size="small" required
+                    label="Telefone institucional" variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <BrazilianPhoneField  register={register} name="phoneSecond" formErrors={errors}
-                    label="Telefone Celular Institucional" variant="outlined" size="small"
+                    label="Telefone celular institucional" variant="outlined" size="small"
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
@@ -78,9 +78,9 @@ const RegisterReferralService = () => {
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography  variant={'h6'}>
-                    Dados do Responsável do Serviço
+                    Dados do responsável do serviço
                 </Typography>
-                <TextField  {...register('nameOfResponsible')} label="Nome do Responsável" variant="outlined"
+                <TextField  {...register('nameOfResponsible')} label="Nome do responsável" variant="outlined"
                     size="small" required/>
             </Grid>
         </BaseRegisterPaper>

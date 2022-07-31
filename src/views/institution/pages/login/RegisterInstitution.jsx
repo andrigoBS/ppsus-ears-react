@@ -18,7 +18,7 @@ const RegisterInstitution = () => {
                 <TextField  {...register('password')} label="Senha" type="password" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('passwordConfirm')} label="Confirmação de Senha" type="password" variant="outlined" size="small" required/>
+                <TextField  {...register('passwordConfirm')} label="Confirmação de senha" type="password" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('cnes')} label="CNES" variant="outlined" size="small" required/>
@@ -28,7 +28,7 @@ const RegisterInstitution = () => {
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography  variant={'h6'}>
-                    Tipo de Instituição
+                    Tipo de instituição
                 </Typography>
                 <FormControl required>
                     <RadioGroup {...register('institutionType')} defaultValue={'Hospital'}>
@@ -44,16 +44,16 @@ const RegisterInstitution = () => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('email')} label="E-mail Preferencial" variant="outlined" size="small" required/>
+                <TextField  {...register('email')} label="E-mail preferencial" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField   {...register('alternativeEmail')} label="E-mail Alternativo" variant="outlined" size="small"/>
+                <TextField   {...register('alternativeEmail')} label="E-mail alternativo" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField register={register} name="institutionPhone" formErrors={errors} label="Telefone Institucional" required />
+                <BrazilianPhoneField register={register} name="institutionPhone" formErrors={errors} label="Telefone institucional" required />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField register={register} name="institutionCellphone" formErrors={errors} label="Telefone Celular Institucional"/>
+                <BrazilianPhoneField register={register} name="institutionCellphone" formErrors={errors} label="Telefone celular institucional"/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant={'h6'}>Endereço</Typography>
@@ -78,11 +78,11 @@ const RegisterInstitution = () => {
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography  variant={'h6'}>
-                    Dados do Responsável da Instituição
+                    Dados do responsável da instituição
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('responsibleName')} label="Nome do Responsável" variant="outlined" size="small" required/>
+                <TextField  {...register('responsibleName')} label="Nome do responsável" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('responsibleRole')} label="Cargo" variant="outlined" size="small"/>

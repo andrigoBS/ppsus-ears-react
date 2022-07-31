@@ -1,4 +1,8 @@
+import { FaBaby } from 'react-icons/fa';
+import { TbCheckupList, TbPresentation } from 'react-icons/tb';
 import { GoGraph } from 'react-icons/go';
+import { AiOutlineTool } from 'react-icons/ai';
+import { BsFileEarmarkText } from 'react-icons/bs';
 import BaseDashboard from '../../../components/bases/BaseDashboard';
 import React, { useEffect } from 'react';
 import { useAuth } from '../../../providers/auth/Auth';
@@ -12,27 +16,24 @@ const HomeTherapist = () => {
         { title: 'Cadastrar',
             options: [
                 {
-                    icon: <GoGraph size={25}/>,
-                    label: 'Bebê'
+                    icon: <TbCheckupList size={27}/>,
+                    label: 'Triagem',
+                    route: '/fono/consulta/cadastro'
                 },
                 {
-                    icon: <GoGraph size={25}/>,
-                    label: 'Triagem'
-                },
-                {
-                    icon: <GoGraph size={25}/>,
+                    icon: <TbPresentation size={25}/>,
                     label: 'Indicador'
                 },
                 {
-                    icon: <GoGraph size={25}/>,
+                    icon: <BsFileEarmarkText size={25}/>,
                     label: 'Observação'
                 },
                 {
-                    icon: <GoGraph size={25}/>,
+                    icon: <BsFileEarmarkText size={25}/>,
                     label: 'Conduta'
                 },
                 {
-                    icon: <GoGraph size={25}/>,
+                    icon: <AiOutlineTool size={27}/>,
                     label: 'Equipamento'
                 },
             ]
@@ -40,27 +41,27 @@ const HomeTherapist = () => {
         { title: 'Consultar',
             options: [
                 {
-                    icon: <GoGraph size={25}/>,
+                    icon: <FaBaby size={25}/>,
                     label: 'Bebês'
                 },
                 {
-                    icon: <GoGraph size={25}/>,
+                    icon: <TbCheckupList size={27}/>,
                     label: 'Triagens'
                 },
                 {
-                    icon: <GoGraph size={25}/>,
+                    icon: <TbPresentation size={25}/>,
                     label: 'Indicadores'
                 },
                 {
-                    icon: <GoGraph size={25}/>,
+                    icon: <BsFileEarmarkText size={25}/>,
                     label: 'Observações'
                 },
                 {
-                    icon: <GoGraph size={25}/>,
+                    icon: <BsFileEarmarkText size={25}/>,
                     label: 'Condutas'
                 },
                 {
-                    icon: <GoGraph size={25}/>,
+                    icon: <AiOutlineTool size={27}/>,
                     label: 'Equipamentos'
                 },
             ]
@@ -69,7 +70,8 @@ const HomeTherapist = () => {
             options: [
                 {
                     icon: <GoGraph size={25}/>,
-                    label: 'Gráficos'
+                    label: 'Gráficos',
+                    route: '/fono/'
                 }
             ]
         }

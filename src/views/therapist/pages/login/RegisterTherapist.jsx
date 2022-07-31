@@ -21,7 +21,7 @@ const RegisterTherapist = () => {
     return (
         <BaseRegisterPaper handleSubmit={handleSubmit} title={'Fonoaudiólogo'} serviceFunction={configuration.service.register}>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('name')} label="Nome Completo" variant="outlined" size="small" required/>
+                <TextField  {...register('name')} label="Nome completo" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('crfa')} label="CRFa" variant="outlined" size="small" required/>
@@ -30,7 +30,7 @@ const RegisterTherapist = () => {
                 <TextField  {...register('password')} label="Senha" type="password" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('passwordConfirm')} label="Confirmação de Senha" type="password" variant="outlined" size="small" required/>
+                <TextField  {...register('passwordConfirm')} label="Confirmação de senha" type="password" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <FormControl sx={styles.select} size="small" required>
@@ -49,19 +49,19 @@ const RegisterTherapist = () => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('preferentialEmail')} label="E-mail Preferencial" variant="outlined" size="small" required/>
+                <TextField  {...register('preferentialEmail')} label="E-mail preferencial" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField   {...register('alternativeEmail')} label="E-mail Alternativo" variant="outlined" size="small"/>
+                <TextField   {...register('alternativeEmail')} label="E-mail alternativo" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <BrazilianPhoneField  register={register} name="phonePrimary" formErrors={errors}
-                    label="Telefone Principal" variant="outlined" size="small" required
+                    label="Telefone principal" variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <BrazilianPhoneField  register={register} name="phoneSecond" formErrors={errors}
-                    label="Telefone Alternativo" variant="outlined" size="small"
+                    label="Telefone alternativo" variant="outlined" size="small"
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
