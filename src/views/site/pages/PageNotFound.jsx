@@ -38,7 +38,7 @@ const PageNotFound = () => {
     const from = location.state?.from?.pathname || configuration.baseRoute;
 
     return (
-        <>
+        <div style={{ display: 'block', width: '100%' }}>
             <TextParagraph title={'Página não encontrada'}>
                 Seja muito bem-vindo à plataforma Meu primeiro alô, infelizmente não encontramos a página solicitada,
                 por favor verifique se o link que você está acessando está correto,
@@ -54,7 +54,7 @@ const PageNotFound = () => {
             </Box>
             <Partners/>
             <Footer/>
-        </>
+        </div>
     );
 };
 

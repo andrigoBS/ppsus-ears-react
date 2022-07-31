@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { AuthProvider, /* RedirectIfAuth, RequireAuth */ } from '../../providers/auth/Auth';
+import { AuthProvider,  RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
 import HomeSecretary from './pages/HomeSecretary';
 import PageNotFound from '../site/pages/PageNotFound';
@@ -16,9 +16,9 @@ const Secretary = () => {
             <AuthProvider>
                 <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>}>
                     <Routes>
-                        <Route path={'/'} element={/*<RequireAuth>*/ <HomeSecretary/> /*</RequireAuth>*/} />
-                        <Route path={'/login'} element={/*<RedirectIfAuth>*/ <BaseLoginPaper/> /*</RedirectIfAuth>*/} />
-                        <Route path={'/cadastro'} element={/*<RedirectIfAuth>*/ <RegisterSecretary/> /*</RedirectIfAuth>*/} />
+                        <Route path={'/'} element={<RequireAuth> <HomeSecretary/> </RequireAuth>} />
+                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
+                        <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterSecretary/> </RedirectIfAuth>} />
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>

@@ -19,7 +19,7 @@ const RegisterResponsible = ({ register, errors }) => {
                 <Typography variant="h6" style={styles.textTitle}>Informações pessoais dos Responsáveis</Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={9}>
-                <TextField {...register('responsibleName')} label="Nome completo do Responsável" variant="outlined" size="small"  />
+                <TextField {...register('responsibleName')} label="Nome completo do responsável" variant="outlined" size="small"  />
             </Grid>
             <Grid item xs={12} sm={12} md={3}>
                 <TextField {...register('responsibleBirthdate')} label="Data de nascimento" variant="outlined" size="small"  />

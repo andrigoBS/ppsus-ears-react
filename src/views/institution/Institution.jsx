@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { AuthProvider } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
-import RegisterTherapist from '../therapist/pages/login/RegisterTherapist';
 import HomeInstitution from './pages/HomeInstitution';
 import InstitutionService from '../../services/institution/InstitutionService';
 import PageNotFound from '../site/pages/PageNotFound';
@@ -18,10 +17,10 @@ const Institution = () => {
             <AuthProvider>
                 <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>}>
                     <Routes>
-                        <Route path={'/'} element={/*<RequireAuth>*/ <HomeInstitution/> /*</RequireAuth>*/} />
-                        <Route path={'/login'} element={/*<RedirectIfAuth>*/ <BaseLoginPaper/> /*</RedirectIfAuth> */} />
-                        <Route path={'/cadastro'} element={/*<RedirectIfAuth>*/ <RegisterInstitution/> /*</RedirectIfAuth>*/} />
-                        <Route path={'/servico-referencia/cadastro'} element={/*<RequireAuth>*/ <RegisterReferralService/> /*</RequireAuth>*/} />
+                        <Route path={'/'} element={<RequireAuth> <HomeInstitution/> </RequireAuth>} />
+                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
+                        <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterInstitution/> </RedirectIfAuth>} />
+                        <Route path={'/servico-referencia/cadastro'} element={<RequireAuth> <RegisterReferralService/> </RequireAuth>} />
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>

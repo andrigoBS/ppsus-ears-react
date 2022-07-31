@@ -15,8 +15,8 @@ const Parents = () => {
             <AuthProvider>
                 <TopBar rightElement={<UserAvatarDropDown withNotification={false}/>}>
                     <Routes>
-                        <Route path={'/'} element={/*<RequireAuth>*/ <HomeParents/> /*</RequireAuth>*/}/>
-                        <Route path={'/login'} element={/*<RedirectIfAuth>*/ <BaseLoginPaper/> /*</RedirectIfAuth>*/}/>
+                        <Route path={'/'} element={<RequireAuth> <HomeParents/> </RequireAuth>}/>
+                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>}/>
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>
