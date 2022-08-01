@@ -1,13 +1,13 @@
-const get = (path) => {
-    return _genericFetch('GET', path, null);
+const get = (path, token) => {
+    return _genericFetch('GET', path, null, 'Bearer '+token);
 };
 
-const post = (path, data) => {
-    return _genericFetch('POST', path, data);
+const post = (path, data, token) => {
+    return _genericFetch('POST', path, data, 'Bearer '+token);
 };
 
-const put = (path, data) => {
-    return _genericFetch('PUT', path, data);
+const put = (path, data, token) => {
+    return _genericFetch('PUT', path, data, 'Bearer '+token);
 };
 
 const login = (path, login, password) => {
@@ -30,7 +30,7 @@ const _genericFetch = (method, path, data, auth) => {
     if(auth) { init.headers['authorization'] = auth; }
     if(data) { init['body'] = JSON.stringify(data); }
     return fetch(process.env.REACT_APP_SERVER_URL+'/'+path, init)
-        .then(response => response.json().then(body => ({ status: response.status, isSuccess: _isSuccess(response.status), body })));
+        .then(response => response.json().then(body => ({ message: response.message, status: response.status, isSuccess: _isSuccess(response.status), body })));
 };
 
 export default { get, post, put, login, logout };

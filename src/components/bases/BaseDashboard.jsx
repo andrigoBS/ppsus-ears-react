@@ -1,4 +1,4 @@
-import { CircularProgress, Grid, Paper, Typography } from '@mui/material';
+import { CircularProgress, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { GraphicBar } from '../graphics/GraphicBar';
 import { GraphicDoughnut } from '../graphics/GraphicDoughnut';
@@ -57,7 +57,7 @@ const Graphic = ({ type, getReport }) => {
         getReport(type).then(r => r.body).then(setData);
     }, []);
 
-    if(!data) { return (<CircularProgress />); }
+    if(!data) { return (<Grid item xs={12} sm={8} md={4} lg={4} xl={2} sx={styles.grid}><CircularProgress /></Grid>); }
 
     return (
         // <Paper sx={{ backgroundColor: '#cccccc' }}>
@@ -80,6 +80,8 @@ const BaseDashboard = ({ getDashboard, getReport, user }) => {
     useEffect(() => {
         getDashboard().then(r => r.body).then(setDashboard);
     }, []);
+
+    if(!dashboard || dashboard.length === 0) { return (<CircularProgress />); }
 
     return (
         <Grid container sx={{ padding: '15px 50px;' }} >

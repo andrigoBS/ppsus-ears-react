@@ -1,15 +1,17 @@
 import { Box, Button, Grid, Step, StepLabel, Stepper } from '@mui/material';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import React from 'react';
+import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 import RegisterBaby from './components/RegisterBaby';
 import RegisterMother from './components/RegisterMother';
 import RegisterResponsible from './components/RegisterResponsible';
 import RegisterResults from './components/RegisterResults';
-import TherapistService from '../../../../services/therapist/TherapistService';
 import { useForm } from 'react-hook-form';
 
 const RegisterConsultation = () => {
     const [activeStep, setActiveStep] = React.useState(0);
+
+    const configuration = useViewConfiguration();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -33,7 +35,7 @@ const RegisterConsultation = () => {
     ];
 
     return (
-        <BaseRegisterPaper title={'Resultado da Triagem'} handleSubmit={handleSubmit} serviceFunction={TherapistService.consultationRegister} notSubmitButton={true}>
+        <BaseRegisterPaper title={'Resultado da Triagem'} handleSubmit={handleSubmit} serviceFunction={configuration.service.consultationRegister} notSubmitButton={true}>
             <Grid item xs={12} sm={12} md={12}>
                 <Stepper activeStep={activeStep} alternativeLabel>
                     {steps.map(({ label }) => (<Step key={label}><StepLabel>{label}</StepLabel></Step>))}

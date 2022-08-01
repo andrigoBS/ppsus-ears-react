@@ -37,7 +37,6 @@ const BaseRegisterPaper = ({ children, serviceFunction, title, handleSubmit, not
     const theme = useTheme();
     const styles = createStyles(theme);
     const onSubmit = (data) => {
-        alert(data);
         console.log(data);
         serviceFunction(data);
     };

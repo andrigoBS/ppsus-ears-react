@@ -1,8 +1,9 @@
-import { FormControl, FormControlLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@mui/material';
-import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
-import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
+import { Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
+import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
+import RadioField from '../../../../components/fileds/RadioField';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const RegisterReferralService = () => {
@@ -10,7 +11,7 @@ const RegisterReferralService = () => {
     const configuration = useViewConfiguration();
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'de Serviço de Saúde Auditiva'} service={configuration.service.referralServiceRegister}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'de Serviço de Saúde Auditiva'} serviceFunction={configuration.service.referralServiceRegister}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register('name')} label="Nome do serviço" variant="outlined" size="small" required/>
             </Grid>
@@ -21,16 +22,7 @@ const RegisterReferralService = () => {
                 <TextField  {...register('CNES')} label="CNES" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <Typography  variant={'h6'}>
-                    Tipo de serviço
-                </Typography>
-                <FormControl>
-                    <RadioGroup {...register('referralServiceType')} defaultValue={'SUS'}>
-                        <FormControlLabel value={'SUS'} control={<Radio/>} label="SUS"/>
-                        <FormControlLabel value={'Privado'} control={<Radio/>} label="Privado"/>
-                        <FormControlLabel value={'Misto'} control={<Radio/>} label="Misto"/>
-                    </RadioGroup>
-                </FormControl>
+                <RadioField title={'Tipo de serviço'} register={register('referralServiceType')} getValue={configuration.service.getReferralServiceTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography  variant={'h6'}>
