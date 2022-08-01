@@ -1,8 +1,6 @@
 import { Button, Grid, Paper, TextField, Typography, useTheme } from '@mui/material';
 import Footer from '../../views/site/components/Footer';
 import HtmlHead from '../HtmlHead';
-import MPAHeartWhiteIcon from '../icons/MPAHeartWhiteIcon';
-import MPAWhiteIcon from '../icons/MPAWhiteIcon';
 import Partners from '../../views/site/components/Partners';
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
@@ -58,12 +56,12 @@ const BaseLoginPaper = ({ registerRoute }) => {
         <>
             <HtmlHead view={configuration.title} subTitle={'Login'}/>
             <Grid container sx={styles.container}>
-                <Grid item xs={12} sm={12} md={6}>
-                    <MPAHeartWhiteIcon size={'10rem'} sx={styles.iconHeart}/>
-                    <RouterLink to={'/'}>
-                        <MPAWhiteIcon size={'28rem'} sx={styles.icon}/>
-                    </RouterLink>
-                </Grid>
+                {/*<Grid item xs={12} sm={12} md={6}>*/}
+                {/*    <MPAHeartWhiteIcon size={'10rem'} sx={styles.iconHeart}/>*/}
+                {/*    <RouterLink to={'/'}>*/}
+                {/*        <MPAWhiteIcon size={'28rem'} sx={styles.icon}/>*/}
+                {/*    </RouterLink>*/}
+                {/*</Grid>*/}
                 <Grid item xs={12} sm={12} md={6}>
                     <Paper sx={styles.paper}>
                         <form onSubmit={handleSubmit(onSubmit)}>
