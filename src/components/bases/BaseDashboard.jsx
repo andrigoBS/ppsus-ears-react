@@ -54,7 +54,7 @@ const Graphic = ({ type, getReport }) => {
     };
 
     useEffect(() => {
-        getReport(type).then(setData);
+        getReport(type).then(r => r.body).then(setData);
     }, []);
 
     if(!data) { return (<CircularProgress />); }
@@ -78,7 +78,7 @@ const BaseDashboard = ({ getDashboard, getReport, user }) => {
     const [dashboard, setDashboard] = useState([]);
 
     useEffect(() => {
-        getDashboard().then(setDashboard);
+        getDashboard().then(r => r.body).then(setDashboard);
     }, []);
 
     return (

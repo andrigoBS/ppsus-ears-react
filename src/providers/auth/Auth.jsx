@@ -14,14 +14,16 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = React.useState(service.getUser());
 
     const login = (login, password) => {
-        service.login(login, password).then(({ body }) => {
-            setUser(body); //TODO: fazer tratamento de erro, status diferente de 200
-            navigate(from, { replace: true });
+        service.login(login, password).then((response) => {
+            if(response.isSuccess) {
+                setUser(response.body);
+                navigate(from, { replace: true });
+            }
         });
     };
 
     const logout = (redirectTo) => {
-        service.logout(); //TODO: Criar logout backend
+        service.logout();
         setUser(service.getUser());
         if(redirectTo) { navigate(redirectTo, { replace: true }); }
     };
