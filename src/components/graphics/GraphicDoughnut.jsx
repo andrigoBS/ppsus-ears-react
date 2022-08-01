@@ -12,6 +12,9 @@ export function GraphicDoughnut({ title, labels, quantities, onClickElement }) {
                 position: 'bottom'
             },
             title: {
+                font: {
+                    size: 14
+                },
                 display: true,
                 text: title
             },

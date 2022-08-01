@@ -10,7 +10,7 @@ const styles = {
     grid: {
         alignItems: 'center',
         display: 'flex',
-        backgroundColor: '#f3f3f3',
+        backgroundColor: '#ffffff',
         marginRight: '15px',
         marginBottom: '15px',
         borderRadius: '10px',
@@ -45,7 +45,7 @@ const Graphic = ({ type, getReport }) => {
 
     const getSizes = () => {
         if(isSmall(data.labels.length)) {
-            return { xs:12, sm:8, md:6, lg:4, xl:3 };
+            return { xs:12, sm:8, md:4, lg:4, xl:2 };
         }
         if(isMedium(data.labels.length)) {
             return { xs:12, lg:6 };
@@ -82,7 +82,7 @@ const BaseDashboard = ({ getDashboard, getReport, user }) => {
     }, []);
 
     return (
-        <Grid container sx={{ padding: '15px 50px;' }} justifyContent='center' >
+        <Grid container sx={{ padding: '15px 50px;' }} >
             <Grid item xs={12}>
                 <Typography component='h3' variant='h3' sx={{ paddingBottom: '15px' }}>
                     Olá {(user && user.name) || ''}

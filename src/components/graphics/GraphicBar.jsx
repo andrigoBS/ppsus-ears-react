@@ -12,6 +12,9 @@ export function GraphicBar({ title, labels, quantities, onClickElement, isVertic
                 position: 'bottom'
             },
             title: {
+                font: {
+                    size: 14
+                },
                 display: true,
                 text: title
             },
