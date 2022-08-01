@@ -2,11 +2,13 @@ import { Route, Routes } from 'react-router-dom';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
 import MetaLinkMenu from './MetaLinkMenu';
+import EditTherapist from './pages/edit/EditTherapist';
 import HomeTherapist from './pages/HomeTherapist';
 import PageNotFound from '../site/pages/PageNotFound';
 import React, { useEffect } from 'react';
 import RegisterConsultation from './pages/consultation/RegisterConsultation';
-import RegisterTherapist from './pages/login/RegisterTherapist';
+import RegisterIndicator from './pages/indicator/RegisterIndicator';
+import RegisterTherapist from './pages/register/RegisterTherapist';
 import TherapistService from '../../services/therapist/TherapistService';
 import TopBar from '../../components/TopBar';
 import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
@@ -24,6 +26,9 @@ const Therapist = () => {
                         <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
                         <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterTherapist/> </RedirectIfAuth>} />
                         <Route path={'/triagem/cadastro'} element={<RequireAuth> <RegisterConsultation/> </RequireAuth>} />
+                        <Route path={'/minha-conta'} element={<RequireAuth> <EditTherapist/> </RequireAuth>} />
+                        <Route path={'/indicador/cadastro'} element={<RequireAuth> <RegisterIndicator/> </RequireAuth>} />
+                        <Route path={'/consulta/cadastro'} element={<RequireAuth> <RegisterConsultation/> </RequireAuth>} />
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>
