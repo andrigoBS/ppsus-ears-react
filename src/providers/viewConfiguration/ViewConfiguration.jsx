@@ -34,11 +34,11 @@ export const ViewConfigurationProvider = ({ children, service, baseRoute, loginR
 
     const genericLog = (response) => {
         if(response.isSuccess) {
-            pushAlert('success', `${response.status} - ${response.body.fancyMessage || response.body.message || 'OK'}`);
+            pushAlert('success', `${response.status} - ${response.body.fancyMessage || response.body.message || response.fancyMessage || response.message || 'OK'}`);
             console.log(response);
         }else{
-            pushAlert('error', `${response.status} - ${response.body.fancyMessage || response.body.message || 'Error'}`);
-            console.log(`${response.status} - ${response.body.message || response.body.message}`);
+            pushAlert('error', `${response.status} - ${response.body.fancyMessage || response.body.message || response.fancyMessage || response.message || 'Error'}`);
+            console.log(`${response.status} - ${response.body.message || response.body.message || response.message || response.fancyMessage }`);
         }
         return response;
     };

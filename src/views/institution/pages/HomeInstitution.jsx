@@ -1,5 +1,5 @@
 import BaseDashboard from '../../../components/bases/BaseDashboard';
-import React, { useEffect } from 'react';
+import React  from 'react';
 import Table from '../../../components/lists/Table';
 import { useAuth } from '../../../providers/auth/Auth';
 import { useViewConfiguration } from '../../../providers/viewConfiguration/ViewConfiguration';
@@ -12,9 +12,7 @@ const HomeInstitution = () => {
         <React.Fragment>
             <BaseDashboard user={auth.user} getDashboard={configuration.service.getDashboard} getReport={configuration.service.getReport} />
             <Table/>
-
         </React.Fragment>
-
     );
 };
 

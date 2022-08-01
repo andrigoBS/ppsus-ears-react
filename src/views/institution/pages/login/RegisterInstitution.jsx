@@ -1,9 +1,10 @@
-import { FormControl, FormControlLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@mui/material';
-import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
-import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
+import { Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
+import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
+import RadioField from '../../../../components/fileds/RadioField';
 
 const RegisterInstitution = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -27,16 +28,7 @@ const RegisterInstitution = () => {
                 <TextField  {...register('cnpj')} label="CNPJ" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <Typography  variant={'h6'}>
-                    Tipo de instituição
-                </Typography>
-                <FormControl required>
-                    <RadioGroup {...register('institutionType')} defaultValue={'Hospital'}>
-                        <FormControlLabel value={'HOSPITAL'} control={<Radio/>} label="Hospital"/>
-                        <FormControlLabel value={'MATERNITY'} control={<Radio/>} label="Maternidade"/>
-                        <FormControlLabel value={'HOSPITAL_AND_MATERNITY'} control={<Radio/>} label="Hospital e Maternidade"/>
-                    </RadioGroup>
-                </FormControl>
+                <RadioField title={'Tipo de instituição'} register={register('institutionType')} getValue={configuration.service.getTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography  variant={'h6'}>

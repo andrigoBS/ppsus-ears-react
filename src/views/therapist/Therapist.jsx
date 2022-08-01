@@ -23,7 +23,7 @@ const Therapist = () => {
                         <Route path={'/'} element={<RequireAuth> <HomeTherapist/> </RequireAuth>} />
                         <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
                         <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterTherapist/> </RedirectIfAuth>} />
-                        <Route path={'/consulta/cadastro'} element={<RequireAuth> <RegisterConsultation/> </RequireAuth>} />
+                        <Route path={'/triagem/cadastro'} element={<RequireAuth> <RegisterConsultation/> </RequireAuth>} />
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>

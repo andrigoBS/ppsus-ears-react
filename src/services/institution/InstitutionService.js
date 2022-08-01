@@ -4,11 +4,19 @@ import HttpHelper from '../HttpHelper';
 const InstitutionService = (onAnyLog) => {
     const generic = GenericService('institution', 'institutionUser', onAnyLog);
 
-    const referralServiceRegister = (data) => {
-        return HttpHelper.post('referral-service', data).then(onAnyLog);
+    const getTypes = () => {
+        return HttpHelper.get(generic.pathName+'/types', generic.getUser().token).then(onAnyLog);
     };
 
-    return { ...generic, referralServiceRegister };
+    const referralServiceRegister = (data) => {
+        return HttpHelper.post('referral-service', data, generic.getUser().token).then(onAnyLog);
+    };
+
+    const getReferralServiceTypes = () => {
+        return HttpHelper.get('referral-service/types', generic.getUser().token).then(onAnyLog);
+    };
+
+    return { ...generic, getTypes, referralServiceRegister, getReferralServiceTypes };
 };
 
 export default InstitutionService;
