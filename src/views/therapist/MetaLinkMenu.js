@@ -15,7 +15,8 @@ const data = [
             },
             {
                 icon: <TbPresentation size={25}/>,
-                label: 'Indicador'
+                label: 'Indicador',
+                route: '/fono/indicador/cadastro'
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,

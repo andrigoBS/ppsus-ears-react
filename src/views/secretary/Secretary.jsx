@@ -5,7 +5,7 @@ import MetaLinkMenu from '../secretary/MetaLinkMenu';
 import HomeSecretary from './pages/HomeSecretary';
 import PageNotFound from '../site/pages/PageNotFound';
 import React from 'react';
-import RegisterSecretary from './pages/login/RegisterSecretary';
+import RegisterSecretary from './pages/register/RegisterSecretary';
 import SecretaryService from '../../services/secretary/SecretaryService';
 import TopBar from '../../components/TopBar';
 import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
@@ -13,12 +13,12 @@ import { ViewConfigurationProvider } from '../../providers/viewConfiguration/Vie
 
 const Secretary = () => {
     return (
-        <ViewConfigurationProvider service={SecretaryService} title={'Área da Secretaria'} baseRoute={'/secretaria'} loginRoute={'/login'}>
+        <ViewConfigurationProvider service={SecretaryService} title={'Área da Secretaria'} baseRoute={'/secretaria'} loginRoute={'/register'}>
             <AuthProvider>
                 <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>} linkMenu={MetaLinkMenu}>
                     <Routes>
                         <Route path={'/'} element={<RequireAuth> <HomeSecretary/> </RequireAuth>} />
-                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
+                        <Route path={'/register'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
                         <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterSecretary/> </RedirectIfAuth>} />
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>

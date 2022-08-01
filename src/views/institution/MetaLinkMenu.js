@@ -6,7 +6,8 @@ const data = [
         options: [
             {
                 icon: <GoGraph size={25}/>,
-                label: 'Gráficos'
+                label: 'Gráficos',
+                route: '/institucional/'
             }
         ]
     }
