@@ -7,7 +7,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../../providers/auth/Auth';
 import { useForm } from 'react-hook-form';
 import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
-import LoginUX from '../icons/login/LoginUX';
+import LoginUX from '../icons/login/Prancheta 9.svg';
 
 const createStyles = (theme) => {
     return {
@@ -58,7 +58,7 @@ const BaseLoginPaper = ({ registerRoute }) => {
             <HtmlHead view={configuration.title} subTitle={'Login'}/>
             <Grid container sx={styles.container}>
                 <Grid item xs={12} sm={12} md={6}>
-                    <LoginUX size={'10rem'}/>
+                    <img src={LoginUX} alt={'login ux'}/>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
                     <Paper sx={styles.paper}>
