@@ -15,7 +15,7 @@ import { ViewConfigurationProvider } from '../../providers/viewConfiguration/Vie
 
 const Institution = () => {
     return (
-        <ViewConfigurationProvider service={InstitutionService} title={'Área Institucional'} baseRoute={'/institucional'} loginRoute={'/register'}>
+        <ViewConfigurationProvider service={InstitutionService} title={'Área Institucional'} baseRoute={'/institucional'} loginRoute={'/login'}>
             <AuthProvider>
                 <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>} linkMenu={MetaLinkMenu}>
                     <Routes>

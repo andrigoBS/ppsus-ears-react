@@ -12,12 +12,12 @@ import { ViewConfigurationProvider } from '../../providers/viewConfiguration/Vie
 
 const Parents = () => {
     return (
-        <ViewConfigurationProvider service={ParentsService} title={'Área dos Pais'} loginRoute={'/register'} baseRoute={'/pais'}>
+        <ViewConfigurationProvider service={ParentsService} title={'Área dos Pais'} loginRoute={'/login'} baseRoute={'/pais'}>
             <AuthProvider>
                 <TopBar rightElement={<UserAvatarDropDown withNotification={false}/>} linkMenu={MetaLinkMenu}>
                     <Routes>
                         <Route path={'/'} element={<RequireAuth> <HomeParents/> </RequireAuth>}/>
-                        <Route path={'/register'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>}/>
+                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>}/>
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>

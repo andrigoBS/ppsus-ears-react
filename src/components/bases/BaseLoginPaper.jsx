@@ -7,6 +7,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../../providers/auth/Auth';
 import { useForm } from 'react-hook-form';
 import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
+import LoginUX from '../icons/login/LoginUX';
 
 const createStyles = (theme) => {
     return {
@@ -56,12 +57,9 @@ const BaseLoginPaper = ({ registerRoute }) => {
         <>
             <HtmlHead view={configuration.title} subTitle={'Login'}/>
             <Grid container sx={styles.container}>
-                {/*<Grid item xs={12} sm={12} md={6}>*/}
-                {/*    <MPAHeartWhiteIcon size={'10rem'} sx={styles.iconHeart}/>*/}
-                {/*    <RouterLink to={'/'}>*/}
-                {/*        <MPAWhiteIcon size={'28rem'} sx={styles.icon}/>*/}
-                {/*    </RouterLink>*/}
-                {/*</Grid>*/}
+                <Grid item xs={12} sm={12} md={6}>
+                    <LoginUX size={'10rem'}/>
+                </Grid>
                 <Grid item xs={12} sm={12} md={6}>
                     <Paper sx={styles.paper}>
                         <form onSubmit={handleSubmit(onSubmit)}>

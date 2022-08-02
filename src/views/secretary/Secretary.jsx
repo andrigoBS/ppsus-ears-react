@@ -13,12 +13,12 @@ import { ViewConfigurationProvider } from '../../providers/viewConfiguration/Vie
 
 const Secretary = () => {
     return (
-        <ViewConfigurationProvider service={SecretaryService} title={'Área da Secretaria'} baseRoute={'/secretaria'} loginRoute={'/register'}>
+        <ViewConfigurationProvider service={SecretaryService} title={'Área da Secretaria'} baseRoute={'/secretaria'} loginRoute={'/login'}>
             <AuthProvider>
                 <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>} linkMenu={MetaLinkMenu}>
                     <Routes>
                         <Route path={'/'} element={<RequireAuth> <HomeSecretary/> </RequireAuth>} />
-                        <Route path={'/register'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
+                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
                         <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterSecretary/> </RedirectIfAuth>} />
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
