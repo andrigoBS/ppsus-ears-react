@@ -1,6 +1,7 @@
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import { Route, Routes } from 'react-router-dom';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
+//import EditParents from '../parents/pages/edit/EditParents';
 import MetaLinkMenu from '../parents/MetaLinkMenu';
 import HomeParents from './pages/HomeParents';
 import PageNotFound from '../site/pages/PageNotFound';
@@ -18,6 +19,7 @@ const Parents = () => {
                     <Routes>
                         <Route path={'/'} element={<RequireAuth> <HomeParents/> </RequireAuth>}/>
                         <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>}/>
+                        {/*<Route path={'/minha-conta/:id'} element={<RequireAuth> <EditParents/> </RequireAuth>} />*/}
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>

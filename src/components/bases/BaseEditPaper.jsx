@@ -1,6 +1,5 @@
 import { Box, Button, Grid, Paper, Typography, useTheme } from '@mui/material';
 import HtmlHead from '../HtmlHead';
-
 import React, { useEffect } from 'react';
 
 const createStyles = (theme) => ({
@@ -38,13 +37,13 @@ const BaseEditPaper = ({ children, serviceFunction, title, handleSubmit, notSubm
     const styles = createStyles(theme);
     const onSubmit = (data) => {
         console.log(data);
-        serviceFunction(data);
+        serviceFunction(id, data);
     };
 
     useEffect(() => {
         serviceGetFunction(id).then(({ body }) => {
             Object.keys(body).forEach((key) => {
-                setValue(key, body[key]);
+                setValue(key, body[key], { shouldValidate: true, shouldDirty: true, shouldTouch: true });
             });
         });
     }, []);

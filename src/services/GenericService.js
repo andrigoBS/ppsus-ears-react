@@ -13,6 +13,10 @@ const GenericService = (pathName, sessionStorageKey, onAnyLog) => {
         return HttpHelper.post(pathName, data, getUser().token).then(onAnyLog);
     };
 
+    const update = (id, data) => {
+        return HttpHelper.put(`${pathName}/${id}`, data, getUser().token).then(onAnyLog);
+    };
+
     const login = (login, password) => {
         return HttpHelper.login(`user/${pathName}/login`, login, password).then((r) => {
             if(r.isSuccess){
@@ -43,7 +47,7 @@ const GenericService = (pathName, sessionStorageKey, onAnyLog) => {
         return HttpHelper.get(`reports/${type}/${pathName}`, getUser().token).then(onAnyLog);
     };
 
-    return { getAll, get, register, login, logout, getUser, getDashboard, getReport, pathName, sessionStorageKey };
+    return { getAll, get, register, update, login, logout, getUser, getDashboard, getReport, pathName, sessionStorageKey };
 };
 
 export default GenericService;

@@ -1,14 +1,13 @@
-import React, { forwardRef, useState } from 'react';
-import { IMaskInput } from 'react-imask';
-import PropTypes from 'prop-types';
 import TextField from '@mui/material/TextField';
+import PropTypes from 'prop-types';
+import React, { forwardRef, useEffect, useState } from 'react';
+import { IMaskInput } from 'react-imask';
 
-const BrazilianPhoneField = ({ register, name, formErrors, required, label, ...other }) => {
+const BrazilianPhoneField = ({ register, name, formErrors, required, ...other }) => {
     return (
-        <PhoneFieldMasked
+        <TextField
             variant="outlined"
             size="small"
-            label={label}
             {...other}
             error={formErrors[name]}
             required={required}
@@ -16,6 +15,9 @@ const BrazilianPhoneField = ({ register, name, formErrors, required, label, ...o
                 required: required,
                 pattern: /(\([1-9]{2}\) 9?[0-9]{4}-[0-9]{4})|(0800 [0-9]{3} [0-9]{4})/,
             })}
+            InputProps={{
+                inputComponent: PhoneMask,
+            }}
         />
     );
 };
@@ -28,40 +30,24 @@ BrazilianPhoneField.propTypes = {
     required: PropTypes.bool,
 };
 
-const PhoneFieldMasked = ({ onChange, value, ...other }) => {
-    const [data, setData] = useState(value || '');
-
-    const handleOnChange = (event) => {
-        setData(event.target.value);
-        onChange(event);
-    };
-
-    return (
-        <TextField
-            {...other}
-            onChange={handleOnChange}
-            value={data}
-            InputProps={{
-                inputComponent: PhoneMask,
-            }}
-        />
-    );
-};
 
 // eslint-disable-next-line react/display-name
 const PhoneMask = forwardRef((props, ref) => {
     const { onChange, name, ...other } = props;
     const [mask, setMask] = useState('(0#) 00000-0000');
+    const [data, setData] = useState(other.value || other.defaultValue || '');
 
     const onAccept = (value) => {
-        setMask(getMask(value));
         onChange({ target: { name: name, value: value } });
+        setMask(getMask(value));
+        setData(value);
     };
 
     return (
         <IMaskInput
             {...other}
             mask={mask}
+            value={data}
             definitions={{
                 '#': /[1-9]/,
             }}
@@ -71,10 +57,6 @@ const PhoneMask = forwardRef((props, ref) => {
         />
     );
 });
-PhoneMask.propTypes = {
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-};
 
 const getMask = (value) => {
     const valueClear = value.replace(' ', '').replace('-', '').replace('(', '').replace(')', '');

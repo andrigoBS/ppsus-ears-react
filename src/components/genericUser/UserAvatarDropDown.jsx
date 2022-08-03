@@ -96,7 +96,7 @@ const UserAvatarDropDown = ({ withNotification }) => {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={() => navigate(configuration.baseRoute+'/minha-conta')}>
+                <MenuItem onClick={() => navigate(configuration.baseRoute+'/minha-conta/'+auth.user.id)}>
                     <ListItemIcon>
                         <AccountCircleIcon fontSize="small" />
                     </ListItemIcon>
