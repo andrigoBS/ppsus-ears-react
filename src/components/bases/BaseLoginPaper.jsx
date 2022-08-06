@@ -11,8 +11,30 @@ import LoginUX from '../icons/login/Prancheta 9.svg';
 
 const createStyles = (theme) => {
     return {
-        container:{
+        container: {
             backgroundColor: theme.palette.secondaryBlue.main,
+
+            [theme.breakpoints.up('sm')]: {
+                backgroundColor: undefined,
+                backgroundImage: `url("${LoginUX}")`,
+                backgroundSize: 'auto 36%',
+                backgroundPosition: '0px -1%',
+            },
+
+            [theme.breakpoints.up('md')]: {
+                backgroundSize: 'auto 54%',
+                backgroundPosition: '0px -31%',
+            },
+
+            [theme.breakpoints.up('lg')]: {
+                backgroundSize: 'auto 70%',
+                backgroundPosition: '0px -110%',
+            },
+
+            [theme.breakpoints.up('xl')]: {
+                backgroundSize: 'auto 103%',
+                backgroundPosition: '0px -582px',
+            },
         },
         paper: {
             margin: '0px',
@@ -57,10 +79,10 @@ const BaseLoginPaper = ({ registerRoute }) => {
         <>
             <HtmlHead view={configuration.title} subTitle={'Login'}/>
             <Grid container sx={styles.container}>
-                <Grid item xs={12} sm={12} md={6}>
-                    <img src={LoginUX} alt={'login ux'}/>
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}>
+                <Grid item xs={12} sm={12} md={6} >
+                    <div>
+
+                    </div>
                     <Paper sx={styles.paper}>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <Grid container spacing={2} justifyContent={'center'} alignItems={'center'}>

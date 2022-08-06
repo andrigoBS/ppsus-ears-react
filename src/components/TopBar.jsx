@@ -32,7 +32,7 @@ const TopBar = ({ children, rightElement, linkMenu }) => {
                             <MenuIcon/>
                         </IconButton>
                         <Box onClick={handleDrawerClose}>
-                            <SwipeableDrawer anchor={'left'} open={open}>
+                            <SwipeableDrawer anchor={'left'} open={open}  onClose={false} onOpen={false}>
                                 <Menu data={linkMenu}/>
                             </SwipeableDrawer>
                         </Box>
