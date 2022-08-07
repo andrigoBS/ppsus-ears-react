@@ -114,7 +114,7 @@ const BaseLoginPaper = ({ registerRoute }) => {
                                             <Divider/>
                                         </Grid>
                                         <Grid  item md={2} xs={2}>
-                                            <Typography  variant={'h5'}>
+                                            <Typography variant={'h5'}>
                                                 Ou
                                             </Typography>
                                         </Grid>

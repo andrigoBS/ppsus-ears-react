@@ -11,6 +11,7 @@ import SecretaryService from '../../services/secretary/SecretaryService';
 import TopBar from '../../components/TopBar';
 import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
 import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
+import RegisterSecretaryUser from './pages/register/RegisterSecretaryUser';
 
 const Secretary = () => {
     return (
@@ -20,7 +21,7 @@ const Secretary = () => {
                     <Routes>
                         <Route path={'/'} element={<RequireAuth> <HomeSecretary/> </RequireAuth>} />
                         <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper registerRoute={'/cadastro'}/> </RedirectIfAuth>} />
-                        <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterSecretary/> </RedirectIfAuth>} />
+                        <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterSecretaryUser/> </RedirectIfAuth>} />
                         <Route path={'/minha-conta/:id'} element={<RequireAuth> <EditSecretary/> </RequireAuth>} />
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>

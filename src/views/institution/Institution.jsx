@@ -12,6 +12,7 @@ import RegisterReferralService from './pages/referralService/RegisterReferralSer
 import TopBar from '../../components/TopBar';
 import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
 import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
+import RegisterInstitutionUser from './pages/register/RegisterInstitutionUser';
 
 const Institution = () => {
     return (
@@ -21,7 +22,7 @@ const Institution = () => {
                     <Routes>
                         <Route path={'/'} element={<RequireAuth> <HomeInstitution/> </RequireAuth>} />
                         <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper registerRoute={'/cadastro'}/> </RedirectIfAuth>} />
-                        <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterInstitution/> </RedirectIfAuth>} />
+                        <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterInstitutionUser/> </RedirectIfAuth>} />
                         <Route path={'/minha-conta/:id'} element={<RequireAuth> <EditInstitution/> </RequireAuth>} />
                         <Route path={'/servico-referencia/cadastro'} element={<RequireAuth> <RegisterReferralService/> </RequireAuth>} />
                         <Route path={'*'} element={<PageNotFound/>} />

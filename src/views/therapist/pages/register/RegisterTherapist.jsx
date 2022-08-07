@@ -3,6 +3,7 @@ import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import PasswordField from '../../../../components/fileds/PasswordField';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const styles = {
@@ -18,10 +19,11 @@ const RegisterTherapist = () => {
     return (
         <BaseRegisterPaper handleSubmit={handleSubmit} title={'Fonoaudiólogo'} serviceFunction={configuration.service.register}>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField  {...register('login')} label={'Login (Nome que será usado para acessar a plataforma junto a senha)'} variant="outlined" size="small" required/>
+                <TextField  {...register('login')} label={'Login'} variant="outlined" size="small"
+                    helperText={<p>Nome que será usado para acessar a plataforma junto a senha</p>} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('password')} label="Senha" type="password" variant="outlined" size="small" required/>
+                <PasswordField register={register}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('passwordConfirm')} label="Confirmação de senha" type="password" variant="outlined" size="small" required/>
