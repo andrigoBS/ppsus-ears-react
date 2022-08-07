@@ -23,7 +23,7 @@ const Therapist = () => {
                 <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>} linkMenu={MetaLinkMenu}>
                     <Routes>
                         <Route path={'/'} element={<RequireAuth> <HomeTherapist/> </RequireAuth>} />
-                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper/> </RedirectIfAuth>} />
+                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper registerRoute={'/cadastro'}/> </RedirectIfAuth>} />
                         <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterTherapist/> </RedirectIfAuth>} />
                         <Route path={'/triagem/cadastro'} element={<RequireAuth> <RegisterConsultation/> </RequireAuth>} />
                         <Route path={'/minha-conta/:id'} element={<RequireAuth> <EditTherapist/> </RequireAuth>} />

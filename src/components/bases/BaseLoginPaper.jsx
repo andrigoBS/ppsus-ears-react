@@ -80,9 +80,6 @@ const BaseLoginPaper = ({ registerRoute }) => {
             <HtmlHead view={configuration.title} subTitle={'Login'}/>
             <Grid container sx={styles.container}>
                 <Grid item xs={12} sm={12} md={6} >
-                    <div>
-
-                    </div>
                     <Paper sx={styles.paper}>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <Grid container spacing={2} justifyContent={'center'} alignItems={'center'}>
@@ -104,7 +101,7 @@ const BaseLoginPaper = ({ registerRoute }) => {
                                 </Grid>
                                 {registerRoute &&
                                     <Grid item xs={12} sm={12} md={12}>
-                                        <RouterLink to={registerRoute}>
+                                        <RouterLink to={configuration.baseRoute + registerRoute}>
                                             Ainda não possui cadastro? Clique aqui para se cadastrar
                                         </RouterLink>
                                     </Grid>

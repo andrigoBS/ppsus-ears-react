@@ -1,4 +1,4 @@
-import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
+import { FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
 import React from 'react';
@@ -6,9 +6,6 @@ import { useForm } from 'react-hook-form';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const styles = {
-    button:{
-        width: 'fit-content',
-    },
     select: {
         width: '100%'
     }
@@ -20,17 +17,20 @@ const RegisterTherapist = () => {
 
     return (
         <BaseRegisterPaper handleSubmit={handleSubmit} title={'Fonoaudiólogo'} serviceFunction={configuration.service.register}>
-            <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('name')} label="Nome completo" variant="outlined" size="small" required/>
-            </Grid>
-            <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('crfa')} label="CRFa" variant="outlined" size="small" required/>
+            <Grid item xs={12} sm={12} md={12}>
+                <TextField  {...register('login')} label={'Login (Nome que será usado para acessar a plataforma junto a senha)'} variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('password')} label="Senha" type="password" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('passwordConfirm')} label="Confirmação de senha" type="password" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField  {...register('name')} label="Nome completo" variant="outlined" size="small" required/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <TextField  {...register('crfa')} label="CRFa" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <FormControl sx={styles.select} size="small" required>
@@ -63,24 +63,6 @@ const RegisterTherapist = () => {
                 <BrazilianPhoneField  register={register} name="phoneSecond" formErrors={errors}
                     label="Telefone alternativo" variant="outlined" size="small"
                 />
-            </Grid>
-            <Grid item xs={12} sm={12} md={6}>
-                <Typography variant={'h6'}>
-                    Local de trabalho
-                </Typography>
-                <FormControl sx={styles.select} size="small" required>
-                    <InputLabel>Instituição</InputLabel>
-                    <Select {...register('institution')} label="Instituição">
-                        <MenuItem value={0}>HOSPITAL DE FLORIANOPOLIS</MenuItem>
-                        <MenuItem value={1}>HOSPITAL SANTO ANTONIO IMAS</MenuItem>
-                        <MenuItem value={2}>HOSPITAL SANTA JULIANA</MenuItem>
-                    </Select>
-                </FormControl>
-            </Grid>
-            <Grid item xs={12} sm={12} md={12}>
-                <Button sx={styles.button} color="secondary" variant="contained">
-                    Adicionar instituição
-                </Button>
             </Grid>
         </BaseRegisterPaper>
     );
