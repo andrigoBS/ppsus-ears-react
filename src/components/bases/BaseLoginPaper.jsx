@@ -1,4 +1,4 @@
-import { Button, Grid, Paper, TextField, Typography, useTheme } from '@mui/material';
+import { Button, Divider, Grid, Paper, TextField, Typography, useTheme } from '@mui/material';
 import Footer from '../../views/site/components/Footer';
 import HtmlHead from '../HtmlHead';
 import Partners from '../../views/site/components/Partners';
@@ -99,14 +99,7 @@ const BaseLoginPaper = ({ registerRoute }) => {
                                 <Grid item xs={12} sm={12} md={12}>
                                     <TextField  {...register('password')} label="Senha" type="password" variant="outlined" size="small" required/>
                                 </Grid>
-                                {registerRoute &&
-                                    <Grid item xs={12} sm={12} md={12}>
-                                        <RouterLink to={configuration.baseRoute + registerRoute}>
-                                            Ainda não possui cadastro? Clique aqui para se cadastrar
-                                        </RouterLink>
-                                    </Grid>
-                                }
-                                <Grid item xs={12} sm={12} md={12}>
+                                <Grid item xs={12} sm={12} md={12} sx={{ marginBottom: '20px' }}>
                                     <Button
                                         color="secondary"
                                         type="submit"
@@ -114,6 +107,27 @@ const BaseLoginPaper = ({ registerRoute }) => {
                                         Entrar
                                     </Button>
                                 </Grid>
+                                {registerRoute &&
+
+                                    <Grid container >
+                                        <Grid sx={{ marginTop: '20px', marginBottom: '20px' }} item md={5} xs={5}>
+                                            <Divider/>
+                                        </Grid>
+                                        <Grid  item md={2} xs={2}>
+                                            <Typography  variant={'h5'}>
+                                                Ou
+                                            </Typography>
+                                        </Grid>
+                                        <Grid sx={{ marginTop: '20px', marginBottom: '20px' }} item md={5} xs={5}>
+                                            <Divider/>
+                                        </Grid>
+                                        <Grid item xs={12} sm={12} md={12}>
+                                            <RouterLink to={configuration.baseRoute + registerRoute}>
+                                                Clique aqui para se cadastrar
+                                            </RouterLink>
+                                        </Grid>
+                                    </Grid>
+                                }
                             </Grid>
                         </form>
                     </Paper>
