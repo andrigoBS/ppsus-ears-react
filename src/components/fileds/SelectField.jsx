@@ -17,11 +17,11 @@ const SelectField = ({ register, title, getValue, ...props }) => {
     return (
         <React.Fragment>
             {values && <FormControl sx={styles.select} required>
-                <InputLabel>{title}</InputLabel>
-                <Select label={title} {...register} {...props}>
+                <InputLabel size={'small'}>{title}</InputLabel>
+                <Select label={title} {...register} {...props} size={'small'}>
                     {Object.keys(values).map((key, index) => (
                         <MenuItem key={key+'_'+index} value={key} {...register}>
-                            values[key]
+                            {values[key]}
                         </MenuItem>
                     ))}
                 </Select>

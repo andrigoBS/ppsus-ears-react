@@ -1,6 +1,7 @@
 import { Divider, Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
 import RadioField from '../../../../components/fileds/RadioField';
+import SelectField from '../../../../components/fileds/SelectField';
 
 const RegisterInstitution = ({ register, configuration }) => {
     return (
@@ -33,7 +34,7 @@ const RegisterInstitution = ({ register, configuration }) => {
                 <TextField  {...register('publicArea')} label="Logradouro" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('state')} label="Estado" variant="outlined" size="small" required/>
+                <SelectField getValue={configuration.service.getStates} title={'Estado'} register={{ ...register('state') }}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('city')} label="Cidade" variant="outlined" size="small" required/>
