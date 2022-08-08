@@ -1,5 +1,7 @@
 import { Box, Button, Grid, Paper, Typography, useTheme } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../providers/auth/Auth';
+import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
 import HtmlHead from '../HtmlHead';
 
 import React from 'react';
@@ -37,12 +39,13 @@ const createStyles = (theme) => ({
 const BaseRegisterPaper = ({ children, serviceFunction, title, handleSubmit, notSubmitButton }) => {
     const theme = useTheme();
     const styles = createStyles(theme);
-    const auth = useAuth();
+    const navigate = useNavigate();
+    const configuration = useViewConfiguration();
 
     const onSubmit = (data) => {
         serviceFunction(data).then((response) => {
             if(response.isSuccess){
-                auth.login(data.login, data.password);
+                navigate(configuration.baseRoute);
             }
         });
     };

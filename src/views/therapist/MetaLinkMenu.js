@@ -20,15 +20,18 @@ const data = [
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,
-                label: 'Observação'
+                label: 'Orientação',
+                route: '/fono/orientacao/cadastro'
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,
-                label: 'Conduta'
+                label: 'Conduta',
+                route: '/fono/conduta/cadastro'
             },
             {
                 icon: <AiOutlineTool size={27}/>,
-                label: 'Equipamento'
+                label: 'Equipamento',
+                route: '/fono/equipamento/cadastro'
             },
         ]
     },
@@ -48,7 +51,7 @@ const data = [
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,
-                label: 'Observações'
+                label: 'Orientações'
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,
