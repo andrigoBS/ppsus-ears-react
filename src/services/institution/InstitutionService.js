@@ -20,7 +20,11 @@ const InstitutionService = (onAnyLog) => {
         return HttpHelper.get('secretary/state', generic.getUser().token).then(onAnyLog);
     };
 
-    return { ...generic, getTypes, referralServiceRegister, getReferralServiceTypes, getStates };
+    const getCities = (state) => {
+        return HttpHelper.get('secretary/city?state='+state, generic.getUser().token).then(onAnyLog);
+    };
+
+    return { ...generic, getTypes, referralServiceRegister, getReferralServiceTypes, getStates, getCities };
 };
 
 export default InstitutionService;

@@ -7,12 +7,14 @@ const styles = {
     }
 };
 
-const SelectField = ({ register, title, getValue, ...props }) => {
-    const [values, setValues] = useState(null);
+const SelectField = ({ register, title, getValue, watch, ...props }) => {
+    const [values, setValues] = useState(getValue? null : {});
 
     useEffect(() => {
-        getValue().then(r => r.body).then(setValues);
-    }, []);
+        if(getValue) {
+            getValue().then(r => r.body).then(setValues);
+        }
+    }, [watch]);
 
     return (
         <React.Fragment>
