@@ -9,12 +9,13 @@ import {
     InputLabel,
     MenuItem,
     Radio,
-    RadioGroup,
-    Select,
+    RadioGroup, Select,
     TextField,
     Typography
 } from '@mui/material';
 import React, { Fragment } from 'react';
+import SelectField from '../../../../../components/fileds/SelectField';
+import { useViewConfiguration } from '../../../../../providers/viewConfiguration/ViewConfiguration';
 
 const styles = {
     textTitle:{
@@ -30,6 +31,8 @@ const styles = {
 };
 
 const RegisterResults = ({ register, /*errors*/ }) => {
+    const configuration = useViewConfiguration();
+
     return (
         <Fragment>
             <Grid item xs={12} sm={12} md={3}>
@@ -64,30 +67,23 @@ const RegisterResults = ({ register, /*errors*/ }) => {
                 </FormControl>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <FormControl sx={styles.select} size="small">
-                    <InputLabel>Tipo de teste</InputLabel>
-                    <Select label="Tipo de teste" {...register('type')}>
-                        <MenuItem value={0}>EOET</MenuItem>
-                        <MenuItem value={1}>PEATE-A</MenuItem>
-                        <MenuItem value={2}>EOET + PEATE-A</MenuItem>
-                    </Select>
-                </FormControl>
+                <SelectField register={register} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <FormControl sx={styles.select} component="fieldset" size="small" >
                     <FormLabel component="legend"> Orelha Esquerda</FormLabel>
-                    <RadioGroup {...register('resultLeftEar')} defaultValue="passou">
-                        <FormControlLabel value="passou" control={<Radio/>} label="Passou"/>
-                        <FormControlLabel value="falhou" control={<Radio/>} label="Falhou"/>
+                    <RadioGroup {...register('leftEar')} defaultValue={true}>
+                        <FormControlLabel value={true} control={<Radio/>} label="Passou"/>
+                        <FormControlLabel value={false} control={<Radio/>} label="Falhou"/>
                     </RadioGroup>
                 </FormControl>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <FormControl sx={styles.select} component="fieldset" size="small" >
                     <FormLabel component="legend"> Orelha Direita</FormLabel>
-                    <RadioGroup {...register('resultRightEar')} defaultValue="passou">
-                        <FormControlLabel value="passou" control={<Radio/>} label="Passou"/>
-                        <FormControlLabel value="falhou" control={<Radio/>} label="Falhou"/>
+                    <RadioGroup {...register('rightEar')} defaultValue={true}>
+                        <FormControlLabel value={true} control={<Radio/>} label="Passou"/>
+                        <FormControlLabel value={false} control={<Radio/>} label="Falhou"/>
                     </RadioGroup>
                 </FormControl>
             </Grid>

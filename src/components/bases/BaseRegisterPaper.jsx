@@ -1,6 +1,5 @@
 import { Box, Button, Grid, Paper, Typography, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../providers/auth/Auth';
 import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
 import HtmlHead from '../HtmlHead';
 
