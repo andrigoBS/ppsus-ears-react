@@ -10,6 +10,7 @@ import PageNotFound from '../site/pages/PageNotFound';
 import React, { useEffect } from 'react';
 import RegisterConsultation from './pages/consultation/RegisterConsultation';
 import RegisterIndicator from './pages/indicator/RegisterIndicator';
+import ConsultOrientation from './pages/orientation/ConsultOrientation';
 import RegisterOrientation from './pages/orientation/RegisterOrientation';
 import RegisterTherapist from './pages/register/RegisterTherapist';
 import TherapistService from '../../services/therapist/TherapistService';
@@ -35,6 +36,7 @@ const Therapist = () => {
                         <Route path={'/equipamento/cadastro'} element={<RequireAuth> <RegisterEquipment/> </RequireAuth>} />
                         <Route path={'/conduta/cadastro'} element={<RequireAuth> <RegisterConduct/> </RequireAuth>} />
                         <Route path={'/orientacao/cadastro'} element={<RequireAuth> <RegisterOrientation/> </RequireAuth>} />
+                        <Route path={'/orientacao/consulta'} element={<RequireAuth> <ConsultOrientation/> </RequireAuth>} />
                         <Route path={'*'} element={<PageNotFound/>} />
                     </Routes>
                 </TopBar>

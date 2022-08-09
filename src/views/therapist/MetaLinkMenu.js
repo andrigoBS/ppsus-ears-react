@@ -51,7 +51,8 @@ const data = [
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,
-                label: 'Orientações'
+                label: 'Orientações',
+                route: '/fono/orientacao/consulta'
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,

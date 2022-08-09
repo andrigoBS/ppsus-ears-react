@@ -14,7 +14,8 @@ const styles = {
         marginRight: '15px',
         marginBottom: '15px',
         borderRadius: '10px',
-        padding: '20px'
+        padding: '20px',
+        boxShadow: '1px 1px 1px lightgrey'
     }
 };
 

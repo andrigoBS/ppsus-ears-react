@@ -16,11 +16,15 @@ const TherapistService = (onAnyLog) => {
         return HttpHelper.post(`${generic.pathName}/${generic.getUser().user.id}/orientation`, data, generic.getUser().token).then(onAnyLog);
     };
 
+    const getAllOrientations = (data) => {
+        return HttpHelper.get(`${generic.pathName}/orientation`, data, generic.getUser().token).then(onAnyLog);
+    };
+
     const getTriageTypes = () => {
         return HttpHelper.get(`${generic.pathName}/triage/types`, generic.getUser().token).then(onAnyLog);
     };
 
-    return { ...generic, consultationRegister, orientationRegister, getTriageTypes, getXpTypes };
+    return { ...generic, consultationRegister, orientationRegister, getTriageTypes, getXpTypes, getAllOrientations };
 };
 
 export default TherapistService;
