@@ -40,15 +40,7 @@ const EditTherapist = () => {
                 <TextField  {...register('passwordConfirm')} label="Confirmação de senha" type="password" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <FormControl sx={styles.select} size="small" required>
-                    <InputLabel>Tempo de experiência</InputLabel>
-                    <Select label="Tempo de experiência" {...register('xp')}>
-                        <MenuItem value={0}>Menos de 1 ano</MenuItem>
-                        <MenuItem value={1}>De 1 a 3 anos</MenuItem>
-                        <MenuItem value={2}>De 3 a 5 anos</MenuItem>
-                        <MenuItem value={2}>Mais de 5 anos</MenuItem>
-                    </Select>
-                </FormControl>
+                <SelectField register={{ ...register('xp') }} title={'Tempo de experiência'} getValue={configuration.service.getXpTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant={'h6'}>

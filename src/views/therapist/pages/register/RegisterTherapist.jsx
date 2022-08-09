@@ -45,7 +45,7 @@ const RegisterTherapist = () => {
                 {/*        <MenuItem value={2}>Mais de 5 anos</MenuItem>*/}
                 {/*    </Select>*/}
                 {/*</FormControl>*/}
-                <SelectField register={{ ...register('xp') }} title={'Tempo de experiêndia'} getValue={configuration.service.getXpTypes}/>
+                <SelectField register={{ ...register('xp') }} title={'Tempo de experiência'} getValue={configuration.service.getXpTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant={'h6'}>
