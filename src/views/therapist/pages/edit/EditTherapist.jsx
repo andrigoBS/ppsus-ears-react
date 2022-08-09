@@ -1,4 +1,5 @@
 import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import BaseEditPaper from '../../../../components/bases/BaseEditPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
 import React from 'react';
@@ -15,11 +16,17 @@ const styles = {
 };
 
 const EditTherapist = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm();
     const configuration = useViewConfiguration();
+    const { id } = useParams();
 
     return (
-        <BaseEditPaper handleSubmit={handleSubmit} title={'Fonoaudiólogo'} serviceFunction={configuration.service.register}>
+        <BaseEditPaper title={'Fonoaudiólogo'}
+            handleSubmit={handleSubmit}
+            serviceFunction={configuration.service.update}
+            serviceGetFunction={configuration.service.get}
+            setValue={setValue} id={id}
+        >
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('name')} label="Nome completo" variant="outlined" size="small" required/>
             </Grid>

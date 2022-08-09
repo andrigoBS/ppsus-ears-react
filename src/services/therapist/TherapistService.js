@@ -16,15 +16,32 @@ const TherapistService = (onAnyLog) => {
         return HttpHelper.post(`${generic.pathName}/${generic.getUser().user.id}/orientation`, data, generic.getUser().token).then(onAnyLog);
     };
 
-    const getAllOrientations = (data) => {
-        return HttpHelper.get(`${generic.pathName}/orientation`, data, generic.getUser().token).then(onAnyLog);
+    const getAllOrientations = () => {
+        return HttpHelper.get(`${generic.pathName}/${generic.getUser().user.id}/orientation`, generic.getUser().token).then(onAnyLog);
+    };
+
+    const indicatorRegister = (data) => {
+        return HttpHelper.post(`${generic.pathName}/indicator`, data, generic.getUser().token).then(onAnyLog);
+    };
+
+    const getAllIndicators = () => {
+        return HttpHelper.get(`${generic.pathName}/indicator`, generic.getUser().token).then(onAnyLog);
+    };
+
+    const equipmentRegister = (data) => {
+        return HttpHelper.post(`${generic.pathName}/equipment`, data, generic.getUser().token).then(onAnyLog);
+    };
+
+    const getAllEquipments = () => {
+        return HttpHelper.get(`${generic.pathName}/equipment`, generic.getUser().token).then(onAnyLog);
     };
 
     const getTriageTypes = () => {
         return HttpHelper.get(`${generic.pathName}/triage/types`, generic.getUser().token).then(onAnyLog);
     };
 
-    return { ...generic, consultationRegister, orientationRegister, getTriageTypes, getXpTypes, getAllOrientations };
+    return { ...generic, consultationRegister, orientationRegister, getTriageTypes, getXpTypes, getAllOrientations, indicatorRegister, getAllIndicators,
+        equipmentRegister, getAllEquipments };
 };
 
 export default TherapistService;

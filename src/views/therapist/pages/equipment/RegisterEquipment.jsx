@@ -9,7 +9,7 @@ const RegisterEquipment = () => {
     const configuration = useViewConfiguration();
 
     return(
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Equipamento'} serviceFunction={configuration.service.register}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Equipamento'} serviceFunction={configuration.service.equipmentRegister}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register('model')} label="Modelo" variant="outlined" size="small" required/>
             </Grid>
@@ -17,7 +17,7 @@ const RegisterEquipment = () => {
                 <TextField  {...register('brand')} label="Marca" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('dateOfLastCalibration')} label="Data última calibração" variant="outlined" size="small" required/>
+                <TextField  {...register('dateOfLastCalibration')} label="Data última calibração" variant="outlined" size="small"  type="date" InputLabelProps={{ shrink: true }} required/>
             </Grid>
         </BaseRegisterPaper>
     );

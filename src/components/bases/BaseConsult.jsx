@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 // import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
 
-import React from 'react';
+import React, { useState } from 'react';
 import HtmlHead from '../HtmlHead';
 import GenericTable from '../lists/GenericTable';
 
@@ -38,15 +38,16 @@ const createStyles = (theme) => ({
     },
 });
 
-const BaseConsult = ({ children, serviceFunction, handleSubmit, headers, rows, title }) => {
+const BaseConsult = ({ children, serviceFunction, handleSubmit, headers, title }) => {
     const theme = useTheme();
     const styles = createStyles(theme);
+    const [rows, setRows] = useState();
 
     const onSubmit = (data) => {
         serviceFunction(data).then((response) => {
-            // if(response.isSuccess){
-
-            // }
+            if(response.isSuccess){
+                setRows(response.body);
+            }
         });
     };
 

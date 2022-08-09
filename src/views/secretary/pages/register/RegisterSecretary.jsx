@@ -5,7 +5,7 @@ const RegisterSecretary = ({ register, configuration }) => {
     return (
         <React.Fragment>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField  {...register('name')} label="Nome secretaria" variant="outlined" size="small" required/>
+                <TextField  {...register('secretaryName')} label="Nome secretaria" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography  variant={'h6'}>

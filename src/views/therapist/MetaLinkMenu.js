@@ -47,7 +47,8 @@ const data = [
             },
             {
                 icon: <TbPresentation size={25}/>,
-                label: 'Indicadores'
+                label: 'Indicadores',
+                route: '/fono/indicador/consulta'
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,
@@ -60,7 +61,8 @@ const data = [
             },
             {
                 icon: <AiOutlineTool size={27}/>,
-                label: 'Equipamentos'
+                label: 'Equipamentos',
+                route: '/fono/equipamento/consulta'
             },
         ]
     },

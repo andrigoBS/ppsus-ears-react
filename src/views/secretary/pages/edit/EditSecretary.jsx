@@ -1,15 +1,22 @@
 import { Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
 import BaseEditPaper from '../../../../components/bases/BaseEditPaper';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const EditSecretary = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm();
     const configuration = useViewConfiguration();
+    const { id } = useParams();
 
     return (
-        <BaseEditPaper handleSubmit={handleSubmit} title={'Secretaria'} serviceFunction={configuration.service.register}>
+        <BaseEditPaper title={'Secretaria'}
+            handleSubmit={handleSubmit}
+            serviceFunction={configuration.service.update}
+            serviceGetFunction={configuration.service.get}
+            setValue={setValue} id={id}
+        >
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register('nameOfSecretary')} label="Nome secretaria" variant="outlined" size="small" required/>
             </Grid>

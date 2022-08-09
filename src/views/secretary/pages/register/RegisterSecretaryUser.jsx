@@ -25,7 +25,7 @@ const RegisterSecretaryUser = () => {
     return (
         <BaseRegisterPaper handleSubmit={handleSubmit} title={'Usuário Secretaria'} serviceFunction={configuration.service.register}>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('name')} label="Nome completo" variant="outlined" size="small" required/>
+                <TextField  {...register('userName')} label="Nome completo" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('role')} label="Cargo" variant="outlined" size="small"/>

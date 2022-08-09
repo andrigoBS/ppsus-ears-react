@@ -4,11 +4,13 @@ import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
 import MetaLinkMenu from './MetaLinkMenu';
 import RegisterConduct from './pages/conduct/RegisterConduct';
 import EditTherapist from './pages/edit/EditTherapist';
+import ConsultEquipment from './pages/equipment/ConsultEquipment';
 import RegisterEquipment from './pages/equipment/RegisterEquipment';
 import HomeTherapist from './pages/HomeTherapist';
 import PageNotFound from '../site/pages/PageNotFound';
 import React, { useEffect } from 'react';
 import RegisterConsultation from './pages/consultation/RegisterConsultation';
+import ConsultIndicator from './pages/indicator/ConsultIndicator';
 import RegisterIndicator from './pages/indicator/RegisterIndicator';
 import ConsultOrientation from './pages/orientation/ConsultOrientation';
 import RegisterOrientation from './pages/orientation/RegisterOrientation';
@@ -32,8 +34,10 @@ const Therapist = () => {
                         <Route path={'/triagem/cadastro'} element={<RequireAuth> <RegisterConsultation/> </RequireAuth>} />
                         <Route path={'/minha-conta/:id'} element={<RequireAuth> <EditTherapist/> </RequireAuth>} />
                         <Route path={'/indicador/cadastro'} element={<RequireAuth> <RegisterIndicator/> </RequireAuth>} />
+                        <Route path={'/indicador/consulta'} element={<RequireAuth> <ConsultIndicator/> </RequireAuth>} />
                         <Route path={'/consulta/cadastro'} element={<RequireAuth> <RegisterConsultation/> </RequireAuth>} />
                         <Route path={'/equipamento/cadastro'} element={<RequireAuth> <RegisterEquipment/> </RequireAuth>} />
+                        <Route path={'/equipamento/consulta'} element={<RequireAuth> <ConsultEquipment/> </RequireAuth>} />
                         <Route path={'/conduta/cadastro'} element={<RequireAuth> <RegisterConduct/> </RequireAuth>} />
                         <Route path={'/orientacao/cadastro'} element={<RequireAuth> <RegisterOrientation/> </RequireAuth>} />
                         <Route path={'/orientacao/consulta'} element={<RequireAuth> <ConsultOrientation/> </RequireAuth>} />

@@ -6,19 +6,19 @@ import { useViewConfiguration } from '../../../../providers/viewConfiguration/Vi
 
 const headers = [
     { title: 'Código', name: 'id' },
-    { title: 'Descrição', name: 'description' }
+    { title: 'Nome', name: 'name' }
 ];
 
-const ConsultOrientation = () => {
+const ConsultIndicator = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const configuration = useViewConfiguration();
 
     return(
-        <BaseConsult handleSubmit={handleSubmit} title={'Orientação'} serviceFunction={configuration.service.getAllOrientations} headers={headers}>
+        <BaseConsult handleSubmit={handleSubmit} title={'Indicador'} serviceFunction={configuration.service.getAllIndicators} headers={headers}>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField  {...register('description')} label="Descrição" variant="outlined" size="small"/>
+                <TextField  {...register('name')} label="Nome" variant="outlined" size="small"/>
             </Grid>
         </BaseConsult>
     );
 };
-export default ConsultOrientation;
+export default ConsultIndicator;

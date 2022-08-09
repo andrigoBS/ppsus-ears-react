@@ -1,16 +1,15 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { AuthProvider,  RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
+import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
+import TopBar from '../../components/TopBar';
+import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
+import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
+import SecretaryService from '../../services/secretary/SecretaryService';
 import MetaLinkMenu from '../secretary/MetaLinkMenu';
 import EditSecretary from '../secretary/pages/edit/EditSecretary';
-import HomeSecretary from './pages/HomeSecretary';
 import PageNotFound from '../site/pages/PageNotFound';
-import React from 'react';
-import RegisterSecretary from './pages/register/RegisterSecretary';
-import SecretaryService from '../../services/secretary/SecretaryService';
-import TopBar from '../../components/TopBar';
-import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
-import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
+import HomeSecretary from './pages/HomeSecretary';
 import RegisterSecretaryUser from './pages/register/RegisterSecretaryUser';
 
 const Secretary = () => {
