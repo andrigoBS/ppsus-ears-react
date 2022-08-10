@@ -5,6 +5,7 @@ import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneFie
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
+import SelectField from '../../../../components/fileds/SelectField';
 
 const styles = {
     button:{

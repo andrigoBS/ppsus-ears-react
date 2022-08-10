@@ -1,7 +1,18 @@
 import { Grid, TextField, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
+import SelectField from '../../../../components/fileds/SelectField';
 
 const RegisterSecretary = ({ register, configuration }) => {
+    const [state, setState] = useState(null);
+
+    const getCities = () => {
+        return configuration.service.getCities(state);
+    };
+
+    const onChangeState = (event) => {
+        setState(event.target.value);
+    };
+
     return (
         <React.Fragment>
             <Grid item xs={12} sm={12} md={12}>
@@ -13,10 +24,10 @@ const RegisterSecretary = ({ register, configuration }) => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('state')} label="Estado" variant="outlined" size="small" required/>
+                <SelectField getValue={configuration.service.getStates} title={'Estado'} register={register('address.state')} onChange={onChangeState}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('city')} label="Cidade" variant="outlined" size="small" required/>
+                <SelectField getValue={state? getCities : null} title={'Cidade'} register={register('address.city.id')} watch={state}/>
             </Grid>
         </React.Fragment>
     );
