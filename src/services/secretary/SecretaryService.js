@@ -1,7 +1,8 @@
 import GenericService from '../GenericService';
+import HttpHelper from '../HttpHelper';
 
-const SecretaryService = (onAnyError) => {
-    const generic = GenericService('secretary', 'secretaryUser', onAnyError);
+const SecretaryService = (onAnyLog) => {
+    const generic = GenericService('secretary', 'secretaryUser', onAnyLog);
 
     const getStates = () => {
         return HttpHelper.get('secretary/state', generic.getUser().token).then(onAnyLog);
