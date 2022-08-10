@@ -1,5 +1,6 @@
 import { Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import SelectChipField from '../../../../components/fileds/SelectChipField';
 import SelectField from '../../../../components/fileds/SelectField';
 
 const RegisterSecretary = ({ register, configuration }) => {
@@ -28,6 +29,9 @@ const RegisterSecretary = ({ register, configuration }) => {
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <SelectField getValue={state? getCities : null} title={'Cidade'} register={register('address.city.id')} watch={state}/>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <SelectChipField label={'Cidades'} names={['Optimus Prime','Bumblebee','Autobots','Decepticons','Megatron',]}/>
             </Grid>
         </React.Fragment>
     );
