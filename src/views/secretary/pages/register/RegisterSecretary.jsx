@@ -1,18 +1,17 @@
 import { Grid, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
-import SelectChipField from '../../../../components/fileds/SelectChipField';
-import SelectField from '../../../../components/fileds/SelectField';
+import React  from 'react';
+import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 
 const RegisterSecretary = ({ register, configuration }) => {
-    const [state, setState] = useState(null);
+    // const [state, setState] = useState([]);
 
-    const getCities = () => {
-        return configuration.service.getCities(state);
-    };
+    // const getCities = () => {
+    //     return configuration.service.getCities(state);
+    // };
 
-    const onChangeState = (event) => {
-        setState(event.target.value);
-    };
+    // const onChangeState = (event) => {
+    //     setState(event.target.value);
+    // };
 
     return (
         <React.Fragment>
@@ -25,14 +24,14 @@ const RegisterSecretary = ({ register, configuration }) => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectField getValue={configuration.service.getStates} title={'Estado'} register={register('address.state')} onChange={onChangeState}/>
+                <SelectFieldAsync getValue={configuration.service.getStates} title={'Estado'} register={register('address.state')} />
             </Grid>
-            <Grid item xs={12} sm={12} md={6}>
-                <SelectField getValue={state? getCities : null} title={'Cidade'} register={register('address.city.id')} watch={state}/>
-            </Grid>
-            <Grid item xs={12} sm={12} md={6}>
-                <SelectChipField label={'Cidades'} names={['Optimus Prime','Bumblebee','Autobots','Decepticons','Megatron',]}/>
-            </Grid>
+            {/*<Grid item xs={12} sm={12} md={6}>*/}
+            {/*    <SelectFieldAsync getValue={state? getCities : null} title={'Cidade'} register={register('address.city.id')} watch={state}/>*/}
+            {/*</Grid>*/}
+            {/*<Grid item xs={12} sm={12} md={12}>*/}
+            {/*    <SelectFieldAsync getValue={configuration.service.getZones} title={'Regiões'} register={register('zone')} />*/}
+            {/*</Grid>*/}
         </React.Fragment>
     );
 };

@@ -1,26 +1,38 @@
-import { CircularProgress, FormControl, FormControlLabel, Radio, RadioGroup, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { FormControl, FormControlLabel, Radio, RadioGroup, Typography } from '@mui/material';
+import React from 'react';
 
-const RadioField = ({ register, title, getValue, ...props }) => {
-    const [values, setValues] = useState(null);
+const styles = {
+    select: {
+        width: '100%'
+    }
+};
 
-    useEffect(() => {
-        getValue().then(r => r.body).then(setValues);
-    }, []);
-
+const RadioField = ({ register, title, values, ...props }) => {
     return (
         <React.Fragment>
             {title && <Typography variant={'h6'}>
                 {title}
             </Typography>}
-            {values && <FormControl required>
-                <RadioGroup {...register} defaultValue={Object.keys(values)[0]} {...props}>
-                    {Object.keys(values).map((key, index) => (
-                        <FormControlLabel key={key+'_'+index} value={key} control={<Radio/>} label={values[key]} {...register}/>
+            <FormControl
+                sx={styles.select}
+                size={'small'}
+                {...props}
+            >
+                <RadioGroup
+                    defaultValue={values[0].id}
+                    {...register}
+                >
+                    {values.map((element, index) => (
+                        <FormControlLabel
+                            key={element.id+'_'+index}
+                            value={element.id}
+                            control={<Radio/>}
+                            label={element.name}
+                            {...register}
+                        />
                     ))}
                 </RadioGroup>
-            </FormControl>}
-            {!values && <CircularProgress />}
+            </FormControl>
         </React.Fragment>
     );
 };

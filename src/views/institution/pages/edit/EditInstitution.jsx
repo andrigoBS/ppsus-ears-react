@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import BaseEditPaper from '../../../../components/bases/BaseEditPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
-import RadioField from '../../../../components/fileds/RadioField';
+import RadioFieldAsync from '../../../../components/fileds/RadioFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const EditInstitution = () => {
@@ -63,7 +63,7 @@ const EditInstitution = () => {
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <RadioField
+                <RadioFieldAsync
                     title={'Tipo de instituição'}
                     register={register('institutionType')}
                     getValue={configuration.service.getTypes}

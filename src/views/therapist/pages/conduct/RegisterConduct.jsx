@@ -2,7 +2,7 @@ import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Text
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
-import SelectField from '../../../../components/fileds/SelectField';
+import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const styles = {
@@ -30,7 +30,7 @@ const RegisterConduct = () => {
                 <TextField  {...register('description')} label="Descrição" variant="outlined" size="small" multiline rows={4} required />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <SelectField register={register} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes}/>
+                <SelectFieldAsync register={register} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <FormControl sx={styles.select} component="fieldset" size="small" >

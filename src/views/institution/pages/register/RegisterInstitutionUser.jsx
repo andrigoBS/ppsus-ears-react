@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
 import PasswordField from '../../../../components/fileds/PasswordField';
-import SelectField from '../../../../components/fileds/SelectField';
+import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 import RegisterInstitution from './RegisterInstitution';
 

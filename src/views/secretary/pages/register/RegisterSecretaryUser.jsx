@@ -1,9 +1,8 @@
-import { FormControl, Grid, InputLabel, Link, MenuItem, Select, TextField, Typography } from '@mui/material';
-import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
+import { Grid, Link, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import PasswordField from '../../../../components/fileds/PasswordField';
-import SelectField from '../../../../components/fileds/SelectField';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 import RegisterSecretary from './RegisterSecretary';
 
@@ -30,9 +29,6 @@ const RegisterSecretaryUser = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('role')} label="Cargo" variant="outlined" size="small"/>
             </Grid>
-            {/*<Grid item xs={12} sm={12} md={6}>*/}
-            {/*    <SelectField register={register} title={'Secretaria'} getValue={['AAAA']}/>*/}
-            {/*</Grid>*/}
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('login')} label={'Login'} variant="outlined" size="small" required
                     helperText={<p>Nome que será usado para acessar a plataforma junto a senha</p>}/>

@@ -14,7 +14,7 @@ import {
     Typography
 } from '@mui/material';
 import React, { Fragment } from 'react';
-import SelectField from '../../../../../components/fileds/SelectField';
+import SelectFieldAsync from '../../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../../providers/viewConfiguration/ViewConfiguration';
 
 const styles = {
@@ -67,7 +67,7 @@ const RegisterResults = ({ register, /*errors*/ }) => {
                 </FormControl>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <SelectField register={register} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes}/>
+                <SelectFieldAsync register={register} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <FormControl sx={styles.select} component="fieldset" size="small" >

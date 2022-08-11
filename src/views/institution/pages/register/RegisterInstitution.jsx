@@ -1,7 +1,7 @@
 import { Divider, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import RadioField from '../../../../components/fileds/RadioField';
-import SelectField from '../../../../components/fileds/SelectField';
+import RadioFieldAsync from '../../../../components/fileds/RadioFieldAsync';
+import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 
 const RegisterInstitution = ({ register, configuration }) => {
     const [state, setState] = useState(null);
@@ -32,7 +32,7 @@ const RegisterInstitution = ({ register, configuration }) => {
                 <TextField  {...register('cnpj')} label="CNPJ" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <RadioField title={'Tipo de instituição'} register={register('institutionType')} getValue={configuration.service.getTypes}/>
+                <RadioFieldAsync title={'Tipo de instituição'} register={register('institutionType')} getValue={configuration.service.getTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant={'h6'}>Endereço</Typography>
@@ -44,10 +44,10 @@ const RegisterInstitution = ({ register, configuration }) => {
                 <TextField  {...register('address.street')} label="Logradouro" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectField getValue={configuration.service.getStates} title={'Estado'} register={register('address.state')} onChange={onChangeState}/>
+                <SelectFieldAsync register={register('address.state')} getValue={configuration.service.getStates} title={'Estado'} onChange={onChangeState}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectField getValue={state? getCities : null} title={'Cidade'} register={register('address.city.id')} watch={state}/>
+                <SelectFieldAsync register={register('address.city.id')} getValue={state? getCities : null} title={'Cidade'} watch={state}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField {...register('address.number')} label="Número" variant="outlined" size="small"/>

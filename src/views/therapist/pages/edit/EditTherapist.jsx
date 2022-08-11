@@ -5,7 +5,7 @@ import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneFie
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
-import SelectField from '../../../../components/fileds/SelectField';
+import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 
 const styles = {
     button:{
@@ -41,7 +41,7 @@ const EditTherapist = () => {
                 <TextField  {...register('passwordConfirm')} label="Confirmação de senha" type="password" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectField register={{ ...register('xp') }} title={'Tempo de experiência'} getValue={configuration.service.getXpTypes}/>
+                <SelectFieldAsync register={{ ...register('xp') }} title={'Tempo de experiência'} getValue={configuration.service.getXpTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant={'h6'}>

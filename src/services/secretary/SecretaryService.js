@@ -8,7 +8,11 @@ const SecretaryService = (onAnyLog) => {
         return HttpHelper.get('secretary/state', generic.getUser().token).then(onAnyLog);
     };
 
-    return { ...generic, getStates };
+    const getZones = () => {
+        return HttpHelper.get('secretary/zone', generic.getUser().token).then(onAnyLog);
+    };
+
+    return { ...generic, getStates, getZones };
 };
 
 export default SecretaryService;
