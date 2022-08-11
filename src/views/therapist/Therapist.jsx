@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
 import MetaLinkMenu from './MetaLinkMenu';
+import ConsultConduct from './pages/conduct/ConsultConduct';
 import RegisterConduct from './pages/conduct/RegisterConduct';
 import EditTherapist from './pages/edit/EditTherapist';
 import ConsultEquipment from './pages/equipment/ConsultEquipment';
@@ -39,6 +40,7 @@ const Therapist = () => {
                         <Route path={'/equipamento/cadastro'} element={<RequireAuth> <RegisterEquipment/> </RequireAuth>} />
                         <Route path={'/equipamento/consulta'} element={<RequireAuth> <ConsultEquipment/> </RequireAuth>} />
                         <Route path={'/conduta/cadastro'} element={<RequireAuth> <RegisterConduct/> </RequireAuth>} />
+                        <Route path={'/conduta/consulta'} element={<RequireAuth> <ConsultConduct/> </RequireAuth>} />
                         <Route path={'/orientacao/cadastro'} element={<RequireAuth> <RegisterOrientation/> </RequireAuth>} />
                         <Route path={'/orientacao/consulta'} element={<RequireAuth> <ConsultOrientation/> </RequireAuth>} />
                         <Route path={'*'} element={<PageNotFound/>} />
