@@ -44,8 +44,11 @@ const TherapistService = (onAnyLog) => {
         return HttpHelper.get(`${generic.pathName}/triage/types`, generic.getUser().token).then(onAnyLog);
     };
 
-    return { ...generic, getAllInstitutions, consultationRegister, orientationRegister, getTriageTypes, getXpTypes, getAllOrientations, indicatorRegister, getAllIndicators,
-        equipmentRegister, getAllEquipments };
+    return {
+        ...generic,
+        getAllInstitutions, consultationRegister, orientationRegister, getTriageTypes, getXpTypes, getAllOrientations,
+        indicatorRegister, getAllIndicators, equipmentRegister, getAllEquipments
+    };
 };
 
 export default TherapistService;
