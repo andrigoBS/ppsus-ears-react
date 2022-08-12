@@ -40,6 +40,14 @@ const TherapistService = (onAnyLog) => {
         return HttpHelper.get(`${generic.pathName}/equipment`, generic.getUser().token).then(onAnyLog);
     };
 
+    const conductRegister = (data) => {
+        return HttpHelper.post(`${generic.pathName}/conduct`, data, generic.getUser().token).then(onAnyLog);
+    };
+
+    const getAllConducts = () => {
+        return HttpHelper.get(`${generic.pathName}/conduct`, generic.getUser().token).then(onAnyLog);
+    };
+
     const getTriageTypes = () => {
         return HttpHelper.get(`${generic.pathName}/triage/types`, generic.getUser().token).then(onAnyLog);
     };
@@ -47,7 +55,7 @@ const TherapistService = (onAnyLog) => {
     return {
         ...generic,
         getAllInstitutions, consultationRegister, orientationRegister, getTriageTypes, getXpTypes, getAllOrientations,
-        indicatorRegister, getAllIndicators, equipmentRegister, getAllEquipments
+        indicatorRegister, getAllIndicators, equipmentRegister, getAllEquipments, conductRegister, getAllConducts,
     };
 };
 
