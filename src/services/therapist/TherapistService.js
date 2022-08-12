@@ -4,6 +4,10 @@ import HttpHelper from '../HttpHelper';
 const TherapistService = (onAnyLog) => {
     const generic = GenericService('therapist','therapistUser', onAnyLog);
 
+    const getAllInstitutions = () => {
+        return HttpHelper.get('institution', generic.getUser().token).then(onAnyLog);
+    };
+
     const getXpTypes = () => {
         return HttpHelper.get(`${generic.pathName}/xp-types`, generic.getUser().token).then(onAnyLog);
     };
@@ -40,7 +44,7 @@ const TherapistService = (onAnyLog) => {
         return HttpHelper.get(`${generic.pathName}/triage/types`, generic.getUser().token).then(onAnyLog);
     };
 
-    return { ...generic, consultationRegister, orientationRegister, getTriageTypes, getXpTypes, getAllOrientations, indicatorRegister, getAllIndicators,
+    return { ...generic, getAllInstitutions, consultationRegister, orientationRegister, getTriageTypes, getXpTypes, getAllOrientations, indicatorRegister, getAllIndicators,
         equipmentRegister, getAllEquipments };
 };
 

@@ -4,16 +4,11 @@ import { useForm } from 'react-hook-form';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
 import PasswordField from '../../../../components/fileds/PasswordField';
-import SelectField from '../../../../components/fileds/SelectField';
 import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const RegisterTherapist = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm({
-        defaultValues: {
-            institutions: [],
-        }
-    });
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const configuration = useViewConfiguration();
 
     return (
@@ -59,9 +54,7 @@ const RegisterTherapist = () => {
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <SelectField title={'Instituições'} register={{ ...register('institutions', { value: [] }) }} multiple
-                    values={[{ id: 1, name: 'teste' }, { id: 2, name:'teste1' }, { id: 3, name:'teste2' }, { id: 4, name:'teste3' }]}
-                />
+                <SelectFieldAsync title={'Instituições'} register={{ ...register('institutions') }} getValue={configuration.service.getAllInstitutions} multiple />
             </Grid>
         </BaseRegisterPaper>
     );

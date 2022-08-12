@@ -1,5 +1,5 @@
 import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 
 const styles = {
     select: {
@@ -19,14 +19,17 @@ const styles = {
 };
 
 const SelectField = ({ register, title, values, multiple, onChange, ...props }) => {
+    const [value, setValue] = useState(props.value || props.defaultValue || register.value || (multiple? [] : ''));
     const createRenderMultiple = () => {
         if (multiple) {
             return {
                 multiple,
                 renderValue: (selected) => (
                     <Box sx={styles.multipleChipContainer}>
-                        {selected.map((value) => (
-                            <Chip key={value} label={value} sx={styles.chipElement}/>
+                        {selected.map((selectedElement) => (
+                            <Chip key={'chip-select-'+selectedElement} sx={styles.chipElement}
+                                label={values.filter(v => v.id === selectedElement)[0].name}
+                            />
                         ))}
                     </Box>
                 ),
@@ -37,18 +40,31 @@ const SelectField = ({ register, title, values, multiple, onChange, ...props }) 
     };
 
     const handleOnchange = (event) => {
+        if(multiple && typeof event.target.value === 'string') {
+            event.target.value = event.target.value.split(',');
+        }
+
         register.onChange(event);
         if(onChange) {
             onChange(event);
         }
+
+        setValue(event.target.value);
+    };
+
+    const configValueManipulation = () => {
+        return {
+            ...register,
+            value: value,
+            onChange: handleOnchange,
+        };
     };
 
     return (
-        <FormControl sx={styles.select} size={'small'} {...register} {...props} onChange={handleOnchange} >
+        <FormControl sx={styles.select} size={'small'} {...props} {...configValueManipulation()} >
             <InputLabel> {title} </InputLabel>
             <Select
-                {...register}
-                onChange={handleOnchange}
+                {...configValueManipulation()}
                 MenuProps={{
                     PaperProps: {
                         style: styles.OpenedOptionsContainer,
