@@ -2,7 +2,7 @@ import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Text
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
-import SelectField from '../../../../components/fileds/SelectField';
+import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const styles = {
@@ -16,50 +16,46 @@ const RegisterConduct = () => {
     const configuration = useViewConfiguration();
 
     return(
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Conduta'} serviceFunction={configuration.service.conductRegister}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Conduta'} serviceFunction={configuration.service.register}>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField  {...register('resultDescription')} label="Descrição resultado" variant="outlined" size="small" multiline rows={4} required />
+                <TextField  {...register('title')} label="Título" variant="outlined" size="small" required />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField  {...register('accompanyDescription')} label="Descrição acompanhamento" variant="outlined" size="small" multiline rows={4} required />
+                <TextField  {...register('resultType')} label="Tipo resultado" variant="outlined" size="small" required />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <SelectField register={{ ...register('type') }} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes} required/>
+                <TextField  {...register('accompanyType')} label="Tipo acompanhamento" variant="outlined" size="small" required />
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <TextField  {...register('description')} label="Descrição" variant="outlined" size="small" multiline rows={4} required />
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+                <SelectFieldAsync register={register} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <FormControl sx={styles.select} component="fieldset" size="small" required>
+                <FormControl sx={styles.select} component="fieldset" size="small" >
                     <FormLabel component="legend"> Orelha Esquerda</FormLabel>
-                    <RadioGroup {...register('leftEar')} defaultValue={1}>
-                        <FormControlLabel {...register('leftEar')} value={1} control={<Radio/>} label="Passou"/>
-                        <FormControlLabel {...register('leftEar')} value={0} control={<Radio/>} label="Falhou"/>
+                    <RadioGroup {...register('leftEar')} defaultValue={true}>
+                        <FormControlLabel value={true} control={<Radio/>} label="Passou"/>
+                        <FormControlLabel value={false} control={<Radio/>} label="Falhou"/>
                     </RadioGroup>
                 </FormControl>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <FormControl sx={styles.select} component="fieldset" size="small" required>
+                <FormControl sx={styles.select} component="fieldset" size="small" >
                     <FormLabel component="legend"> Orelha Direita</FormLabel>
-                    <RadioGroup {...register('rightEar')} defaultValue={1}>
-                        <FormControlLabel {...register('rightEar')} value={1} control={<Radio/>} label="Passou"/>
-                        <FormControlLabel {...register('rightEar')} value={0} control={<Radio/>} label="Falhou"/>
+                    <RadioGroup {...register('rightEar')} defaultValue={true}>
+                        <FormControlLabel value={true} control={<Radio/>} label="Passou"/>
+                        <FormControlLabel value={false} control={<Radio/>} label="Falhou"/>
                     </RadioGroup>
                 </FormControl>
             </Grid>
-            <Grid item xs={12} sm={12} md={6}>
-                <FormControl sx={styles.select} component="fieldset" size="small" required>
-                    <FormLabel component="legend">Tipo teste</FormLabel>
-                    <RadioGroup {...register('testType')} defaultValue={1}>
-                        <FormControlLabel {...register('testType')} value={1} control={<Radio/>} label="Teste"/>
-                        <FormControlLabel {...register('testType')} value={2} control={<Radio/>} label="Reteste"/>
-                        <FormControlLabel {...register('testType')} value={3} control={<Radio/>} label="Teste e reteste"/>
-                    </RadioGroup>
-                </FormControl>
-            </Grid>
-            <Grid item xs={12} sm={12} md={6}>
-                <FormControl sx={styles.select} component="fieldset" size="small" required>
+            <Grid item xs={12} sm={12} md={12}>
+                <FormControl sx={styles.select} component="fieldset" size="small" >
                     <FormLabel component="legend">IRDA</FormLabel>
-                    <RadioGroup {...register('irda')} defaultValue={1}>
-                        <FormControlLabel {...register('irda')} value={1} control={<Radio/>} label="Possui"/>
-                        <FormControlLabel {...register('irda')} value={0} control={<Radio/>} label="Não possui"/>
+                    <RadioGroup {...register('irda')} defaultValue={true}>
+                        <FormControlLabel value={true} control={<Radio/>} label="Possui"/>
+                        <FormControlLabel value={false} control={<Radio/>} label="Não Possui"/>
                     </RadioGroup>
                 </FormControl>
             </Grid>

@@ -11,7 +11,7 @@ const HomeInstitution = () => {
     return (
         <React.Fragment>
             <BaseDashboard user={auth.user} getDashboard={configuration.service.getDashboard} getReport={configuration.service.getReport} />
-            <GenericTable/>
+            {/*<GenericTable/>*/}
         </React.Fragment>
     );
 };

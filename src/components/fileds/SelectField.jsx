@@ -1,35 +1,85 @@
-import { CircularProgress, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
+import React, { useState } from 'react';
 
 const styles = {
     select: {
         width: '100%'
-    }
+    },
+    multipleChipContainer: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 0.5
+    },
+    chipElement: {
+        maxHeight: '23px'
+    },
+    OpenedOptionsContainer:  {
+        maxHeight: '300px',
+    },
 };
 
-const SelectField = ({ register, title, getValue, watch, ...props }) => {
-    const [values, setValues] = useState(getValue? null : {});
-
-    useEffect(() => {
-        if(getValue) {
-            getValue().then(r => r.body).then(setValues);
+const SelectField = ({ register, title, values, multiple, onChange, ...props }) => {
+    const [value, setValue] = useState(props.value || props.defaultValue || register.value || (multiple? [] : ''));
+    const createRenderMultiple = () => {
+        if (multiple) {
+            return {
+                multiple,
+                renderValue: (selected) => (
+                    <Box sx={styles.multipleChipContainer}>
+                        {selected.map((selectedElement) => (
+                            <Chip key={'chip-select-'+selectedElement} sx={styles.chipElement}
+                                label={values.filter(v => v.id === selectedElement)[0].name}
+                            />
+                        ))}
+                    </Box>
+                ),
+            };
         }
-    }, [watch]);
+
+        return {};
+    };
+
+    const handleOnchange = (event) => {
+        if(multiple && typeof event.target.value === 'string') {
+            event.target.value = event.target.value.split(',');
+        }
+
+        register.onChange(event);
+        if(onChange) {
+            onChange(event);
+        }
+
+        setValue(event.target.value);
+    };
+
+    const configValueManipulation = () => {
+        return {
+            ...register,
+            value: value,
+            onChange: handleOnchange,
+        };
+    };
 
     return (
-        <React.Fragment>
-            {values && <FormControl sx={styles.select} required>
-                <InputLabel size={'small'}>{title}</InputLabel>
-                <Select label={title} {...register} {...props} size={'small'}>
-                    {Object.keys(values).map((key, index) => (
-                        <MenuItem key={key+'_'+index} value={key} {...register}>
-                            {values[key]}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>}
-            {!values && <CircularProgress />}
-        </React.Fragment>
+        <FormControl sx={styles.select} size={'small'} {...props} {...configValueManipulation()} >
+            <InputLabel> {title} </InputLabel>
+            <Select
+                {...configValueManipulation()}
+                MenuProps={{
+                    PaperProps: {
+                        style: styles.OpenedOptionsContainer,
+                    },
+                }}
+                input={<OutlinedInput label={title} />}
+                {...createRenderMultiple()}
+            >
+                {values.map((element, index) => (
+                    <MenuItem key={element.id+'_'+index} value={element.id} {...register}>
+                        {element.name}
+                    </MenuItem>
+                ))}
+            </Select>
+        </FormControl>
     );
 };
 

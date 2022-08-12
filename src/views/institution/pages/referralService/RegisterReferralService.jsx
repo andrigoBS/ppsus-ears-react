@@ -3,7 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
-import RadioField from '../../../../components/fileds/RadioField';
+import RadioFieldAsync from '../../../../components/fileds/RadioFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const RegisterReferralService = () => {
@@ -22,7 +22,7 @@ const RegisterReferralService = () => {
                 <TextField  {...register('CNES')} label="CNES" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <RadioField title={'Tipo de serviço'} register={register('referralServiceType')} getValue={configuration.service.getReferralServiceTypes}/>
+                <RadioFieldAsync title={'Tipo de serviço'} register={register('referralServiceType')} getValue={configuration.service.getReferralServiceTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography  variant={'h6'}>

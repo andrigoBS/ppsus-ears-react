@@ -1,7 +1,7 @@
 import { Divider, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import RadioField from '../../../../components/fileds/RadioField';
-import SelectField from '../../../../components/fileds/SelectField';
+import RadioFieldAsync from '../../../../components/fileds/RadioFieldAsync';
+import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 
 const RegisterInstitution = ({ register, configuration }) => {
     const [state, setState] = useState(null);
@@ -23,37 +23,37 @@ const RegisterInstitution = ({ register, configuration }) => {
                 <Typography variant={'h6'}>Informações sobre a Instituição</Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField  {...register('institutionName')} label="Nome instituição" variant="outlined" size="small" required/>
+                <TextField  {...register('institution.institutionName')} label="Nome instituição" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('cnes')} label="CNES" variant="outlined" size="small" required/>
+                <TextField  {...register('institution.cnes')} label="CNES" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('cnpj')} label="CNPJ" variant="outlined" size="small"/>
+                <TextField  {...register('institution.cnpj')} label="CNPJ" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <RadioField title={'Tipo de instituição'} register={register('institutionType')} getValue={configuration.service.getTypes}/>
+                <RadioFieldAsync title={'Tipo de instituição'} register={register('institution.institutionType')} getValue={configuration.service.getTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant={'h6'}>Endereço</Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('address.cep')} label="CEP" variant="outlined" size="small" required/>
+                <TextField  {...register('institution.address.cep')} label="CEP" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('address.street')} label="Logradouro" variant="outlined" size="small" required/>
+                <TextField  {...register('institution.address.street')} label="Logradouro" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectField getValue={configuration.service.getStates} title={'Estado'} register={register('address.state')} onChange={onChangeState}/>
+                <SelectFieldAsync register={register('institution.address.state')} getValue={configuration.service.getStates} title={'Estado'} onChange={onChangeState}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectField getValue={state? getCities : null} title={'Cidade'} register={register('address.city.id')} watch={state}/>
+                <SelectFieldAsync register={register('institution.address.city.id')} getValue={state? getCities : null} title={'Cidade'} watch={state}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('address.number')} label="Número" variant="outlined" size="small"/>
+                <TextField {...register('institution.address.number')} label="Número" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('address.adjunct')} label="Complemento" variant="outlined" size="small"/>
+                <TextField {...register('institution.address.adjunct')} label="Complemento" variant="outlined" size="small"/>
             </Grid>
         </React.Fragment>
     );

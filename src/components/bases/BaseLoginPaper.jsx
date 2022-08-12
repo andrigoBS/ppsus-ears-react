@@ -1,13 +1,13 @@
 import { Button, Divider, Grid, Paper, TextField, Typography, useTheme } from '@mui/material';
 import Footer from '../../views/site/components/Footer';
 import HtmlHead from '../HtmlHead';
+import LoginUX from '../icons/login/Prancheta 9.svg';
 import Partners from '../../views/site/components/Partners';
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../../providers/auth/Auth';
 import { useForm } from 'react-hook-form';
 import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
-import LoginUX from '../icons/login/Prancheta 9.svg';
 
 const createStyles = (theme) => {
     return {
@@ -44,8 +44,12 @@ const createStyles = (theme) => {
                 margin: '40px',
             },
             [theme.breakpoints.up('md')]: {
-                marginLeft: '20%',
-                marginRight: '20%',
+                marginLeft: '12%',
+                marginRight: '12%',
+            },
+            [theme.breakpoints.up('lg')]: {
+                marginLeft: '23%',
+                marginRight: '23%',
             },
             textAlign: 'center'
         },
@@ -77,7 +81,7 @@ const BaseLoginPaper = ({ registerRoute }) => {
 
     return (
         <>
-            <HtmlHead view={configuration.title} subTitle={'Login'}/>
+            <HtmlHead view={configuration.title} subTitle={'Login'} />
             <Grid container sx={styles.container}>
                 <Grid item xs={12} sm={12} md={6} >
                     <Paper sx={styles.paper}>
@@ -94,10 +98,10 @@ const BaseLoginPaper = ({ registerRoute }) => {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <TextField  {...register('login')} label="Email" variant="outlined" size="small" required/>
+                                    <TextField  {...register('login')} label="Email" variant="outlined" size="small" required />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <TextField  {...register('password')} label="Senha" type="password" variant="outlined" size="small" required/>
+                                    <TextField  {...register('password')} label="Senha" type="password" variant="outlined" size="small" required />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12} sx={{ marginBottom: '20px' }}>
                                     <Button
@@ -111,21 +115,30 @@ const BaseLoginPaper = ({ registerRoute }) => {
 
                                     <Grid container >
                                         <Grid sx={{ marginTop: '20px', marginBottom: '20px' }} item md={5} xs={5}>
-                                            <Divider/>
+                                            <Divider />
                                         </Grid>
-                                        <Grid  item md={2} xs={2}>
+                                        <Grid item md={2} xs={2}>
                                             <Typography variant={'h5'}>
                                                 Ou
                                             </Typography>
                                         </Grid>
                                         <Grid sx={{ marginTop: '20px', marginBottom: '20px' }} item md={5} xs={5}>
-                                            <Divider/>
+                                            <Divider />
                                         </Grid>
                                         <Grid item xs={12} sm={12} md={12}>
                                             <RouterLink to={configuration.baseRoute + registerRoute}>
                                                 Clique aqui para se cadastrar
                                             </RouterLink>
                                         </Grid>
+                                        <Grid item xs={12} sm={12} md={12}>
+                                            <Typography color={'primary'} style={{ fontSize: '16px' }}>
+                                                <RouterLink to={configuration.baseRoute + '/esqueci-minha-senha'}>
+                                                    Esqueci minha senha
+                                                </RouterLink>
+                                            </Typography>
+                                        </Grid>
+
+
                                     </Grid>
                                 }
                             </Grid>
@@ -133,8 +146,8 @@ const BaseLoginPaper = ({ registerRoute }) => {
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={12} md={12}>
-                    <Partners color={theme.palette.background.default}/>
-                    <Footer/>
+                    <Partners color={theme.palette.background.default} />
+                    <Footer />
                 </Grid>
             </Grid>
         </>

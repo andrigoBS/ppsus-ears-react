@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
 import MetaLinkMenu from './MetaLinkMenu';
-import ConsultConduct from './pages/conduct/ConsultConduct';
 import RegisterConduct from './pages/conduct/RegisterConduct';
 import EditTherapist from './pages/edit/EditTherapist';
 import ConsultEquipment from './pages/equipment/ConsultEquipment';
@@ -20,30 +19,30 @@ import TherapistService from '../../services/therapist/TherapistService';
 import TopBar from '../../components/TopBar';
 import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
 import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
-
+import PasswordForgotten from './pages/register/PasswordForgotten';
 
 const Therapist = () => {
 
     return (
         <ViewConfigurationProvider service={TherapistService} title={'Área do Fonoaudiólogo'} baseRoute={'/fono'} loginRoute={'/login'}>
             <AuthProvider>
-                <TopBar rightElement={<UserAvatarDropDown withNotification={true}/>} linkMenu={MetaLinkMenu}>
+                <TopBar rightElement={<UserAvatarDropDown withNotification={true} />} linkMenu={MetaLinkMenu}>
                     <Routes>
-                        <Route path={'/'} element={<RequireAuth> <HomeTherapist/> </RequireAuth>} />
-                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper registerRoute={'/cadastro'}/> </RedirectIfAuth>} />
-                        <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterTherapist/> </RedirectIfAuth>} />
-                        <Route path={'/triagem/cadastro'} element={<RequireAuth> <RegisterConsultation/> </RequireAuth>} />
-                        <Route path={'/minha-conta/:id'} element={<RequireAuth> <EditTherapist/> </RequireAuth>} />
-                        <Route path={'/indicador/cadastro'} element={<RequireAuth> <RegisterIndicator/> </RequireAuth>} />
-                        <Route path={'/indicador/consulta'} element={<RequireAuth> <ConsultIndicator/> </RequireAuth>} />
-                        <Route path={'/consulta/cadastro'} element={<RequireAuth> <RegisterConsultation/> </RequireAuth>} />
-                        <Route path={'/equipamento/cadastro'} element={<RequireAuth> <RegisterEquipment/> </RequireAuth>} />
-                        <Route path={'/equipamento/consulta'} element={<RequireAuth> <ConsultEquipment/> </RequireAuth>} />
-                        <Route path={'/conduta/cadastro'} element={<RequireAuth> <RegisterConduct/> </RequireAuth>} />
-                        <Route path={'/conduta/consulta'} element={<RequireAuth> <ConsultConduct/> </RequireAuth>} />
-                        <Route path={'/orientacao/cadastro'} element={<RequireAuth> <RegisterOrientation/> </RequireAuth>} />
-                        <Route path={'/orientacao/consulta'} element={<RequireAuth> <ConsultOrientation/> </RequireAuth>} />
-                        <Route path={'*'} element={<PageNotFound/>} />
+                        <Route path={'/'} element={<RequireAuth> <HomeTherapist /> </RequireAuth>} />
+                        <Route path={'/login'} element={<RedirectIfAuth> <BaseLoginPaper registerRoute={'/cadastro'} /> </RedirectIfAuth>} />
+                        <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterTherapist /> </RedirectIfAuth>} />
+                        <Route path={'/triagem/cadastro'} element={<RequireAuth> <RegisterConsultation /> </RequireAuth>} />
+                        <Route path={'/minha-conta/:id'} element={<RequireAuth> <EditTherapist /> </RequireAuth>} />
+                        <Route path={'/indicador/cadastro'} element={<RequireAuth> <RegisterIndicator /> </RequireAuth>} />
+                        <Route path={'/indicador/consulta'} element={<RequireAuth> <ConsultIndicator /> </RequireAuth>} />
+                        <Route path={'/consulta/cadastro'} element={<RequireAuth> <RegisterConsultation /> </RequireAuth>} />
+                        <Route path={'/equipamento/cadastro'} element={<RequireAuth> <RegisterEquipment /> </RequireAuth>} />
+                        <Route path={'/equipamento/consulta'} element={<RequireAuth> <ConsultEquipment /> </RequireAuth>} />
+                        <Route path={'/conduta/cadastro'} element={<RequireAuth> <RegisterConduct /> </RequireAuth>} />
+                        <Route path={'/orientacao/cadastro'} element={<RequireAuth> <RegisterOrientation /> </RequireAuth>} />
+                        <Route path={'/orientacao/consulta'} element={<RequireAuth> <ConsultOrientation /> </RequireAuth>} />
+                        <Route path={'/esqueci-minha-senha'} element={<RedirectIfAuth> <PasswordForgotten /> </RedirectIfAuth>} />
+                        <Route path={'*'} element={<PageNotFound />} />
                     </Routes>
                 </TopBar>
             </AuthProvider>

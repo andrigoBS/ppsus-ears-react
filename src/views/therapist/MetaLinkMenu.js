@@ -57,8 +57,7 @@ const data = [
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,
-                label: 'Condutas',
-                route: '/fono/conduta/consulta'
+                label: 'Condutas'
             },
             {
                 icon: <AiOutlineTool size={27}/>,

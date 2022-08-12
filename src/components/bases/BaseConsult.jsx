@@ -69,11 +69,12 @@ const BaseConsult = ({ children, serviceFunction, handleSubmit, headers, title }
                                 Consultar
                             </Button>
                         </Grid>
-
+                        <Grid item xs={12} sm={12} md={12}>
+                            <Divider />
+                        </Grid>
                     </Grid>
                 </Box>
             </form>
-            <Divider sx={{ marginTop: '30px' }}/>
             <GenericTable headers={headers} rows={rows}/>
         </Paper>
     );
