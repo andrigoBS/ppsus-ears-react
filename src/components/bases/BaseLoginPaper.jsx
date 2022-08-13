@@ -98,7 +98,7 @@ const BaseLoginPaper = ({ registerRoute }) => {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <TextField  {...register('login')} label="Email" variant="outlined" size="small" required />
+                                    <TextField  {...register('login')} label="Login" variant="outlined" size="small" required />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
                                     <TextField  {...register('password')} label="Senha" type="password" variant="outlined" size="small" required />
@@ -137,8 +137,6 @@ const BaseLoginPaper = ({ registerRoute }) => {
                                                 </RouterLink>
                                             </Typography>
                                         </Grid>
-
-
                                     </Grid>
                                 }
                             </Grid>
