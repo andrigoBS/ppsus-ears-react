@@ -30,10 +30,10 @@ const RegisterTherapist = () => {
                 <TextField  {...register('crfa')} label="CRFa" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectFieldAsync register={{ ...register('xp') }} title={'Tempo de experiência'} getValue={configuration.service.getXpTypes}/>
+                <SelectFieldAsync register={{ ...register('xp') }} title={'Tempo de experiência'} getValue={configuration.service.getXpTypes} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <SelectFieldAsync title={'Instituições'} register={{ ...register('institutions') }} getValue={configuration.service.getAllInstitutions} multiple />
+                <SelectFieldAsync title={'Instituições'} register={{ ...register('institutions') }} getValue={configuration.service.getAllInstitutions} multiple required />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant={'h6'}>

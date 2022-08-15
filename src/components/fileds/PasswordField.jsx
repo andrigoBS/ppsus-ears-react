@@ -58,7 +58,7 @@ const PasswordField = ({ register, onChange, ...props }) => {
             type="password" onChange={handleOnChange}
             helperText={
                 <TopicListIcon topicsAndIcons={getTopicsAndIcons()}/>
-            }
+            } required
         />
     );
 };
