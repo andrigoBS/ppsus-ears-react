@@ -1,18 +1,4 @@
-import {
-    Button,
-    Checkbox,
-    FormControl,
-    FormControlLabel,
-    FormGroup,
-    FormLabel,
-    Grid,
-    InputLabel,
-    MenuItem,
-    Radio,
-    RadioGroup, Select,
-    TextField,
-    Typography
-} from '@mui/material';
+import { Grid, TextField, Typography } from '@mui/material';
 import React, { Fragment } from 'react';
 import RadioField from '../../../../../components/fileds/RadioField';
 import SelectFieldAsync from '../../../../../components/fileds/SelectFieldAsync';
@@ -53,10 +39,10 @@ const RegisterResults = ({ register }) => {
                 <SelectFieldAsync register={register('type')} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <RadioField register={register('leftEar')} title={'Orelha Esquerda'} values={[{ id: true, name: 'Passou' },{ id: false, name: 'Falhou' }]} />
+                <RadioField register={register('leftEar')} title={'Orelha Esquerda'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <RadioField register={register('rightEar')} title={'Orelha Direita'} values={[{ id: true, name: 'Passou' },{ id: false, name: 'Falhou' }]} />
+                <RadioField register={register('rightEar')} title={'Orelha Direita'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant="h6" >Informações adicionais</Typography>
