@@ -1,14 +1,32 @@
 import React from 'react';
 import { GoGraph } from 'react-icons/go';
+import { TbCheckupList } from 'react-icons/tb';
 
-const data = [
-    { title: 'Outros',
-        options: [
+const getData = (isState) => {
+    const data = [
+        {
+            title: 'Outros',
+            options: [
+                {
+                    icon: <GoGraph size={25}/>,
+                    label: 'Gráficos'
+                }
+            ]
+        }
+    ];
+
+    if(isState) {
+        data[0].options = [
             {
-                icon: <GoGraph size={25}/>,
-                label: 'Gráficos'
-            }
-        ]
+                icon: <TbCheckupList size={27}/>,
+                label: 'Gerenciar Regiões',
+                route: '/secretaria/gerenciar-regioes'
+            },
+            ...data[0].options
+        ];
     }
-];
-export default data;
+
+    return data;
+};
+
+export default getData;

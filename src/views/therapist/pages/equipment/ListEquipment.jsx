@@ -11,7 +11,7 @@ const headers = [
     { title: 'Data última calibração', name: 'dateOfLastCalibration' }
 ];
 
-const ConsultEquipment = () => {
+const ListEquipment = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const configuration = useViewConfiguration();
 
@@ -30,4 +30,4 @@ const ConsultEquipment = () => {
         </BaseConsult>
     );
 };
-export default ConsultEquipment;
+export default ListEquipment;

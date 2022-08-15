@@ -1,15 +1,10 @@
-import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField } from '@mui/material';
+import { Grid, TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
+import RadioField from '../../../../components/fileds/RadioField';
 import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
-
-const styles = {
-    select: {
-        width: '100%'
-    }
-};
 
 const RegisterConduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -30,36 +25,17 @@ const RegisterConduct = () => {
                 <TextField  {...register('description')} label="Descrição" variant="outlined" size="small" multiline rows={4} required />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <SelectFieldAsync register={register} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes}/>
+                <SelectFieldAsync register={register('type')} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <FormControl sx={styles.select} component="fieldset" size="small" >
-                    <FormLabel component="legend"> Orelha Esquerda</FormLabel>
-                    <RadioGroup {...register('leftEar')} defaultValue={true}>
-                        <FormControlLabel value={true} control={<Radio/>} label="Passou"/>
-                        <FormControlLabel value={false} control={<Radio/>} label="Falhou"/>
-                    </RadioGroup>
-                </FormControl>
+                <RadioField register={register('leftEar')} title={'Orelha Esquerda'} values={[{ id: true, name: 'Passou' },{ id: false, name: 'Falhou' }]} />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <FormControl sx={styles.select} component="fieldset" size="small" >
-                    <FormLabel component="legend"> Orelha Direita</FormLabel>
-                    <RadioGroup {...register('rightEar')} defaultValue={true}>
-                        <FormControlLabel value={true} control={<Radio/>} label="Passou"/>
-                        <FormControlLabel value={false} control={<Radio/>} label="Falhou"/>
-                    </RadioGroup>
-                </FormControl>
+                <RadioField register={register('rightEar')} title={'Orelha Direita'} values={[{ id: true, name: 'Passou' },{ id: false, name: 'Falhou' }]} />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <FormControl sx={styles.select} component="fieldset" size="small" >
-                    <FormLabel component="legend">IRDA</FormLabel>
-                    <RadioGroup {...register('irda')} defaultValue={true}>
-                        <FormControlLabel value={true} control={<Radio/>} label="Possui"/>
-                        <FormControlLabel value={false} control={<Radio/>} label="Não Possui"/>
-                    </RadioGroup>
-                </FormControl>
+                <RadioField register={register('irda')} title={'IRDA'} values={[{ id: true, name: 'Possui' },{ id: false, name: 'Não Possui' }]} />
             </Grid>
-
         </BaseRegisterPaper>
     );
 };

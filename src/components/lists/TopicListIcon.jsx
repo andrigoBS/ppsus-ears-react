@@ -19,19 +19,36 @@ const createStyle = (theme) => {
     };
 };
 
-const TopicListIcon = ({ topics, icon }) => {
+const TopicListIcon = ({ topics, icon, topicsAndIcons }) => {
     const style = createStyle();
 
-    return (
-        <Box sx={style.container}>
-            {topics.map((topic) => (
-                <Box sx={style.itemContainer}>
-                    <Box sx={style.icon}>{icon}</Box>
-                    {topic}
-                </Box>
-            ))}
-        </Box>
-    );
+    if(topics && icon) {
+        return (
+            <Box sx={style.container}>
+                {topics.map((topic) => (
+                    <Box sx={style.itemContainer}>
+                        <Box sx={style.icon}>{icon}</Box>
+                        {topic}
+                    </Box>
+                ))}
+            </Box>
+        );
+    }
+
+    if(topicsAndIcons) {
+        return (
+            <Box sx={style.container}>
+                {topicsAndIcons.map((topicAndIcon) => (
+                    <Box sx={style.itemContainer}>
+                        <Box sx={style.icon}>{topicAndIcon.icon}</Box>
+                        {topicAndIcon.topic}
+                    </Box>
+                ))}
+            </Box>
+        );
+    }
+
+    return (<>No Topics</>);
 };
 
 export default TopicListIcon;

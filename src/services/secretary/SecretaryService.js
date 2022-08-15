@@ -16,7 +16,11 @@ const SecretaryService = (onAnyLog) => {
         return HttpHelper.post(`${generic.pathName}/zone/user`, data, generic.getUser().token).then(onAnyLog);
     };
 
-    return { ...generic, getStates, getZones, registerZone };
+    const isStateSecretary = () => {
+        return HttpHelper.get(`${generic.pathName}/${generic.getUser().user.id}/is-state`, generic.getUser().token).then(onAnyLog);
+    };
+
+    return { ...generic, getStates, getZones, registerZone, isStateSecretary };
 };
 
 export default SecretaryService;

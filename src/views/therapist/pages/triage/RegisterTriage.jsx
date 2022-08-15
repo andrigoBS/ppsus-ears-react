@@ -8,7 +8,7 @@ import RegisterResponsible from './components/RegisterResponsible';
 import RegisterResults from './components/RegisterResults';
 import { useForm } from 'react-hook-form';
 
-const RegisterConsultation = () => {
+const RegisterTriage = () => {
     const [activeStep, setActiveStep] = React.useState(0);
 
     const configuration = useViewConfiguration();
@@ -64,4 +64,4 @@ const RegisterConsultation = () => {
     );
 };
 
-export default RegisterConsultation;
+export default RegisterTriage;
