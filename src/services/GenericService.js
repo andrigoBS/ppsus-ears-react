@@ -47,7 +47,15 @@ const GenericService = (pathName, sessionStorageKey, onAnyLog) => {
         return HttpHelper.get(`reports/${type}/${pathName}`, getUser().token).then(onAnyLog);
     };
 
-    return { getAll, get, register, update, login, logout, getUser, getDashboard, getReport, pathName, sessionStorageKey };
+    const getStates = () => {
+        return HttpHelper.get('secretary/state', getUser().token).then(onAnyLog);
+    };
+
+    const getCities = (state) => {
+        return HttpHelper.get('secretary/city?state='+state, getUser().token).then(onAnyLog);
+    };
+
+    return { getAll, get, register, update, login, logout, getUser, getDashboard, getReport, getStates, getCities, pathName, sessionStorageKey };
 };
 
 export default GenericService;

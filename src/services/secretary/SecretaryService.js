@@ -4,10 +4,6 @@ import HttpHelper from '../HttpHelper';
 const SecretaryService = (onAnyLog) => {
     const generic = GenericService('secretary', 'secretaryUser', onAnyLog);
 
-    const getStates = () => {
-        return HttpHelper.get(`${generic.pathName}/state`, generic.getUser().token).then(onAnyLog);
-    };
-
     const getZones = () => {
         return HttpHelper.get(`${generic.pathName}/zone`, generic.getUser().token).then(onAnyLog);
     };
@@ -20,7 +16,7 @@ const SecretaryService = (onAnyLog) => {
         return HttpHelper.get(`${generic.pathName}/${generic.getUser().user.id}/is-state`, generic.getUser().token).then(onAnyLog);
     };
 
-    return { ...generic, getStates, getZones, registerZone, isStateSecretary };
+    return { ...generic, getZones, registerZone, isStateSecretary };
 };
 
 export default SecretaryService;
