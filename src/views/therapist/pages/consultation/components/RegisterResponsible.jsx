@@ -22,7 +22,8 @@ const RegisterResponsible = ({ register, errors }) => {
                 <TextField {...register('responsibleName')} label="Nome completo do responsável" variant="outlined" size="small"  />
             </Grid>
             <Grid item xs={12} sm={12} md={3}>
-                <TextField {...register('responsibleBirthdate')} label="Data de nascimento" variant="outlined" size="small"  />
+                <TextField {...register('responsibleBirthdate')} label="Data de nascimento" variant="outlined"
+                    size="small" type="date" InputLabelProps={{ shrink: true }} />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant="h6" >Contato</Typography>

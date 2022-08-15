@@ -131,12 +131,11 @@ const BaseLoginPaper = ({ registerRoute }) => {
                                             </RouterLink>
                                         </Grid>
                                         <Grid item xs={12} sm={12} md={12}>
-                                            <Typography color={'primary'} style={{ fontSize: '16px' }}>
-                                                <RouterLink to={configuration.baseRoute + '/esqueci-minha-senha'}>
-                                                    Esqueci minha senha
-                                                </RouterLink>
-                                            </Typography>
+                                            <RouterLink to={configuration.baseRoute + '/esqueci-minha-senha'}>
+                                                Esqueci minha senha
+                                            </RouterLink>
                                         </Grid>
+
                                     </Grid>
                                 }
                             </Grid>

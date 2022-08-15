@@ -26,7 +26,8 @@ const RegisterBaby = ({ register }) => {
                 <TextField {...register('babyCephalicPerimeter')} label="Perímetro cefálico" variant="outlined" size="small" />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('babyBirthdate')} label="Data de nascimento" variant="outlined" size="small" />
+                <TextField {...register('babyBirthdate')} label="Data de nascimento" variant="outlined"
+                    size="small" type="date" InputLabelProps={{ shrink: true }}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField {...register('babyGestacionalAge')} label="Idade gestacional" variant="outlined" size="small" />

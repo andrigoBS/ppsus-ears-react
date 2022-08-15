@@ -36,7 +36,8 @@ const RegisterResults = ({ register, /*errors*/ }) => {
     return (
         <Fragment>
             <Grid item xs={12} sm={12} md={3}>
-                <TextField {...register('avaliationDate')} label="Data da avaliação" variant="outlined" size="small" />
+                <TextField {...register('avaliationDate')} label="Data da avaliação" variant="outlined"
+                    size="small" type="date" InputLabelProps={{ shrink: true }}/>
             </Grid>
             <Grid item xs={12} sm={12} md={9}>
                 <FormControl sx={styles.select} size="small">

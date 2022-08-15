@@ -18,7 +18,8 @@ const RegisterMother = ({ register, errors }) => {
                 <TextField {...register('motherName')} label="Nome completo da mãe" variant="outlined" size="small" sx={styles.textField} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={3}>
-                <TextField {...register('motherDirthdate')} label="Data de nascimento" variant="outlined" size="small" sx={styles.textField} required/>
+                <TextField {...register('motherDirthdate')} label="Data de nascimento" variant="outlined" size="small"
+                    type="date" InputLabelProps={{ shrink: true }} sx={styles.textField} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant="h6" >Contato</Typography>
