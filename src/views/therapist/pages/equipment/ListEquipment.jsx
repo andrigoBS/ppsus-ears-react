@@ -11,7 +11,7 @@ const headers = [
     { title: 'Data última calibração', name: 'dateOfLastCalibration' }
 ];
 
-const ConsultEquipment = () => {
+const ListEquipment = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const configuration = useViewConfiguration();
 
@@ -24,9 +24,10 @@ const ConsultEquipment = () => {
                 <TextField  {...register('brand')} label="Marca" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('dateOfLastCalibration')} label="Data última calibração" variant="outlined" size="small"  type="date" InputLabelProps={{ shrink: true }}/>
+                <TextField  {...register('dateOfLastCalibration')} label="Data última calibração" variant="outlined"
+                    size="small" type="date" InputLabelProps={{ shrink: true }}/>
             </Grid>
         </BaseConsult>
     );
 };
-export default ConsultEquipment;
+export default ListEquipment;

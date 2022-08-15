@@ -33,7 +33,7 @@ const Site = () => {
                     computação e fonoaudiologia da Univali, em parceria com a Secretaria de Estado da Saúde de
                     Santa Catarina e apoio do Conselho Regional de Fonoaudiologia 3ª Região.
                 </TextParagraph>
-                <VideoParagraph title={'Bem-vindo'} url={'https://www.youtube.com/embed/'} />
+                <VideoParagraph title={'Bem-vindo'} url={'https://www.youtube.com/embed/I7CnUPAMajs'} />
 
                 <TextParagraph title={'O que é?'}>
                     <div style={{ textAlign: 'left' }}>
@@ -70,7 +70,7 @@ const Site = () => {
                     </div>
                 </TextParagraph>
 
-                <VideoAndText title={'Dicas para os pais'} videoUrl={'https://www.youtube.com/embed/'}>
+                <VideoAndText title={'Dicas para os pais'} videoUrl={'https://www.youtube.com/embed/TF0xR6EiHEg'}>
                     <b>Olá,</b> mamães e papais
                     <TopicListIcon icon={<FavoriteTwoToneIcon color='primary'/>} topics={[
                         'Antes de seu bebê sair da maternidade ele deverá realizar o teste da orelhinha.',

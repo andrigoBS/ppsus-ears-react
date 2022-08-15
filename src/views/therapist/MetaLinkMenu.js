@@ -11,7 +11,7 @@ const data = [
             {
                 icon: <TbCheckupList size={27}/>,
                 label: 'Triagem',
-                route: '/fono/consulta/cadastro'
+                route: '/fono/triagem/cadastro'
             },
             {
                 icon: <TbPresentation size={25}/>,
@@ -39,30 +39,31 @@ const data = [
         options: [
             {
                 icon: <FaBaby size={25}/>,
-                label: 'Bebês'
+                label: 'Bebês',
             },
             {
                 icon: <TbCheckupList size={27}/>,
-                label: 'Triagens'
+                label: 'Triagens',
             },
             {
                 icon: <TbPresentation size={25}/>,
                 label: 'Indicadores',
-                route: '/fono/indicador/consulta'
+                route: '/fono/indicador',
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,
                 label: 'Orientações',
-                route: '/fono/orientacao/consulta'
+                route: '/fono/orientacao',
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,
-                label: 'Condutas'
+                label: 'Condutas',
+                route: '/fono/conduta',
             },
             {
                 icon: <AiOutlineTool size={27}/>,
                 label: 'Equipamentos',
-                route: '/fono/equipamento/consulta'
+                route: '/fono/equipamento',
             },
         ]
     },

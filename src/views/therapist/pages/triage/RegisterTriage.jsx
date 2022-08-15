@@ -3,12 +3,11 @@ import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import React from 'react';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 import RegisterBaby from './components/RegisterBaby';
-import RegisterMother from './components/RegisterMother';
 import RegisterResponsible from './components/RegisterResponsible';
 import RegisterResults from './components/RegisterResults';
 import { useForm } from 'react-hook-form';
 
-const RegisterConsultation = () => {
+const RegisterTriage = () => {
     const [activeStep, setActiveStep] = React.useState(0);
 
     const configuration = useViewConfiguration();
@@ -17,11 +16,7 @@ const RegisterConsultation = () => {
 
     const steps = [
         {
-            label: 'Cadastrar Mãe',
-            element: <RegisterMother register={register} errors={errors}/>
-        },
-        {
-            label: 'Cadastrar Outro Responsável',
+            label: 'Cadastrar Responsáveis',
             element: <RegisterResponsible register={register} errors={errors}/>
         },
         {
@@ -64,4 +59,4 @@ const RegisterConsultation = () => {
     );
 };
 
-export default RegisterConsultation;
+export default RegisterTriage;

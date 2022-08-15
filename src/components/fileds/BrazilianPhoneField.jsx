@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 import React, { forwardRef, useEffect, useState } from 'react';
 import { IMaskInput } from 'react-imask';
 
-const BrazilianPhoneField = ({ register, name, formErrors, required, ...other }) => {
+const BrazilianPhoneField = ({ register, name, ...other }) => {
     return (
         <TextField
             variant="outlined"
             size="small"
             {...other}
-            error={formErrors[name]}
-            required={required}
             {...register(name, {
-                required: required,
                 pattern: /(\([1-9]{2}\) 9?[0-9]{4}-[0-9]{4})|(0800 [0-9]{3} [0-9]{4})/,
             })}
             InputProps={{
@@ -25,7 +22,6 @@ const BrazilianPhoneField = ({ register, name, formErrors, required, ...other })
 BrazilianPhoneField.propTypes = {
     register: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
-    formErrors: PropTypes.object.isRequired,
     label: PropTypes.string.isRequired,
     required: PropTypes.bool,
 };
@@ -34,19 +30,18 @@ BrazilianPhoneField.propTypes = {
 // eslint-disable-next-line react/display-name
 const PhoneMask = forwardRef((props, ref) => {
     const { onChange, name, ...other } = props;
-    const [mask, setMask] = useState('(0#) 00000-0000');
     const [data, setData] = useState(other.value || other.defaultValue || '');
 
     const onAccept = (value) => {
         onChange({ target: { name: name, value: value } });
-        setMask(getMask(value));
         setData(value);
     };
 
     return (
         <IMaskInput
             {...other}
-            mask={mask}
+            name={name}
+            mask={getMask(data)}
             value={data}
             definitions={{
                 '#': /[1-9]/,

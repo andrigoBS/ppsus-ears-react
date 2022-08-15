@@ -1,6 +1,5 @@
+import React from 'react';
 import BaseDashboard from '../../../components/bases/BaseDashboard';
-import React  from 'react';
-import GenericTable from '../../../components/lists/GenericTable';
 import { useAuth } from '../../../providers/auth/Auth';
 import { useViewConfiguration } from '../../../providers/viewConfiguration/ViewConfiguration';
 
