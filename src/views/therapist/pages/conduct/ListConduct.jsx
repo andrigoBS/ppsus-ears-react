@@ -5,13 +5,11 @@ import BaseConsult from '../../../../components/bases/BaseConsult';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const headers = [
-    { title: 'Código', name: 'id' },
     { title: 'Descrição resultado', name: 'resultDescription' },
     { title: 'Descrição acompanhamento', name: 'accompanyDescription' },
-    { title: 'Orelha esquerda', name: 'leftEar' },
-    { title: 'Orelha direita', name: 'rightEar' },
+    { title: 'Passou esquerda', name: 'leftEar' },
+    { title: 'Passou direita', name: 'rightEar' },
     { title: 'Possui irda', name: 'irda' },
-    { title: 'Tipo triagem', name: 'type' },
     { title: 'Tipo teste', name: 'testType' }
 ];
 

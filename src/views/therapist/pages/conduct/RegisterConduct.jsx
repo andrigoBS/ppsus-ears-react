@@ -10,7 +10,7 @@ const RegisterConduct = () => {
     const configuration = useViewConfiguration();
 
     return(
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Conduta'} serviceFunction={configuration.service.register}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Conduta'} serviceFunction={configuration.service.conductRegister}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register('resultDescription')} label="Descrição da conduta" variant="outlined" size="small" multiline rows={4} required />
             </Grid>
