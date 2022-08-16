@@ -3,7 +3,6 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
 import RadioField from '../../../../components/fileds/RadioField';
-import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const RegisterConduct = () => {
@@ -11,24 +10,24 @@ const RegisterConduct = () => {
     const configuration = useViewConfiguration();
 
     return(
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Conduta'} serviceFunction={configuration.service.register}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Conduta'} serviceFunction={configuration.service.conductRegister}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register('resultDescription')} label="Descrição da conduta" variant="outlined" size="small" multiline rows={4} required />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register('accompanyDescription')} label="Descrição do acompanhamento" variant="outlined" size="small" multiline rows={4} required />
             </Grid>
-            <Grid item xs={12} sm={12} md={12}>
-                <SelectFieldAsync register={register('type')} title={'Tipo de TAN'} getValue={configuration.service.getTriageTypes}/>
+            <Grid item xs={12} sm={12} md={6}>
+                <RadioField register={register('leftEar')} title={'Orelha Esquerda'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <RadioField register={register('leftEar')} title={'Orelha Esquerda'} values={[{ id: true, name: 'Passou' },{ id: false, name: 'Falhou' }]} />
+                <RadioField register={register('rightEar')} title={'Orelha Direita'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <RadioField register={register('rightEar')} title={'Orelha Direita'} values={[{ id: true, name: 'Passou' },{ id: false, name: 'Falhou' }]} />
+                <RadioField register={register('irda')} title={'IRDA'} values={[{ id: 1, name: 'Possui' },{ id: 0, name: 'Não Possui' }]} />
             </Grid>
-            <Grid item xs={12} sm={12} md={12}>
-                <RadioField register={register('irda')} title={'IRDA'} values={[{ id: true, name: 'Possui' },{ id: false, name: 'Não Possui' }]} />
+            <Grid item xs={12} sm={12} md={6}>
+                <RadioField register={register('testType')} title={'Tipo de teste'} values={[{ id: 1, name: 'Teste' },{ id: 2, name: 'Reteste' },{ id: 3, name: 'Teste e reteste' }]} />
             </Grid>
         </BaseRegisterPaper>
     );

@@ -41,7 +41,7 @@ const RegisterBaby = ({ register }) => {
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <FormGroup {...register('baby.maternalDeath')}>
-                    <FormControlLabel control={<Checkbox />} label="Óbito materno" size="small" />
+                    <FormControlLabel control={<Checkbox />} label="Óbito materno" size="small" {...register('baby.maternalDeath')}/>
                 </FormGroup>
             </Grid>
         </Fragment>

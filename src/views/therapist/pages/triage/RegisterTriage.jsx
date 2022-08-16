@@ -29,6 +29,11 @@ const RegisterTriage = () => {
         }
     ];
 
+    const handleOnNext = (event) => {
+        event.preventDefault();
+        setActiveStep(activeStep + 1);
+    };
+
     return (
         <BaseRegisterPaper title={'Resultado da Triagem'} handleSubmit={handleSubmit} serviceFunction={configuration.service.consultationRegister} notSubmitButton={true}>
             <Grid item xs={12} sm={12} md={12}>
@@ -51,7 +56,7 @@ const RegisterTriage = () => {
                         activeStep === steps.length - 1?
                             <Button type="submit">Finalizar Cadastro</Button>
                             :
-                            <Button onClick={() => setActiveStep(activeStep + 1)}>Próximo</Button>
+                            <Button onClick={handleOnNext}>Próximo</Button>
                     }
                 </Box>
             </Grid>

@@ -36,8 +36,8 @@ export const ViewConfigurationProvider = ({ children, service, baseRoute, loginR
 
     const genericLog = (response) => {
         if(response.isSuccess) {
-            pushAlert('success', `${response.status} - ${response.body.fancyMessage || response.body.message || response.fancyMessage || response.message || 'OK'}`);
             if(process.env.NODE_ENV === 'development'){
+                pushAlert('success', `${response.status} - ${response.body.fancyMessage || response.body.message || response.fancyMessage || response.message || 'OK'}`);
                 console.log(response);
             }
         }else{
