@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 
 const styles = {
     select: {
-        width: '100%'
+        width: '100%',
     },
     multipleChipContainer: {
         display: 'flex',
         flexWrap: 'wrap',
+        whiteSpace: 'normal',
         gap: 0.5
     },
     chipElement: {
@@ -20,23 +21,16 @@ const styles = {
 
 const SelectField = ({ register, title, values, multiple, onChange, ...props }) => {
     const [value, setValue] = useState(props.value || props.defaultValue || register.value || (multiple? [] : ''));
-    const createRenderMultiple = () => {
+    const createRenderMultiple = (selected) => {
         if (multiple) {
-            return {
-                multiple,
-                renderValue: (selected) => (
-                    <Box sx={styles.multipleChipContainer}>
-                        {selected.map((selectedElement) => (
-                            <Chip key={'chip-select-'+selectedElement} sx={styles.chipElement}
-                                label={values.filter(v => v.id === selectedElement)[0].name}
-                            />
-                        ))}
-                    </Box>
-                ),
-            };
+            return selected.map((selectedElement) => (
+                <Chip key={'chip-select-'+selectedElement} sx={styles.chipElement}
+                    label={values.filter(v => v.id === selectedElement)[0].name}
+                />
+            ));
         }
 
-        return {};
+        return values.filter(v => v.id === selected)[0].name;
     };
 
     const handleOnchange = (event) => {
@@ -71,7 +65,12 @@ const SelectField = ({ register, title, values, multiple, onChange, ...props }) 
                     },
                 }}
                 input={<OutlinedInput label={title} />}
-                {...createRenderMultiple()}
+                multiple={multiple}
+                renderValue={(selected) => (
+                    <Box sx={styles.multipleChipContainer}>
+                        {createRenderMultiple(selected)}
+                    </Box>
+                )}
             >
                 {values.map((element, index) => (
                     <MenuItem key={element.id+'_'+index} value={element.id} {...register}>
