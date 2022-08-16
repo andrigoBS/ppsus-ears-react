@@ -38,10 +38,10 @@ const RegisterSecretaryUser = () => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('preferentialEmail')} label="E-mail preferencial" variant="outlined" size="small" required/>
+                <TextField  {...register('emails.0')} label="E-mail preferencial" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField   {...register('alternativeEmail')} label="E-mail alternativo" variant="outlined" size="small"/>
+                <TextField   {...register('emails.1')} label="E-mail alternativo" variant="outlined" size="small"/>
             </Grid>
         </BaseRegisterPaper>
     );

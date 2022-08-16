@@ -8,15 +8,6 @@ import PasswordField from '../../../../components/fileds/PasswordField';
 import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
-const styles = {
-    button:{
-        width: 'fit-content',
-    },
-    select: {
-        width: '100%'
-    }
-};
-
 const EditTherapist = () => {
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
     const configuration = useViewConfiguration();

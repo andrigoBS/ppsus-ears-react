@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 import PropTypes from 'prop-types';
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { IMaskInput } from 'react-imask';
 
 const BrazilianPhoneField = ({ register, name, ...other }) => {
