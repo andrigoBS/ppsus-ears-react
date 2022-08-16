@@ -32,7 +32,7 @@ const RegisterInstitution = ({ register, configuration }) => {
                 <TextField  {...register('institution.cnpj')} label="CNPJ" variant="outlined" size="small"/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <RadioFieldAsync title={'Tipo de instituição'} register={register('institution.institutionType')} getValue={configuration.service.getTypes}/>
+                <RadioFieldAsync title={'Tipo de instituição'} register={register('institution.institutionType')} getValue={configuration.service.getTypes} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant={'h6'}>Endereço</Typography>
@@ -44,10 +44,11 @@ const RegisterInstitution = ({ register, configuration }) => {
                 <TextField  {...register('institution.address.street')} label="Logradouro" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectFieldAsync register={register('institution.address.state')} getValue={configuration.service.getStates} title={'Estado'} onChange={onChangeState}/>
+                <SelectFieldAsync register={register('institution.address.state')} getValue={configuration.service.getStates} title={'Estado'} onChange={onChangeState} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectFieldAsync register={register('institution.address.city.id')} getValue={state? getCities : null} title={'Cidade'} watch={state}/>
+                <SelectFieldAsync register={register('institution.address.city.id')} getValue={state? getCities : null} title={'Cidade'}
+                    watch={state} disabled={!state} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField {...register('institution.address.number')} label="Número" variant="outlined" size="small" required/>

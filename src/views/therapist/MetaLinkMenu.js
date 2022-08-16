@@ -40,30 +40,32 @@ const data = [
             {
                 icon: <FaBaby size={25}/>,
                 label: 'Bebês',
+                route: '/fono/bebe'
             },
             {
                 icon: <TbCheckupList size={27}/>,
                 label: 'Triagens',
+                route: '/fono/triagem'
             },
             {
                 icon: <TbPresentation size={25}/>,
                 label: 'Indicadores',
-                route: '/fono/indicador',
+                route: '/fono/indicador'
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,
                 label: 'Orientações',
-                route: '/fono/orientacao',
+                route: '/fono/orientacao'
             },
             {
                 icon: <BsFileEarmarkText size={25}/>,
                 label: 'Condutas',
-                route: '/fono/conduta',
+                route: '/fono/conduta'
             },
             {
                 icon: <AiOutlineTool size={27}/>,
                 label: 'Equipamentos',
-                route: '/fono/equipamento',
+                route: '/fono/equipamento'
             },
         ]
     },

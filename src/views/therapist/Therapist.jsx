@@ -10,6 +10,8 @@ import RegisterEquipment from './pages/equipment/RegisterEquipment';
 import HomeTherapist from './pages/HomeTherapist';
 import PageNotFound from '../site/pages/PageNotFound';
 import React, { useEffect } from 'react';
+import ListBaby from './pages/triage/components/ListBaby';
+import ListTriage from './pages/triage/ListTriage';
 import RegisterTriage from './pages/triage/RegisterTriage';
 import ListIndicator from './pages/indicator/ListIndicator';
 import RegisterIndicator from './pages/indicator/RegisterIndicator';
@@ -34,7 +36,9 @@ const Therapist = () => {
                         <Route path={'/cadastro'} element={<RedirectIfAuth> <RegisterTherapist /> </RedirectIfAuth>} />
                         <Route path={'/minha-conta/:id'} element={<RequireAuth> <EditTherapist /> </RequireAuth>} />
 
+                        <Route path={'/triagem'} element={<RequireAuth> <ListTriage /> </RequireAuth>} />
                         <Route path={'/triagem/cadastro'} element={<RequireAuth> <RegisterTriage /> </RequireAuth>} />
+                        <Route path={'/bebe'} element={<RequireAuth> <ListBaby /> </RequireAuth>} />
 
                         <Route path={'/indicador'} element={<RequireAuth> <ListIndicator /> </RequireAuth>} />
                         <Route path={'/indicador/cadastro'} element={<RequireAuth> <RegisterIndicator /> </RequireAuth>} />

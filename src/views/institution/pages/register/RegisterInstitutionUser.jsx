@@ -35,7 +35,7 @@ const RegisterInstitutionUser = () => {
                 <TextField  {...register('passwordConfirm')} label="Confirmação de senha" type="password" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField  {...register('role')} label="Cargo" variant="outlined" size="small"/>
+                <TextField  {...register('role')} label="Cargo" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography  variant={'h6'}>Contato</Typography>
@@ -58,7 +58,7 @@ const RegisterInstitutionUser = () => {
                         <Typography  variant={'h6'}>Instituição</Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12}>
-                        <SelectFieldAsync title={'Instituição'} register={{ ...register('institution.id') }} getValue={configuration.service.getAll}/>
+                        <SelectFieldAsync title={'Instituição'} register={{ ...register('institution.id') }} getValue={configuration.service.getAll} required/>
                     </Grid>
                 </React.Fragment>
             }

@@ -27,34 +27,34 @@ const RegisterResults = ({ register }) => {
             </Grid>
             <Grid item xs={12} sm={12} md={3}>
                 <TextField {...register('evaluationDate')} label="Data da avaliação" variant="outlined"
-                    size="small" type="date" InputLabelProps={{ shrink: true }}/>
+                    size="small" type="date" InputLabelProps={{ shrink: true }} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={9}>
-                <SelectFieldAsync register={register('equipment.id')} title={'Equipamento'} getValue={configuration.service.getAllEquipments} />
+                <SelectFieldAsync register={register('equipment.id')} title={'Equipamento'} getValue={configuration.service.getAllEquipments} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <SelectFieldAsync register={register('indicators')} title={'IRDA'} getValue={configuration.service.getAllIndicators} multiple/>
+                <SelectFieldAsync register={register('indicators')} title={'IRDA'} getValue={configuration.service.getAllIndicators} multiple required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectFieldAsync register={register('type')} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes}/>
+                <SelectFieldAsync register={register('type')} title={'Tipo TAN'} getValue={configuration.service.getTriageTypes} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectFieldAsync register={register('institution.id')} title={'Insitituição do teste'} getValue={configuration.service.getAllInstitutions}/>
+                <SelectFieldAsync register={register('institution.id')} title={'Insitituição do teste'} getValue={configuration.service.getAllInstitutions} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <RadioField register={register('leftEar')} title={'Orelha Esquerda'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
+                <RadioField register={register('leftEar')} title={'Orelha Esquerda'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <RadioField register={register('rightEar')} title={'Orelha Direita'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
+                <RadioField register={register('rightEar')} title={'Orelha Direita'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant="h6" >Informações adicionais</Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <SelectFieldAsync register={register('conduct.id')} title={'Conduta'} getValue={configuration.service.getAllConducts} />
+                <SelectFieldAsync register={register('conduct.id')} title={'Conduta'} getValue={configuration.service.getAllConducts} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <SelectFieldAsync register={register('orientation.id')} title={'Orientação'} getValue={configuration.service.getAllOrientations} />
+                <SelectFieldAsync register={register('orientation.id')} title={'Orientação'} getValue={configuration.service.getAllOrientations} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField {...register('observation')} label="Observação" multiline rows={4} variant="outlined" size="small" />

@@ -52,15 +52,23 @@ const TherapistService = (onAnyLog) => {
         return HttpHelper.get(`${generic.pathName}/triage/types`, generic.getUser().token).then(onAnyLog);
     };
 
+    const getAllTriages = () => {
+        return HttpHelper.get(`${generic.pathName}/triage`, generic.getUser().token).then(onAnyLog);
+    };
+
     const getChildBirthType = () => {
         return HttpHelper.get('baby/birth-types', generic.getUser().token).then(onAnyLog);
+    };
+
+    const getAllBabies = () => {
+        return HttpHelper.get('baby/', generic.getUser().token).then(onAnyLog);
     };
 
     return {
         ...generic,
         getAllInstitutions, consultationRegister, orientationRegister, getTriageTypes, getXpTypes, getAllOrientations,
         indicatorRegister, getAllIndicators, equipmentRegister, getAllEquipments, conductRegister, getAllConducts,
-        getChildBirthType,
+        getChildBirthType, getAllBabies, getAllTriages
     };
 };
 

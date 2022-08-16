@@ -16,7 +16,7 @@ const ListEquipment = () => {
     const configuration = useViewConfiguration();
 
     return(
-        <BaseConsult handleSubmit={handleSubmit} title={'Equipamento'} serviceFunction={configuration.service.getAllEquipments} headers={headers}>
+        <BaseConsult handleSubmit={handleSubmit} title={'Equipamentos'} serviceFunction={configuration.service.getAllEquipments} headers={headers}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register('model')} label="Modelo" variant="outlined" size="small"/>
             </Grid>

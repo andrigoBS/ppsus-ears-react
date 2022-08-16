@@ -55,10 +55,11 @@ const BaseRegisterResponsible = ({ register, errors, prefixName, states }) => {
                 <TextField  {...register(`${prefixName}.address.street`)} label="Logradouro" variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectField register={register(`${prefixName}.address.state`)} values={states} title={'Estado'} onChange={onChangeState}/>
+                <SelectField register={register(`${prefixName}.address.state`)} values={states} title={'Estado'} onChange={onChangeState} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <SelectFieldAsync register={register(`${prefixName}.address.city.id`)} getValue={state? getCities : null} title={'Cidade'} watch={state}/>
+                <SelectFieldAsync register={register(`${prefixName}.address.city.id`)} getValue={state? getCities : null} title={'Cidade'}
+                    watch={state} disabled={!state} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField {...register(`${prefixName}.address.number`)} label="Número" variant="outlined" size="small" required/>
