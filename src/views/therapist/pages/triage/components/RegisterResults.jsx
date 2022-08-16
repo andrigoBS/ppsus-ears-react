@@ -33,7 +33,7 @@ const RegisterResults = ({ register }) => {
                 <SelectFieldAsync register={register('equipment.id')} title={'Equipamento'} getValue={configuration.service.getAllEquipments} />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <SelectFieldAsync register={register('irda')} title={'IRDA'} getValue={configuration.service.getAllIndicators} multiple/>
+                <SelectFieldAsync register={register('indicators')} title={'IRDA'} getValue={configuration.service.getAllIndicators} multiple/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <SelectFieldAsync register={register('type')} title={'Tipo de teste'} getValue={configuration.service.getTriageTypes}/>

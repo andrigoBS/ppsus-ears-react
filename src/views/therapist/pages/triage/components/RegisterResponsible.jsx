@@ -35,7 +35,7 @@ const RegisterResponsible = ({ register, errors }) => {
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant="h6" style={styles.textTitle}>Informações da Mãe</Typography>
             </Grid>
-            <BaseRegisterResponsible register={register} errors={errors} prefixName={'baby.mother'} states={states}/>
+            <BaseRegisterResponsible register={register} errors={errors} prefixName={'baby.birthMother'} states={states}/>
             {responsibleCount > 0 &&
                 <Grid item xs={12} sm={12} md={12}>
                     <Typography variant="h6" style={styles.textTitle}>Informações do Responsável</Typography>
@@ -46,7 +46,7 @@ const RegisterResponsible = ({ register, errors }) => {
                     <Grid sx={{ marginTop: '20px', marginBottom: '40px' }} item md={12} xs={12}>
                         <Divider />
                     </Grid>
-                    <BaseRegisterResponsible register={register} errors={errors} prefixName={`baby.responsible.${index}`} states={states}/>
+                    <BaseRegisterResponsible register={register} errors={errors} prefixName={`baby.guardians.${index}`} states={states}/>
                 </Fragment>
             ))}
             <Grid item xs={12} sm={12} md={12}>
