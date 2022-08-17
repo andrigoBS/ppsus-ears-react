@@ -7,9 +7,9 @@ import { useViewConfiguration } from '../../../../providers/viewConfiguration/Vi
 const headers = [
     { title: 'Descrição resultado', name: 'resultDescription' },
     { title: 'Descrição acompanhamento', name: 'accompanyDescription' },
-    { title: 'Passou esquerda?', name: 'leftEar' },
-    { title: 'Passou direita?', name: 'rightEar' },
-    { title: 'Possui irda?', name: 'irda' },
+    { title: 'Passou esquerda', name: 'leftEar', formatter: 'yes-or-no' },
+    { title: 'Passou direita', name: 'rightEar', formatter: 'yes-or-no' },
+    { title: 'Com irda', name: 'irda', formatter: 'yes-or-no' },
     { title: 'Tipo teste', name: 'testType' }
 ];
 

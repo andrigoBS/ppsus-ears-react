@@ -8,6 +8,26 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 const GenericTable = ({ headers, rows }) => {
+    const formatterOfDate = (value) => {
+        const date = new Date(value);
+        return date.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+    };
+
+    const formatterOfYesOrNo = (value) => {
+        return value === 0 ? 'Não' : 'Sim';
+    };
+
+    const chooseFormatter = (name, value) => {
+        if(value !== null){
+            if(name === 'date'){
+                return formatterOfDate(value);
+            }
+            if(name === 'yes-or-no'){
+                return formatterOfYesOrNo(value);
+            }
+        }
+    };
+
     return (
         <Paper style={{ marginTop: '30px' }}>
             <TableContainer>
@@ -25,7 +45,9 @@ const GenericTable = ({ headers, rows }) => {
                         {rows && rows.map((row, key) => (
                             <TableRow key={key} style={{ backgroundColor: key % 2 ? 'white' : '#fafafa' }}>
                                 {headers.map((header, key) => (
-                                    <TableCell key={key} style={{ fontSize: 16 }} align="left">{row[header.name]}</TableCell>
+                                    <TableCell key={key} style={{ fontSize: 16 }} align="left">
+                                        { header.formatter === undefined ? row[header.name] : chooseFormatter(header.formatter, row[header.name])}
+                                    </TableCell>
                                 ))}
                             </TableRow>
                         ))}

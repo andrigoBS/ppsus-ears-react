@@ -9,7 +9,7 @@ const headers = [
     { title: 'Peso', name: 'weight' },
     { title: 'Altura', name: 'height' },
     { title: 'Circunferência', name: 'circumference' },
-    { title: 'Data nascimento', name: 'birthDate' },
+    { title: 'Data nascimento', name: 'birthDate', formatter: 'date' },
     { title: 'Tipo parto', name: 'childBirthType' },
     { title: 'Mãe', name: 'birthMother' }
 ];
