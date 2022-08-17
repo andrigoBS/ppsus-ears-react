@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow';
 
 const GenericTable = ({ headers, rows }) => {
     return (
-        <Paper style={{ margin: '50px' }}>
+        <Paper style={{ marginTop: '30px' }}>
             <TableContainer>
                 <Table sx={{ maxHeight: 650 }} size="small">
                     <TableHead style={{ backgroundColor: '#2db7bc' }}>

@@ -10,7 +10,6 @@ const HomeTherapist = () => {
     return (
         <div>
             <BaseDashboard user={auth.user} getDashboard={configuration.service.getDashboard} getReport={configuration.service.getReport} />
-
         </div>
     );
 };

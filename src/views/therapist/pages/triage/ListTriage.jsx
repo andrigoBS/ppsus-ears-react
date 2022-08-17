@@ -5,24 +5,25 @@ import BaseConsult from '../../../../components/bases/BaseConsult';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const headers = [
-    { title: 'Descrição resultado', name: 'resultDescription' },
-    { title: 'Descrição acompanhamento', name: 'accompanyDescription' },
     { title: 'Passou esquerda?', name: 'leftEar' },
     { title: 'Passou direita?', name: 'rightEar' },
-    { title: 'Possui irda?', name: 'irda' },
-    { title: 'Tipo teste', name: 'testType' }
+    { title: 'Data avaliação', name: 'evaluationDate' },
+    { title: 'Tipo TAN', name: 'type' },
+    { title: 'Observação', name: 'observation' },
+    { title: 'Conduta', name: 'conduct' },
+    { title: 'Orientação', name: 'orientation' }
 ];
 
-const ListConduct = () => {
+const ListTriage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const configuration = useViewConfiguration();
 
     return(
-        <BaseConsult handleSubmit={handleSubmit} title={'Condutas'} serviceFunction={configuration.service.getAllConducts} headers={headers}>
+        <BaseConsult handleSubmit={handleSubmit} title={'Triagens'} serviceFunction={configuration.service.getAllTriages} headers={headers}>
             {/*<Grid item xs={12} sm={12} md={12}>*/}
             {/*    <TextField  {...register('description')} label="Descrição" variant="outlined" size="small"/>*/}
             {/*</Grid>*/}
         </BaseConsult>
     );
 };
-export default ListConduct;
+export default ListTriage;

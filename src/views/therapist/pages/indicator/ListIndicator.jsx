@@ -14,7 +14,7 @@ const ListIndicator = () => {
     const configuration = useViewConfiguration();
 
     return(
-        <BaseConsult handleSubmit={handleSubmit} title={'Indicador'} serviceFunction={configuration.service.getAllIndicators} headers={headers}>
+        <BaseConsult handleSubmit={handleSubmit} title={'Indicadores'} serviceFunction={configuration.service.getAllIndicators} headers={headers}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField  {...register('name')} label="Nome" variant="outlined" size="small"/>
             </Grid>
