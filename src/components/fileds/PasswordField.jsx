@@ -7,7 +7,7 @@ const validate = {
     hasUpper: (value) => /[A-Z]/.test(value),
     hasNumber: (value) => /\d/.test(value),
     hasSpecial: (value) => /\p{P}/u.test(value) || /[$+=|]/.test(value),
-    hasMoreSix: (value) => value.length > 6,
+    hasMoreSix: (value) => value.length >= 6,
 };
 
 const getColorIfIsValid = (isValid) => {
