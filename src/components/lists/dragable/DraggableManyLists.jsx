@@ -1,7 +1,8 @@
-import { Box, Button, Grid, IconButton, Paper, Typography, useTheme } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import React  from 'react';
+import { Box, Grid, IconButton, Paper, Typography, useTheme } from '@mui/material';
+import React from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import { FixedSizeList } from 'react-window';
 
 const createStyles = (theme) => ({
     listContainer: {
@@ -15,68 +16,83 @@ const createStyles = (theme) => ({
     headerPaper: {
         margin: '5px 10px'
     },
-    addButton: {
-        width: '100%',
-        color: 'white',
-        letterSpacing: '0.00938e',
-        textTransform: 'none',
-        fontWeight: '600',
-        fontSize: '1.05rem',
-    },
 });
 
-const DraggableManyLists = ({ values, onChange }) =>  {
+const DraggableManyLists = ({ values, onChange, name, ...props }) =>  {
     const theme = useTheme();
     const styles = createStyles(theme);
 
+    const getHeight = () => {
+        if(!window || !window.innerHeight) {
+            return 500;
+        }
+        return (window?.innerHeight - 315);
+    };
+
     const handleOnDragEnd = (result) => {
-        console.log(result);
-    };
+        if (!result.destination) {
+            return;
+        }
 
-    const onDelete = () => {
-        console.log('result');
-    };
+        const valueSource = values.filter((value) => value.id === Number(result.source.droppableId))[0];
+        const subValueSourceIndex = valueSource.values.findIndex((subValue) => subValue.id === Number(result.draggableId));
+        const subValueSource = valueSource.values.splice(subValueSourceIndex, 1)[0];
 
-    const onAdd = () => {
-        console.log('result');
+        const valueDestination = values.filter((value) => value.id === Number(result.destination.droppableId))[0];
+        valueDestination.values.splice(result.destination.index, 0, subValueSource);
+
+
+        onChange({ target: { value: [...values], name } });
     };
 
     return (
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-            <Grid container spacing={4}>
+        <Grid container spacing={4} {...props}>
+            <DragDropContext onDragEnd={handleOnDragEnd}>
                 {values.map((value) => (
                     <Grid item xs={3} key={value.id}>
-                        <Paper sx={styles.listContainer}>
-                            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                                <Typography variant='h6' color={'white'} sx={styles.headerPaper}>{ value.name }</Typography>
-                                {value.id !== -1 && <IconButton aria-label="delete" size="large">
-                                    <DeleteIcon fontSize={'small'} sx={{ color: 'white' }}/>
-                                </IconButton>}
-                            </Box>
-                            <Droppable droppableId={`value-${value.id}`}>
-                                {(provided) => (
-                                    <div {...provided.droppableProps} ref={provided.innerRef}>
-                                        {value.values.map((subValue, index) => (
-                                            <Draggable key={subValue.id} draggableId={subValue.id} index={index}>
-                                                {(provided, snapshot) => (
-                                                    <Paper ref={provided.innerRef} snapshot={snapshot} {...provided.draggableProps} {...provided.dragHandleProps} sx={styles.itemPaper}>
-                                                        <Typography variant='p'>{ subValue.name }</Typography>
-                                                    </Paper>
+                        <Droppable droppableId={`${value.id}`} type={'DRAGGABLE_MANY_LISTS'}
+                            renderClone={(provided, snapshot, rubric) => (
+                                <Box {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                                    <Paper sx={styles.itemPaper}>
+                                        <Typography variant="p">{value.values[rubric.source.index].name}</Typography>
+                                    </Paper>
+                                </Box>
+                            )}
+                        >
+                            {(provided) => (
+                                <Paper sx={styles.listContainer} {...provided.droppableProps} ref={provided.innerRef}>
+                                    <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                                        <Typography variant='h6' color={'white'} sx={styles.headerPaper}>{ value.name } ({ value.values.length })</Typography>
+                                        {value.id > 0 && <IconButton aria-label="delete" size="large">
+                                            <DeleteIcon fontSize={'small'} sx={{ color: 'white' }}/>
+                                        </IconButton>}
+                                    </Box>
+                                    <FixedSizeList
+                                        itemCount={value.values.length}
+                                        height={getHeight()}
+                                        itemSize={54}
+                                        outerRef={provided.innerRef}
+                                        itemData={value.values}
+                                    >
+                                        {({ data, index, style }) => (
+                                            <Draggable key={`${data[index].id}`} draggableId={`${data[index].id}`} index={index}>
+                                                {(provided) => (
+                                                    <Box ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} sx={style}>
+                                                        <Paper sx={styles.itemPaper}>
+                                                            <Typography variant="p">{data[index].name}</Typography>
+                                                        </Paper>
+                                                    </Box>
                                                 )}
                                             </Draggable>
-                                        ))}
-                                        {provided.placeholder}
-                                    </div>
-                                )}
-                            </Droppable>
-                        </Paper>
+                                        )}
+                                    </FixedSizeList>
+                                </Paper>
+                            )}
+                        </Droppable>
                     </Grid>
                 ))}
-                <Grid item xs={3}>
-                    <Button variant='contained' color='secondaryBlue' sx={styles.addButton}>Adicionar uma nova região</Button>
-                </Grid>
-            </Grid>
-        </DragDropContext>
+            </DragDropContext>
+        </Grid>
     );
 };
 

@@ -1,15 +1,7 @@
-import React from 'react';
-import { Box, Button, Grid, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Box, Button, CircularProgress, Grid, Typography } from '@mui/material';
 import DraggableManyLists from '../../../../components/lists/dragable/DraggableManyLists';
-
-const values = [
-    { id: 1, name: 'Zona 1', values: [{ id: 1, name:'cidade 1' }, { id: 2, name:'cidade 2' }] },
-    { id: 2, name: 'Zona 2', values: [{ id: 3, name:'cidade 3' }, { id: 4, name:'cidade 4' }] },
-    { id: 3, name: 'Zona 3', values: [{ id: 5, name:'cidade 5' }, { id: 6, name:'cidade 6' }] },
-    { id: 4, name: 'Zona 4', values: [{ id: 7, name:'cidade 7' }, { id: 8, name:'cidade 8' }] },
-    { id: 5, name: 'Zona 5', values: [{ id: 9, name:'cidade 9' }, { id: 10, name:'cidade 10' }] },
-    { id: -1, name: 'Cidades não vinculadas', values: [{ id: 11, name:'cidade 11' }, { id: 12, name:'cidade 12' }] },
-];
+import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const styles = {
     container: {
@@ -22,23 +14,38 @@ const styles = {
         letterSpacing: '0.00938e',
         textTransform: 'none',
         fontWeight: '600',
-        fontSize: '1.05rem',
+        fontSize: '1rem',
     },
 };
 
 const EditZones = () => {
+    const configuration = useViewConfiguration();
+
+    const [values, setValues] = useState(null);
+
     const onChange = (event) => {
-        console.log(event.target);
+        setValues(event.target.value);
     };
 
     const onSubmit = (event) => {
         console.log('submit');
     };
 
+    const onNew = (event) => {
+        console.log('submit');
+    };
+
+    useEffect(() => {
+        configuration.service.getAllZonesWithCities().then(r => r.body).then((setValues));
+    }, []);
+
     return (
         <Grid container spacing={2} sx={styles.container}>
-            <Grid item xs={10}>
+            <Grid item xs={8}>
                 <Typography variant='h4'>Gerenciar regiões</Typography>
+            </Grid>
+            <Grid item xs={2}>
+                <Button variant='contained' color='secondaryBlue' sx={styles.saveButton} onClick={onNew}>Adicionar uma nova região</Button>
             </Grid>
             <Grid item xs={2}>
                 <Button variant='contained' color='secondary' sx={styles.saveButton} onClick={onSubmit}>Salvar alterações</Button>
@@ -51,7 +58,7 @@ const EditZones = () => {
                 </Box>
             </Grid>
             <Grid item xs={12}>
-                <DraggableManyLists values={values} onChange={onChange}/>
+                {values? <DraggableManyLists values={values} onChange={onChange}/> : <CircularProgress/>}
             </Grid>
         </Grid>
     );
