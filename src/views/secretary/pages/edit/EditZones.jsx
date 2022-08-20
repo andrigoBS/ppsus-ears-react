@@ -1,54 +1,67 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, CircularProgress, Grid, Typography } from '@mui/material';
+import { Box, Button, CircularProgress, Grid, Typography, useTheme } from '@mui/material';
 import DraggableManyLists from '../../../../components/lists/dragable/DraggableManyLists';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
-const styles = {
+const createStyles = (theme) => ({
     container: {
         width: 'auto',
         padding: '25px 35px',
     },
     saveButton: {
-        width: '100%',
         color: 'white',
         letterSpacing: '0.00938e',
         textTransform: 'none',
         fontWeight: '600',
         fontSize: '1rem',
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '350px',
+        }
     },
-};
+});
 
 const EditZones = () => {
     const configuration = useViewConfiguration();
+    const theme = useTheme();
+    const styles = createStyles(theme);
 
-    const [values, setValues] = useState(null);
+    const [zones, setZones] = useState(null);
 
-    const onChange = (event) => {
-        setValues(event.target.value);
+    const onDropCity = ({ source, destination }) => {
+        const city = zones[source.valueIndex].values.splice(source.subValueIndex, 1)[0];
+
+        zones[destination.valueIndex].values.splice(destination.subValueIndex, 0, city);
+
+        setZones([...zones]);
     };
 
-    const onSubmit = (event) => {
-        console.log('submit');
+    const onNewZone = () => {
+
     };
 
-    const onNew = (event) => {
-        console.log('submit');
+    const onEditZone = () => {
+
+    };
+
+    const onDeleteZone = (index) => {
+        const cities = zones[index].values;
+
+        zones[zones.length - 1].values.push(...cities);
+
+        zones.splice(index, 1);
+
+        setZones([...zones]);
     };
 
     useEffect(() => {
-        configuration.service.getAllZonesWithCities().then(r => r.body).then((setValues));
+        configuration.service.getAllZonesWithCities().then(r => r.body).then((setZones));
     }, []);
 
     return (
         <Grid container spacing={2} sx={styles.container}>
-            <Grid item xs={8}>
+            <Grid item xs={12}>
                 <Typography variant='h4'>Gerenciar regiões</Typography>
-            </Grid>
-            <Grid item xs={2}>
-                <Button variant='contained' color='secondaryBlue' sx={styles.saveButton} onClick={onNew}>Adicionar uma nova região</Button>
-            </Grid>
-            <Grid item xs={2}>
-                <Button variant='contained' color='secondary' sx={styles.saveButton} onClick={onSubmit}>Salvar alterações</Button>
             </Grid>
             <Grid item xs={12}>
                 <Box sx={{ display: 'grid' }}>
@@ -58,7 +71,10 @@ const EditZones = () => {
                 </Box>
             </Grid>
             <Grid item xs={12}>
-                {values? <DraggableManyLists values={values} onChange={onChange}/> : <CircularProgress/>}
+                <Button variant='contained' color='secondary' sx={styles.saveButton} onClick={onNewZone}>Adicionar uma nova região</Button>
+            </Grid>
+            <Grid item xs={12}>
+                {!zones? <CircularProgress/> : <DraggableManyLists values={zones} onDropSubValue={onDropCity} onDeleteValue={onDeleteZone} onEditValue={onEditZone}/>}
             </Grid>
         </Grid>
     );

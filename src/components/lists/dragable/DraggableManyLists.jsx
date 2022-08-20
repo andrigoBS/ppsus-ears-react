@@ -1,6 +1,8 @@
-import DeleteIcon from '@mui/icons-material/Delete';
-import { Box, Grid, IconButton, Paper, Typography, useTheme } from '@mui/material';
+import { CheckBox } from '@mui/icons-material';
 import React from 'react';
+import { Box, Grid, IconButton, Paper, Typography, useMediaQuery, useTheme } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { FixedSizeList } from 'react-window';
 
@@ -10,23 +12,29 @@ const createStyles = (theme) => ({
         padding: '5px',
     },
     itemPaper: {
-        padding: '10px',
+        border: 'solid',
+        padding: '8px',
         margin: '10px'
     },
     headerPaper: {
         margin: '5px 10px'
     },
+    headerPaperContainer: {
+        display: 'flex',
+        justifyContent: 'space-between'
+    },
 });
 
-const DraggableManyLists = ({ values, onChange, name, ...props }) =>  {
+const DraggableManyLists = ({ values, onDropSubValue, onDeleteValue, onEditValue, ...props }) =>  {
     const theme = useTheme();
     const styles = createStyles(theme);
+    const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
-    const getHeight = () => {
-        if(!window || !window.innerHeight) {
-            return 500;
+    const getSubItemHeight = () => {
+        if(isMobile || !window || !window.innerHeight) {
+            return 300;
         }
-        return (window?.innerHeight - 315);
+        return (window.innerHeight - 315);
     };
 
     const handleOnDragEnd = (result) => {
@@ -34,54 +42,65 @@ const DraggableManyLists = ({ values, onChange, name, ...props }) =>  {
             return;
         }
 
-        const valueSource = values.filter((value) => value.id === Number(result.source.droppableId))[0];
-        const subValueSourceIndex = valueSource.values.findIndex((subValue) => subValue.id === Number(result.draggableId));
-        const subValueSource = valueSource.values.splice(subValueSourceIndex, 1)[0];
+        const [valueSourceId, valueSourceIndex] = result.source.droppableId.split('-');
+        const [subValueSourceId, subValueSourceIndex] = result.draggableId.split('-');
+        const [valueDestinationId, valueDestinationIndex] = result.destination.droppableId.split('-');
 
-        const valueDestination = values.filter((value) => value.id === Number(result.destination.droppableId))[0];
-        valueDestination.values.splice(result.destination.index, 0, subValueSource);
-
-
-        onChange({ target: { value: [...values], name } });
+        onDropSubValue({
+            source: {
+                valueIndex: Number(valueSourceIndex),
+                subValueIndex: Number(subValueSourceIndex),
+                valueId: Number(valueSourceId),
+            },
+            destination: {
+                valueIndex: Number(valueDestinationIndex),
+                subValueIndex: result.destination.index,
+                valueId: Number(valueDestinationId),
+            },
+            subValueId: subValueSourceId
+        });
     };
 
     return (
-        <Grid container spacing={4} {...props}>
+        <Grid container spacing={4} {...props} justifyContent={'center'}>
             <DragDropContext onDragEnd={handleOnDragEnd}>
-                {values.map((value) => (
-                    <Grid item xs={3} key={value.id}>
-                        <Droppable droppableId={`${value.id}`} type={'DRAGGABLE_MANY_LISTS'}
+                {values.map((value, index) => (
+                    <Grid item key={value.id} sx={{ width: '360px' }}>
+                        <Droppable droppableId={`${value.id}-${index}`} type={'DRAGGABLE_MANY_LISTS'}
                             renderClone={(provided, snapshot, rubric) => (
-                                <Box {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                                    <Paper sx={styles.itemPaper}>
-                                        <Typography variant="p">{value.values[rubric.source.index].name}</Typography>
-                                    </Paper>
-                                </Box>
+                                <DraggableSubListItem name={value.values[rubric.source.index].name} provided={provided} snapshot={snapshot}/>
                             )}
                         >
                             {(provided) => (
                                 <Paper sx={styles.listContainer} {...provided.droppableProps} ref={provided.innerRef}>
-                                    <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <Box sx={styles.headerPaperContainer}>
                                         <Typography variant='h6' color={'white'} sx={styles.headerPaper}>{ value.name } ({ value.values.length })</Typography>
-                                        {value.id > 0 && <IconButton aria-label="delete" size="large">
-                                            <DeleteIcon fontSize={'small'} sx={{ color: 'white' }}/>
-                                        </IconButton>}
+                                        {Boolean(value && value.id) > 0 &&
+                                            <Box>
+                                                {onEditValue &&
+                                                    <IconButton aria-label="edit" size="large" onClick={(event) => onEditValue(index, event)}>
+                                                        <EditIcon fontSize={'small'} sx={{ color: 'white' }}/>
+                                                    </IconButton>
+                                                }
+                                                {onDeleteValue &&
+                                                    <IconButton aria-label="delete" size="large" onClick={(event) => onDeleteValue(index, event)}>
+                                                        <DeleteIcon fontSize={'small'} sx={{ color: 'white' }}/>
+                                                    </IconButton>
+                                                }
+                                            </Box>
+                                        }
                                     </Box>
                                     <FixedSizeList
                                         itemCount={value.values.length}
-                                        height={getHeight()}
+                                        height={getSubItemHeight()}
                                         itemSize={54}
                                         outerRef={provided.innerRef}
                                         itemData={value.values}
                                     >
                                         {({ data, index, style }) => (
-                                            <Draggable key={`${data[index].id}`} draggableId={`${data[index].id}`} index={index}>
-                                                {(provided) => (
-                                                    <Box ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} sx={style}>
-                                                        <Paper sx={styles.itemPaper}>
-                                                            <Typography variant="p">{data[index].name}</Typography>
-                                                        </Paper>
-                                                    </Box>
+                                            <Draggable key={`${data[index].id}`} draggableId={`${data[index].id}-${index}`} index={index}>
+                                                {(provided, snapshot) => (
+                                                    <DraggableSubListItem name={data[index].name} provided={provided} snapshot={snapshot} sx={style}/>
                                                 )}
                                             </Draggable>
                                         )}
@@ -93,6 +112,21 @@ const DraggableManyLists = ({ values, onChange, name, ...props }) =>  {
                 ))}
             </DragDropContext>
         </Grid>
+    );
+};
+
+const DraggableSubListItem = ({ provided, snapshot, name, ...props }) => {
+    const theme = useTheme();
+    const styles = createStyles(theme);
+
+    const borderColor = snapshot.isDragging ? theme.palette.primary.light : theme.palette.background.default;
+
+    return (
+        <Box {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} {...props}>
+            <Paper sx={{ ...styles.itemPaper, borderColor }}>
+                <Typography variant="p">{name}</Typography>
+            </Paper>
+        </Box>
     );
 };
 
