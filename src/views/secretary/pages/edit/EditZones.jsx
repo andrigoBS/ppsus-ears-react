@@ -29,9 +29,11 @@ const EditZones = () => {
     const [zones, setZones] = useState(null);
 
     const onDropCity = ({ source, destination }) => {
-        const city = zones[source.valueIndex].values.splice(source.subValueIndex, 1)[0];
+        const cities = source.subValueIndexes.map((subValueIndex) => zones[source.valueIndex].values.splice(subValueIndex, 1)[0]);
 
-        zones[destination.valueIndex].values.splice(destination.subValueIndex, 0, city);
+        zones[destination.valueIndex].values.splice(destination.subValueIndex, 0, ...cities);
+
+        console.log(zones);
 
         setZones([...zones]);
     };
@@ -65,8 +67,9 @@ const EditZones = () => {
             </Grid>
             <Grid item xs={12}>
                 <Box sx={{ display: 'grid' }}>
-                    <Typography variant='p'>Arraste as cidades para modificar a região</Typography>
-                    <Typography variant='p'>Clique no titulo da região para edita-lo</Typography>
+                    <Typography variant='p'>Arraste as cidades para modificar a sua região</Typography>
+                    <Typography variant='p'>Clique no lapis no titulo da região para edita-la</Typography>
+                    <Typography variant='p'>Clique na lixeira no titulo da região para exclui-la</Typography>
                     <Typography variant='p'>Clique no botão adicionar região para criar uma nova região</Typography>
                 </Box>
             </Grid>
