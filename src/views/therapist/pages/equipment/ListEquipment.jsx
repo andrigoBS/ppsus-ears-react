@@ -8,7 +8,7 @@ const headers = [
     { title: 'Código', name: 'id' },
     { title: 'Modelo', name: 'model' },
     { title: 'Marca', name: 'brand' },
-    { title: 'Data última calibração', name: 'dateOfLastCalibration' }
+    { title: 'Data última calibração', name: 'dateOfLastCalibration', formatter: 'date' }
 ];
 
 const ListEquipment = () => {

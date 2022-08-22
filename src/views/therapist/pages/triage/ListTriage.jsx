@@ -5,9 +5,9 @@ import BaseConsult from '../../../../components/bases/BaseConsult';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const headers = [
-    { title: 'Passou esquerda?', name: 'leftEar' },
-    { title: 'Passou direita?', name: 'rightEar' },
-    { title: 'Data avaliação', name: 'evaluationDate' },
+    { title: 'Passou esquerda', name: 'leftEar', formatter: 'yes-or-no' },
+    { title: 'Passou direita', name: 'rightEar', formatter: 'yes-or-no' },
+    { title: 'Data avaliação', name: 'evaluationDate', formatter: 'date' },
     { title: 'Tipo TAN', name: 'type' },
     { title: 'Observação', name: 'observation' },
     { title: 'Conduta', name: 'conduct' },

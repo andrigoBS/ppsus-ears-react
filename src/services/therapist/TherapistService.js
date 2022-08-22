@@ -17,19 +17,19 @@ const TherapistService = (onAnyLog) => {
     };
 
     const orientationRegister = (data) => {
-        return HttpHelper.post(`${generic.pathName}/${generic.getUser().user.id}/orientation`, data, generic.getUser().token).then(onAnyLog);
+        return HttpHelper.post(`${generic.pathName}/orientation`, data, generic.getUser().token).then(onAnyLog);
     };
 
     const getAllOrientations = () => {
-        return HttpHelper.get(`${generic.pathName}/${generic.getUser().user.id}/orientation`, generic.getUser().token).then(onAnyLog);
+        return HttpHelper.get(`${generic.pathName}/orientation`, generic.getUser().token).then(onAnyLog);
     };
 
     const indicatorRegister = (data) => {
-        return HttpHelper.post(`${generic.pathName}/${generic.getUser().user.id}/indicator`, data, generic.getUser().token).then(onAnyLog);
+        return HttpHelper.post(`${generic.pathName}/indicator`, data, generic.getUser().token).then(onAnyLog);
     };
 
     const getAllIndicators = () => {
-        return HttpHelper.get(`${generic.pathName}/${generic.getUser().user.id}/indicator`, generic.getUser().token).then(onAnyLog);
+        return HttpHelper.get(`${generic.pathName}/indicator`, generic.getUser().token).then(onAnyLog);
     };
 
     const equipmentRegister = (data) => {
@@ -41,11 +41,11 @@ const TherapistService = (onAnyLog) => {
     };
 
     const conductRegister = (data) => {
-        return HttpHelper.post(`${generic.pathName}/${generic.getUser().user.id}/conduct`, data, generic.getUser().token).then(onAnyLog);
+        return HttpHelper.post(`${generic.pathName}/conduct`, data, generic.getUser().token).then(onAnyLog);
     };
 
     const getAllConducts = () => {
-        return HttpHelper.get(`${generic.pathName}/${generic.getUser().user.id}/conduct`, generic.getUser().token).then(onAnyLog);
+        return HttpHelper.get(`${generic.pathName}/conduct`, generic.getUser().token).then(onAnyLog);
     };
 
     const getTriageTypes = () => {

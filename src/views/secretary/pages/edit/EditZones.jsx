@@ -1,67 +1,85 @@
-import React, { useState } from 'react';
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import React, { useEffect, useState } from 'react';
+import { Box, Button, CircularProgress, Grid, Typography, useTheme } from '@mui/material';
+import DraggableManyLists from '../../../../components/lists/dragable/DraggableManyLists';
+import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
-const finalSpaceCharacters = [
-    {
-        id: 'gary',
-        name: 'Gary Goodspeed',
+const createStyles = (theme) => ({
+    container: {
+        width: 'auto',
+        padding: '25px 35px',
     },
-    {
-        id: 'cato',
-        name: 'Little Cato',
+    saveButton: {
+        color: 'white',
+        letterSpacing: '0.00938e',
+        textTransform: 'none',
+        fontWeight: '600',
+        fontSize: '1rem',
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '350px',
+        }
     },
-    {
-        id: 'kvn',
-        name: 'KVN',
-    },
-    {
-        id: 'mooncake',
-        name: 'Mooncake',
-    },
-    {
-        id: 'quinn',
-        name: 'Quinn Ergon',
-    }
-];
+});
 
 const EditZones = () => {
-    const [characters, updateCharacters] = useState(finalSpaceCharacters);
+    const configuration = useViewConfiguration();
+    const theme = useTheme();
+    const styles = createStyles(theme);
 
-    function handleOnDragEnd(result) {
-        if (!result.destination) {
-            return;
-        }
+    const [zones, setZones] = useState(null);
 
-        const items = Array.from(characters);
-        const [reorderedItem] = items.splice(result.source.index, 1);
-        items.splice(result.destination.index, 0, reorderedItem);
+    const onDropCity = ({ source, destination }) => {
+        const cities = source.subValueIndexes.map((subValueIndex) => zones[source.valueIndex].values.splice(subValueIndex, 1)[0]);
 
-        updateCharacters(items);
-    }
+        zones[destination.valueIndex].values.splice(destination.subValueIndex, 0, ...cities);
+
+        console.log(zones);
+
+        setZones([...zones]);
+    };
+
+    const onNewZone = () => {
+
+    };
+
+    const onEditZone = () => {
+
+    };
+
+    const onDeleteZone = (index) => {
+        const cities = zones[index].values;
+
+        zones[zones.length - 1].values.push(...cities);
+
+        zones.splice(index, 1);
+
+        setZones([...zones]);
+    };
+
+    useEffect(() => {
+        configuration.service.getAllZonesWithCities().then(r => r.body).then((setZones));
+    }, []);
 
     return (
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-            <Droppable droppableId="characters">
-                {(provided) => (
-                    <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-                        {characters.map(({ id, name }, index) => {
-                            return (
-                                <Draggable key={id} draggableId={id} index={index}>
-                                    {(provided) => (
-                                        <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                            <p>
-                                                { name }
-                                            </p>
-                                        </li>
-                                    )}
-                                </Draggable>
-                            );
-                        })}
-                        {provided.placeholder}
-                    </ul>
-                )}
-            </Droppable>
-        </DragDropContext>
+        <Grid container spacing={2} sx={styles.container}>
+            <Grid item xs={12}>
+                <Typography variant='h4'>Gerenciar regiões</Typography>
+            </Grid>
+            <Grid item xs={12}>
+                <Box sx={{ display: 'grid' }}>
+                    <Typography variant='p'>Arraste as cidades para modificar a sua região</Typography>
+                    <Typography variant='p'>Clique no lapis no titulo da região para edita-la</Typography>
+                    <Typography variant='p'>Clique na lixeira no titulo da região para exclui-la</Typography>
+                    <Typography variant='p'>Clique no botão adicionar região para criar uma nova região</Typography>
+                </Box>
+            </Grid>
+            <Grid item xs={12}>
+                <Button variant='contained' color='secondary' sx={styles.saveButton} onClick={onNewZone}>Adicionar uma nova região</Button>
+            </Grid>
+            <Grid item xs={12}>
+                {!zones? <CircularProgress/> : <DraggableManyLists values={zones} onDropSubValue={onDropCity} onDeleteValue={onDeleteZone} onEditValue={onEditZone}/>}
+            </Grid>
+        </Grid>
     );
 };
 
