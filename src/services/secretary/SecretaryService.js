@@ -8,6 +8,10 @@ const SecretaryService = (onAnyLog) => {
         return HttpHelper.get(`${generic.pathName}/zone`, generic.getUser().token).then(onAnyLog);
     };
 
+    const getAllZonesWithCities = () => {
+        return HttpHelper.get(`${generic.pathName}/zone/with-cities`, generic.getUser().token).then(onAnyLog);
+    };
+
     const registerZone = (data) => {
         return HttpHelper.post(`${generic.pathName}/zone/user`, data, generic.getUser().token).then(onAnyLog);
     };
@@ -16,7 +20,7 @@ const SecretaryService = (onAnyLog) => {
         return HttpHelper.get(`${generic.pathName}/${generic.getUser().user.id}/is-state`, generic.getUser().token).then(onAnyLog);
     };
 
-    return { ...generic, getZones, registerZone, isStateSecretary };
+    return { ...generic, getZones, getAllZonesWithCities, registerZone, isStateSecretary };
 };
 
 export default SecretaryService;
