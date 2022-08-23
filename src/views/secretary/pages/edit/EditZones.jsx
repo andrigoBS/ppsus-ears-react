@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, CircularProgress, Grid, Typography, useTheme } from '@mui/material';
-import DraggableManyLists from '../../../../components/lists/dragable/DraggableManyLists';
+import DraggableManyLists from '../../../../components/lists/dragableList/DraggableManyLists';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const createStyles = (theme) => ({
@@ -28,12 +28,17 @@ const EditZones = () => {
 
     const [zones, setZones] = useState(null);
 
-    const onDropCity = ({ source, destination }) => {
-        const cities = source.subValueIndexes.map((subValueIndex) => zones[source.valueIndex].values.splice(subValueIndex, 1)[0]);
+    const onDropCity = ({ sourceValueIndex, destination, subValueIds }) => {
+        const sourceZoneCities = zones[sourceValueIndex].values;
+
+        const cities = [];
+        subValueIds.forEach((cityId) => {
+            const index = sourceZoneCities.findIndex((city) => city.id === cityId);
+            const removed = sourceZoneCities.splice(index, 1)[0];
+            cities.push(removed);
+        });
 
         zones[destination.valueIndex].values.splice(destination.subValueIndex, 0, ...cities);
-
-        console.log(zones);
 
         setZones([...zones]);
     };
