@@ -1,5 +1,6 @@
 import { Divider, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import CNPJField from '../../../../components/fileds/CNPJField';
 import RadioFieldAsync from '../../../../components/fileds/RadioFieldAsync';
 import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 
@@ -30,6 +31,7 @@ const RegisterInstitution = ({ register, configuration }) => {
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField  {...register('institution.cnpj')} label="CNPJ" variant="outlined" size="small"/>
+                <CNPJField register={register} name="cnpj" label="CNPJ"/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <RadioFieldAsync title={'Tipo de instituição'} register={register('institution.institutionType')} getValue={configuration.service.getTypes} required/>
