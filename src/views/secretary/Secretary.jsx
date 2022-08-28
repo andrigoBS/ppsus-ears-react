@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
+import BaseLoginPaper from '../../components/bases/login/BaseLoginPaper';
 import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
 import TopBar from '../../components/TopBar';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
 import SecretaryService from '../../services/secretary/SecretaryService';
-import MetaLinkMenu from '../secretary/MetaLinkMenu';
+import MetaLinkMenu from './MetaLinkMenu';
 import EditSecretary from '../secretary/pages/edit/EditSecretary';
 import EditZones from '../secretary/pages/edit/EditZones';
 import PageNotFound from '../site/pages/PageNotFound';

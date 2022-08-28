@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
-import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
+import BaseLoginPaper from '../../components/bases/login/BaseLoginPaper';
 import MetaLinkMenu from './MetaLinkMenu';
 import ListConduct from './pages/conduct/ListConduct';
 import RegisterConduct from './pages/conduct/RegisterConduct';

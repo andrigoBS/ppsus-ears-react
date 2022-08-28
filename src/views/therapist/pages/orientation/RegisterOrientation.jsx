@@ -1,7 +1,7 @@
 import { Grid, TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
+import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const RegisterOrientation = () => {

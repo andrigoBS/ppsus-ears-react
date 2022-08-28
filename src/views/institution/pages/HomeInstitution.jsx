@@ -1,4 +1,4 @@
-import BaseDashboard from '../../../components/bases/BaseDashboard';
+import BaseDashboard from '../../../components/bases/dashboard/BaseDashboard';
 import React  from 'react';
 import GenericTable from '../../../components/lists/GenericTable';
 import { useAuth } from '../../../providers/auth/Auth';

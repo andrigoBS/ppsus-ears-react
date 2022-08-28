@@ -52,7 +52,7 @@ const Footer = () => {
                 <Divider sx={styles.divider} />
             </Grid>
             <Grid item xs={12} sx={styles.toCenter}>
-                <LinkRouter to={'/'}><MPAWhiteIcon size="12rem"/></LinkRouter>
+                <LinkRouter to={'/'}><MPAWhiteIcon size="180rem"/></LinkRouter>
             </Grid>
             <Grid item xs={12} sx={{ ...styles.toCenter, display: 'block' }}>
                 <Link href={'mailTo:'+email} underline="hover" target={'_blank'} color={'white'}>

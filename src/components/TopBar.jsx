@@ -39,7 +39,7 @@ const TopBar = ({ children, rightElement, linkMenu }) => {
                     </React.Fragment>}
                     <Link to={configuration.baseRoute || '/'}>
                         <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: isDesktop ? 2 : 0 }}>
-                            <MPAWhiteIcon size={isDesktop? '10rem' : '8rem'}/>
+                            <MPAWhiteIcon size={isDesktop? '140rem' : '100rem'}/>
                         </IconButton>
                     </Link>
                     <Typography sx={{ flexGrow: 1 }} variant={isDesktop? 'h6': 'subtitle1'} color={'white'}>

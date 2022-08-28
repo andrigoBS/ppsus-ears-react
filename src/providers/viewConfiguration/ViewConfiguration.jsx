@@ -21,7 +21,7 @@ export const ViewConfigurationProvider = ({ children, service, baseRoute, loginR
 
     const pushAlert = (type, message) => {
         if(!message || !isValidAlertType(type)) {
-            if(process.env.NODE_ENV === 'development'){
+            if(import.meta.env.NODE_ENV === 'development'){
                 console.log('Invalid Alert', type, message);
             }
             return;
@@ -36,13 +36,13 @@ export const ViewConfigurationProvider = ({ children, service, baseRoute, loginR
 
     const genericLog = (response) => {
         if(response.isSuccess) {
-            if(process.env.NODE_ENV === 'development'){
+            if(import.meta.env.NODE_ENV === 'development'){
                 pushAlert('success', `${response.status} - ${response.body.fancyMessage || response.body.message || response.fancyMessage || response.message || 'OK'}`);
                 console.log(response);
             }
         }else{
             pushAlert('error', `${response.status} - ${response.body.fancyMessage || response.body.message || response.fancyMessage || response.message || 'Error'}`);
-            if(process.env.NODE_ENV === 'development'){
+            if(import.meta.env.NODE_ENV === 'development'){
                 console.log(`${response.status} - ${response.body.message || response.body.message || response.message || response.fancyMessage }`);
             }
         }

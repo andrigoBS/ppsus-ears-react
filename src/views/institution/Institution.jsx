@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
-import BaseLoginPaper from '../../components/bases/BaseLoginPaper';
-import MetaLinkMenu from '../institution/MetaLinkMenu';
+import BaseLoginPaper from '../../components/bases/login/BaseLoginPaper';
+import MetaLinkMenu from './MetaLinkMenu';
 import EditInstitution from './pages/edit/EditInstitution';
 import HomeInstitution from './pages/HomeInstitution';
 import InstitutionService from '../../services/institution/InstitutionService';

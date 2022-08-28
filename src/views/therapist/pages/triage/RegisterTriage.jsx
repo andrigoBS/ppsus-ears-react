@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Step, StepLabel, Stepper } from '@mui/material';
-import BaseRegisterPaper from '../../../../components/bases/BaseRegisterPaper';
+import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
 import React from 'react';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 import RegisterBaby from './components/RegisterBaby';

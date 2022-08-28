@@ -2,7 +2,7 @@ import { Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import BaseEditPaper from '../../../../components/bases/BaseEditPaper';
+import BaseEditPaper from '../../../../components/bases/edit/BaseEditPaper';
 import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
 import PasswordField from '../../../../components/fileds/PasswordField';
 import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';

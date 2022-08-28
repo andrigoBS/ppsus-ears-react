@@ -29,7 +29,7 @@ const _genericFetch = (method, path, data, auth) => {
     };
     if(auth) { init.headers['authorization'] = auth; }
     if(data) { init['body'] = JSON.stringify(data); }
-    return fetch(process.env.REACT_APP_SERVER_URL+'/'+path, init)
+    return fetch(import.meta.env.REACT_APP_SERVER_URL+'/'+path, init)
         .then(response => response.json().then(body => ({ message: response.message, status: response.status, isSuccess: _isSuccess(response.status), body })));
 };
 
