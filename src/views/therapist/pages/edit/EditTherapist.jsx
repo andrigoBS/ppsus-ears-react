@@ -3,8 +3,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import BaseEditPaper from '../../../../components/bases/edit/BaseEditPaper';
-import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
-import PasswordField from '../../../../components/fileds/PasswordField';
+import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
+import PasswordField from '../../../../components/fileds/password/PasswordField';
 import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 

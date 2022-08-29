@@ -1,13 +1,9 @@
-import { FormControl, FormControlLabel, Radio, RadioGroup, Typography } from '@mui/material';
 import React from 'react';
-
-const styles = {
-    select: {
-        width: '100%'
-    }
-};
+import { FormControl, FormControlLabel, Radio, RadioGroup, Typography } from '@mui/material';
+import useRadioStyles from './useRadioStyles';
 
 const RadioField = ({ register, title, values, ...props }) => {
+    const styles = useRadioStyles();
     return (
         <React.Fragment>
             {title && <Typography variant={'h6'}>

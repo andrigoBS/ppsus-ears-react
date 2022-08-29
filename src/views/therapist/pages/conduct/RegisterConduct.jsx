@@ -2,7 +2,7 @@ import { Grid, TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
-import RadioField from '../../../../components/fileds/RadioField';
+import RadioField from '../../../../components/fileds/radio/RadioField';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const RegisterConduct = () => {

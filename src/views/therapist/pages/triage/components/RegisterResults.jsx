@@ -1,6 +1,6 @@
 import { Grid, TextField, Typography } from '@mui/material';
 import React, { Fragment } from 'react';
-import RadioField from '../../../../../components/fileds/RadioField';
+import RadioField from '../../../../../components/fileds/radio/RadioField';
 import SelectFieldAsync from '../../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../../providers/viewConfiguration/ViewConfiguration';
 

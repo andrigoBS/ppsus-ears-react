@@ -1,6 +1,6 @@
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import RadioField from './RadioField';
+import RadioField from './radio/RadioField';
 
 const RadioFieldAsync = ({ getValue, watch, ...props }) => {
     const [values, setValues] = useState(getValue? null : []);

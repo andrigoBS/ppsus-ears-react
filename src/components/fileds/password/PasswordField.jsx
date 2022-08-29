@@ -1,34 +1,11 @@
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import { TextField } from '@mui/material';
 import React, { useState } from 'react';
-import TopicListIcon from '../lists/TopicListIcon';
-
-const validate = {
-    hasUpper: (value) => /[A-Z]/.test(value),
-    hasNumber: (value) => /\d/.test(value),
-    hasSpecial: (value) => /\p{P}/u.test(value) || /[$+=|]/.test(value),
-    hasMoreSix: (value) => value.length >= 6,
-};
-
-const getColorIfIsValid = (isValid) => {
-    if(isValid) {
-        return { color: 'secondary' };
-    }
-    return {};
-};
+import TopicListIcon from '../../lists/TopicListIcon';
+import usePasswordController from './usePasswordController';
 
 const PasswordField = ({ register, onChange, ...props }) => {
-    const [value, setValue] = useState('');
-
-    const handleOnChange = (event) => {
-        if(register && register.onChange){
-            register.onChange(event);
-        }
-        if(onChange){
-            onChange(event);
-        }
-        setValue(event.target.value);
-    };
+    const { value, handleOnChange, getColorIfIsValid, validate } = usePasswordController(register, onChange);
 
     const getTopicsAndIcons = () => {
         return [

@@ -1,7 +1,7 @@
 import TextField from '@mui/material/TextField';
-import PropTypes from 'prop-types';
 import React, { forwardRef, useState } from 'react';
 import { IMaskInput } from 'react-imask';
+import usePhoneMaskController from './usePhoneMaskController';
 
 const BrazilianPhoneField = ({ register, name, ...other }) => {
     return (
@@ -19,23 +19,9 @@ const BrazilianPhoneField = ({ register, name, ...other }) => {
     );
 };
 
-BrazilianPhoneField.propTypes = {
-    register: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    required: PropTypes.bool,
-};
-
-
 // eslint-disable-next-line react/display-name
 const PhoneMask = forwardRef((props, ref) => {
-    const { onChange, name, ...other } = props;
-    const [data, setData] = useState(other.value || other.defaultValue || '');
-
-    const onAccept = (value) => {
-        onChange({ target: { name: name, value: value } });
-        setData(value);
-    };
+    const { data, onAccept, name, getMask, other } = usePhoneMaskController(props);
 
     return (
         <IMaskInput
@@ -52,13 +38,5 @@ const PhoneMask = forwardRef((props, ref) => {
         />
     );
 });
-
-const getMask = (value) => {
-    const valueClear = value.replace(' ', '').replace('-', '').replace('(', '').replace(')', '');
-
-    if (valueClear.substring(0, 4) === '0800') { return '0800 000 0000'; }
-    if (valueClear.length < 11) { return '(0#) 0000-00000'; }
-    return '(0#) 00000-0000';
-};
 
 export default BrazilianPhoneField;

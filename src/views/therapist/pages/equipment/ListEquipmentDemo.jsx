@@ -1,7 +1,7 @@
 import { Box, Grid, Paper, TextField, Typography, useTheme } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import BaseConsult from '../../../../components/bases/BaseConsult';
+import BaseConsult from '../../../../components/bases/consult/BaseConsult';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const createStyles = (theme) => ({

@@ -2,7 +2,7 @@ import { Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
-import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
+import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
 import CNPJField from '../../../../components/fileds/CNPJField';
 import RadioFieldAsync from '../../../../components/fileds/RadioFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';

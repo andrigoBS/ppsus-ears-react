@@ -3,7 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import BaseEditPaper from '../../../../components/bases/edit/BaseEditPaper';
-import BrazilianPhoneField from '../../../../components/fileds/BrazilianPhoneField';
+import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
 import RadioFieldAsync from '../../../../components/fileds/RadioFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
