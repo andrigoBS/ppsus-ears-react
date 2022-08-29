@@ -67,6 +67,11 @@ const data = [
                 label: 'Equipamentos',
                 route: '/fono/equipamento'
             },
+            {
+                icon: <AiOutlineTool size={27}/>,
+                label: 'Equipamentos DEMO',
+                route: '/fono/equipamento-demo'
+            },
         ]
     },
     { title: 'Outros',
