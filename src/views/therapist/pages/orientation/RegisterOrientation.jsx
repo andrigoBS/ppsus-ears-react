@@ -11,7 +11,10 @@ const RegisterOrientation = () => {
     return(
         <BaseRegisterPaper handleSubmit={handleSubmit} title={'Orientação'} serviceFunction={configuration.service.orientationRegister}>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField  {...register('description')} label="Descrição" variant="outlined" size="small" multiline rows={4} required/>
+                <TextField
+                    {...register('description')} label="Descrição"
+                    variant="outlined" size="small" multiline rows={4} required
+                />
             </Grid>
         </BaseRegisterPaper>
     );

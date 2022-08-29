@@ -11,7 +11,10 @@ const RegisterIndicator = () => {
     return (
         <BaseRegisterPaper handleSubmit={handleSubmit} title={'Indicador de risco'} serviceFunction={configuration.service.indicatorRegister}>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField  {...register('name')} label="Nome do indicador" variant="outlined" size="small" required/>
+                <TextField
+                    {...register('name')} label="Nome do indicador"
+                    variant="outlined" size="small" required
+                />
             </Grid>
         </BaseRegisterPaper>
     );

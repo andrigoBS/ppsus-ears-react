@@ -8,7 +8,11 @@ const HomeParents = () => {
     const configuration = useViewConfiguration();
 
     return (
-        <BaseDashboard user={auth.user} getDashboard={configuration.service.getDashboard} getReport={configuration.service.getReport} />
+        <BaseDashboard
+            user={auth.user}
+            getDashboard={configuration.service.getDashboard}
+            getReport={configuration.service.getReport}
+        />
     );
 };
 

@@ -68,18 +68,32 @@ const EditZones = () => {
     return (
         <Grid container spacing={2} sx={styles.container}>
             <Grid item xs={12}>
-                <Typography variant='h4'>Gerenciar regiões</Typography>
+                <Typography variant='h4'>
+                    Gerenciar regiões
+                </Typography>
             </Grid>
             <Grid item xs={12}>
                 <Box sx={{ display: 'grid' }}>
-                    <Typography variant='p'>Arraste as cidades para modificar a sua região</Typography>
-                    <Typography variant='p'>Clique no lapis no titulo da região para edita-la</Typography>
-                    <Typography variant='p'>Clique na lixeira no titulo da região para exclui-la</Typography>
-                    <Typography variant='p'>Clique no botão adicionar região para criar uma nova região</Typography>
+                    <Typography variant='p'>
+                        Arraste as cidades para modificar a sua região
+                    </Typography>
+                    <Typography variant='p'>
+                        Clique no lapis no titulo da região para edita-la
+                    </Typography>
+                    <Typography variant='p'>
+                        Clique na lixeira no titulo da região para exclui-la
+                    </Typography>
+                    <Typography variant='p'>
+                        Clique no botão adicionar região para criar uma nova região
+                    </Typography>
                 </Box>
             </Grid>
             <Grid item xs={12}>
-                <Button variant='contained' color='secondary' sx={styles.saveButton} onClick={onNewZone}>Adicionar uma nova região</Button>
+                <Button
+                    variant='contained' color='secondary'
+                    sx={styles.saveButton} onClick={onNewZone}>
+                    Adicionar uma nova região
+                </Button>
             </Grid>
             <Grid item xs={12}>
                 {!zones? <CircularProgress/> : <DraggableManyLists values={zones} onDropSubValue={onDropCity} onDeleteValue={onDeleteZone} onEditValue={onEditZone}/>}

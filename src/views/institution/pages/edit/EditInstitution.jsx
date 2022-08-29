@@ -1,10 +1,11 @@
-import { Grid, TextField, Typography } from '@mui/material';
+import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import AsyncRequest from '../../../../components/api/AsyncRequest';
 import BaseEditPaper from '../../../../components/bases/edit/BaseEditPaper';
 import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
-import RadioFieldAsync from '../../../../components/fileds/RadioFieldAsync';
+import RadioField from '../../../../components/fileds/radio/RadioField';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const EditInstitution = () => {
@@ -63,11 +64,15 @@ const EditInstitution = () => {
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <RadioFieldAsync
-                    title={'Tipo de instituição'}
-                    register={register('institutionType')}
-                    getValue={configuration.service.getTypes}
-                />
+                <AsyncRequest requestFunction={configuration.service.getTypes} loaderChildren={<CircularProgress />}>
+                    {(institutionTypes) => (
+                        <RadioField
+                            title={'Tipo de instituição'}
+                            register={{ ...register('institutionType') }}
+                            values={institutionTypes}
+                        />
+                    )};
+                </AsyncRequest>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography  variant={'h6'}>
@@ -109,7 +114,9 @@ const EditInstitution = () => {
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <Typography variant={'h6'}>Endereço</Typography>
+                <Typography variant={'h6'}>
+                    Endereço
+                </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
