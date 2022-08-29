@@ -6,6 +6,7 @@ import ListConduct from './pages/conduct/ListConduct';
 import RegisterConduct from './pages/conduct/RegisterConduct';
 import EditTherapist from './pages/edit/EditTherapist';
 import ListEquipment from './pages/equipment/ListEquipment';
+import ListEquipmentDemo from './pages/equipment/ListEquipmentDemo';
 import RegisterEquipment from './pages/equipment/RegisterEquipment';
 import HomeTherapist from './pages/HomeTherapist';
 import PageNotFound from '../site/pages/PageNotFound';
@@ -44,6 +45,7 @@ const Therapist = () => {
                         <Route path={'/indicador/cadastro'} element={<RequireAuth> <RegisterIndicator /> </RequireAuth>} />
 
                         <Route path={'/equipamento'} element={<RequireAuth> <ListEquipment /> </RequireAuth>} />
+                        <Route path={'/equipamento-demo'} element={<RequireAuth> <ListEquipmentDemo /> </RequireAuth>} />
                         <Route path={'/equipamento/cadastro'} element={<RequireAuth> <RegisterEquipment /> </RequireAuth>} />
 
                         <Route path={'/conduta'} element={<RequireAuth> <ListConduct /> </RequireAuth>} />

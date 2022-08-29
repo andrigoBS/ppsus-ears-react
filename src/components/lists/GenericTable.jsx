@@ -1,4 +1,4 @@
-import { Paper } from '@mui/material';
+import { CircularProgress, Paper } from '@mui/material';
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -27,6 +27,10 @@ const GenericTable = ({ headers, rows }) => {
             }
         }
     };
+
+    if(!rows){
+        return (<CircularProgress />);
+    }
 
     return (
         <Paper style={{ marginTop: '30px' }}>
