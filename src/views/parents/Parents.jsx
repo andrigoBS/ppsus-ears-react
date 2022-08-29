@@ -1,3 +1,4 @@
+import React from 'react';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import { Route, Routes } from 'react-router-dom';
 import BaseLoginPaper from '../../components/bases/login/BaseLoginPaper';
@@ -6,9 +7,8 @@ import MetaLinkMenu from './MetaLinkMenu';
 import HomeParents from './pages/HomeParents';
 import PageNotFound from '../site/pages/PageNotFound';
 import ParentsService from '../../services/parents/ParentsService';
-import React from 'react';
 import TopBar from '../../components/TopBar';
-import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
+import UserAvatarDropDown from '../../components/dropDown/UserDropDown';
 import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
 
 const Parents = () => {

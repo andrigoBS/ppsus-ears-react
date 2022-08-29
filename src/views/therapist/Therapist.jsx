@@ -1,6 +1,12 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import BaseLoginPaper from '../../components/bases/login/BaseLoginPaper';
+import UserAvatarDropDown from '../../components/dropDown/UserDropDown';
+import TopBar from '../../components/TopBar';
+import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
+import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
+import TherapistService from '../../services/therapist/TherapistService';
+import PageNotFound from '../site/pages/PageNotFound';
 import MetaLinkMenu from './MetaLinkMenu';
 import ListConduct from './pages/conduct/ListConduct';
 import RegisterConduct from './pages/conduct/RegisterConduct';
@@ -9,21 +15,15 @@ import ListEquipment from './pages/equipment/ListEquipment';
 import ListEquipmentDemo from './pages/equipment/ListEquipmentDemo';
 import RegisterEquipment from './pages/equipment/RegisterEquipment';
 import HomeTherapist from './pages/HomeTherapist';
-import PageNotFound from '../site/pages/PageNotFound';
-import React, { useEffect } from 'react';
-import ListBaby from './pages/triage/components/ListBaby';
-import ListTriage from './pages/triage/ListTriage';
-import RegisterTriage from './pages/triage/RegisterTriage';
 import ListIndicator from './pages/indicator/ListIndicator';
 import RegisterIndicator from './pages/indicator/RegisterIndicator';
 import ListOrientation from './pages/orientation/ListOrientation';
 import RegisterOrientation from './pages/orientation/RegisterOrientation';
-import RegisterTherapist from './pages/register/RegisterTherapist';
-import TherapistService from '../../services/therapist/TherapistService';
-import TopBar from '../../components/TopBar';
-import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
-import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';
 import PasswordForgotten from './pages/register/PasswordForgotten';
+import RegisterTherapist from './pages/register/RegisterTherapist';
+import ListBaby from './pages/triage/components/ListBaby';
+import ListTriage from './pages/triage/ListTriage';
+import RegisterTriage from './pages/triage/RegisterTriage';
 
 const Therapist = () => {
 

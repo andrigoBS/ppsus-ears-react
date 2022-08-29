@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import BaseLoginPaper from '../../components/bases/login/BaseLoginPaper';
-import UserAvatarDropDown from '../../components/genericUser/UserAvatarDropDown';
+import UserAvatarDropDown from '../../components/dropDown/UserDropDown';
 import TopBar from '../../components/TopBar';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import { ViewConfigurationProvider } from '../../providers/viewConfiguration/ViewConfiguration';

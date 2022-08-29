@@ -3,10 +3,9 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import AsyncRequest from '../../../../components/api/AsyncRequest';
 import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
-import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
 import PasswordField from '../../../../components/fileds/password/PasswordField';
-import SelectField from '../../../../components/fileds/SelectField';
-import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
+import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
+import SelectField from '../../../../components/fileds/select/SelectField';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 
 const RegisterTherapist = () => {

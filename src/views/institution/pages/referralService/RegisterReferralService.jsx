@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import AsyncRequest from '../../../../components/api/AsyncRequest';
 import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
-import CNPJField from '../../../../components/fileds/CNPJField';
+import CNPJField from '../../../../components/fileds/documents/CNPJField';
 import RadioField from '../../../../components/fileds/radio/RadioField';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 

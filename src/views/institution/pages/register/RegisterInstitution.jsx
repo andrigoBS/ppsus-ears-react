@@ -1,9 +1,9 @@
 import { CircularProgress, Divider, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import AsyncRequest from '../../../../components/api/AsyncRequest';
-import CNPJField from '../../../../components/fileds/CNPJField';
 import RadioField from '../../../../components/fileds/radio/RadioField';
-import SelectField from '../../../../components/fileds/SelectField';
+import SelectField from '../../../../components/fileds/select/SelectField';
+import CNPJField from '../../../../components/fileds/documents/CNPJField';
 
 const RegisterInstitution = ({ register, configuration }) => {
     const [state, setState] = useState(null);

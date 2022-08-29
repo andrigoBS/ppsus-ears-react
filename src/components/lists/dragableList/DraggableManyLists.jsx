@@ -70,10 +70,10 @@ const DraggableManyLists = ({ values, onDropSubValue, onDeleteValue, onEditValue
     }, []);
 
     return (
-        <Grid container spacing={4} {...props} justifyContent={'center'}>
+        <Grid container spacing={2} {...props} justifyContent={'center'}>
             <DragDropContext onDragEnd={handleOnDragEnd} onBeforeDragStart={handleOnDragStart}>
                 {values.map((value, index) => (
-                    <Grid item key={value.id} sx={{ width: '360px' }}>
+                    <Grid item key={value.id}>
                         <DraggableList
                             isMarked={markedValue === index}
                             hasSomeDrag={hasSomeDrag}

@@ -6,7 +6,7 @@ import AsyncRequest from '../../../../components/api/AsyncRequest';
 import BaseEditPaper from '../../../../components/bases/edit/BaseEditPaper';
 import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
 import PasswordField from '../../../../components/fileds/password/PasswordField';
-import SelectField from '../../../../components/fileds/SelectField';
+import SelectField from '../../../../components/fileds/select/SelectField';
 import SelectFieldAsync from '../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../providers/viewConfiguration/ViewConfiguration';
 

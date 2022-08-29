@@ -1,7 +1,7 @@
 import { Grid, TextField, Typography } from '@mui/material';
 import React, { Fragment, useState } from 'react';
 import BrazilianPhoneField from '../../../../../components/fileds/phone/BrazilianPhoneField';
-import SelectField from '../../../../../components/fileds/SelectField';
+import SelectField from '../../../../../components/fileds/select/SelectField';
 import SelectFieldAsync from '../../../../../components/fileds/SelectFieldAsync';
 import { useViewConfiguration } from '../../../../../providers/viewConfiguration/ViewConfiguration';
 

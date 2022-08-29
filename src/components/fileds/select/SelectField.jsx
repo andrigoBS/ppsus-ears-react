@@ -1,31 +1,17 @@
+import React from 'react';
 import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
-import React, { useState } from 'react';
+import useSelectController from './useSelectController';
+import useSelectStyles from './useSelectStyles';
 
-const styles = {
-    select: {
-        width: '100%',
-    },
-    multipleChipContainer: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        whiteSpace: 'normal',
-        gap: 0.5
-    },
-    chipElement: {
-        maxHeight: '23px'
-    },
-    OpenedOptionsContainer:  {
-        maxHeight: '300px',
-    },
-};
+const SelectField = ({ register, title, values, multiple, onChange, ...other }) => {
+    const styles = useSelectStyles();
+    const { configValueManipulation } = useSelectController(register, multiple, onChange, other);
 
-const SelectField = ({ register, title, values, multiple, onChange, ...props }) => {
-    const [value, setValue] = useState(props.value || props.defaultValue || register.value || (multiple? [] : ''));
     const createRenderMultiple = (selected) => {
         if (multiple) {
             return selected.map((selectedElement) => (
                 <Chip key={'chip-select-'+selectedElement} sx={styles.chipElement}
-                    label={values.filter(v => v.id === selectedElement)[0].name}
+                      label={values.filter(v => v.id === selectedElement)[0].name}
                 />
             ));
         }
@@ -33,29 +19,8 @@ const SelectField = ({ register, title, values, multiple, onChange, ...props }) 
         return values.filter(v => v.id === selected)[0].name;
     };
 
-    const handleOnchange = (event) => {
-        if(multiple && typeof event.target.value === 'string') {
-            event.target.value = event.target.value.split(',');
-        }
-
-        register.onChange(event);
-        if(onChange) {
-            onChange(event);
-        }
-
-        setValue(event.target.value);
-    };
-
-    const configValueManipulation = () => {
-        return {
-            ...register,
-            value: value,
-            onChange: handleOnchange,
-        };
-    };
-
     return (
-        <FormControl sx={styles.select} size={'small'} {...props} {...configValueManipulation()} >
+        <FormControl sx={styles.select} size={'small'} {...other} {...configValueManipulation()} >
             <InputLabel> {title} </InputLabel>
             <Select
                 {...configValueManipulation()}
