@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../providers/auth/Auth';
-import { useViewConfiguration } from '../../providers/viewConfiguration/ViewConfiguration';
 
 const mockNotificationsNumber = 1;
 
-const useUserDropDownController = () => {
+const useUserDropDownController = (editRoute, loginRoute, logoutRoute) => {
     const auth = useAuth();
     const navigate = useNavigate();
-    const configuration = useViewConfiguration();
 
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -21,23 +19,23 @@ const useUserDropDownController = () => {
     };
 
     const onClickNotUser = () => {
-        navigate(configuration.loginRoute);
+        navigate(loginRoute);
     };
 
     const onClickUserName = () => {
-        navigate(configuration.baseRoute+'/minha-conta/'+auth.user.id);
+        navigate(editRoute+auth.user.id);
     };
 
     const onClickExit = () => {
-        auth.logout(configuration.baseRoute);
+        auth.logout(logoutRoute);
     };
 
     return {
-        user: auth.user,
-        openMenu: Boolean(anchorEl),
+        anchorEl,
         notificationsNumber: mockNotificationsNumber,
-        onClick, onClose, onClickNotUser, onClickUserName, onClickExit,
-        anchorEl
+        onClick,
+        onClickExit, onClickNotUser, onClickUserName, onClose, openMenu: Boolean(anchorEl),
+        user: auth.user
     };
 };
 

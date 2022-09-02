@@ -1,9 +1,9 @@
-import TextField from '@mui/material/TextField';
 import React, { forwardRef } from 'react';
+import { TextField } from '@mui/material';
 import { IMaskInput } from 'react-imask';
 import useCNPJController from './useCNPJController';
 
-const CNPJField = ({ register, name, ...other }) => {
+const CNPJField = ({ name, register, ...other }) => {
     return (
         <TextField
             variant="outlined"
@@ -21,7 +21,7 @@ const CNPJField = ({ register, name, ...other }) => {
 
 // eslint-disable-next-line react/display-name
 const CNPJMask = forwardRef((props, ref) => {
-    const { name, value, onAccept, other } = useCNPJController(props);
+    const { name, onAccept, other, value } = useCNPJController(props);
 
     return (
         <IMaskInput

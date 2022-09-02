@@ -1,9 +1,9 @@
-import TextField from '@mui/material/TextField';
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef } from 'react';
+import { TextField } from '@mui/material';
 import { IMaskInput } from 'react-imask';
 import usePhoneMaskController from './usePhoneMaskController';
 
-const BrazilianPhoneField = ({ register, name, ...other }) => {
+const BrazilianPhoneField = ({ name, register, ...other }) => {
     return (
         <TextField
             variant="outlined"
@@ -21,7 +21,7 @@ const BrazilianPhoneField = ({ register, name, ...other }) => {
 
 // eslint-disable-next-line react/display-name
 const PhoneMask = forwardRef((props, ref) => {
-    const { data, onAccept, name, getMask, other } = usePhoneMaskController(props);
+    const { data, getMask, name, onAccept, other } = usePhoneMaskController(props);
 
     return (
         <IMaskInput

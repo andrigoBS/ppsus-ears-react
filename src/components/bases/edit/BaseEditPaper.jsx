@@ -1,10 +1,10 @@
-import { Box, Button, Grid, Paper, Typography } from '@mui/material';
 import React from 'react';
-import HtmlHead from '../../HtmlHead';
+import { Box, Button, Grid, Paper, Typography } from '@mui/material';
+import HtmlHead from '../../../components/HtmlHead';
 import useBaseEditController from './useBaseEditController';
 import useBaseEditStyles from './useBaseEditStyles';
 
-const BaseEditPaper = ({ children, serviceFunction, title, handleSubmit, notSubmitButton, serviceGetFunction, setValue, id }) => {
+const BaseEditPaper = ({ children, handleSubmit, id, notSubmitButton, serviceFunction, serviceGetFunction, setValue, title }) => {
     const styles = useBaseEditStyles();
     const { onSubmit } = useBaseEditController(serviceGetFunction, serviceFunction, id, setValue);
 

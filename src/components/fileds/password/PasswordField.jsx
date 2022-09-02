@@ -1,29 +1,29 @@
-import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
+import React from 'react';
 import { TextField } from '@mui/material';
-import React, { useState } from 'react';
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import TopicListIcon from '../../lists/TopicListIcon';
 import usePasswordController from './usePasswordController';
 
-const PasswordField = ({ register, onChange, ...props }) => {
-    const { value, handleOnChange, getColorIfIsValid, validate } = usePasswordController(register, onChange);
+const PasswordField = ({ onChange, register, ...props }) => {
+    const { getColorIfIsValid, handleOnChange, validate, value } = usePasswordController(register, onChange);
 
     const getTopicsAndIcons = () => {
         return [
             {
-                topic: 'Deve existir uma letra maíscula',
-                icon: <FavoriteTwoToneIcon {...getColorIfIsValid(validate.hasUpper(value))}/>
+                icon: <FavoriteTwoToneIcon {...getColorIfIsValid(validate.hasUpper(value))}/>,
+                topic: 'Deve existir uma letra maíscula'
             },
             {
-                topic: 'Deve existir pelo menos um número',
-                icon: <FavoriteTwoToneIcon {...getColorIfIsValid(validate.hasNumber(value))}/>
+                icon: <FavoriteTwoToneIcon {...getColorIfIsValid(validate.hasNumber(value))}/>,
+                topic: 'Deve existir pelo menos um número'
             },
             {
-                topic: 'Deve existir pelo menos um simbolo especial',
-                icon: <FavoriteTwoToneIcon {...getColorIfIsValid(validate.hasSpecial(value))}/>
+                icon: <FavoriteTwoToneIcon {...getColorIfIsValid(validate.hasSpecial(value))}/>,
+                topic: 'Deve existir pelo menos um simbolo especial'
             },
             {
-                topic: 'Deve ter no mínimo 6 digitos',
-                icon: <FavoriteTwoToneIcon {...getColorIfIsValid(validate.hasMoreSix(value))}/>
+                icon: <FavoriteTwoToneIcon {...getColorIfIsValid(validate.hasMoreSix(value))}/>,
+                topic: 'Deve ter no mínimo 6 digitos'
             },
         ];
     };

@@ -5,12 +5,12 @@ const isMedium = (length) => length <= 30;
 
 const getSizes = (length) => {
     if(isSmall(length)) {
-        return { xs:12, sm:8, md:4, lg:4, xl:2 };
+        return { lg:4, md:4, sm:8, xl:2, xs:12 };
     }
     if(isMedium(length)) {
-        return { xs:12, lg:6 };
+        return { lg:6, xs:12 };
     }
-    return { xs:12, xl: 6 };
+    return { xl: 6, xs:12 };
 };
 
 const useBaseDashboardController = () => {
@@ -18,7 +18,7 @@ const useBaseDashboardController = () => {
         console.log('report type', type, 'clicked element index', elementIndex);
     };
 
-    return { isSmall, isMedium, getSizes, onClickElement };
+    return { getSizes, isMedium, isSmall, onClickElement };
 };
 
 export default useBaseDashboardController;

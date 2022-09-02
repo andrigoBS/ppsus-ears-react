@@ -1,5 +1,5 @@
 import React from 'react';
-import univali from './imgs/univali.png';
+import univali from '../../icons/imgs/univali.png';
 
 const UnivaliIcon = ({ size, sx }) => {
     return (

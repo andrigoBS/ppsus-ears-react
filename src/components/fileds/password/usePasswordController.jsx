@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 const validate = {
-    hasUpper: (value) => /[A-Z]/.test(value),
+    hasMoreSix: (value) => value.length >= 6,
     hasNumber: (value) => /\d/.test(value),
     hasSpecial: (value) => /\p{P}/u.test(value) || /[$+=|]/.test(value),
-    hasMoreSix: (value) => value.length >= 6,
+    hasUpper: (value) => /[A-Z]/.test(value),
 };
 
 const getColorIfIsValid = (isValid) => {
@@ -27,7 +27,7 @@ const usePasswordController = (register, onChange) => {
         setValue(event.target.value);
     };
 
-    return { value, handleOnChange, getColorIfIsValid, validate };
+    return { getColorIfIsValid, handleOnChange, validate, value };
 };
 
 export default usePasswordController;

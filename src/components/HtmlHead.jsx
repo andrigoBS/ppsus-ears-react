@@ -1,12 +1,12 @@
-import { Helmet } from 'react-helmet';
 import React from 'react';
 import { useTheme } from '@mui/material';
+import { Helmet } from 'react-helmet';
 
-const HtmlHead = ({ view, subTitle }) => {
+const HtmlHead = ({ subTitle, userType }) => {
     const theme = useTheme();
     let titleFull = import.meta.env.REACT_APP_PROJECT_NAME;
-    if(view){
-        titleFull += ' - ' + view;
+    if(userType){
+        titleFull += ' - ' + userType;
     }
     if(subTitle){
         titleFull += ' - ' + subTitle;

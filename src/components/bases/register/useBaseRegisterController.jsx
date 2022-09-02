@@ -1,15 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useViewConfiguration } from '../../../providers/viewConfiguration/ViewConfiguration';
 
-const useBaseRegisterController = (serviceFunction) => {
+const useBaseRegisterController = (serviceFunction, baseRoute) => {
     const navigate = useNavigate();
-    const configuration = useViewConfiguration();
 
     const onSubmit = (data) => {
         serviceFunction(data).then((response) => {
             if(response.isSuccess){
-                navigate(configuration.baseRoute);
+                navigate(baseRoute);
             }
         });
     };

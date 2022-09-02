@@ -1,5 +1,5 @@
 import React from 'react';
-import mpawhite from './svgs/mpawhite.svg';
+import mpawhite from '../../icons/svgs/mpawhite.svg';
 
 const MPAWhiteIcon = ({ size, sx }) => {
     return (

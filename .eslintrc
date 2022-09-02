@@ -4,9 +4,10 @@
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:sort/recommended",
     "prettier"
   ],
-  "plugins": ["react", "jsx-a11y"],
+  "plugins": ["react", "jsx-a11y", "unused-imports"],
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
@@ -26,16 +27,29 @@
     }
   },
   "rules": {
-    "no-unused-vars": [
+    "react/prop-types": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/self-closing-comp": "warn",
+    "sort/imports": [
+      "warn",
+      {
+        "groups": [
+          { "regex": "(R|r)eact$", "order": 1 },
+          { "regex": "@mui\\/material$", "order": 2 },
+          { "type": "dependency", "order": 3 },
+          { "type": "other", "order": 4 },
+          { "regex": "\\.(png|jpg|svg)$", "order": 5 }
+        ]
+      }
+    ],
+    "unused-imports/no-unused-imports": [
       "warn",
       {
         "varsIgnorePattern": "(R|r)eact"
       }
     ],
-    "react/prop-types": "off",
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/self-closing-comp": "warn",
+    "no-unused-vars": "off",
     "semi": "error",
     "arrow-return-shorthand": "off",
     "forin": "off",
@@ -47,9 +61,6 @@
     "no-object-literal-type-assertion": "off",
     "no-shadowed-variable": "off",
     "no-submodule-imports": "off",
-    "sort-imports": ["error", {
-      "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
-    }],
     "import-name": "off",
     "match-default-export-name": "off",
     "prefer-conditional-expression": "off",
@@ -86,6 +97,9 @@
     "no-parameter-reassignment": "off",
     "arrow-parens": "off",
     "no-duplicate-imports": "error",
+    "no-restricted-imports": ["error", { "patterns": [{
+      "group": ["@mui/material/*"]
+    }]}],
     "no-trailing-spaces": "error",
     "curly": "error",
     "max-len": [

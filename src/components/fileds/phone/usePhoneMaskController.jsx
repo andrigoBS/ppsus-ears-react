@@ -8,7 +8,7 @@ const getMask = (value) => {
     return '(0#) 00000-0000';
 };
 
-const usePhoneMaskController = ({ onChange, name, ...other }) => {
+const usePhoneMaskController = ({ name, onChange, ...other }) => {
     const [data, setData] = useState(other.value || other.defaultValue || '');
 
     const onAccept = (value) => {
@@ -16,7 +16,7 @@ const usePhoneMaskController = ({ onChange, name, ...other }) => {
         setData(value);
     };
 
-    return { data, onAccept, name, other, getMask };
+    return { data, getMask, name, onAccept, other };
 };
 
 export default usePhoneMaskController;

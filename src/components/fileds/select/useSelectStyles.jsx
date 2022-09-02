@@ -2,20 +2,20 @@ import React from 'react';
 
 const useSelectStyles = () => {
     return {
-        select: {
-            width: '100%',
+        chipElement: {
+            maxHeight: '23px'
         },
         multipleChipContainer: {
             display: 'flex',
             flexWrap: 'wrap',
-            whiteSpace: 'normal',
-            gap: 0.5
-        },
-        chipElement: {
-            maxHeight: '23px'
+            gap: 0.5,
+            whiteSpace: 'normal'
         },
         OpenedOptionsContainer:  {
             maxHeight: '300px',
+        },
+        select: {
+            width: '100%',
         },
     };
 };

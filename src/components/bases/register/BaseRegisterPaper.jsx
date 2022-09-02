@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box, Button, Grid, Paper, Typography } from '@mui/material';
-import HtmlHead from '../../HtmlHead';
+import HtmlHead from '../../../components/HtmlHead';
 import useBaseRegisterController from './useBaseRegisterController';
 import useBaseRegisterStyles from './useBaseRegisterStyles';
 
-const BaseRegisterPaper = ({ children, serviceFunction, title, handleSubmit, notSubmitButton }) => {
+const BaseRegisterPaper = ({ baseRoute, children, handleSubmit, notSubmitButton, serviceFunction, title }) => {
     const styles = useBaseRegisterStyles();
-    const { onSubmit } = useBaseRegisterController(serviceFunction);
+    const { onSubmit } = useBaseRegisterController(serviceFunction, baseRoute);
 
     return (
         <Paper sx={styles.paper}>

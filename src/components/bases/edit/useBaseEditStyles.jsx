@@ -1,14 +1,23 @@
-import { useTheme } from '@mui/material';
 import React from 'react';
+import { useTheme } from '@mui/material';
 
 const useBaseEditStyles = () => {
     const theme = useTheme();
 
     return {
+        finalButton: {
+            marginTop: '35px',
+            width: 'fit-content',
+        },
+        grid: {
+            [theme.breakpoints.up('xl')]: {
+                width: '1200px',
+            },
+            display: 'grid',
+            gap: 2,
+            width: 'auto',
+        },
         paper: {
-            margin: '0px',
-            padding: '30px',
-
             [theme.breakpoints.up('sm')]: {
                 margin: '40px',
             },
@@ -16,21 +25,12 @@ const useBaseEditStyles = () => {
                 marginLeft: '10%',
                 marginRight: '10%',
             },
-        },
-        grid: {
-            display: 'grid',
-            gap: 2,
-            width: 'auto',
-            [theme.breakpoints.up('xl')]: {
-                width: '1200px',
-            },
+
+            margin: '0px',
+            padding: '30px',
         },
         textTitle:{
             marginBottom: '40px',
-        },
-        finalButton: {
-            marginTop: '35px',
-            width: 'fit-content',
         },
     };
 };

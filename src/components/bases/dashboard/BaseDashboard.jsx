@@ -1,12 +1,12 @@
-import { CircularProgress, Grid, Typography } from '@mui/material';
 import React from 'react';
+import { CircularProgress, Grid, Typography } from '@mui/material';
 import AsyncRequest from '../../api/AsyncRequest';
 import { GraphicBar } from '../../graphics/GraphicBar';
 import { GraphicDoughnut } from '../../graphics/GraphicDoughnut';
 import useBaseDashboardController from './useBaseDashboardController';
 import useBaseDashboardStyles from './useBaseDashboardStyles';
 
-const RecommendedGraphic = ({ title, labels, quantities, onClickElement, isSmall }) => {
+const RecommendedGraphic = ({ isSmall, labels, onClickElement, quantities, title }) => {
     if(isSmall) {
         return (
             <GraphicDoughnut
@@ -29,7 +29,7 @@ const RecommendedGraphic = ({ title, labels, quantities, onClickElement, isSmall
 };
 
 const BaseDashboard = ({ getDashboard, getReport, user }) => {
-    const { isSmall, getSizes, onClickElement } = useBaseDashboardController();
+    const { getSizes, isSmall, onClickElement } = useBaseDashboardController();
     const styles = useBaseDashboardStyles();
 
     return (

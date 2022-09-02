@@ -1,5 +1,5 @@
 import React from 'react';
-import crefono from './svgs/crefono.svg';
+import crefono from '../../icons/svgs/crefono.svg';
 
 const CrefonoIcon = ({ size, sx }) => {
     return (

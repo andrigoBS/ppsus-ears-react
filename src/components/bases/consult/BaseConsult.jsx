@@ -1,13 +1,13 @@
 import React from 'react';
 import { Box, Button, Divider, Grid, Paper, Typography } from '@mui/material';
-import HtmlHead from '../../HtmlHead';
-import GenericTable from '../../lists/GenericTable';
+import HtmlHead from '../../../components/HtmlHead';
+import GenericTable from '../../lists/table/GenericTable';
 import useBaseConsultController from './useBaseConsultController';
 import useBaseConsultStyles from './useBaseConsultStyles';
 
-const BaseConsult = ({ children, serviceFunction, handleSubmit, headers, title }) => {
+const BaseConsult = ({ children, handleSubmit, headers, serviceFunction, title }) => {
     const styles = useBaseConsultStyles();
-    const { rows, onSubmit } = useBaseConsultController(serviceFunction);
+    const { onSubmit, rows } = useBaseConsultController(serviceFunction);
 
     return (
         <Paper sx={styles.paper}>

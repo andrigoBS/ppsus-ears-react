@@ -1,12 +1,16 @@
 import React from 'react';
-import { AccountCircle as AccountCircleIcon, Comment as CommentIcon, Logout as LogoutIcon } from '@mui/icons-material';
 import { Badge, Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
+import { AccountCircle as AccountCircleIcon, Comment as CommentIcon, Logout as LogoutIcon } from '@mui/icons-material';
 import useUserDropDownController from './useUserDropDownController';
 import useUserDropDownStyles from './useUserDropDownStyles';
 
-const UserDropDown = ({ withNotification }) => {
+const UserDropDown = ({ editRoute, loginRoute, logoutRoute, withNotification }) => {
     const styles = useUserDropDownStyles();
-    const { user, anchorEl, openMenu, notificationsNumber, onClose, onClick, onClickNotUser, onClickUserName, onClickExit } = useUserDropDownController();
+    const {
+        anchorEl, notificationsNumber,
+        onClick, onClickExit, onClickNotUser, onClickUserName, onClose,
+        openMenu, user
+    } = useUserDropDownController(editRoute, loginRoute, logoutRoute);
 
     if (!user) {
         const NotUserTitle = 'Entrar na plataforma';

@@ -1,43 +1,43 @@
+import React from 'react';
 import { BarElement, CategoryScale, Chart, Legend, LinearScale, Title, Tooltip } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import React from 'react';
 import { getGraphicColors } from '../../Theme';
 
 Chart.register(BarElement, CategoryScale, LinearScale, Legend, Title, Tooltip);
 
-export function GraphicBar({ title, labels, quantities, onClickElement, isVertical }) {
+export function GraphicBar({ isVertical, labels, onClickElement, quantities, title }) {
     const options = {
+        indexAxis: isVertical? 'y' : 'x',
+        onClick: (_event, element) => {
+            onClickElement(element[0].index);
+        },
         plugins: {
             legend: {
                 position: 'bottom'
             },
             title: {
+                display: true,
                 font: {
                     size: 14
                 },
-                display: true,
                 text: title
             },
-        },
-        indexAxis: isVertical? 'y' : 'x',
-        onClick: (_event, element) => {
-            onClickElement(element[0].index);
         }
     };
 
     const data = {
-        labels: labels,
         datasets: [
             {
-                label: 'Bebês',
-                data: quantities,
-                barPercentage: 0.75,
                 backgroundColor: getGraphicColors(0.5),
+                barPercentage: 0.75,
                 borderColor: getGraphicColors(1),
                 borderWidth: 1,
+                data: quantities,
                 hoverOffset: 4,
+                label: 'Bebês',
             },
         ],
+        labels: labels,
     };
 
     return (

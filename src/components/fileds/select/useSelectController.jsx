@@ -19,8 +19,8 @@ const useSelectController = (register, multiple, onChange, other) => {
     const configValueManipulation = () => {
         return {
             ...register,
-            value: value,
             onChange: handleOnchange,
+            value: value,
         };
     };
 

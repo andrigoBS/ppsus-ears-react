@@ -1,5 +1,5 @@
 import React from 'react';
-import cnpq from './imgs/cnpq.png';
+import cnpq from '../../icons/imgs/cnpq.png';
 
 const CNPqIcon = ({ size, sx }) => {
     return (

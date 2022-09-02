@@ -6,21 +6,21 @@ const useUserDropDownStyles = () => {
             display: 'flex'
         },
         menuPaper: {
-            overflow: 'visible',
-            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            mt: 1.5,
             '&:before': {
+                bgcolor: 'background.paper',
                 content: '""',
                 display: 'block',
-                position: 'absolute',
-                top: 0,
-                right: 14,
-                width: 10,
                 height: 10,
-                bgcolor: 'background.paper',
+                position: 'absolute',
+                right: 14,
+                top: 0,
                 transform: 'translateY(-50%) rotate(45deg)',
+                width: 10,
                 zIndex: 0,
             },
+            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+            mt: 1.5,
+            overflow: 'visible',
         },
     };
 };

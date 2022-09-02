@@ -1,32 +1,32 @@
-import { Box } from '@mui/material';
 import React from 'react';
+import { Box } from '@mui/material';
 
 const createStyle = (theme) => {
     return {
         container: {
             margin: '15px 0 0 20px',
         },
-        itemContainer: {
-            display: 'flex',
-            margin: '5px 0 5px 0',
-        },
         icon: {
-            margin: '2px 10px 0 0',
             '& svg':{
                 fontSize: '1rem',
             },
+            margin: '2px 10px 0 0',
+        },
+        itemContainer: {
+            display: 'flex',
+            margin: '5px 0 5px 0',
         }
     };
 };
 
-const TopicListIcon = ({ topics, icon, topicsAndIcons }) => {
+const TopicListIcon = ({ icon, topics, topicsAndIcons }) => {
     const style = createStyle();
 
     if(topics && icon) {
         return (
             <Box sx={style.container}>
-                {topics.map((topic) => (
-                    <Box sx={style.itemContainer}>
+                {topics.map((topic, index) => (
+                    <Box sx={style.itemContainer} key={`topic-${index}`}>
                         <Box sx={style.icon}>{icon}</Box>
                         {topic}
                     </Box>
@@ -38,8 +38,8 @@ const TopicListIcon = ({ topics, icon, topicsAndIcons }) => {
     if(topicsAndIcons) {
         return (
             <Box sx={style.container}>
-                {topicsAndIcons.map((topicAndIcon) => (
-                    <Box sx={style.itemContainer}>
+                {topicsAndIcons.map((topicAndIcon, index) => (
+                    <Box sx={style.itemContainer} key={`topic-${index}`}>
                         <Box sx={style.icon}>{topicAndIcon.icon}</Box>
                         {topicAndIcon.topic}
                     </Box>
@@ -48,7 +48,7 @@ const TopicListIcon = ({ topics, icon, topicsAndIcons }) => {
         );
     }
 
-    return (<>No Topics</>);
+    return (<></>);
 };
 
 export default TopicListIcon;

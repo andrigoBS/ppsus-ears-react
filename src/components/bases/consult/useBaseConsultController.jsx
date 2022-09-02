@@ -11,7 +11,7 @@ const useBaseConsultController = (serviceFunction) => {
         });
     };
 
-    return { rows, setRows, onSubmit };
+    return { onSubmit, rows, setRows };
 };
 
 export default useBaseConsultController;

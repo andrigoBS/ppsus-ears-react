@@ -1,5 +1,5 @@
 import React from 'react';
-import uniedu from './imgs/uniedu.png';
+import uniedu from '../../icons/imgs/uniedu.png';
 
 const UnieduIcon = ({ size, sx }) => {
     return (

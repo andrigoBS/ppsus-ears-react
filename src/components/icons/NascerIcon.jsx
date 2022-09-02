@@ -1,5 +1,5 @@
 import React from 'react';
-import nascer from './imgs/nascer.png';
+import nascer from '../../icons/imgs/nascer.png';
 
 const NascerIcon = ({ size, sx }) => {
     return (

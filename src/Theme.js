@@ -16,29 +16,16 @@ export const getGraphicColors = (alpha) => {
 };
 
 export const getMuiTheme = () => ({
-    palette: {
-        primary: {
-            main: '#5D307A'
-        },
-        secondary: {
-            main: '#E83268'
-        },
-        tertiary: {
-            main: '#fbbc43'
-        },
-        secondaryBlue: {
-            main: '#2db7bc'
-        },
-        background: {
-            default: '#fafafa'
-        },
-    },
     components: {
-        MuiTypography: {
+        MuiTextField: {
             styleOverrides: {
                 root: {
-                    color: '#646464',
+                    width: '100%'
                 },
+            },
+        },
+        MuiTypography: {
+            styleOverrides: {
                 h1: {
                     fontWeight: 'bold',
                 },
@@ -57,6 +44,9 @@ export const getMuiTheme = () => ({
                 h6: {
                     fontWeight: 'bold',
                 },
+                root: {
+                    color: '#646464',
+                },
                 subtitle1: {
                     fontWeight: 'bold',
                 },
@@ -65,12 +55,22 @@ export const getMuiTheme = () => ({
                 },
             }
         },
-        MuiTextField: {
-            styleOverrides: {
-                root: {
-                    width: '100%'
-                },
-            },
+    },
+    palette: {
+        background: {
+            default: '#fafafa'
+        },
+        primary: {
+            main: '#5D307A'
+        },
+        secondary: {
+            main: '#E83268'
+        },
+        secondaryBlue: {
+            main: '#2db7bc'
+        },
+        tertiary: {
+            main: '#fbbc43'
         },
     },
 });

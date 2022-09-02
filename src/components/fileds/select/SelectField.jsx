@@ -3,7 +3,7 @@ import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select } f
 import useSelectController from './useSelectController';
 import useSelectStyles from './useSelectStyles';
 
-const SelectField = ({ register, title, values, multiple, onChange, ...other }) => {
+const SelectField = ({ multiple, onChange, register, title, values, ...other }) => {
     const styles = useSelectStyles();
     const { configValueManipulation } = useSelectController(register, multiple, onChange, other);
 
@@ -11,7 +11,7 @@ const SelectField = ({ register, title, values, multiple, onChange, ...other }) 
         if (multiple) {
             return selected.map((selectedElement) => (
                 <Chip key={'chip-select-'+selectedElement} sx={styles.chipElement}
-                      label={values.filter(v => v.id === selectedElement)[0].name}
+                    label={values.filter(v => v.id === selectedElement)[0].name}
                 />
             ));
         }

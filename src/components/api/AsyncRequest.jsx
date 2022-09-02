@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const AsyncRequest = ({ children, loaderChildren, requestFunction, watch, onError }) => {
+const AsyncRequest = ({ children, loaderChildren, onError, requestFunction, watch }) => {
     const [values, setValues] = useState(loaderChildren? null : []);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ const AsyncRequest = ({ children, loaderChildren, requestFunction, watch, onErro
                 }
             });
         }
-    }, [watch || undefined]);
+    }, [watch, requestFunction, onError]);
 
     if(!values){
         return loaderChildren;
