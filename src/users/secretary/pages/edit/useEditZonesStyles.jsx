@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '@mui/material';
 
-const useEditZones = () => {
+const useEditZonesStyles = () => {
     const theme = useTheme();
 
     return {
@@ -23,4 +23,4 @@ const useEditZones = () => {
     };
 };
 
-export default useEditZones;
+export default useEditZonesStyles;

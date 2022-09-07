@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Button, CircularProgress, Grid, Typography } from '@mui/material';
 import DraggableManyLists from '../../../../components/lists/dragableList/DraggableManyLists';
-import useEditZones from './useEditZones';
+import useEditZonesStyles from './useEditZones';
 import useEditZonesController from './useEditZonesController';
 
 const EditZones = () => {
-    const styles = useEditZones();
+    const styles = useEditZonesStyles();
     const { onDeleteZone, onDropCity, onEditZone, onNewZone, zones } = useEditZonesController();
 
     return (
