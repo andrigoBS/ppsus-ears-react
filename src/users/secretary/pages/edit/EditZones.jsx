@@ -1,69 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Button, CircularProgress, Grid, Typography, useTheme } from '@mui/material';
+import React from 'react';
+import { Box, Button, CircularProgress, Grid, Typography } from '@mui/material';
 import DraggableManyLists from '../../../../components/lists/dragableList/DraggableManyLists';
-import useSecretaryService from '../../useSecretaryService';
-
-const createStyles = (theme) => ({
-    container: {
-        padding: '25px 35px',
-        width: 'auto',
-    },
-    saveButton: {
-        [theme.breakpoints.up('sm')]: {
-            width: '350px',
-        },
-        color: 'white',
-        fontSize: '1rem',
-        fontWeight: '600',
-        letterSpacing: '0.00938e',
-        textTransform: 'none',
-        width: '100%'
-    },
-});
+import useEditZones from './useEditZones';
+import useEditZonesController from './useEditZonesController';
 
 const EditZones = () => {
-    const service = useSecretaryService();
-    const theme = useTheme();
-    const styles = createStyles(theme);
-
-    const [zones, setZones] = useState(null);
-
-    const onDropCity = ({ destination, sourceValueIndex, subValueIds }) => {
-        const sourceZoneCities = zones[sourceValueIndex].values;
-
-        const cities = [];
-        subValueIds.forEach((cityId) => {
-            const index = sourceZoneCities.findIndex((city) => city.id === cityId);
-            const removed = sourceZoneCities.splice(index, 1)[0];
-            cities.push(removed);
-        });
-
-        zones[destination.valueIndex].values.splice(destination.subValueIndex, 0, ...cities);
-
-        setZones([...zones]);
-    };
-
-    const onNewZone = () => {
-
-    };
-
-    const onEditZone = () => {
-
-    };
-
-    const onDeleteZone = (index) => {
-        // const cities = zones[index].values;
-        //
-        // zones[zones.length - 1].values.push(...cities);
-        //
-        // zones.splice(index, 1);
-        //
-        // setZones([...zones]);
-    };
-
-    useEffect(() => {
-        service.getAllZonesWithCities().then(r => r.body).then((setZones));
-    }, []);
+    const styles = useEditZones();
+    const { onDeleteZone, onDropCity, onEditZone, onNewZone, zones } = useEditZonesController();
 
     return (
         <Grid container spacing={2} sx={styles.container}>
