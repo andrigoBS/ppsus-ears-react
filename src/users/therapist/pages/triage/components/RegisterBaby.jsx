@@ -3,15 +3,11 @@ import { Checkbox, CircularProgress, FormControlLabel, FormGroup, Grid, TextFiel
 import AsyncRequest from '../../../../../components/api/AsyncRequest';
 import SelectField from '../../../../../components/fileds/select/SelectField';
 import useTherapistService from '../../../useTherapistService';
-
-const styles = {
-    textTitle:{
-        marginTop: '40px'
-    },
-};
+import useRegisterBabyStyles from './useRegisterBabyStyles';
 
 const RegisterBaby = ({ register }) => {
     const service = useTherapistService();
+    const styles = useRegisterBabyStyles();
 
     return (
         <Fragment>

@@ -9,6 +9,9 @@ const useEditZonesStyles = () => {
             padding: '25px 35px',
             width: 'auto',
         },
+        grid:{
+            display: 'grid'
+        },
         saveButton: {
             [theme.breakpoints.up('sm')]: {
                 width: '350px',
@@ -19,7 +22,7 @@ const useEditZonesStyles = () => {
             letterSpacing: '0.00938e',
             textTransform: 'none',
             width: '100%'
-        },
+        }
     };
 };
 

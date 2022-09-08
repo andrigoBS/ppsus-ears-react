@@ -1,7 +1,7 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button, Typography } from '@mui/material';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
-import { useNavigate } from 'react-router-dom';
 import TopicListIcon from '../../components/lists/TopicListIcon';
 import TopBar from '../../components/TopBar';
 import Footer from './components/Footer';
@@ -37,7 +37,9 @@ const Site = () => {
 
             <TextParagraph title={'O que é?'}>
                 <div style={{ textAlign: 'left' }}>
-                    <Typography variant={'h6'} color={'secondary'}>Objetivos</Typography>
+                    <Typography variant={'h6'} color={'secondary'}>
+                        Objetivos
+                    </Typography>
                     <Typography variant={'body1'}>
                         Nosso objetivo é <Typography variant={'subtitle1'} component={'b'} color={'secondary'}>rastrear </Typography>
                         os bebês que realizaram o teste da orelhinha,
@@ -46,7 +48,9 @@ const Site = () => {
                         aqueles com suspeita de deficiência auditiva.
                     </Typography>
                     <br/>
-                    <Typography variant={'h6'} color={'secondary'}>Para quem é?</Typography>
+                    <Typography variant={'h6'} color={'secondary'}>
+                        Para quem é?
+                    </Typography>
                     <TopicListIcon icon={<FavoriteTwoToneIcon color='secondary'/>} topics={[
                         'Todos os fonoaudiólogos poderão acessar e incluir informações do teste da orelhinha.',
                         'A maternidade registrará os dados do recém-nascido.',
@@ -55,12 +59,16 @@ const Site = () => {
                     ]}
                     />
                     <br/>
-                    <Typography variant={'h6'} color={'secondary'}>Como participar</Typography>
+                    <Typography variant={'h6'} color={'secondary'}>
+                        Como participar
+                    </Typography>
                     <Typography variant={'body1'}>
                         Para acessar a plataforma, faça o seu cadastro e da instituição onde realiza o teste da orelhinha.
                     </Typography>
                     <br/>
-                    <Typography variant={'h6'} color={'secondary'}>O que esperamos?</Typography>
+                    <Typography variant={'h6'} color={'secondary'}>
+                        O que esperamos?
+                    </Typography>
                     <TopicListIcon icon={<FavoriteTwoToneIcon color='secondary'/>} topics={[
                         'Que seja uma ferramenta ágil e segura.',
                         'Que tenha informações atualizadas dos encaminhamentos.',

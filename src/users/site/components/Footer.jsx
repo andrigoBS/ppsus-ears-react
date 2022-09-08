@@ -1,30 +1,9 @@
 import React from 'react';
-import { Divider, Grid, Link, Typography, useTheme } from '@mui/material';
-import MailIcon from '@mui/icons-material/Mail';
 import { Link as LinkRouter } from 'react-router-dom';
+import { Divider, Grid, Link, Typography } from '@mui/material';
+import MailIcon from '@mui/icons-material/Mail';
 import MPAWhiteIcon from '../../../components/icons/MPAWhiteIcon';
-
-const createStyle = (theme) => {
-    return {
-        container: {
-            backgroundColor: theme.palette.secondary.main,
-            padding: '40px'
-        },
-        divider: {
-            backgroundColor: 'white',
-            margin: '40px 0'
-        },
-        link: {
-            fontWeight: 'bold',
-            margin: '0 15px',
-        },
-        toCenter: {
-            display: 'flex',
-            justifyContent: 'center',
-            textAlign: 'center'
-        }
-    };
-};
+import useFooterStyles from './useFooterStyles';
 
 const links = [
     { route: '/institucional', title: 'Área Instituicional' },
@@ -36,8 +15,7 @@ const links = [
 const email = 'meuprimeiroalo@univali.br';
 
 const Footer = () => {
-    const theme = useTheme();
-    const styles = createStyle(theme);
+    const styles = useFooterStyles();
 
     return (
         <Grid container sx={styles.container} spacing={1} justifyContent={'center'}>
@@ -52,16 +30,22 @@ const Footer = () => {
                 <Divider sx={styles.divider} />
             </Grid>
             <Grid item xs={12} sx={styles.toCenter}>
-                <LinkRouter to={'/'}><MPAWhiteIcon size="180rem"/></LinkRouter>
+                <LinkRouter to={'/'}>
+                    <MPAWhiteIcon size="180rem"/>
+                </LinkRouter>
             </Grid>
             <Grid item xs={12} sx={{ ...styles.toCenter, display: 'block' }}>
                 <Link href={'mailTo:'+email} underline="hover" target={'_blank'} color={'white'}>
-                    <MailIcon sx={{ color: 'white', margin: '6px 6px -6px 0px' }}/>
-                    <Typography variant="p" color='white' sx={{ paddingTop: '25px' }} >{email}</Typography>
+                    <MailIcon sx={styles.mail}/>
+                    <Typography variant="p" color='white' sx={styles.padding} >
+                        {email}
+                    </Typography>
                 </Link>
             </Grid>
             <Grid item xs={12} sx={styles.toCenter}>
-                <Typography variant="p" color='white' sx={{ paddingTop: '25px' }} >2022 - Univali - Equipe PPSUS</Typography>
+                <Typography variant="p" color='white' sx={styles.padding} >
+                    2022 - Univali - Equipe PPSUS
+                </Typography>
             </Grid>
         </Grid>
     );

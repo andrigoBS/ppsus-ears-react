@@ -4,22 +4,11 @@ import AsyncRequest from '../../../../../components/api/AsyncRequest';
 import RadioField from '../../../../../components/fileds/radio/RadioField';
 import SelectField from '../../../../../components/fileds/select/SelectField';
 import useTherapistService from '../../../useTherapistService';
-
-const styles = {
-    finalButton: {
-        marginTop: '35px',
-        width: '300px'
-    },
-    select: {
-        width: '100%'
-    },
-    textTitle:{
-        marginTop: '40px'
-    }
-};
+import useRegisterResultsStyles from './useRegisterResultsStyles';
 
 const RegisterResults = ({ register }) => {
     const service = useTherapistService();
+    const styles = useRegisterResultsStyles();
 
     return (
         <Fragment>

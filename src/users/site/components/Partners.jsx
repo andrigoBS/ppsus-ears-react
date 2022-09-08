@@ -6,8 +6,10 @@ import NascerIcon from '../../../components/icons/NascerIcon';
 import SecretaryIcon from '../../../components/icons/SecretaryIcon';
 import UnieduIcon from '../../../components/icons/UnieduIcon';
 import UnivaliIcon from '../../../components/icons/UnivaliIcon';
+import usePartnersStyles from './usePartnersStyles';
 
 const Partners = ({ color }) => {
+    const styles = usePartnersStyles(color);
     const partners = [
         {
             element: <UnivaliIcon size={'140px'}/>,
@@ -36,11 +38,13 @@ const Partners = ({ color }) => {
     ];
 
     return (
-        <Box sx={{ backgroundColor: color, padding: '45px', textAlign: 'center' }}>
-            <Typography variant="h4" color={'primary'} sx={{ marginBottom: '30px' }}>Parceiros</Typography>
+        <Box sx={styles.box}>
+            <Typography variant="h4" color={'primary'} sx={styles.margin}>
+                Parceiros
+            </Typography>
             <Grid container spacing={5} justifyContent={'center'} alignItems={'center'}>
                 {partners.map((partner, key) => (
-                    <Grid item key={'partners-'+key}>
+                    <Grid item key={'partners-' + key}>
                         <Link href={partner.url} underline="hover" target={'_blank'} color={'white'}>
                             {partner.element}
                         </Link>

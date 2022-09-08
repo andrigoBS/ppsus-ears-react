@@ -1,17 +1,13 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Button, Divider, Grid, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { Button, Divider, Grid, Typography } from '@mui/material';
 import useTherapistService from '../../../useTherapistService';
 import BaseRegisterResponsible from './BaseRegisterResponsible';
-
-const styles = {
-    textTitle:{
-        marginTop: '40px'
-    },
-};
+import useRegisterResponsibleStyles from './useRegisterResponsibleStyles';
 
 const RegisterResponsible = ({ errors, register }) => {
     const service = useTherapistService();
+    const styles = useRegisterResponsibleStyles();
     const { setValue } = useForm();
 
     const [states, setStates] = useState([]);
@@ -43,7 +39,7 @@ const RegisterResponsible = ({ errors, register }) => {
             }
             {Array(responsibleCount).fill(0).map((zero, index) => (
                 <Fragment key={`responsible-${index}`}>
-                    <Grid sx={{ marginBottom: '40px', marginTop: '20px' }} item md={12} xs={12}>
+                    <Grid sx={styles.grid} item md={12} xs={12}>
                         <Divider />
                     </Grid>
                     <BaseRegisterResponsible register={register} errors={errors} prefixName={`baby.guardians.${index}`} states={states}/>

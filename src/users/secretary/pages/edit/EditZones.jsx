@@ -16,7 +16,7 @@ const EditZones = () => {
                 </Typography>
             </Grid>
             <Grid item xs={12}>
-                <Box sx={{ display: 'grid' }}>
+                <Box sx={styles.grid}>
                     <Typography variant='p'>
                         Arraste as cidades para modificar a sua região
                     </Typography>
