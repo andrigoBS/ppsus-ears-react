@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, TextField } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { Grid, TextField } from '@mui/material';
 import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
 import useTherapistService from '../../useTherapistService';
 
@@ -9,7 +9,7 @@ const RegisterOrientation = () => {
     const service = useTherapistService();
 
     return(
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Orientação'} serviceFunction={service.orientationRegister}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Orientação'} serviceFunction={service.orientationRegister} baseRoute={'/fono'}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('description')} label="Descrição"

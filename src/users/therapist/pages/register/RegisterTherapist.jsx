@@ -1,6 +1,6 @@
 import React from 'react';
-import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import AsyncRequest from '../../../../components/api/AsyncRequest';
 import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
 import PasswordField from '../../../../components/fileds/password/PasswordField';
@@ -13,7 +13,7 @@ const RegisterTherapist = () => {
     const service = useTherapistService();
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Fonoaudiólogo'} serviceFunction={service.register}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Fonoaudiólogo'} serviceFunction={service.register} baseRoute={'/fono'}>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('name')} label="Nome completo"

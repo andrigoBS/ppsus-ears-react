@@ -33,7 +33,7 @@ const RegisterTriage = () => {
 
 
     return (
-        <BaseRegisterPaper title={'Resultado da Triagem'} handleSubmit={handleSubmit} serviceFunction={service.consultationRegister} notSubmitButton={true}>
+        <BaseRegisterPaper title={'Resultado da Triagem'} handleSubmit={handleSubmit} serviceFunction={service.consultationRegister} notSubmitButton={true} baseRoute={'/fono'}>
             <Grid item xs={12} sm={12} md={12}>
                 <Stepper activeStep={activeStep} alternativeLabel>
                     {steps.map(({ label }) => (<Step key={label}><StepLabel>{label}</StepLabel></Step>))}

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, TextField } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { Grid, TextField } from '@mui/material';
 import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
 import RadioField from '../../../../components/fileds/radio/RadioField';
 import useTherapistService from '../../useTherapistService';
@@ -10,7 +10,7 @@ const RegisterConduct = () => {
     const service = useTherapistService();
 
     return(
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Conduta'} serviceFunction={service.conductRegister}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Conduta'} serviceFunction={service.conductRegister} baseRoute={'/fono'}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('resultDescription')} label="Descrição da conduta"
