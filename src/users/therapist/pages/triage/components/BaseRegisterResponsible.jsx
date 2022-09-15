@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
+import { Grid, TextField, Typography } from '@mui/material';
 import AsyncRequest from '../../../../../components/api/AsyncRequest';
 import BrazilianPhoneField from '../../../../../components/fileds/phone/BrazilianPhoneField';
 import SelectField from '../../../../../components/fileds/select/SelectField';
@@ -79,7 +79,7 @@ const BaseRegisterResponsible = ({ errors, prefixName, register, states }) => {
                 <SelectField register={register(`${prefixName}.address.state`)} values={states} title={'Estado'} onChange={onChangeState} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <AsyncRequest requestFunction={state? getCities : null} watch={state} loaderChildren={<CircularProgress />}>
+                <AsyncRequest requestFunction={state ? getCities : null} watch={state}>
                     {(values) => (
                         <SelectField register={register(`${prefixName}.address.city.id`)} values={values} title={'Cidade'} disabled={!state} required/>
                     )}

@@ -29,7 +29,7 @@ const Therapist = () => {
     const service = useTherapistService();
 
     return (
-        <AuthProvider service={service} baseRoute={'/fono'} loginRoute={'/login'}>
+        <AuthProvider service={service} baseRoute={'/fono'} loginRoute={'/fono/login'}>
             <TopBar
                 baseRoute={'/fono'}
                 title={'Área do Fonoaudiólogo'}

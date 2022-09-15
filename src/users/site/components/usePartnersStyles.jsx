@@ -1,10 +1,10 @@
 import React from 'react';
 
-const usePartnersStyles = ({ color }) => {
+const usePartnersStyles = () => {
 
     return {
         box: {
-            backgroundColor: color,
+            backgroundColor: '#fafafa',
             padding: '45px',
             textAlign: 'center'
         },

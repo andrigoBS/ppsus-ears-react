@@ -8,8 +8,8 @@ import UnieduIcon from '../../../components/icons/UnieduIcon';
 import UnivaliIcon from '../../../components/icons/UnivaliIcon';
 import usePartnersStyles from './usePartnersStyles';
 
-const Partners = ({ color }) => {
-    const styles = usePartnersStyles(color);
+const Partners = () => {
+    const styles = usePartnersStyles();
     const partners = [
         {
             element: <UnivaliIcon size={'140px'}/>,
