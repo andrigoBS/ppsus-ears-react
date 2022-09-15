@@ -59,7 +59,7 @@ const RegisterResults = ({ register }) => {
             <Grid item xs={12} sm={12} md={12}>
                 <AsyncRequest requestFunction={service.getAllConducts} loaderChildren={<CircularProgress/>}>
                     {(values) => (
-                        <TextField {...register('conduct.id')} label="Conduta" multiline rows={4} variant="outlined" size="small" />
+                        <SelectField register={register('conduct.id')} title={'Conduta'} values={values} required/>
                     )}
                 </AsyncRequest>
             </Grid>
