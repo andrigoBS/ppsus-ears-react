@@ -3,7 +3,7 @@ import React from 'react';
 const useBaseDashboardStyles = () => {
     return {
         container: {
-            padding: '15px 50px'
+            padding: '10px'
         },
         grid: {
             alignItems: 'center',

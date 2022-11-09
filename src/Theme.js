@@ -58,7 +58,7 @@ export const getMuiTheme = () => ({
     },
     palette: {
         background: {
-            default: '#fafafa'
+            default: '#f1f0f0'
         },
         primary: {
             main: '#5D307A'

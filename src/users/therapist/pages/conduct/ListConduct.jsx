@@ -12,12 +12,25 @@ const headers = [
     { name: 'testType', title: 'Tipo teste' }
 ];
 
+const tableProperties = {
+    actions: {
+        delete: {
+            route: ''
+        },
+        edit: {
+            route: ''
+        }
+    }
+};
+
 const ListConduct = () => {
     const { formState: { errors }, handleSubmit, register } = useForm();
     const service = useTherapistService();
 
     return(
-        <BaseConsult handleSubmit={handleSubmit} title={'Condutas'} serviceFunction={service.getAllConducts} headers={headers}>
+        <BaseConsult handleSubmit={handleSubmit} title={'Condutas'}
+            serviceFunction={service.getAllConducts} headers={headers}
+            tableProperties={tableProperties}>
             {/*<Grid item xs={12} sm={12} md={12}>*/}
             {/*    <TextField  {...register('description')} label="Descrição" variant="outlined" size="small"/>*/}
             {/*</Grid>*/}

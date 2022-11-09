@@ -10,7 +10,6 @@ import ListConduct from './pages/conduct/ListConduct';
 import RegisterConduct from './pages/conduct/RegisterConduct';
 import EditTherapist from './pages/edit/EditTherapist';
 import ListEquipment from './pages/equipment/ListEquipment';
-import ListEquipmentDemo from './pages/equipment/ListEquipmentDemo';
 import RegisterEquipment from './pages/equipment/RegisterEquipment';
 import HomeTherapist from './pages/HomeTherapist';
 import ListIndicator from './pages/indicator/ListIndicator';
@@ -101,11 +100,6 @@ const Therapist = () => {
                     <Route path={'/equipamento'} element={
                         <RequireAuth>
                             <ListEquipment />
-                        </RequireAuth>
-                    } />
-                    <Route path={'/equipamento-demo'} element={
-                        <RequireAuth>
-                            <ListEquipmentDemo />
                         </RequireAuth>
                     } />
                     <Route path={'/equipamento/cadastro'} element={

@@ -48,10 +48,10 @@ const RegisterResults = ({ register }) => {
                 </AsyncRequest>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <RadioField register={register('leftEar')} title={'Orelha Esquerda'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} required/>
+                <RadioField register={register('rightEar')} title={'Orelha Direita'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <RadioField register={register('rightEar')} title={'Orelha Direita'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} required/>
+                <RadioField register={register('leftEar')} title={'Orelha Esquerda'} values={[{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} required/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <Typography variant="h6" >Informações adicionais</Typography>

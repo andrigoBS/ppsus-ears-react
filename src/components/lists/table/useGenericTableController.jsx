@@ -7,17 +7,18 @@ const useGenericTableController = () => {
     };
 
     const formatterOfYesOrNo = (value) => {
+        console.log('Aqui', value);
         return value === 0 ? 'Não' : 'Sim';
     };
 
     const formatValue = (name, value) => {
-        if(!value || !name){
+        if(!name){
             return value;
         }
 
         const formattersStrategy = {
             'date': formatterOfDate,
-            'yes-or-no': formatterOfYesOrNo,
+            'yes-or-no': formatterOfYesOrNo
         };
 
         return formattersStrategy[name](value);

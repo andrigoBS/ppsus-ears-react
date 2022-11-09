@@ -19,16 +19,16 @@ const useBaseConsultStyles = () => {
             width: 'auto',
         },
         paper: {
-            [theme.breakpoints.up('sm')]: {
-                margin: '40px',
-            },
-            [theme.breakpoints.up('md')]: {
-                marginLeft: '10%',
-                marginRight: '10%',
-            },
+            // [theme.breakpoints.up('sm')]: {
+            //     margin: '40px',
+            // },
+            // [theme.breakpoints.up('md')]: {
+            //     marginLeft: '10%',
+            //     marginRight: '10%',
+            // },
 
             margin: '0px',
-            padding: '30px',
+            padding: '20px',
         },
         textTitle:{
             marginBottom: '40px',

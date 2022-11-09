@@ -1,5 +1,5 @@
 import React from 'react';
-import { CircularProgress, Grid, Typography } from '@mui/material';
+import { CircularProgress, Grid } from '@mui/material';
 import AsyncRequest from '../../api/AsyncRequest';
 import { GraphicBar } from '../../graphics/GraphicBar';
 import { GraphicDoughnut } from '../../graphics/GraphicDoughnut';
@@ -35,9 +35,9 @@ const BaseDashboard = ({ getDashboard, getReport, user }) => {
     return (
         <Grid container sx={styles.container} >
             <Grid item xs={12}>
-                <Typography component='h3' variant='h3' sx={styles.title}>
-                    Olá {(user && user.name) || ''}
-                </Typography>
+                {/*<Typography component='h3' variant='h3' sx={styles.title}>*/}
+                {/*    Olá {(user && user.name) || ''}*/}
+                {/*</Typography>*/}
             </Grid>
             <AsyncRequest requestFunction={getDashboard} loaderChildren={<CircularProgress />}>
                 {(dashboard) => (

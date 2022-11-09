@@ -5,9 +5,6 @@ const useGenericTableStyles = () => {
     const theme = useTheme();
 
     return {
-        paper: {
-            marginTop: '30px'
-        },
         tableCell: {
             fontSize: 16
         },

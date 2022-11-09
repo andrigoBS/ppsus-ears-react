@@ -1,14 +1,15 @@
 import React from 'react';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import ActionsButtons from './ActionsButtons';
 import useGenericTableController from './useGenericTableController';
 import useGenericTableStyles from './useGenericTableStyles';
 
-const GenericTable = ({ headers, rows }) => {
+const GenericTable = ({ headers, properties, rows }) => {
     const styles = useGenericTableStyles();
     const { formatValue } = useGenericTableController();
 
     return (
-        <Paper sx={styles.paper}>
+        <Paper>
             <TableContainer>
                 <Table sx={styles.tableContainer} size="small">
                     <TableHead sx={styles.tableHead}>
@@ -18,6 +19,12 @@ const GenericTable = ({ headers, rows }) => {
                                     {header.title}
                                 </TableCell>
                             ))}
+
+                            { properties && properties.actions &&
+                                <TableCell sx={styles.tableCellHead}>
+                                    Ações
+                                </TableCell>
+                            }
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -28,6 +35,9 @@ const GenericTable = ({ headers, rows }) => {
                                         { formatValue(header.formatter, row[header.name]) }
                                     </TableCell>
                                 ))}
+                                { properties && properties.actions &&
+                                    <ActionsButtons actions={properties.actions}/>
+                                }
                             </TableRow>
                         ))}
                     </TableBody>
