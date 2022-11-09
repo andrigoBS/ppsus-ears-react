@@ -1,12 +1,11 @@
-import { Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { Grid } from '@mui/material';
 import { DragDropContext } from 'react-beautiful-dnd';
-import DraggableList from './DraggableList';
+import DraggableList from './draggableList/DraggableList';
 
-const DraggableManyLists = ({ values, onDropSubValue, onDeleteValue, onEditValue, ...props }) =>  {
+const DraggableManyLists = ({ onDeleteValue, onDropSubValue, onEditValue, values, ...props }) =>  {
     const [markedValue, setMarkedValue] = useState(null);
     const [markedSubValues, setMarkedSubValues] = useState([]);
-
     const [hasSomeDrag, setHasSomeDrag] = useState(false);
 
     const handleOnDragEnd = (result) => {
@@ -34,11 +33,11 @@ const DraggableManyLists = ({ values, onDropSubValue, onDeleteValue, onEditValue
         }
 
         onDropSubValue({
-            sourceValueIndex: valueSourceIndex,
             destination: {
-                valueIndex: destinationValueIndex,
                 subValueIndex: result.destination.index,
+                valueIndex: destinationValueIndex,
             },
+            sourceValueIndex: valueSourceIndex,
             subValueIds: subValueIds
         });
 
@@ -70,10 +69,10 @@ const DraggableManyLists = ({ values, onDropSubValue, onDeleteValue, onEditValue
     }, []);
 
     return (
-        <Grid container spacing={4} {...props} justifyContent={'center'}>
+        <Grid container spacing={2} {...props} justifyContent={'center'}>
             <DragDropContext onDragEnd={handleOnDragEnd} onBeforeDragStart={handleOnDragStart}>
                 {values.map((value, index) => (
-                    <Grid item key={value.id} sx={{ width: '360px' }}>
+                    <Grid item key={value.id}>
                         <DraggableList
                             isMarked={markedValue === index}
                             hasSomeDrag={hasSomeDrag}

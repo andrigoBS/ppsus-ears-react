@@ -1,9 +1,10 @@
-import { CssBaseline, ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material';
-import HtmlHead from './components/HtmlHead';
 import React from 'react';
+import { createTheme, CssBaseline, responsiveFontSizes, ThemeProvider } from '@mui/material';
 import ReactDOM from 'react-dom';
-import Routes from './views/Routes';
+import HtmlHead from './components/HtmlHead';
+import { LoggerProvider } from './providers/genericLogger/GenericLogger';
 import { getMuiTheme } from './Theme';
+import Routes from './users/Routes';
 
 let theme = getMuiTheme();
 theme = createTheme(theme);
@@ -13,9 +14,11 @@ const App = () => {
     return (
         <React.StrictMode>
             <ThemeProvider theme={theme}>
-                <CssBaseline/>
-                <HtmlHead/>
-                <Routes/>
+                <LoggerProvider>
+                    <CssBaseline/>
+                    <HtmlHead/>
+                    <Routes/>
+                </LoggerProvider>
             </ThemeProvider>
         </React.StrictMode>
     );
