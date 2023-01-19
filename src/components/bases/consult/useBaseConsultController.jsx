@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { FileHelper } from '../../../helpers/FileHelper';
 
-const useBaseConsultController = (serviceFunction) => {
+const useBaseConsultController = (serviceFunction, headers) => {
     const [rows, setRows] = useState();
 
     const onSubmit = (data) => {
@@ -11,7 +12,11 @@ const useBaseConsultController = (serviceFunction) => {
         });
     };
 
-    return { onSubmit, rows, setRows };
+    const onClickExportExcelButton = React.useCallback(() =>{
+        FileHelper(headers).convertJsonToCsv(rows,'Relatorio Triagem');
+    }, [headers, rows]);
+
+    return { onClickExportExcelButton, onSubmit, rows, setRows };
 };
 
 export default useBaseConsultController;

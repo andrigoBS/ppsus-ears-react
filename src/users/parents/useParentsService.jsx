@@ -1,6 +1,6 @@
 import React from 'react';
+import GenericService from '../../helpers/GenericService';
 import { useGenericLogger } from '../../providers/genericLogger/GenericLogger';
-import GenericService from '../../serviceHelpers/GenericService';
 
 const useSecretaryService = () => {
     const { genericLog } = useGenericLogger();

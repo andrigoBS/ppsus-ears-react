@@ -1,5 +1,5 @@
-const get = (path, token) => {
-    return _genericFetch('GET', path, null, 'Bearer '+token);
+const get = (path, token, accept) => {
+    return _genericFetch('GET', path, null, 'Bearer '+token, accept);
 };
 
 const post = (path, data, token) => {
@@ -20,9 +20,10 @@ const logout = (path, token) => {
 
 const _isSuccess = (status) => status >= 200 && status <= 299;
 
-const _genericFetch = (method, path, data, auth) => {
+const _genericFetch = (method, path, data, auth, accept = 'application/json') => {
     const init = {
         headers: {
+            'Accept': accept,
             'Content-Type': 'application/json'
         },
         method: method

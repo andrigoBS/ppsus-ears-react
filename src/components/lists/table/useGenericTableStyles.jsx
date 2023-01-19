@@ -13,6 +13,7 @@ const useGenericTableStyles = () => {
             fontSize: 17
         },
         tableContainer: {
+            border: '1px solid rgba(224, 224, 224, 1)',
             maxHeight: 650
         },
         tableHead: {

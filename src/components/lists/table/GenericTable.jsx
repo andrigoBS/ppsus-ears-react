@@ -9,7 +9,7 @@ const GenericTable = ({ headers, properties, rows }) => {
     const { formatValue } = useGenericTableController();
 
     return (
-        <Paper>
+        <Paper style={{ padding: '10px' }}>
             <TableContainer>
                 <Table sx={styles.tableContainer} size="small">
                     <TableHead sx={styles.tableHead}>
