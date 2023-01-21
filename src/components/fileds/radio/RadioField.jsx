@@ -8,7 +8,8 @@ const RadioField = ({ register, title, values, ...props }) => {
         <React.Fragment>
             {title && <Typography variant={'h6'}>
                 {title}
-            </Typography>}
+            </Typography>
+            }
             <FormControl
                 sx={styles.select}
                 size={'small'}

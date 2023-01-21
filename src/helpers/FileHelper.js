@@ -29,10 +29,9 @@ export const FileHelper = (headers) => {
 
     const downloadExcel = (csv, fileName) => {
         const hiddenElement = document.createElement('a');
-        hiddenElement.href = 'data:text/csv;charset=iso-8859-1,' + encodeURI(csv);
+        hiddenElement.href = 'data:text/csv;charset=UTF-8,%EF%BB%BF' + encodeURI(csv);
         hiddenElement.target = '_blank';
 
-        //provide the name for the CSV file to be downloaded
         hiddenElement.download = fileName + '.csv';
         hiddenElement.click();
     };

@@ -2,12 +2,21 @@
 export const FormatterHelper = () => {
     const formatterOfDate = (value) => {
         const date = new Date(value);
-        return date.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+        return date.toLocaleDateString('pt-BR');
     };
 
     const formatterOfYesOrNo = (value) => {
-        console.log('Aqui', value);
         return value === 0 ? 'Não' : 'Sim';
+    };
+
+    const formatterTypeOfTest = (value) => {
+        if(value === 1){
+            return 'Teste';
+        }
+        if(value === 2){
+            return 'Reteste';
+        }
+        return 'Teste e reteste';
     };
 
     const formatValue = (name, value) => {
@@ -17,6 +26,7 @@ export const FormatterHelper = () => {
 
         const formattersStrategy = {
             'date': formatterOfDate,
+            'type-of-test': formatterTypeOfTest,
             'yes-or-no': formatterOfYesOrNo
         };
 

@@ -9,6 +9,7 @@ const BaseConsult = ({ children, handleSubmit, headers, serviceFunction, tablePr
     const styles = useBaseConsultStyles();
     const { onClickExportExcelButton, onSubmit, rows } = useBaseConsultController(serviceFunction, headers);
 
+
     return (
         <Box sx={{ padding: 2 }}>
             <Grid container spacing={2}>
@@ -26,12 +27,13 @@ const BaseConsult = ({ children, handleSubmit, headers, serviceFunction, tablePr
                             <Box>
                                 <Grid container spacing={2}>
                                     {children}
+
                                     <Grid item xs={12} sm={12} md={12}>
                                         <Button sx={styles.finalButton}
                                             color="secondary"
                                             type="submit"
                                             variant="contained">
-                                            Aplicar Filtro
+                                            Aplicar Filtros
                                         </Button>
                                     </Grid>
                                 </Grid>

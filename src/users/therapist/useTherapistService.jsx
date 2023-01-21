@@ -56,8 +56,27 @@ const useTherapistService = () => {
         return HttpHelper.get(`${generic.pathName}/triage/types`, generic.getUser().token).then(genericLog);
     };
 
-    const getAllTriages = () => {
-        return HttpHelper.get(`${generic.pathName}/triage`, generic.getUser().token).then(genericLog);
+    const getAllTriages = (data) => {
+        let params = '';
+        const typeAll = '4';
+
+        if(data.rightEar !== typeAll){
+            params += `rightEar=${data.rightEar}`;
+        }
+
+        if(data.leftEar !== typeAll){
+            params += `&leftEar=${data.leftEar}`;
+        }
+
+        if(data.testType !== typeAll){
+            params += `&testType=${data.testType}`;
+        }
+
+        if(data.evaluationDate){
+            params += `&evaluationDate=${data.evaluationDate}`;
+        }
+
+        return HttpHelper.get(`${generic.pathName}/triage?${params}`, generic.getUser().token).then(genericLog);
     };
 
     const getChildBirthType = () => {
