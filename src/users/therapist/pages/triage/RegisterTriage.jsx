@@ -14,7 +14,7 @@ const RegisterTriage = () => {
     const styles = useRegisterTriageStyles();
     const { activeStep, handleOnNext, setActiveStep } = useRegisterTriageController();
 
-    const { formState: { errors }, handleSubmit, register } = useForm();
+    const { formState: { errors }, handleSubmit, register, watch } = useForm();
 
     const steps = [
         {
@@ -26,7 +26,7 @@ const RegisterTriage = () => {
             label: 'Cadastrar Bebê'
         },
         {
-            element: <RegisterResults register={register} errors={errors}/>,
+            element: <RegisterResults register={register} errors={errors} watch={watch}/>,
             label: 'Registrar Resultados'
         }
     ];

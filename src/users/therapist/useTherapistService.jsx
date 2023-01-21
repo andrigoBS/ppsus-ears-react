@@ -104,6 +104,20 @@ const useTherapistService = () => {
         return HttpHelper.get(`${generic.pathName}/conduct?${params}`, generic.getUser().token).then(genericLog);
     };
 
+    const getConduct = (data) => {
+        let params = '';
+
+        console.log('data', data);
+        if(data) {
+            params += `${data.leftEar}/`;
+            params += `${data.rightEar}/`;
+            params += `${data.irda}/`;
+            params += `${data.testType}`;
+        }
+
+        return HttpHelper.get(`${generic.pathName}/conduct/${params}`, generic.getUser().token).then(genericLog);
+    };
+
     const getTriageTypes = () => {
         return HttpHelper.get(`${generic.pathName}/triage/types`, generic.getUser().token).then(genericLog);
     };
@@ -141,8 +155,8 @@ const useTherapistService = () => {
 
     return {
         ...generic,
-        conductRegister, consultationRegister, equipmentRegister, getAllBabies, getAllConducts, getAllEquipments,
-        getAllIndicators, getAllInstitutions, getAllOrientations, getAllTriages, getChildBirthType, getTriageTypes,
+        conductRegister, consultationRegister, equipmentRegister, getAllBabies, getAllConducts,getAllEquipments, getAllIndicators,
+        getAllInstitutions, getAllOrientations, getAllTriages, getChildBirthType, getConduct, getTriageTypes,
         getXpTypes, indicatorRegister, orientationRegister
     };
 };
