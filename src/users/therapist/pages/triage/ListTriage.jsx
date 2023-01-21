@@ -20,7 +20,10 @@ const ListTriage = () => {
     const service = useTherapistService();
 
     return(
-        <BaseConsult handleSubmit={handleSubmit} title={'Triagens'} serviceFunction={service.getAllTriages} headers={headers} >
+        <BaseConsult handleSubmit={handleSubmit} title={'Triagens'}
+            serviceFunction={service.getAllTriages}
+            headers={headers} fileName={'Triagens'}
+        >
             <Grid item xs={12} sm={12} md={12}>
                 <TextField {...register('evaluationDate')} label="Data da avaliação" variant="outlined"
                     size="small" type="date" InputLabelProps={{ shrink: true }} />
@@ -34,12 +37,12 @@ const ListTriage = () => {
             <Grid item xs={6} sm={6} md={6}>
                 <RadioField register={register('rightEar')}
                     title={'Orelha Direita'}
-                    values={[{ id: 4, name: 'Todos' },{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
+                    values={[{ id: 4, name: 'Passou e Falhou' },{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
             </Grid>
             <Grid item xs={6} sm={6} md={6}>
                 <RadioField register={register('leftEar')}
                     title={'Orelha Esquerda'}
-                    values={[{ id: 4, name: 'Todos' },{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
+                    values={[{ id: 4, name: 'Passou e Falhou' },{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
             </Grid>
         </BaseConsult>
     );

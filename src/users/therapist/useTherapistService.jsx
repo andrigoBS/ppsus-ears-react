@@ -24,32 +24,84 @@ const useTherapistService = () => {
         return HttpHelper.post(`${generic.pathName}/orientation`, data, generic.getUser().token).then(genericLog);
     };
 
-    const getAllOrientations = () => {
-        return HttpHelper.get(`${generic.pathName}/orientation`, generic.getUser().token).then(genericLog);
+    const getAllOrientations = (data) => {
+        let params = '';
+
+        if(data){
+            if(data.description){
+                params += `?description=${data.description}`;
+            }
+        }
+
+        return HttpHelper.get(`${generic.pathName}/orientation${params}`, generic.getUser().token).then(genericLog);
     };
 
     const indicatorRegister = (data) => {
         return HttpHelper.post(`${generic.pathName}/indicator`, data, generic.getUser().token).then(genericLog);
     };
 
-    const getAllIndicators = () => {
-        return HttpHelper.get(`${generic.pathName}/indicator`, generic.getUser().token).then(genericLog);
+    const getAllIndicators = (data) => {
+        let params = '';
+
+        if(data) {
+            if (data.name) {
+                params += `?name=${data.name}`;
+            }
+        }
+
+        return HttpHelper.get(`${generic.pathName}/indicator${params}`, generic.getUser().token).then(genericLog);
     };
 
     const equipmentRegister = (data) => {
         return HttpHelper.post(`${generic.pathName}/equipment`, data, generic.getUser().token).then(genericLog);
     };
 
-    const getAllEquipments = () => {
-        return HttpHelper.get(`${generic.pathName}/equipment`, generic.getUser().token).then(genericLog);
+    const getAllEquipments = (data) => {
+        let params = '';
+
+        if(data){
+            if(data.model){
+                params += `model=${data.model}&`;
+            }
+
+            if (data.brand){
+                params += `brand=${data.brand}&`;
+            }
+
+            if(data.dateOfLastCalibration){
+                params += `dateOfLastCalibration=${data.dateOfLastCalibration}`;
+            }
+        }
+        return HttpHelper.get(`${generic.pathName}/equipment?${params}`, generic.getUser().token).then(genericLog);
     };
 
     const conductRegister = (data) => {
         return HttpHelper.post(`${generic.pathName}/conduct`, data, generic.getUser().token).then(genericLog);
     };
 
-    const getAllConducts = () => {
-        return HttpHelper.get(`${generic.pathName}/conduct`, generic.getUser().token).then(genericLog);
+    const getAllConducts = (data) => {
+        let params = '';
+        const typeAll = '4';
+
+        if(data) {
+            if (data.rightEar !== typeAll) {
+                params += `rightEar=${data.rightEar}&`;
+            }
+
+            if (data.leftEar !== typeAll) {
+                params += `leftEar=${data.leftEar}&`;
+            }
+
+            if (data.testType !== typeAll) {
+                params += `testType=${data.testType}&`;
+            }
+
+            if (data.irda !== typeAll) {
+                params += `irda=${data.irda}`;
+            }
+        }
+
+        return HttpHelper.get(`${generic.pathName}/conduct?${params}`, generic.getUser().token).then(genericLog);
     };
 
     const getTriageTypes = () => {
@@ -65,15 +117,15 @@ const useTherapistService = () => {
         }
 
         if(data.leftEar !== typeAll){
-            params += `&leftEar=${data.leftEar}`;
+            params += `leftEar=${data.leftEar}&`;
         }
 
         if(data.testType !== typeAll){
-            params += `&testType=${data.testType}`;
+            params += `testType=${data.testType}&`;
         }
 
         if(data.evaluationDate){
-            params += `&evaluationDate=${data.evaluationDate}`;
+            params += `evaluationDate=${data.evaluationDate}`;
         }
 
         return HttpHelper.get(`${generic.pathName}/triage?${params}`, generic.getUser().token).then(genericLog);

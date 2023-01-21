@@ -27,7 +27,8 @@ const ListOrientation = () => {
     return(
         <BaseConsult handleSubmit={handleSubmit} title={'Orientações'}
             serviceFunction={service.getAllOrientations} headers={headers}
-            tableProperties={tableProperties}>
+            tableProperties={tableProperties} fileName={'Orientacoes'}
+        >
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('description')} label="Descrição"

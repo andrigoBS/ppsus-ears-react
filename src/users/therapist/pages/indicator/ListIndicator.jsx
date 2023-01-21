@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, TextField } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { Grid, TextField } from '@mui/material';
 import BaseConsult from '../../../../components/bases/consult/BaseConsult';
 import useTherapistService from '../../useTherapistService';
 
@@ -14,7 +14,10 @@ const ListIndicator = () => {
     const service = useTherapistService();
 
     return(
-        <BaseConsult handleSubmit={handleSubmit} title={'Indicadores'} serviceFunction={service.getAllIndicators} headers={headers}>
+        <BaseConsult handleSubmit={handleSubmit} title={'Indicadores'}
+            serviceFunction={service.getAllIndicators}
+            headers={headers} fileName={'Indicadores'}
+        >
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('name')} label="Nome"

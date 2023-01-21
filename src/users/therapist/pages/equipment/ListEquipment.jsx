@@ -29,7 +29,8 @@ const ListEquipment = () => {
     return(
         <BaseConsult handleSubmit={handleSubmit} title={'Equipamentos'}
             serviceFunction={service.getAllEquipments} headers={headers}
-            tableProperties={tableProperties}>
+            tableProperties={tableProperties} fileName={'Equipamentos'}
+        >
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('model')} label="Modelo"

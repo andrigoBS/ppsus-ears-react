@@ -5,10 +5,9 @@ import GenericTable from '../../lists/table/GenericTable';
 import useBaseConsultController from './useBaseConsultController';
 import useBaseConsultStyles from './useBaseConsultStyles';
 
-const BaseConsult = ({ children, handleSubmit, headers, serviceFunction, tableProperties, title }) => {
+const BaseConsult = ({ children, fileName, handleSubmit, headers, serviceFunction, tableProperties, title }) => {
     const styles = useBaseConsultStyles();
-    const { onClickExportExcelButton, onSubmit, rows } = useBaseConsultController(serviceFunction, headers);
-
+    const { onClickExportExcelButton, onSubmit, rows } = useBaseConsultController(serviceFunction, headers, title, fileName);
 
     return (
         <Box sx={{ padding: 2 }}>
@@ -54,15 +53,16 @@ const BaseConsult = ({ children, handleSubmit, headers, serviceFunction, tablePr
                                 startIcon={<BsDownload/>}
                                 color="secondary"
                                 onClick={onClickExportExcelButton}
-                                variant="contained">
+                                variant="contained"
+                                disabled={rows.length === 0}>
                                 Excel
                             </Button>
-                            <Button startIcon={<BsDownload/>}
-                                color="secondary"
-                                // onClick={}
-                                variant="contained">
-                                PDF
-                            </Button>
+                            {/*<Button startIcon={<BsDownload/>}*/}
+                            {/*    color="secondary"*/}
+                            {/*    // onClick={}*/}
+                            {/*    variant="contained">*/}
+                            {/*    PDF*/}
+                            {/*</Button>*/}
                         </div>
 
                         <GenericTable headers={headers} rows={rows} properties={tableProperties}/>

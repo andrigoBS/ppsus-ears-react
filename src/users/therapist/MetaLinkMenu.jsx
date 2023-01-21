@@ -17,21 +17,21 @@ const data = [
         },
         {
             subOptions: [
-                {
-                    icon: <TbPresentation size={25}/>,
-                    label: 'Indicador',
-                    route: '/fono/indicador/cadastro'
-                },
+                // {
+                //     icon: <TbPresentation size={25}/>,
+                //     label: 'Indicador',
+                //     route: '/fono/indicador/cadastro'
+                // },
                 {
                     icon: <BsFileEarmarkText size={25}/>,
                     label: 'Orientação',
                     route: '/fono/orientacao/cadastro'
                 },
-                {
-                    icon: <BsFileEarmarkText size={25}/>,
-                    label: 'Conduta',
-                    route: '/fono/conduta/cadastro'
-                },
+                // {
+                //     icon: <BsFileEarmarkText size={25}/>,
+                //     label: 'Conduta',
+                //     route: '/fono/conduta/cadastro'
+                // },
                 {
                     icon: <AiOutlineTool size={27}/>,
                     label: 'Equipamento',

@@ -46,14 +46,14 @@ const MenuRegisterPaper = () => {
                             </Button>
                         </Grid>
 
-                        <Grid item xs={12} sm={6} md={6}>
-                            <Button color={'secondary'}
-                                startIcon={<BsFileEarmarkText/>}
-                                onClick={() => { navigate('/fono/conduta/cadastro'); }}
-                            >
-                                Conduta
-                            </Button>
-                        </Grid>
+                        {/*<Grid item xs={12} sm={6} md={6}>*/}
+                        {/*    <Button color={'secondary'}*/}
+                        {/*        startIcon={<BsFileEarmarkText/>}*/}
+                        {/*        onClick={() => { navigate('/fono/conduta/cadastro'); }}*/}
+                        {/*    >*/}
+                        {/*        Conduta*/}
+                        {/*    </Button>*/}
+                        {/*</Grid>*/}
 
                         <Grid item xs={12} sm={6} md={6}>
                             <Button color={'secondary'} startIcon={<AiOutlineTool/>}
