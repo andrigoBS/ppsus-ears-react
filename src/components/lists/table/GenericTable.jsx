@@ -36,7 +36,7 @@ const GenericTable = ({ headers, properties, rows }) => {
                                     </TableCell>
                                 ))}
                                 { properties && properties.actions &&
-                                    <ActionsButtons actions={properties.actions}/>
+                                    <ActionsButtons actions={properties.actions} row={row}/>
                                 }
                             </TableRow>
                         ))}

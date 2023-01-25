@@ -15,34 +15,71 @@ const headers = [
     { name: 'conduct', title: 'Conduta' },
 ];
 
+const tableProperties = {
+    // actions: {
+    //     pdf: {
+    //         options: [
+    //             {
+    //                 href: '',
+    //                 name: 'detalhado da triagem'
+    //             },
+    //             {
+    //                 href: 'orientation/file',
+    //                 name: 'de orientação'
+    //             },
+    //             {
+    //                 href: '',
+    //                 name: 'de conduta'
+    //             }
+    //         ]
+    //     },
+    //     route: '',
+    // }
+};
+
 const ListTriage = () => {
     const { formState: { errors }, handleSubmit, register } = useForm();
     const service = useTherapistService();
 
     return(
-        <BaseConsult handleSubmit={handleSubmit} title={'Triagens'}
+        <BaseConsult
+            handleSubmit={handleSubmit}
+            title={'Triagens'}
             serviceFunction={service.getAllTriages}
-            headers={headers} fileName={'Triagens'}
+            headers={headers}
+            fileName={'Triagens'}
+            tableProperties={tableProperties}
         >
             <Grid item xs={12} sm={12} md={12}>
-                <TextField {...register('evaluationDate')} label="Data da avaliação" variant="outlined"
-                    size="small" type="date" InputLabelProps={{ shrink: true }} />
+                <TextField
+                    {...register('evaluationDate')}
+                    label="Data da avaliação"
+                    variant="outlined"
+                    size="small"
+                    type="date"
+                    InputLabelProps={{ shrink: true }}
+                />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <RadioField
-                    register={register('testType')} title={'Tipo de teste'}
+                    register={register('testType')}
+                    title={'Tipo de teste'}
                     values={[{ id: 4, name: 'Todos' },{ id: 1, name: 'Teste' },{ id: 2, name: 'Reteste' },{ id: 3, name: 'Teste e reteste' }] }
                 />
             </Grid>
             <Grid item xs={6} sm={6} md={6}>
-                <RadioField register={register('rightEar')}
+                <RadioField
+                    register={register('rightEar')}
                     title={'Orelha Direita'}
-                    values={[{ id: 4, name: 'Passou e Falhou' },{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
+                    values={[{ id: 4, name: 'Passou e Falhou' },{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]}
+                />
             </Grid>
             <Grid item xs={6} sm={6} md={6}>
-                <RadioField register={register('leftEar')}
+                <RadioField
+                    register={register('leftEar')}
                     title={'Orelha Esquerda'}
-                    values={[{ id: 4, name: 'Passou e Falhou' },{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]} />
+                    values={[{ id: 4, name: 'Passou e Falhou' },{ id: 1, name: 'Passou' },{ id: 0, name: 'Falhou' }]}
+                />
             </Grid>
         </BaseConsult>
     );
