@@ -25,6 +25,7 @@ const RegisterResults = ({ register, watch }) => {
         service.getConduct(obj).then(response =>  setResultConduct(response.body.name));
     }, [watchIndicators, watchRightEar, watchLeftEar, watchTestType]);
 
+    //TODO: Revisar chamada de métodos pois está sendo chamada sem necessidade a consulta dos métodos
     return (
         <Fragment>
             <Grid item xs={12} sm={12} md={12}>

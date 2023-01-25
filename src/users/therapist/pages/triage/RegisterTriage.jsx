@@ -31,7 +31,7 @@ const RegisterTriage = () => {
         }
     ];
 
-
+    // TODO: Steper não está salvando os dados ao retornar para o passo anterior
     return (
         <BaseRegisterPaper title={'Resultado da Triagem'} handleSubmit={handleSubmit} serviceFunction={service.consultationRegister} notSubmitButton={true} baseRoute={'/fono'}>
             <Grid item xs={12} sm={12} md={12}>
