@@ -1,13 +1,19 @@
 import React from 'react';
-import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
+import { Box, Checkbox, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
 import useSelectController from './useSelectController';
 import useSelectStyles from './useSelectStyles';
 
 const SelectField = ({ multiple, onChange, register, title, values, ...other }) => {
     const styles = useSelectStyles();
     const { configValueManipulation } = useSelectController(register, multiple, onChange, other);
+    const [selecteds, setSelecteds] = React.useState([]);
+
+    const handleChange = (selecteds) => {
+        setSelecteds(selecteds);
+    };
 
     const createRenderMultiple = (selected) => {
+        handleChange(selected);
         if (multiple) {
             return selected.map((selectedElement) => (
                 <Chip key={'chip-select-'+selectedElement} sx={styles.chipElement}
@@ -39,6 +45,8 @@ const SelectField = ({ multiple, onChange, register, title, values, ...other }) 
             >
                 {values.map((element, index) => (
                     <MenuItem key={element.id+'_'+index} value={element.id} {...register}>
+                        {multiple &&  <Checkbox checked={selecteds && selecteds.indexOf(element.id) > -1} sx={{ pointerEvents: 'none' }} />}
+
                         {element.name}
                     </MenuItem>
                 ))}
