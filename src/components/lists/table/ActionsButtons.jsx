@@ -11,22 +11,29 @@ const ActionsButtons = ({ actions, row }) => {
     return (
         <TableCell sx={styles.tableCell} >
 
-            {actions.edit && row[actions.edit.genericField] === null &&
-                <IconButton color={'secondary'}>
-                    <EditIcon />
-                </IconButton>
-            }
+            {(!actions.permissionField || row[actions.permissionField] !== null) &&
 
-            {actions.delete && row[actions.delete.genericField] === null &&
-                <DeleteDialog actions={actions.delete} row={row}/>
-            }
+                <React.Fragment>
+                    {console.log('aaa',actions.permissionField)}
+                    {
+                        actions.edit && row[actions.edit.genericField] === null &&
+                        <IconButton color={'secondary'}>
+                            <EditIcon/>
+                        </IconButton>
+                    }
 
-            {actions.pdf &&
-               <PdfDialog actions={actions} row={row}/>
-            }
+                    {actions.delete && row[actions.delete.genericField] === null &&
+                    <DeleteDialog actions={actions.delete} row={row}/>
+                    }
 
+                    {actions.pdf &&
+                    <PdfDialog actions={actions} row={row}/>
+                    }
+
+                </React.Fragment>
+
+            }
         </TableCell>
-
     );
 };
 export default ActionsButtons;

@@ -20,6 +20,11 @@ const DeleteDialog = ({ actions, row }) => {
             service.deleteEquipment(row.id);
             handleClose();
         }
+
+        if(actions.entity === 'orientation'){
+            service.deleteOrientation(row.id);
+            handleClose();
+        }
     };
 
     return (
@@ -30,7 +35,7 @@ const DeleteDialog = ({ actions, row }) => {
             </IconButton>
             <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    {actions.message} "{row.model}"?
+                    Deseja realmente deletar este registro?
                 </DialogTitle>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">

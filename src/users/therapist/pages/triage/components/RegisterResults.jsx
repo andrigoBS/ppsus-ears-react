@@ -163,7 +163,7 @@ const RegisterResults = ({ register, watch }) => {
 
             <Grid item xs={12} sm={12} md={12}>
                 <AsyncRequest
-                    requestFunction={service.getAllOrientations}
+                    requestFunction={service.getAllOrientationsActives}
                     loaderChildren={<CircularProgress/>}
                 >
                     {(values) => (

@@ -5,12 +5,14 @@ import BaseConsult from '../../../../components/bases/consult/BaseConsult';
 import useTherapistService from '../../useTherapistService';
 
 const headers = [
-    { name: 'name', title: 'Descrição' }
+    { name: 'name', title: 'Descrição' },
+    { formatter: 'date', name: 'dateOfDeactivation', title: 'Data desativação' }
 ];
 
 const tableProperties = {
     actions: {
         delete: {
+            entity: 'orientation',
             genericField: 'dateOfDeactivation',
             route: '',
         },

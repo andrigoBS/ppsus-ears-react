@@ -25,15 +25,27 @@ const useTherapistService = () => {
     };
 
     const getAllOrientations = (data) => {
+        return _getAllOrientations(data, null).then(genericLog);
+    };
+
+    const getAllOrientationsActives = (data) => {
+        return _getAllOrientations(data, true).then(genericLog);
+    };
+
+    const _getAllOrientations = (data, listAllActives) => {
         let params = '';
 
         if(data){
             if(data.description){
-                params += `?description=${data.description}`;
+                params += `description=${data.description}&`;
             }
         }
 
-        return HttpHelper.get(`${generic.pathName}/orientation${params}`, generic.getUser().token).then(genericLog);
+        if(listAllActives){
+            params += `listAllActives=${listAllActives}`;
+        }
+
+        return HttpHelper.get(`${generic.pathName}/orientation?${params}`, generic.getUser().token).then(genericLog);
     };
 
     const indicatorRegister = (data) => {
@@ -169,11 +181,15 @@ const useTherapistService = () => {
         return HttpHelper.deleted(`${generic.pathName}/equipment/${id}`, generic.getUser().token).then(genericLog);
     };
 
+    const deleteOrientation = (id) => {
+        return HttpHelper.deleted(`${generic.pathName}/orientation/${id}`, generic.getUser().token).then(genericLog);
+    };
+
     return {
         ...generic,
-        conductRegister, consultationRegister, deleteEquipment, equipmentRegister, getAllBabies,getAllConducts, getAllEquipments,
-        getAllEquipmentsActives, getAllIndicators, getAllInstitutions, getAllOrientations, getAllTriages, getChildBirthType,
-        getConduct, getTriageTypes, getXpTypes, indicatorRegister, orientationRegister
+        conductRegister, consultationRegister, deleteEquipment, deleteOrientation, equipmentRegister,getAllBabies, getAllConducts,
+        getAllEquipments, getAllEquipmentsActives, getAllIndicators, getAllInstitutions, getAllOrientations, getAllOrientationsActives,
+        getAllTriages, getChildBirthType, getConduct, getTriageTypes, getXpTypes, indicatorRegister, orientationRegister
     };
 };
 

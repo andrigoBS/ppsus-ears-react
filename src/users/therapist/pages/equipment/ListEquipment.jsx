@@ -16,7 +16,6 @@ const tableProperties = {
         delete: {
             entity: 'equipment',
             genericField: 'dateOfDeactivation',
-            message: 'Deseja realmente deletar o ',
             route: ''
         },
         edit: {
