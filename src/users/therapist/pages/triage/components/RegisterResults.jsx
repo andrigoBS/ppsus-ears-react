@@ -51,7 +51,7 @@ const RegisterResults = ({ register, watch }) => {
 
             <Grid item xs={12} sm={12} md={9}>
                 <AsyncRequest
-                    requestFunction={service.getAllEquipments}
+                    requestFunction={service.getAllEquipmentsActives}
                     loaderChildren={<CircularProgress/>}
                 >
                     {(values) => (

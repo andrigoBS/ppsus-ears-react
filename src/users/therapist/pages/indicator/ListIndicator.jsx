@@ -5,7 +5,6 @@ import BaseConsult from '../../../../components/bases/consult/BaseConsult';
 import useTherapistService from '../../useTherapistService';
 
 const headers = [
-    { name: 'id', title: 'Código' },
     { name: 'name', title: 'Nome' }
 ];
 

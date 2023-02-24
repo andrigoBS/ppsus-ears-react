@@ -5,18 +5,20 @@ import BaseConsult from '../../../../components/bases/consult/BaseConsult';
 import useTherapistService from '../../useTherapistService';
 
 const headers = [
-    { name: 'id', title: 'Código' },
     { name: 'name', title: 'Descrição' }
 ];
 
 const tableProperties = {
     actions: {
         delete: {
-            route: ''
+            genericField: 'dateOfDeactivation',
+            route: '',
         },
         edit: {
-            route: ''
-        }
+            genericField: 'dateOfDeactivation',
+            route: '',
+        },
+        permissionField: 'therapist'
     }
 };
 

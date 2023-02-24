@@ -10,6 +10,10 @@ const put = (path, data, token) => {
     return _genericFetch('PUT', path, data, 'Bearer '+token);
 };
 
+const deleted = (path, token) => {
+    return _genericFetch('DELETE', path, null, 'Bearer '+token);
+};
+
 const login = (path, login, password) => {
     return _genericFetch('POST', path, null, 'Basic '+btoa(login+':'+password));
 };
@@ -34,4 +38,4 @@ const _genericFetch = (method, path, data, auth, accept = 'application/json') =>
         .then(response => response.json().then(body => ({ body, isSuccess: _isSuccess(response.status), message: response.message, status: response.status })));
 };
 
-export default { get, login, logout, post, put };
+export default { deleted, get, login, logout, post, put };

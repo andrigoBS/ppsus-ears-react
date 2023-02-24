@@ -5,18 +5,22 @@ import BaseConsult from '../../../../components/bases/consult/BaseConsult';
 import useTherapistService from '../../useTherapistService';
 
 const headers = [
-    { name: 'id', title: 'Código' },
     { name: 'model', title: 'Modelo' },
     { name: 'brand', title: 'Marca' },
-    { formatter: 'date', name: 'dateOfLastCalibration', title: 'Data última calibração' }
+    { formatter: 'date', name: 'dateOfLastCalibration', title: 'Data última calibração' },
+    { formatter: 'date', name: 'dateOfDeactivation', title: 'Data desativação' }
 ];
 
 const tableProperties = {
     actions: {
         delete: {
+            entity: 'equipment',
+            genericField: 'dateOfDeactivation',
+            message: 'Deseja realmente deletar o ',
             route: ''
         },
         edit: {
+            genericField: 'dateOfDeactivation',
             route: ''
         }
     }

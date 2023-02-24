@@ -57,6 +57,14 @@ const useTherapistService = () => {
     };
 
     const getAllEquipments = (data) => {
+        return _getAllEquipments(data, null).then(genericLog);
+    };
+
+    const getAllEquipmentsActives = (data) => {
+        return _getAllEquipments(data, true).then(genericLog);
+    };
+
+    const _getAllEquipments = (data, listAllActives) => {
         let params = '';
 
         if(data){
@@ -72,7 +80,12 @@ const useTherapistService = () => {
                 params += `dateOfLastCalibration=${data.dateOfLastCalibration}`;
             }
         }
-        return HttpHelper.get(`${generic.pathName}/equipment?${params}`, generic.getUser().token).then(genericLog);
+
+        if(listAllActives){
+            params += `listAllActives=${listAllActives}`;
+        }
+
+        return HttpHelper.get(`${generic.pathName}/equipment?${params}`, generic.getUser().token);
     };
 
     const conductRegister = (data) => {
@@ -107,7 +120,6 @@ const useTherapistService = () => {
     const getConduct = (data) => {
         let params = '';
 
-        console.log('data', data);
         if(data) {
             params += `${data.leftEar}/`;
             params += `${data.rightEar}/`;
@@ -153,11 +165,15 @@ const useTherapistService = () => {
         return HttpHelper.get('baby/', generic.getUser().token).then(genericLog);
     };
 
+    const deleteEquipment = (id) => {
+        return HttpHelper.deleted(`${generic.pathName}/equipment/${id}`, generic.getUser().token).then(genericLog);
+    };
+
     return {
         ...generic,
-        conductRegister, consultationRegister, equipmentRegister, getAllBabies, getAllConducts,getAllEquipments, getAllIndicators,
-        getAllInstitutions, getAllOrientations, getAllTriages, getChildBirthType, getConduct, getTriageTypes,
-        getXpTypes, indicatorRegister, orientationRegister
+        conductRegister, consultationRegister, deleteEquipment, equipmentRegister, getAllBabies,getAllConducts, getAllEquipments,
+        getAllEquipmentsActives, getAllIndicators, getAllInstitutions, getAllOrientations, getAllTriages, getChildBirthType,
+        getConduct, getTriageTypes, getXpTypes, indicatorRegister, orientationRegister
     };
 };
 

@@ -1,8 +1,11 @@
 
 export const FormatterHelper = () => {
     const formatterOfDate = (value) => {
-        const date = new Date(value);
-        return date.toLocaleDateString('pt-BR');
+        if(value){
+            const date = new Date(value);
+            return date.toLocaleDateString('pt-BR');
+        }
+        return '';
     };
 
     const formatterOfYesOrNo = (value) => {
