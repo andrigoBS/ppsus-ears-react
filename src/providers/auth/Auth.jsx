@@ -1,15 +1,12 @@
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import React from 'react';
-import { useViewConfiguration } from '../viewConfiguration/ViewConfiguration';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 const AuthContext = React.createContext(null);
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ baseRoute, children, loginRoute, service }) => {
     const navigate = useNavigate();
     const location = useLocation();
-    const configuration = useViewConfiguration();
 
-    const from = location.state?.from?.pathname || configuration.baseRoute;
-    const service = configuration.service;
+    const from = location.state?.from?.pathname || baseRoute;
 
     const [user, setUser] = React.useState(service.getUser());
 
@@ -28,7 +25,7 @@ export const AuthProvider = ({ children }) => {
         if(redirectTo) { navigate(redirectTo, { replace: true }); }
     };
 
-    const value = { user: user.user, token: user.token, login, logout };
+    const value = { baseRoute, login, loginRoute, logout, token: user.token, user: user.user };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
@@ -40,10 +37,9 @@ export const useAuth = () => {
 export const RequireAuth = ({ children }) => {
     const auth = useAuth();
     const location = useLocation();
-    const configuration = useViewConfiguration();
 
     if (!auth.user) {
-        return <Navigate to={configuration.loginRoute} state={{ from: location }} replace />;
+        return <Navigate to={auth.loginRoute} state={{ from: location }} replace />;
     }
 
     return children;
@@ -51,10 +47,9 @@ export const RequireAuth = ({ children }) => {
 
 export const RedirectIfAuth = ({ children }) => {
     const auth = useAuth();
-    const configuration = useViewConfiguration();
 
     if (auth.user) {
-        return <Navigate to={configuration.baseRoute} replace />;
+        return <Navigate to={auth.baseRoute} replace />;
     }
 
     return children;
