@@ -14,7 +14,7 @@ const RegisterTriage = () => {
     const styles = useRegisterTriageStyles();
     const { activeStep, handleOnNext, setActiveStep } = useRegisterTriageController();
 
-    const { formState: { errors }, handleSubmit, register } = useForm();
+    const { formState: { errors }, handleSubmit, register, watch } = useForm();
 
     const steps = [
         {
@@ -26,12 +26,12 @@ const RegisterTriage = () => {
             label: 'Cadastrar Bebê'
         },
         {
-            element: <RegisterResults register={register} errors={errors}/>,
+            element: <RegisterResults register={register} errors={errors} watch={watch}/>,
             label: 'Registrar Resultados'
         }
     ];
 
-
+    // TODO: Steper não está salvando os dados ao retornar para o passo anterior
     return (
         <BaseRegisterPaper title={'Resultado da Triagem'} handleSubmit={handleSubmit} serviceFunction={service.consultationRegister} notSubmitButton={true} baseRoute={'/fono'}>
             <Grid item xs={12} sm={12} md={12}>

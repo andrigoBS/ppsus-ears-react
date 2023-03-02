@@ -5,9 +5,9 @@ import GenericTable from '../../lists/table/GenericTable';
 import useBaseConsultController from './useBaseConsultController';
 import useBaseConsultStyles from './useBaseConsultStyles';
 
-const BaseConsult = ({ children, handleSubmit, headers, serviceFunction, tableProperties, title }) => {
+const BaseConsult = ({ children, fileName, handleSubmit, headers, serviceFunction, tableProperties, title }) => {
     const styles = useBaseConsultStyles();
-    const { onSubmit, rows } = useBaseConsultController(serviceFunction);
+    const { onClickExportExcelButton, onSubmit, rows } = useBaseConsultController(serviceFunction, headers, title, fileName);
 
     return (
         <Box sx={{ padding: 2 }}>
@@ -26,12 +26,13 @@ const BaseConsult = ({ children, handleSubmit, headers, serviceFunction, tablePr
                             <Box>
                                 <Grid container spacing={2}>
                                     {children}
+
                                     <Grid item xs={12} sm={12} md={12}>
                                         <Button sx={styles.finalButton}
                                             color="secondary"
                                             type="submit"
                                             variant="contained">
-                                            Aplicar Filtro
+                                            Aplicar Filtros
                                         </Button>
                                     </Grid>
                                 </Grid>
@@ -41,29 +42,32 @@ const BaseConsult = ({ children, handleSubmit, headers, serviceFunction, tablePr
 
                 </Grid>
 
-                <Grid item xs={12} sm={12} md={9}>
+                <Grid  item xs={12} sm={12} md={9}>
                     <Typography style={{ fontSize: '22px', fontWeight: 'bold' }} color={'primary'}>
                         {title}
                     </Typography>
-                    <Paper sx={styles.paper}>
-                        <div style={{ float: 'right', marginBottom: 10 }}>
+
+                    <div>
+                        <div style={{ float: 'right', margin: 10 }}>
                             <Button sx={{ marginRight: 1 }}
                                 startIcon={<BsDownload/>}
                                 color="secondary"
-                                type="submit"
-                                variant="contained">
+                                onClick={onClickExportExcelButton}
+                                variant="contained"
+                                disabled={rows.length === 0}>
                                 Excel
                             </Button>
-                            <Button startIcon={<BsDownload/>}
-                                color="secondary"
-                                type="submit"
-                                variant="contained">
-                                PDF
-                            </Button>
+                            {/*<Button startIcon={<BsDownload/>}*/}
+                            {/*    color="secondary"*/}
+                            {/*    // onClick={}*/}
+                            {/*    variant="contained">*/}
+                            {/*    PDF*/}
+                            {/*</Button>*/}
                         </div>
 
                         <GenericTable headers={headers} rows={rows} properties={tableProperties}/>
-                    </Paper>
+                    </div>
+
                 </Grid>
             </Grid>
         </Box>

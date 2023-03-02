@@ -5,18 +5,22 @@ import BaseConsult from '../../../../components/bases/consult/BaseConsult';
 import useTherapistService from '../../useTherapistService';
 
 const headers = [
-    { name: 'id', title: 'Código' },
-    { name: 'name', title: 'Descrição' }
+    { name: 'name', title: 'Descrição' },
+    { formatter: 'date', name: 'dateOfDeactivation', title: 'Data desativação' }
 ];
 
 const tableProperties = {
     actions: {
         delete: {
-            route: ''
+            entity: 'orientation',
+            genericField: 'dateOfDeactivation',
+            route: '',
         },
         edit: {
-            route: ''
-        }
+            genericField: 'dateOfDeactivation',
+            route: '',
+        },
+        permissionField: 'therapist'
     }
 };
 
@@ -27,7 +31,8 @@ const ListOrientation = () => {
     return(
         <BaseConsult handleSubmit={handleSubmit} title={'Orientações'}
             serviceFunction={service.getAllOrientations} headers={headers}
-            tableProperties={tableProperties}>
+            tableProperties={tableProperties} fileName={'Orientacoes'}
+        >
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('description')} label="Descrição"

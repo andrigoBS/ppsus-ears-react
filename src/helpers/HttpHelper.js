@@ -1,5 +1,5 @@
-const get = (path, token) => {
-    return _genericFetch('GET', path, null, 'Bearer '+token);
+const get = (path, token, accept) => {
+    return _genericFetch('GET', path, null, 'Bearer '+token, accept);
 };
 
 const post = (path, data, token) => {
@@ -8,6 +8,10 @@ const post = (path, data, token) => {
 
 const put = (path, data, token) => {
     return _genericFetch('PUT', path, data, 'Bearer '+token);
+};
+
+const deleted = (path, token) => {
+    return _genericFetch('DELETE', path, null, 'Bearer '+token);
 };
 
 const login = (path, login, password) => {
@@ -20,9 +24,10 @@ const logout = (path, token) => {
 
 const _isSuccess = (status) => status >= 200 && status <= 299;
 
-const _genericFetch = (method, path, data, auth) => {
+const _genericFetch = (method, path, data, auth, accept = 'application/json') => {
     const init = {
         headers: {
+            'Accept': accept,
             'Content-Type': 'application/json'
         },
         method: method
@@ -33,4 +38,4 @@ const _genericFetch = (method, path, data, auth) => {
         .then(response => response.json().then(body => ({ body, isSuccess: _isSuccess(response.status), message: response.message, status: response.status })));
 };
 
-export default { get, login, logout, post, put };
+export default { deleted, get, login, logout, post, put };

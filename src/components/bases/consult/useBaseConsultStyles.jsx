@@ -6,8 +6,6 @@ const useBaseConsultStyles = () => {
 
     return {
         finalButton: {
-            marginBottom: '10px',
-            marginTop: '10px',
             width: 'fit-content',
         },
         grid: {
