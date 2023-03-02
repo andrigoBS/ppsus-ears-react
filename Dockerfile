@@ -2,6 +2,7 @@ FROM node:lts-alpine AS build
 WORKDIR /usr/src/app
 COPY package*.json /usr/src/app/
 RUN npm install
+ENV NODE_ENV production
 ARG REACT_APP_PROJECT_NAME
 ENV REACT_APP_PROJECT_NAME=$REACT_APP_PROJECT_NAME
 ARG REACT_APP_SERVER_URL
@@ -10,6 +11,8 @@ ARG REACT_APP_HOST_NAME
 ENV REACT_APP_HOST_NAME=$REACT_APP_HOST_NAME
 COPY public /usr/src/app/public
 COPY src /usr/src/app/src
+COPY index.html /usr/src/app/index.html
+COPY vite.config.js /usr/src/app/vite.config.js
 RUN npm run build
 
 FROM nginx:alpine
