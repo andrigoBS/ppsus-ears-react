@@ -15,20 +15,22 @@ const RadioField = ({ register, title, values, ...props }) => {
                 size={'small'}
                 {...props}
             >
-                <RadioGroup
-                    defaultValue={values[0].id}
-                    {...register}
-                >
-                    {values.map((element, index) => (
-                        <FormControlLabel
-                            key={element.id+'_'+index}
-                            value={element.id}
-                            control={<Radio/>}
-                            label={element.name}
-                            {...register}
-                        />
-                    ))}
-                </RadioGroup>
+                {values.length > 0 &&
+                    <RadioGroup
+                        defaultValue={values[0].id}
+                        {...register}
+                    >
+                        {values.map((element, index) => (
+                            <FormControlLabel
+                                key={element.id + '_' + index}
+                                value={element.id}
+                                control={<Radio/>}
+                                label={element.name}
+                                {...register}
+                            />
+                        ))}
+                    </RadioGroup>
+                }
             </FormControl>
         </React.Fragment>
     );

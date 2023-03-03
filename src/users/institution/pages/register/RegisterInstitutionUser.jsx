@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { CircularProgress, Grid, Link, TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { CircularProgress, Grid, Link, TextField, Typography } from '@mui/material';
 import AsyncRequest from '../../../../components/api/AsyncRequest';
 import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
 import PasswordField from '../../../../components/fileds/password/PasswordField';
@@ -11,14 +11,14 @@ import RegisterInstitution from './RegisterInstitution';
 
 
 const RegisterInstitutionUser = () => {
-    const { formState: { errors }, handleSubmit, register, setValue } = useForm();
+    const { formState: { errors }, handleSubmit, register, setValue, watch } = useForm();
     const service = useInstitutionService();
     const [isRegisterInstitutionOpen, setIsRegisterInstitutionOpen] = useState(false);
 
-    const handleRegisterInstitution = () => {
+    const handleRegisterInstitution = React.useCallback(() => {
         setValue('institution.id', undefined);
         setIsRegisterInstitutionOpen(!isRegisterInstitutionOpen);
-    };
+    }, [isRegisterInstitutionOpen, setValue]);
 
     return (
         <BaseRegisterPaper handleSubmit={handleSubmit} title={'Usuário Instituição'} serviceFunction={service.register}>
@@ -108,7 +108,7 @@ const RegisterInstitutionUser = () => {
                 </Link>
             </Grid>
             {isRegisterInstitutionOpen === true &&
-                <RegisterInstitution register={register}/>
+                <RegisterInstitution register={register} watch={watch}/>
             }
         </BaseRegisterPaper>
     );

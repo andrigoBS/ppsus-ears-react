@@ -32,11 +32,7 @@ const RegisterInstitution = ({ register }) => {
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField
-                    {...register('institution.cnpj')} label="CNPJ"
-                    variant="outlined" size="small"
-                />
-                <CNPJField register={register} name="cnpj" label="CNPJ"/>
+                <CNPJField register={register} name="institution.cnpj" label="CNPJ"/>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <AsyncRequest requestFunction={getTypes} loaderChildren={<CircularProgress />}>
@@ -76,7 +72,7 @@ const RegisterInstitution = ({ register }) => {
                 </AsyncRequest>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <AsyncRequest requestFunction={getCities} loaderChildren={<CircularProgress />}>
+                <AsyncRequest requestFunction={state ? getCities : null} loaderChildren={<CircularProgress />}>
                     {(cities) => (
                         <SelectField
                             title={'Cidade'} register={register('institution.address.city.id')}

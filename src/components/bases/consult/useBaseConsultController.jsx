@@ -15,7 +15,7 @@ const useBaseConsultController = (serviceFunction, headers, title, fileName) => 
 
     const onClickExportExcelButton = React.useCallback(() =>{
         FileHelper(headers).convertJsonToCsv(rows, 'Relatorio ' + fileName);
-    }, [headers, rows]);
+    }, [fileName, headers, rows]);
 
     return { onClickExportExcelButton, onSubmit, rows, setRows };
 };

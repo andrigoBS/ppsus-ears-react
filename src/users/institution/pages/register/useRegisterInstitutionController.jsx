@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import useInstitutionService from '../../useInstituionService';
 
 const useRegisterInstitutionController = () => {
     const [state, setState] = useState(null);
     const service = useInstitutionService();
 
-    const getCities = () => {
+    const getCities = useCallback(() => {
         return service.getCities(state);
-    };
+    }, [service, state]);
 
     const onChangeState = (event) => {
         setState(event.target.value);

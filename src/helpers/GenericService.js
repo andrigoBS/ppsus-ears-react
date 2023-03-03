@@ -1,20 +1,20 @@
 import HttpHelper from './HttpHelper';
 
-const GenericService = (pathName, sessionStorageKey, onAnyLog) => {
+const GenericService = (pathName, sessionStorageKey) => {
     const getAll = () => {
-        return HttpHelper.get(pathName, getUser().token).then(onAnyLog);
+        return HttpHelper.get(pathName, getUser().token);
     };
 
     const get = (id) => {
-        return HttpHelper.get(`${pathName}/${id}`, getUser().token).then(onAnyLog);
+        return HttpHelper.get(`${pathName}/${id}`, getUser().token);
     };
 
     const register = (data) => {
-        return HttpHelper.post(pathName, data, getUser().token).then(onAnyLog);
+        return HttpHelper.post(pathName, data, getUser().token);
     };
 
     const update = (id, data) => {
-        return HttpHelper.put(`${pathName}/${id}`, data, getUser().token).then(onAnyLog);
+        return HttpHelper.put(`${pathName}/${id}`, data, getUser().token);
     };
 
     const login = (login, password) => {
@@ -23,7 +23,7 @@ const GenericService = (pathName, sessionStorageKey, onAnyLog) => {
                 localStorage.setItem(sessionStorageKey, JSON.stringify(r.body));
             }
             return r;
-        }).then(onAnyLog);
+        });
     };
 
     const logout = () => {
@@ -32,7 +32,7 @@ const GenericService = (pathName, sessionStorageKey, onAnyLog) => {
 
         return HttpHelper.logout(`user/${pathName}/logout`, token).then((r) => {
             return r;
-        }).then(onAnyLog);
+        });
     };
 
     const getUser = () => {
@@ -40,19 +40,19 @@ const GenericService = (pathName, sessionStorageKey, onAnyLog) => {
     };
 
     const getDashboard = () => {
-        return HttpHelper.get(pathName+'/dashboard', getUser().token).then(onAnyLog);
+        return HttpHelper.get(pathName+'/dashboard', getUser().token);
     };
 
     const getReport = (type) => {
-        return HttpHelper.get(`reports/${type}/${pathName}`, getUser().token).then(onAnyLog);
+        return HttpHelper.get(`reports/${type}/${pathName}`, getUser().token);
     };
 
     const getStates = () => {
-        return HttpHelper.get('secretary/state', getUser().token).then(onAnyLog);
+        return HttpHelper.get('secretary/state', getUser().token);
     };
 
     const getCities = (state) => {
-        return HttpHelper.get('secretary/city?state='+state, getUser().token).then(onAnyLog);
+        return HttpHelper.get('secretary/city?state='+state, getUser().token);
     };
 
     return { get, getAll, getCities, getDashboard, getReport, getStates, getUser, login, logout, pathName, register, sessionStorageKey, update };

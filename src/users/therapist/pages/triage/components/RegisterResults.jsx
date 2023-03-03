@@ -23,7 +23,7 @@ const RegisterResults = ({ register, watch }) => {
             testType: watchTestType !== undefined ? watchTestType : 1,
         };
         service.getConduct(obj).then(response =>  setResultConduct(response.body.name));
-    }, [watchIndicators, watchRightEar, watchLeftEar, watchTestType]);
+    }, [watchIndicators, watchRightEar, watchLeftEar, watchTestType, service]);
 
     //TODO: Revisar chamada de métodos pois está sendo chamada sem necessidade a consulta dos métodos
     return (
