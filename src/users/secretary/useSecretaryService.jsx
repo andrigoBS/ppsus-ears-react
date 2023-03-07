@@ -3,9 +3,7 @@ import GenericService from '../../helpers/GenericService';
 import HttpHelper from '../../helpers/HttpHelper';
 import { useGenericLogger } from '../../providers/genericLogger/GenericLogger';
 
-const useSecretaryService = () => {
-    const { genericLog } = useGenericLogger();
-
+const SecretaryService = (genericLog) => {
     const generic = GenericService('secretary', 'secretaryUser', genericLog);
 
     const getZones = () => {
@@ -27,4 +25,12 @@ const useSecretaryService = () => {
     return { ...generic, getAllZonesWithCities, getZones, isStateSecretary, registerZone };
 };
 
+let secretaryServiceInstance = null;
+const useSecretaryService = () => {
+    const { genericLog } = useGenericLogger();
+    if(secretaryServiceInstance === null) {
+        secretaryServiceInstance = SecretaryService(genericLog);
+    }
+    return secretaryServiceInstance;
+};
 export default useSecretaryService;

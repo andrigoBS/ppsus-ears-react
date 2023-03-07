@@ -2,12 +2,18 @@ import React from 'react';
 import GenericService from '../../helpers/GenericService';
 import { useGenericLogger } from '../../providers/genericLogger/GenericLogger';
 
-const useSecretaryService = () => {
-    const { genericLog } = useGenericLogger();
-
+const ParentsService = (genericLog) => {
     const generic= GenericService('parents', 'parentUser', genericLog);
 
-    return { ...generic, };
+    return { ...generic };
 };
 
-export default useSecretaryService;
+let parentsServiceInstance = null;
+const useParentsService = () => {
+    const { genericLog } = useGenericLogger();
+    if(parentsServiceInstance === null) {
+        parentsServiceInstance = ParentsService(genericLog);
+    }
+    return parentsServiceInstance;
+};
+export default useParentsService;

@@ -3,9 +3,7 @@ import GenericService from '../../helpers/GenericService';
 import HttpHelper from '../../helpers/HttpHelper';
 import { useGenericLogger } from '../../providers/genericLogger/GenericLogger';
 
-const useTherapistService = () => {
-    const { genericLog } = useGenericLogger();
-
+const TherapistService = (genericLog) => {
     const generic = GenericService('therapist','therapistUser', genericLog);
 
     const getAllInstitutions = () => {
@@ -193,4 +191,12 @@ const useTherapistService = () => {
     };
 };
 
+let therapistServiceInstance = null;
+const useTherapistService = () => {
+    const { genericLog } = useGenericLogger();
+    if(therapistServiceInstance === null) {
+        therapistServiceInstance = TherapistService(genericLog);
+    }
+    return therapistServiceInstance;
+};
 export default useTherapistService;

@@ -10,13 +10,13 @@ const styles = {
     },
 };
 
+const isValidAlertType = (type) => {
+    return type && ['error', 'warning', 'info', 'success'].includes(type);
+};
+
 const LoggerContext = React.createContext(null);
 export const LoggerProvider = ({ children }) => {
     const [alerts, setAlerts] = useState([]);
-
-    const isValidAlertType = (type) => {
-        return type && ['error', 'warning', 'info', 'success'].includes(type);
-    };
 
     const pushAlert = useCallback((type, message) => {
         if(!message || !isValidAlertType(type)) {
@@ -31,7 +31,7 @@ export const LoggerProvider = ({ children }) => {
             alerts.pop();
             setAlerts([...alerts]);
         }, 5000);
-    }, [alerts, isValidAlertType]);
+    }, [alerts]);
 
     const genericLog = useCallback((response) => {
         if(response.isSuccess) {

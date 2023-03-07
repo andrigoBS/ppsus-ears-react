@@ -1,6 +1,6 @@
 import React from 'react';
-import { createTheme, CssBaseline, responsiveFontSizes, ThemeProvider } from '@mui/material';
 import ReactDOM from 'react-dom';
+import { createTheme, CssBaseline, responsiveFontSizes, ThemeProvider } from '@mui/material';
 import HtmlHead from './components/HtmlHead';
 import { LoggerProvider } from './providers/genericLogger/GenericLogger';
 import { getMuiTheme } from './Theme';
