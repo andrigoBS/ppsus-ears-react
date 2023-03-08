@@ -11,7 +11,7 @@ const ParentsService = (genericLog) => {
 let parentsServiceInstance = null;
 const useParentsService = () => {
     const { genericLog } = useGenericLogger();
-    if(parentsServiceInstance === null) {
+    if(!parentsServiceInstance) {
         parentsServiceInstance = ParentsService(genericLog);
     }
     return parentsServiceInstance;

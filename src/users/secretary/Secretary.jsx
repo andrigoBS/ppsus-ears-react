@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import UserAvatarDropDown from '../../components/dropDown/UserDropDown';
+import HtmlHead from '../../components/HtmlHead';
 import TopBar from '../../components/TopBar';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import PageNotFound from '../site/pages/PageNotFound';
@@ -36,6 +37,7 @@ const Secretary = () => {
                     />
                 }
             >
+                <HtmlHead userType={'Secretaria'} />
                 <Routes>
                     <Route path={'/'} element={<RequireAuth> <HomeSecretary/> </RequireAuth>} />
                     <Route path={'/login'} element={<RedirectIfAuth> <LoginSecretary /> </RedirectIfAuth>} />

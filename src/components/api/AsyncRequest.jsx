@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-const AsyncRequest = ({ children, loaderChildren, onError, requestFunction }) => {
-    const [values, setValues] = useState([]);
+const AsyncRequest = ({ children, defaultValue, loaderChildren, onError, requestFunction }) => {
+    const [values, setValues] = useState(defaultValue !== undefined? defaultValue : []);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {

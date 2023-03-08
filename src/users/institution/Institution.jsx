@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import UserAvatarDropDown from '../../components/dropDown/UserDropDown';
+import HtmlHead from '../../components/HtmlHead';
 import TopBar from '../../components/TopBar';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import PageNotFound from '../site/pages/PageNotFound';
@@ -30,6 +31,7 @@ const Institution = () => {
                     />
                 }
             >
+                <HtmlHead userType={'Institucional'} />
                 <Routes>
                     <Route path={'/'} element={<RequireAuth> <HomeInstitution/> </RequireAuth>} />
                     <Route path={'/login'} element={<RedirectIfAuth> <LoginInstitution /> </RedirectIfAuth>} />

@@ -194,7 +194,7 @@ const TherapistService = (genericLog) => {
 let therapistServiceInstance = null;
 const useTherapistService = () => {
     const { genericLog } = useGenericLogger();
-    if(therapistServiceInstance === null) {
+    if(!therapistServiceInstance) {
         therapistServiceInstance = TherapistService(genericLog);
     }
     return therapistServiceInstance;

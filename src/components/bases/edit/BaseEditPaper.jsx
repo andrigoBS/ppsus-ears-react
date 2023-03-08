@@ -10,7 +10,7 @@ const BaseEditPaper = ({ children, handleSubmit, id, notSubmitButton, serviceFun
 
     return (
         <Paper sx={styles.paper}>
-            <HtmlHead view={title} subTitle={'Editar'}/>
+            <HtmlHead userType={title} subTitle={'Editar'}/>
             <Typography sx={styles.textTitle} variant={'h4'}>
                 Editar {title}
             </Typography>

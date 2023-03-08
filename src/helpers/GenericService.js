@@ -30,9 +30,7 @@ const GenericService = (pathName, sessionStorageKey, genericLog) => {
         const token = getUser().token;
         localStorage.removeItem(sessionStorageKey);
 
-        return HttpHelper.logout(`user/${pathName}/logout`, token).then(genericLog).then((r) => {
-            return r;
-        });
+        return HttpHelper.logout(`user/${pathName}/logout`, token).then(genericLog);
     };
 
     const getUser = () => {

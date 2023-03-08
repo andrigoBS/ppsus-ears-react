@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { AppBar, Box, IconButton, SwipeableDrawer, Toolbar, Typography, useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
 import { useAuth } from '../providers/auth/Auth';
 import MPAWhiteIcon from './icons/MPAWhiteIcon';
 import Menu from './lists/Menu';
@@ -13,13 +13,13 @@ const TopBar = ({ baseRoute, children, linkMenu, rightElement, title }) => {
 
     const [open, setOpen] = React.useState(false);
 
-    const handleDrawerOpen = () => {
+    const handleDrawerOpen = React.useCallback(() => {
         setOpen(true);
-    };
+    }, []);
 
-    const handleDrawerClose = () => {
+    const handleDrawerClose = React.useCallback(() => {
         setOpen(false);
-    };
+    }, []);
 
     return (
         <Fragment>
@@ -29,11 +29,9 @@ const TopBar = ({ baseRoute, children, linkMenu, rightElement, title }) => {
                         <IconButton color="inherit" onClick={handleDrawerOpen} sx={{ marginRight: '10px' }}>
                             <MenuIcon/>
                         </IconButton>
-                        <Box onClick={handleDrawerClose}>
-                            <SwipeableDrawer anchor={'left'} open={open}  onClose={false} onOpen={false}>
-                                <Menu data={linkMenu}/>
-                            </SwipeableDrawer>
-                        </Box>
+                        <SwipeableDrawer anchor={'left'} open={open} onClose={handleDrawerClose} onOpen={handleDrawerOpen}>
+                            <Menu data={linkMenu}/>
+                        </SwipeableDrawer>
                     </React.Fragment>}
                     <Link to={baseRoute || '/'}>
                         <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: isDesktop ? 2 : 0 }}>

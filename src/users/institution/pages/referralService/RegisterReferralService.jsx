@@ -1,6 +1,6 @@
 import React from 'react';
-import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import AsyncRequest from '../../../../components/api/AsyncRequest';
 import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
 import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
@@ -12,7 +12,7 @@ const RegisterReferralService = () => {
     const service = useInstitutionService();
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'de Serviço de Saúde Auditiva'} serviceFunction={service.referralServiceRegister}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'de Serviço de Saúde Auditiva'} serviceFunction={service.referralServiceRegister} baseRoute={'/institucional'}>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('name')} label="Nome do serviço"

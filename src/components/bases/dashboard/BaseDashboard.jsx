@@ -45,13 +45,14 @@ const BaseDashboard = ({ getDashboard, getReport, user }) => {
                         <AsyncRequest
                             key={'graphic-'+index}
                             requestFunction={() => getReport(value.type)}
+                            defaultValue={null}
                             loaderChildren={
                                 <Grid item xs={12} sm={8} md={4} lg={4} xl={2} sx={styles.grid}>
                                     <CircularProgress />
                                 </Grid>
                             }
                         >
-                            {(data) => (
+                            {(data) => data && (
                                 <Grid item {...getSizes(data.labels.length)} sx={styles.grid}>
                                     <RecommendedGraphic
                                         isSmall={isSmall(data.labels.length)}

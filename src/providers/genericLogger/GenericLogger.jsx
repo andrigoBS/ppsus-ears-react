@@ -30,7 +30,7 @@ export const LoggerProvider = ({ children }) => {
         setTimeout(() => {
             alerts.pop();
             setAlerts([...alerts]);
-        }, 5000);
+        }, 10000);
     }, [alerts]);
 
     const genericLog = useCallback((response) => {

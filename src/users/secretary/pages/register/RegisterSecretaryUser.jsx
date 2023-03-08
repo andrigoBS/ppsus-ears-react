@@ -1,18 +1,18 @@
 import React from 'react';
-import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import AsyncRequest from '../../../../components/api/AsyncRequest';
 import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
 import PasswordField from '../../../../components/fileds/password/PasswordField';
 import SelectField from '../../../../components/fileds/select/SelectField';
-import useSecretaryService from '../../useSecretaryService';
+import useRegisterSecretaryUserController from './useRegisterSecretaryUserController';
 
 const RegisterSecretaryUser = () => {
     const { formState: { errors }, handleSubmit, register } = useForm();
-    const service = useSecretaryService();
+    const { getStates, getZones, onChangeState, registerZoneUser, state } = useRegisterSecretaryUserController();
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'novo usuário para a secretaria'} serviceFunction={service.registerZone}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'novo usuário para a secretaria'} serviceFunction={registerZoneUser} baseRoute={'/secretaria'}>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('name')} label="Nome completo"
@@ -35,11 +35,21 @@ const RegisterSecretaryUser = () => {
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <AsyncRequest requestFunction={service.getZones} loaderChildren={<CircularProgress />}>
+                <AsyncRequest requestFunction={getStates} loaderChildren={<CircularProgress />}>
+                    {(states) => (
+                        <SelectField
+                            title={'Estado'} register={{ ...register('state.id') }}
+                            onChange={onChangeState} required values={states}
+                        />
+                    )}
+                </AsyncRequest>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <AsyncRequest requestFunction={state? getZones: null} loaderChildren={<CircularProgress />}>
                     {(zones) => (
                         <SelectField
                             title={'Região'} register={{ ...register('zone.id') }}
-                            required values={zones}
+                            disabled={!state} required values={zones}
                         />
                     )}
                 </AsyncRequest>

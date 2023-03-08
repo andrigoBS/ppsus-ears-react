@@ -14,7 +14,7 @@ const HomeTherapist = () => {
     return (
         <div style={{ margin: 10, marginTop: 20 }}>
             <Typography component='h4' variant='h4' style={{ marginBottom: 15 }}>
-                Olá Karol
+                Olá {auth.user.name}
             </Typography>
 
             <div style={{ margin: 10 }}>

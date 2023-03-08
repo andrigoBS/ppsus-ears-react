@@ -2,8 +2,8 @@ import React, { useCallback, useState } from 'react';
 import useInstitutionService from '../../useInstituionService';
 
 const useRegisterInstitutionController = () => {
-    const [state, setState] = useState(null);
     const service = useInstitutionService();
+    const [state, setState] = useState(null);
 
     const getCities = useCallback(() => {
         return service.getCities(state);

@@ -10,7 +10,7 @@ const BaseRegisterPaper = ({ baseRoute, children, handleSubmit, notSubmitButton,
 
     return (
         <Paper sx={styles.paper}>
-            <HtmlHead view={title} subTitle={'Cadastro'}/>
+            <HtmlHead userType={title} subTitle={'Cadastro'}/>
             <Typography sx={styles.textTitle} variant={'h4'}>
                 Cadastrar {title}
             </Typography>

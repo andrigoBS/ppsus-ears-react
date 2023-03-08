@@ -21,7 +21,7 @@ const RegisterInstitutionUser = () => {
     }, [isRegisterInstitutionOpen, setValue]);
 
     return (
-        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Usuário Instituição'} serviceFunction={service.register}>
+        <BaseRegisterPaper handleSubmit={handleSubmit} title={'Usuário Instituição'} serviceFunction={service.register} baseRoute={'/institucional'}>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('name')} label="Nome completo"
@@ -96,17 +96,17 @@ const RegisterInstitutionUser = () => {
                             )}
                         </AsyncRequest>
                     </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <Link
+                            component="button"
+                            variant="body2"
+                            onClick={handleRegisterInstitution}
+                        >
+                            A sua instituição não está na listagem? Clique aqui para criar
+                        </Link>
+                    </Grid>
                 </React.Fragment>
             }
-            <Grid item xs={12} sm={12} md={12}>
-                <Link
-                    component="button"
-                    variant="body2"
-                    onClick={handleRegisterInstitution}
-                >
-                    A sua instituição não está na listagem? Clique aqui para criar
-                </Link>
-            </Grid>
             {isRegisterInstitutionOpen === true &&
                 <RegisterInstitution register={register} watch={watch}/>
             }

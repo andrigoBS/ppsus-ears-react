@@ -1,7 +1,7 @@
 import React from 'react';
-import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import AsyncRequest from '../../../../components/api/AsyncRequest';
 import BaseEditPaper from '../../../../components/bases/edit/BaseEditPaper';
 import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
@@ -71,7 +71,7 @@ const EditInstitution = () => {
                             register={{ ...register('institutionType') }}
                             values={institutionTypes}
                         />
-                    )};
+                    )}
                 </AsyncRequest>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>

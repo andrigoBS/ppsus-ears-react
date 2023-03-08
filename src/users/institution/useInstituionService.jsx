@@ -23,8 +23,8 @@ const InstitutionService = (genericLog) => {
 let institutionServiceInstance = null;
 const useInstitutionService = () => {
     const { genericLog } = useGenericLogger();
-    if(institutionServiceInstance === null) {
-        console.log('null');
+
+    if(!institutionServiceInstance) {
         institutionServiceInstance = InstitutionService(genericLog);
     }
     return institutionServiceInstance;

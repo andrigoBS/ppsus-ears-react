@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import UserAvatarDropDown from '../../components/dropDown/UserDropDown';
+import HtmlHead from '../../components/HtmlHead';
 import TopBar from '../../components/TopBar';
 import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
 import PageNotFound from '../site/pages/PageNotFound';
@@ -27,6 +28,7 @@ const Parents = () => {
                     />
                 }
             >
+                <HtmlHead userType={'Pais'} />
                 <Routes>
                     <Route path={'/'} element={<RequireAuth> <HomeParents/> </RequireAuth>}/>
                     <Route path={'/login'} element={<RedirectIfAuth> <LoginParents/> </RedirectIfAuth>}/>

@@ -7,12 +7,15 @@ const useBaseEditController = (serviceGetFunction, serviceFunction, id, setValue
     };
 
     useEffect(() => {
-        serviceGetFunction(id).then(({ body }) => {
-            Object.keys(body).forEach((key) => {
-                setValue(key, body[key], { shouldDirty: true, shouldTouch: true, shouldValidate: true });
-            });
+        serviceGetFunction(id).then(({ body, isSuccess }) => {
+            if(isSuccess) {
+                Object.keys(body).forEach((key) => {
+                    console.log(key, body[key]);
+                    setValue(key, body[key], { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+                });
+            }
         });
-    }, []);
+    }, [id, serviceGetFunction, setValue]);
 
     return { onSubmit };
 };
