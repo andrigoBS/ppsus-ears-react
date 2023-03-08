@@ -8,6 +8,11 @@ const GenericTable = ({ headers, properties, rows }) => {
     const styles = useGenericTableStyles();
     const { formatValue } = useGenericTableController();
 
+    const onReloadRow = React.useCallback((newValues) => {
+        console.log(newValues);
+        return 1;
+    }, []);
+
     return (
         <Paper style={{ padding: '10px' }}>
             <TableContainer>
@@ -37,7 +42,7 @@ const GenericTable = ({ headers, properties, rows }) => {
                                 ))}
                                 { properties && properties.actions &&
 
-                                    <ActionsButtons actions={properties.actions} row={row}/>
+                                    <ActionsButtons actions={properties.actions} row={row} onReload={onReloadRow}/>
                                 }
                             </TableRow>
                         ))}

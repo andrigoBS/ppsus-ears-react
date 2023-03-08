@@ -11,23 +11,23 @@ const headers = [
     { formatter: 'date', name: 'dateOfDeactivation', title: 'Data desativação' }
 ];
 
-const tableProperties = {
-    actions: {
-        delete: {
-            entity: 'equipment',
-            genericField: 'dateOfDeactivation',
-            route: ''
-        },
-        edit: {
-            genericField: 'dateOfDeactivation',
-            route: ''
-        }
-    }
-};
-
 const ListEquipment = () => {
     const { formState: { errors }, handleSubmit, register } = useForm();
     const service = useTherapistService();
+
+    const tableProperties = {
+        actions: {
+            delete: {
+                genericField: 'dateOfDeactivation',
+                method: service.deleteEquipment,
+                route: ''
+            },
+            edit: {
+                genericField: 'dateOfDeactivation',
+                route: ''
+            }
+        }
+    };
 
     return(
         <BaseConsult handleSubmit={handleSubmit} title={'Equipamentos'}

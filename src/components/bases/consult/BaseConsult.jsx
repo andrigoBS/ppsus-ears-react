@@ -65,7 +65,7 @@ const BaseConsult = ({ children, fileName, handleSubmit, headers, serviceFunctio
                             {/*</Button>*/}
                         </div>
 
-                        <GenericTable headers={headers} rows={rows} properties={tableProperties}/>
+                        <GenericTable headers={headers} rows={rows} properties={tableProperties} />
                     </div>
 
                 </Grid>

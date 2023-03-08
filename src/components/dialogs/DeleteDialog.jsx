@@ -1,11 +1,9 @@
 import React from 'react';
 import { Button, Dialog, DialogActions, DialogTitle, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import useTherapistService from '../../users/therapist/useTherapistService';
 
-const DeleteDialog = ({ actions, row }) => {
+const DeleteDialog = ({ actions, onReload, row }) => {
     const [open, setOpen] = React.useState(false);
-    const service = useTherapistService();
 
     const handleOpen = () => {
         setOpen(true);
@@ -16,15 +14,8 @@ const DeleteDialog = ({ actions, row }) => {
     };
 
     const handleChooseDelete = () => {
-        if(actions.entity === 'equipment'){
-            service.deleteEquipment(row.id);
-            handleClose();
-        }
-
-        if(actions.entity === 'orientation'){
-            service.deleteOrientation(row.id);
-            handleClose();
-        }
+        actions.method(row.id);
+        handleClose();
     };
 
     return (
