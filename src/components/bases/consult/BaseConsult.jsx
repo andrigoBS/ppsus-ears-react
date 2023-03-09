@@ -7,7 +7,7 @@ import useBaseConsultStyles from './useBaseConsultStyles';
 
 const BaseConsult = ({ children, fileName, handleSubmit, headers, serviceFunction, tableProperties, title }) => {
     const styles = useBaseConsultStyles();
-    const { onClickExportExcelButton, onSubmit, rows } = useBaseConsultController(serviceFunction, headers, title, fileName);
+    const { onClickExportExcelButton, onReloadRow, onSubmit, rows } = useBaseConsultController(serviceFunction, headers, title, fileName);
 
     return (
         <Box sx={{ padding: 2 }}>
@@ -65,7 +65,7 @@ const BaseConsult = ({ children, fileName, handleSubmit, headers, serviceFunctio
                             {/*</Button>*/}
                         </div>
 
-                        <GenericTable headers={headers} rows={rows} properties={tableProperties} />
+                        <GenericTable headers={headers} rows={rows} properties={tableProperties} onReloadRow={onReloadRow} />
                     </div>
 
                 </Grid>

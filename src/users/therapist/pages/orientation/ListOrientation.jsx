@@ -5,7 +5,7 @@ import BaseConsult from '../../../../components/bases/consult/BaseConsult';
 import useTherapistService from '../../useTherapistService';
 
 const headers = [
-    { name: 'name', title: 'Descrição' },
+    { name: 'description', title: 'Descrição' },
     { formatter: 'date', name: 'dateOfDeactivation', title: 'Data desativação' }
 ];
 

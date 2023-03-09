@@ -14,7 +14,7 @@ const DeleteDialog = ({ actions, onReload, row }) => {
     };
 
     const handleChooseDelete = () => {
-        actions.method(row.id);
+        actions.method(row.id).then(r => r.body).then(onReload);
         handleClose();
     };
 
