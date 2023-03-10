@@ -9,7 +9,7 @@ const inputProps = {
 };
 
 const headers = [
-    { name: 'name', title: 'Descrição' },
+    { name: 'description', title: 'Descrição' },
     { formatter: 'date', name: 'dateOfDeactivation', title: 'Data desativação' }
 ];
 

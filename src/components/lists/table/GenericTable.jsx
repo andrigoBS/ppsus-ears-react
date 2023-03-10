@@ -4,14 +4,9 @@ import ActionsButtons from './ActionsButtons';
 import useGenericTableController from './useGenericTableController';
 import useGenericTableStyles from './useGenericTableStyles';
 
-const GenericTable = ({ headers, properties, rows }) => {
+const GenericTable = ({ headers, onReloadRow, properties, rows }) => {
     const styles = useGenericTableStyles();
     const { formatValue } = useGenericTableController();
-
-    const onReloadRow = React.useCallback((newValues) => {
-        console.log(newValues);
-        return 1;
-    }, []);
 
     return (
         <Paper style={{ padding: '10px' }}>
