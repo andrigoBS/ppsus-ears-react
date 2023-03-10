@@ -175,6 +175,7 @@ const RegisterResults = ({ register, watch }) => {
                             register={register('orientation.id')}
                             title={'Orientação'}
                             values={values}
+                            nameOfDescription={'description'}
                             required
                         />
                     )}

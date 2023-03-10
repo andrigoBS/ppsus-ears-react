@@ -3,7 +3,7 @@ import { Box, Checkbox, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, 
 import useSelectController from './useSelectController';
 import useSelectStyles from './useSelectStyles';
 
-const SelectField = ({ multiple, onChange, register, title, values, ...other }) => {
+const SelectField = ({ multiple, nameOfDescription = 'name', onChange, register, title, values, ...other }) => {
     const styles = useSelectStyles();
     const { configValueManipulation } = useSelectController(register, multiple, onChange, other);
     const [selecteds, setSelecteds] = React.useState([]);
@@ -17,12 +17,12 @@ const SelectField = ({ multiple, onChange, register, title, values, ...other }) 
         if (multiple) {
             return selected.map((selectedElement) => (
                 <Chip key={'chip-select-'+selectedElement} sx={styles.chipElement}
-                    label={values.filter(v => v.id === selectedElement)[0].name}
+                    label={values.filter(v => v.id === selectedElement)[0][nameOfDescription]}
                 />
             ));
         }
 
-        return values.filter(v => v.id === selected)[0].name;
+        return values.filter(v => v.id === selected)[0][nameOfDescription];
     };
 
     return (
@@ -47,7 +47,7 @@ const SelectField = ({ multiple, onChange, register, title, values, ...other }) 
                     <MenuItem key={element.id+'_'+index} value={element.id} {...register}>
                         {multiple &&  <Checkbox checked={selecteds && selecteds.indexOf(element.id) > -1} sx={{ pointerEvents: 'none' }} />}
 
-                        {element.name}
+                        {element[nameOfDescription]}
                     </MenuItem>
                 ))}
             </Select>
