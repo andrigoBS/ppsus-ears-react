@@ -24,7 +24,7 @@ const TopBar = ({ baseRoute, children, linkMenu, rightElement, title }) => {
     return (
         <Fragment>
             <AppBar color="primary" position="static">
-                <Toolbar variant="dense" sx={{ marginRight: isDesktop? '0px' : '-12px' }}>
+                <Toolbar variant="dense">
                     {auth && auth.user && <React.Fragment>
                         <IconButton color="inherit" onClick={handleDrawerOpen} sx={{ marginRight: '10px' }}>
                             <MenuIcon/>

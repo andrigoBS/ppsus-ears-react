@@ -6,11 +6,11 @@ import Partners from '../components/Partners';
 import TextParagraph from '../components/TextParagraph';
 import usePageNotFoundStyles from './usePageNotFoundStyles';
 
-const PageNotFound = (baseRoute) => {
+const PageNotFound = ({ baseRoute }) => {
     const location = useLocation();
     const styles = usePageNotFoundStyles();
 
-    const from = location.state?.from?.pathname || baseRoute;
+    const from = location.state?.from?.pathname || baseRoute || '/';
 
     return (
         <div style={styles.div}>

@@ -1,41 +1,26 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import UserAvatarDropDown from '../../components/dropDown/UserDropDown';
-import HtmlHead from '../../components/HtmlHead';
-import TopBar from '../../components/TopBar';
-import { AuthProvider, RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
-import PageNotFound from '../site/pages/PageNotFound';
+import { Route } from 'react-router-dom';
+import BaseUserRoute from '../../components/bases/userRoute/BaseUserRoute';
+import { RequireAuth } from '../../providers/auth/Auth';
 import MetaLinkMenu from './MetaLinkMenu';
-import HomeParents from './pages/HomeParents';
-import LoginParents from './pages/login/LoginParents';
 import useParentsService from './useParentsService';
 
 const Parents = () => {
     const service = useParentsService();
 
     return (
-        <AuthProvider service={service} loginRoute={'/pais/login'} baseRoute={'/pais'}>
-            <TopBar
-                linkMenu={MetaLinkMenu}
-                title={'Área dos Pais'}
-                baseRoute={'/pais'}
-                rightElement={
-                    <UserAvatarDropDown
-                        loginRoute={'/pais/login'}
-                        editRoute={'/pais/minha-conta/'}
-                        logoutRoute={'/pais'}
-                        withNotification
-                    />
-                }
-            >
-                <HtmlHead userType={'Pais'} />
-                <Routes>
-                    <Route path={'/'} element={<RequireAuth> <HomeParents/> </RequireAuth>}/>
-                    <Route path={'/login'} element={<RedirectIfAuth> <LoginParents/> </RedirectIfAuth>}/>
-                    <Route path={'*'} element={<PageNotFound/>} />
-                </Routes>
-            </TopBar>
-        </AuthProvider>
+        <BaseUserRoute
+            baseRoute={'/pais'}
+            userTypeTitle={'Pais'}
+            userTypeTitleWithConjunction={'dos Pais'}
+            service={service}
+            metaRoutesLink={MetaLinkMenu}
+            withDashboard={false}
+            withNotifications={true}
+            hasRegisterRoute={false}
+        >
+            <Route path={'/meu-bebe'} element={<RequireAuth> informações </RequireAuth>} />
+        </BaseUserRoute>
     );
 };
 
