@@ -5,6 +5,24 @@ import SelectField from '../../../../../components/fileds/select/SelectField';
 import useTherapistService from '../../../useTherapistService';
 import useRegisterBabyStyles from './useRegisterBabyStyles';
 
+const inputProps = {
+    circumference: {
+        maxLength: '4'
+    },
+    general: {
+        maxLength: '255'
+    },
+    gestationalAge: {
+        maxLength: '2'
+    },
+    height: {
+        maxLength: '4'
+    },
+    weight: {
+        maxLength: '4'
+    }
+};
+
 const RegisterBaby = ({ register }) => {
     const service = useTherapistService();
     const styles = useRegisterBabyStyles();
@@ -12,37 +30,68 @@ const RegisterBaby = ({ register }) => {
     return (
         <Fragment>
             <Grid item xs={12} sm={12} md={12}>
-                <Typography variant="h6" sx={styles.textTitle}>Informações do Bebê</Typography>
+                <Typography variant="h6" sx={styles.textTitle}>
+                    Informações do Bebê
+                </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-                <TextField {...register('baby.name')} label="Nome do bebê" variant="outlined" size="small" required/>
+                <TextField
+                    {...register('baby.name')} label="Nome do bebê"
+                    inputProps={inputProps.general}
+                    variant="outlined" size="small" required
+                />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('baby.weight')} label="Peso" variant="outlined" size="small" required/>
+                <TextField
+                    {...register('baby.weight')} label="Peso"
+                    inputProps={inputProps.weight}
+                    variant="outlined" size="small" required
+                />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('baby.height')} label="Altura" variant="outlined" size="small" required/>
+                <TextField
+                    {...register('baby.height')} label="Altura"
+                    inputProps={inputProps.height}
+                    variant="outlined" size="small" required
+                />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('baby.circumference')} label="Perímetro cefálico" variant="outlined" size="small" required/>
+                <TextField
+                    {...register('baby.circumference')} label="Perímetro cefálico"
+                    inputProps={inputProps.circumference}
+                    variant="outlined" size="small" required
+                />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('baby.birthDate')} label="Data de nascimento" variant="outlined"
-                    size="small" type="date" InputLabelProps={{ shrink: true }} required/>
+                <TextField
+                    {...register('baby.birthDate')} label="Data de nascimento"
+                    variant="outlined" size="small" type="date"
+                    InputLabelProps={{ shrink: true }} required
+                />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <TextField {...register('baby.gestationalAge')} label="Idade gestacional" variant="outlined" size="small" required/>
+                <TextField
+                    {...register('baby.gestationalAge')} label="Idade gestacional"
+                    inputProps={inputProps.gestationalAge}
+                    variant="outlined" size="small" required
+                />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <AsyncRequest requestFunction={service.getChildBirthType} loaderChildren={<CircularProgress />}>
                     {(values) => (
-                        <SelectField register={register('baby.childBirthType')} values={values} title={'Tipo de parto'} required/>
+                        <SelectField
+                            register={register('baby.childBirthType')} values={values}
+                            title={'Tipo de parto'} required
+                        />
                     )}
                 </AsyncRequest>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <FormGroup {...register('baby.maternalDeath')}>
-                    <FormControlLabel control={<Checkbox />} label="Óbito materno" size="small" {...register('baby.maternalDeath')}/>
+                    <FormControlLabel
+                        control={<Checkbox />} label="Óbito materno"
+                        size="small" {...register('baby.maternalDeath')}
+                    />
                 </FormGroup>
             </Grid>
         </Fragment>

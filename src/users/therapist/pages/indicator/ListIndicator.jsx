@@ -4,6 +4,10 @@ import { Grid, TextField } from '@mui/material';
 import BaseConsult from '../../../../components/bases/consult/BaseConsult';
 import useTherapistService from '../../useTherapistService';
 
+const inputProps = {
+    maxLength: '255'
+};
+
 const headers = [
     { name: 'name', title: 'Nome' }
 ];
@@ -20,6 +24,7 @@ const ListIndicator = () => {
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('name')} label="Nome"
+                    inputProps={inputProps}
                     variant="outlined" size="small"
                 />
             </Grid>

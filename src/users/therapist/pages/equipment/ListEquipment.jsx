@@ -4,6 +4,10 @@ import { Grid, TextField } from '@mui/material';
 import BaseConsult from '../../../../components/bases/consult/BaseConsult';
 import useTherapistService from '../../useTherapistService';
 
+const inputProps = {
+    maxLength: '255'
+};
+
 const headers = [
     { name: 'model', title: 'Modelo' },
     { name: 'brand', title: 'Marca' },
@@ -37,12 +41,14 @@ const ListEquipment = () => {
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('model')} label="Modelo"
+                    inputProps={inputProps}
                     variant="outlined" size="small"
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('brand')} label="Marca"
+                    inputProps={inputProps}
                     variant="outlined" size="small"
                 />
             </Grid>

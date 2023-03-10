@@ -8,6 +8,22 @@ import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPh
 import SelectField from '../../../../components/fileds/select/SelectField';
 import useTherapistService from '../../useTherapistService';
 
+const inputProps = {
+    crfa: {
+        maxLength: '8',
+        pattern: /d+/
+    },
+    general: {
+        maxLength: '255'
+    },
+    login: {
+        maxLength: '255',
+    },
+    password: {
+        maxLength: '8'
+    }
+};
+
 const RegisterTherapist = () => {
     const { formState: { errors }, handleSubmit, register } = useForm();
     const service = useTherapistService();
@@ -17,28 +33,32 @@ const RegisterTherapist = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('name')} label="Nome completo"
+                    inputProps={inputProps.general}
                     variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('login')} label={'Login'}
+                    inputProps={inputProps.login}
                     variant="outlined" size="small"
                     helperText={<p>Nome que será usado para acessar a plataforma junto a senha</p>} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <PasswordField register={register}/>
+                <PasswordField register={register} inputProps={inputProps.password}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('passwordConfirm')} label="Confirmação de senha"
+                    inputProps={inputProps.password}
                     type="password" variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('crfa')} label="CRFa"
+                    inputProps={inputProps.crfa}
                     variant="outlined" size="small" required
                 />
             </Grid>
@@ -46,7 +66,8 @@ const RegisterTherapist = () => {
                 <AsyncRequest requestFunction={service.getXpTypes} loaderChildren={<CircularProgress />}>
                     {(xps) => (
                         <SelectField
-                            title={'Tempo de experiência'} register={{ ...register('xp') }}
+                            title={'Tempo de experiência'}
+                            register={{ ...register('xp') }}
                             required values={xps}
                         />
                     )}
@@ -56,7 +77,8 @@ const RegisterTherapist = () => {
                 <AsyncRequest requestFunction={service.getAllInstitutions} loaderChildren={<CircularProgress />}>
                     {(institutions) => (
                         <SelectField
-                            title={'Instituições'} register={{ ...register('institutions') }}
+                            title={'Instituições'}
+                            register={{ ...register('institutions') }}
                             required values={institutions} multiple
                         />
                     )}
@@ -70,12 +92,14 @@ const RegisterTherapist = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('emails.0')} label="E-mail preferencial"
+                    inputProps={inputProps.general}
                     variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('emails.1')} label="E-mail alternativo"
+                    inputProps={inputProps.general}
                     variant="outlined" size="small"
                 />
             </Grid>
