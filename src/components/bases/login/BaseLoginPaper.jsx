@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Divider, Grid, Paper, TextField, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { Button, Divider, Grid, Paper, TextField, Typography } from '@mui/material';
 import Footer from '../../../users/site/components/Footer';
 import Partners from '../../../users/site/components/Partners';
 import HtmlHead from '../../HtmlHead';
@@ -37,36 +37,23 @@ const BaseLoginPaper = ({ forgotPasswordRoute, registerRoute, title, userTypeTit
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <TextField  {...register('login')} label="Login" variant="outlined" size="small" required/>
+                                    <TextField
+                                        {...register('login')} label="Login"
+                                        inputProps={inputProps.login}
+                                        variant="outlined" size="small" required
+                                    />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <TextField  {...register('password')} label="Senha" type="password" variant="outlined" size="small" required/>
+                                    <TextField
+                                        {...register('password')} label="Senha"
+                                        inputProps={inputProps.password}
+                                        type="password" variant="outlined" size="small" required/>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
                                     <Button
                                         color="secondary"
                                         type="submit"
                                         variant="contained">
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={12}>
-                                <TextField
-                                    {...register('login')} label="Login"
-                                    inputProps={inputProps.login}
-                                    variant="outlined" size="small" required
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={12}>
-                                <TextField
-                                    {...register('password')} label="Senha"
-                                    inputProps={inputProps.password}
-                                    type="password" variant="outlined" size="small" required/>
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={12}>
-                                <Button
-                                    color="secondary"
-                                    type="submit"
-                                    variant="contained">
                                         Entrar
                                     </Button>
                                 </Grid>
