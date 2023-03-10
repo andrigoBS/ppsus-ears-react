@@ -11,7 +11,7 @@ import useTherapistService from '../../useTherapistService';
 const inputProps = {
     crfa: {
         maxLength: '8',
-        pattern: /d+/
+        pattern: '[0-9]+'
     },
     general: {
         maxLength: '255'

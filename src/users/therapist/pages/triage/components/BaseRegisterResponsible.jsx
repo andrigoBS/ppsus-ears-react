@@ -7,13 +7,15 @@ import useTherapistService from '../../../useTherapistService';
 
 const inputProps = {
     cep: {
-        maxLength: '8'
+        maxLength: '8',
+        pattern: '[0-9]+'
     },
     general: {
         maxLength: '255'
     },
     number: {
-        maxLength: '4'
+        maxLength: '4',
+        pattern: '[0-9]+'
     }
 };
 

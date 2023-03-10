@@ -7,19 +7,23 @@ import useRegisterBabyStyles from './useRegisterBabyStyles';
 
 const inputProps = {
     circumference: {
-        maxLength: '4'
+        maxLength: '4',
+        pattern: '[0-9]+'
     },
     general: {
         maxLength: '255'
     },
     gestationalAge: {
-        maxLength: '2'
+        maxLength: '2',
+        pattern: '[0-9]+'
     },
     height: {
-        maxLength: '4'
+        maxLength: '4',
+        pattern: '[0-9]+'
     },
     weight: {
-        maxLength: '4'
+        maxLength: '4',
+        pattern: '[0-9]+'
     }
 };
 

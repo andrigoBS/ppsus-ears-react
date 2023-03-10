@@ -10,7 +10,8 @@ import useTherapistService from '../../useTherapistService';
 
 const inputProps = {
     crfa: {
-        maxLength: '8'
+        maxLength: '8',
+        pattern: '[0-9]+'
     },
     general: {
         maxLength: '255'

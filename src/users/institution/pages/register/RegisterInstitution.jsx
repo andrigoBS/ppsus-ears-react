@@ -8,19 +8,23 @@ import useRegisterInstitutionController from './useRegisterInstitutionController
 
 const inputProps = {
     cep: {
-        maxLength: '8'
+        maxLength: '8',
+        pattern: '[0-9]+'
     },
     cnes: {
-        maxLength: '11'
+        maxLength: '11',
+        pattern: '[0-9]+'
     },
     cnpj: {
-        maxLength: '14'
+        maxLength: '14',
+        pattern: '[0-9]+'
     },
     general: {
         maxLength: '255'
     },
     number: {
-        maxLength: '4'
+        maxLength: '4',
+        pattern: '[0-9]+'
     }
 };
 
