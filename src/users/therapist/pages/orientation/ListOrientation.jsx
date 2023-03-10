@@ -24,10 +24,10 @@ const ListOrientation = () => {
                 method: service.deleteOrientation,
                 route: '',
             },
-            edit: {
-                genericField: 'dateOfDeactivation',
-                route: '',
-            },
+            // edit: {
+            //     genericField: 'dateOfDeactivation',
+            //     route: '',
+            // },
             permissionField: 'therapist'
         }
     };

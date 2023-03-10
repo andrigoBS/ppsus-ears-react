@@ -10,7 +10,7 @@ const inputProps = {
     maxLength: '255'
 };
 
-const RegisterResults = ({ register, watch }) => {
+const RegisterResults = ({ register, setValue, watch }) => {
     const service = useTherapistService();
     const styles = useRegisterResultsStyles();
     const watchIndicators = watch('indicators', []);
@@ -26,7 +26,10 @@ const RegisterResults = ({ register, watch }) => {
             rightEar: watchRightEar !== undefined ? watchRightEar : 1,
             testType: watchTestType !== undefined ? watchTestType : 1,
         };
-        service.getConduct(obj).then(response =>  setResultConduct(response.body.name));
+        service.getConduct(obj).then(response => {
+            setResultConduct(response.body);
+            setValue('conduct', response.body.id);
+        });
     }, [watchIndicators, watchRightEar, watchLeftEar, watchTestType, service]);
 
     //TODO: Revisar chamada de métodos pois está sendo chamada sem necessidade a consulta dos métodos
@@ -154,14 +157,13 @@ const RegisterResults = ({ register, watch }) => {
 
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
-                    {...register('conduct')}
                     label="Conduta"
                     multiline
                     rows={6}
                     variant="outlined"
                     size="small"
                     required={true}
-                    value={resultConduct}
+                    value={resultConduct.name}
                 />
             </Grid>
 
