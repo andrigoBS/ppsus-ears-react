@@ -4,6 +4,10 @@ import { Grid, TextField } from '@mui/material';
 import BaseConsult from '../../../../components/bases/consult/BaseConsult';
 import useTherapistService from '../../useTherapistService';
 
+const inputProps = {
+    maxLength: '255'
+};
+
 const headers = [
     { name: 'description', title: 'Descrição' },
     { formatter: 'date', name: 'dateOfDeactivation', title: 'Data desativação' }
@@ -36,6 +40,7 @@ const ListOrientation = () => {
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('description')} label="Descrição"
+                    inputProps={inputProps}
                     variant="outlined" size="small"
                 />
             </Grid>

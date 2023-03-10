@@ -5,6 +5,18 @@ import BrazilianPhoneField from '../../../../../components/fileds/phone/Brazilia
 import SelectField from '../../../../../components/fileds/select/SelectField';
 import useTherapistService from '../../../useTherapistService';
 
+const inputProps = {
+    cep: {
+        maxLength: '8'
+    },
+    general: {
+        maxLength: '255'
+    },
+    number: {
+        maxLength: '4'
+    }
+};
+
 const BaseRegisterResponsible = ({ errors, prefixName, register, states }) => {
     const [state, setState] = useState(null);
     const service = useTherapistService();
@@ -22,7 +34,7 @@ const BaseRegisterResponsible = ({ errors, prefixName, register, states }) => {
             <Grid item xs={12} sm={12} md={9}>
                 <TextField
                     {...register(`${prefixName}.name`)} label="Nome completo"
-                    variant="outlined" size="small" required
+                    variant="outlined" size="small" inputProps={inputProps.general} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={3}>
@@ -39,13 +51,13 @@ const BaseRegisterResponsible = ({ errors, prefixName, register, states }) => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register(`${prefixName}.emails.0`)} label="E-mail preferencial"
-                    variant="outlined" size="small" required
+                    variant="outlined" size="small" inputProps={inputProps.general} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register(`${prefixName}.emails.1`)} label="E-mail alternativo"
-                    variant="outlined" size="small"
+                    variant="outlined" size="small" inputProps={inputProps.general}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
@@ -66,13 +78,13 @@ const BaseRegisterResponsible = ({ errors, prefixName, register, states }) => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register(`${prefixName}.address.cep`)} label="CEP"
-                    variant="outlined" size="small" required
+                    variant="outlined" size="small" inputProps={inputProps.cep} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register(`${prefixName}.address.street`)} label="Logradouro"
-                    variant="outlined" size="small" required
+                    variant="outlined" size="small"inputProps={inputProps.general} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
@@ -88,13 +100,13 @@ const BaseRegisterResponsible = ({ errors, prefixName, register, states }) => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register(`${prefixName}.address.number`)} label="Número"
-                    variant="outlined" size="small" required
+                    variant="outlined" size="small" inputProps={inputProps.number} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register(`${prefixName}.address.adjunct`)} label="Complemento"
-                    variant="outlined" size="small"
+                    variant="outlined" size="small" inputProps={inputProps.general}
                 />
             </Grid>
         </Fragment>

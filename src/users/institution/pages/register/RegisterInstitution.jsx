@@ -6,6 +6,24 @@ import RadioField from '../../../../components/fileds/radio/RadioField';
 import SelectField from '../../../../components/fileds/select/SelectField';
 import useRegisterInstitutionController from './useRegisterInstitutionController';
 
+const inputProps = {
+    cep: {
+        maxLength: '8'
+    },
+    cnes: {
+        maxLength: '11'
+    },
+    cnpj: {
+        maxLength: '14'
+    },
+    general: {
+        maxLength: '255'
+    },
+    number: {
+        maxLength: '4'
+    }
+};
+
 const RegisterInstitution = ({ register }) => {
     const { getCities, getStates, getTypes, onChangeState, state } = useRegisterInstitutionController();
 
@@ -22,12 +40,14 @@ const RegisterInstitution = ({ register }) => {
             <Grid item xs={12} sm={12} md={12}>
                 <TextField
                     {...register('institution.institutionName')} label="Nome instituição"
+                    inputProps={inputProps.general}
                     variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('institution.cnes')} label="CNES"
+                    inputProps={inputProps.cnes}
                     variant="outlined" size="small" required
                 />
             </Grid>
@@ -52,12 +72,14 @@ const RegisterInstitution = ({ register }) => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('institution.address.cep')} label="CEP"
+                    inputProps={inputProps.cep}
                     variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('institution.address.street')} label="Logradouro"
+                    inputProps={inputProps.general}
                     variant="outlined" size="small" required
                 />
             </Grid>
@@ -84,12 +106,14 @@ const RegisterInstitution = ({ register }) => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('institution.address.number')} label="Número"
+                    inputProps={inputProps.number}
                     variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('institution.address.adjunct')} label="Complemento"
+                    inputProps={inputProps.general}
                     variant="outlined" size="small"
                 />
             </Grid>

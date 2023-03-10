@@ -1,12 +1,21 @@
 import React from 'react';
-import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import AsyncRequest from '../../../../components/api/AsyncRequest';
 import BaseEditPaper from '../../../../components/bases/edit/BaseEditPaper';
 import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
 import SelectField from '../../../../components/fileds/select/SelectField';
 import useTherapistService from '../../useTherapistService';
+
+const inputProps = {
+    crfa: {
+        maxLength: '8'
+    },
+    general: {
+        maxLength: '255'
+    }
+};
 
 const EditTherapist = () => {
     const { formState: { errors }, handleSubmit, register, setValue } = useForm();
@@ -23,13 +32,16 @@ const EditTherapist = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('name')} label="Nome completo"
-                    variant="outlined" size="small" InputLabelProps={{ shrink: true }} required
+                    inputProps={inputProps.general}
+                    variant="outlined" size="small"
+                    InputLabelProps={{ shrink: true }} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('login')} label={'Login'}
                     variant="outlined" size="small"
+                    inputProps={inputProps.general}
                     helperText={<p>Nome que será usado para acessar a plataforma junto a senha</p>}
                     InputLabelProps={{ shrink: true }} required
                 />
@@ -37,14 +49,17 @@ const EditTherapist = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('crfa')} label="CRFa"
-                    variant="outlined" size="small" InputLabelProps={{ shrink: true }} required
+                    inputProps={inputProps.crfa}
+                    variant="outlined" size="small"
+                    InputLabelProps={{ shrink: true }} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <AsyncRequest requestFunction={service.getXpTypes} loaderChildren={<CircularProgress />}>
                     {(xpTypes) => (
                         <SelectField
-                            title={'Tempo de experiência'} register={{ ...register('xp') }}
+                            title={'Tempo de experiência'}
+                            register={{ ...register('xp') }}
                             required values={xpTypes}
                         />
                     )}
@@ -54,7 +69,8 @@ const EditTherapist = () => {
                 <AsyncRequest requestFunction={service.getAllInstitutions} loaderChildren={<CircularProgress />}>
                     {(institutions) => (
                         <SelectField
-                            title={'Instituições'} register={{ ...register('institutions') }}
+                            title={'Instituições'}
+                            register={{ ...register('institutions') }}
                             required values={institutions} multiple
                         />
                     )}
@@ -68,13 +84,17 @@ const EditTherapist = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('emails.0')} label="E-mail preferencial"
-                    variant="outlined" size="small" InputLabelProps={{ shrink: true }} required
+                    inputProps={inputProps.general}
+                    variant="outlined" size="small"
+                    InputLabelProps={{ shrink: true }} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('emails.1')} label="E-mail alternativo"
-                    variant="outlined" size="small" InputLabelProps={{ shrink: true }}
+                    inputProps={inputProps.general}
+                    variant="outlined" size="small"
+                    InputLabelProps={{ shrink: true }}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>

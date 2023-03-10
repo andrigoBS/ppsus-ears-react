@@ -7,6 +7,15 @@ import PasswordField from '../../../../components/fileds/password/PasswordField'
 import SelectField from '../../../../components/fileds/select/SelectField';
 import useRegisterSecretaryUserController from './useRegisterSecretaryUserController';
 
+const inputProps = {
+    general: {
+        maxLength: '255'
+    },
+    password: {
+        maxLength: '8'
+    }
+};
+
 const RegisterSecretaryUser = () => {
     const { formState: { errors }, handleSubmit, register } = useForm();
     const { getStates, getZones, onChangeState, registerZoneUser, state } = useRegisterSecretaryUserController();
@@ -16,21 +25,24 @@ const RegisterSecretaryUser = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('name')} label="Nome completo"
+                    inputProps={inputProps.general}
                     variant="outlined" size="small" required/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('login')} label={'Login'}
+                    inputProps={inputProps.general}
                     variant="outlined" size="small" required
                     helperText={<p>Nome que será usado para acessar a plataforma junto a senha</p>}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <PasswordField register={register}/>
+                <PasswordField register={register} inputProps={inputProps.password}/>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('passwordConfirm')} label="Confirmação de senha"
+                    inputProps={inputProps.password}
                     type="password" variant="outlined" size="small" required
                 />
             </Grid>
@@ -57,6 +69,7 @@ const RegisterSecretaryUser = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('role')} label="Cargo"
+                    inputProps={inputProps.general}
                     variant="outlined" size="small"
                 />
             </Grid>
@@ -68,12 +81,14 @@ const RegisterSecretaryUser = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('emails.0')} label="E-mail preferencial"
+                    inputProps={inputProps.general}
                     variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('emails.1')} label="E-mail alternativo"
+                    inputProps={inputProps.general}
                     variant="outlined" size="small"
                 />
             </Grid>

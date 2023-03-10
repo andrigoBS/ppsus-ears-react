@@ -6,6 +6,10 @@ import SelectField from '../../../../../components/fileds/select/SelectField';
 import useTherapistService from '../../../useTherapistService';
 import useRegisterResultsStyles from './useRegisterResultsStyles';
 
+const inputProps = {
+    maxLength: '255'
+};
+
 const RegisterResults = ({ register, watch }) => {
     const service = useTherapistService();
     const styles = useRegisterResultsStyles();
@@ -185,6 +189,7 @@ const RegisterResults = ({ register, watch }) => {
                     rows={4}
                     variant="outlined"
                     size="small"
+                    inputProps={inputProps}
                 />
             </Grid>
         </Fragment>
