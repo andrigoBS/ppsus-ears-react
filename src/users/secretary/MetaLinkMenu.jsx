@@ -5,21 +5,21 @@ import { Home } from '@mui/icons-material';
 
 const getData = (isState) => {
     return [
-        {
+        ...(isState && [{
             options: [
                 {
                     subOptions: [
-                        (isState && {
+                        {
                             icon: <TbCheckupList size={27}/>,
                             label: 'Gerenciar Regiões',
                             route: '/secretaria/gerenciar-regioes'
-                        })
+                        }
                     ],
                     subTitle: 'Cidades e Regiões'
                 }
             ],
             title: 'Atualizar'
-        },
+        }]),
         {
             options: [
                 {

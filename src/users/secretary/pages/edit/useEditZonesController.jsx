@@ -17,15 +17,20 @@ const useEditZonesController = () => {
 
         zones[destination.valueIndex].values.splice(destination.subValueIndex, 0, ...cities);
 
+        // TODO: atualizar cidade
+        // Promise.all(cities.map(city => service.setZoneId(city))).then(responses => {
         setZones([...zones]);
+        // });
     };
 
-    const onNewZone = () => {
-
+    const onNewZone = (zone) => {
+        console.log(zone);
+        // service.createZone().then();
+        //TODO: criar zona
     };
 
     const onEditZone = () => {
-
+        //TODO: editar zona
     };
 
     const onDeleteZone = (index) => {
@@ -39,8 +44,8 @@ const useEditZonesController = () => {
     };
 
     useEffect(() => {
-        service.getAllZonesWithCities().then(r => r.body).then((setZones));
-    }, []);
+        service.getAllZonesWithCities().then(r => r.body).then(setZones);
+    }, [service]);
 
 
     return { onDeleteZone, onDropCity, onEditZone, onNewZone, zones };

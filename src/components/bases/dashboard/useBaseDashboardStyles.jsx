@@ -10,7 +10,6 @@ const useBaseDashboardStyles = () => {
             backgroundColor: '#ffffff',
             borderRadius: '10px',
             boxShadow: '1px 1px 1px lightgrey',
-            display: 'flex',
             marginBottom: '15px',
             marginRight: '15px',
             padding: '20px'

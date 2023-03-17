@@ -30,7 +30,7 @@ const RecommendedGraphic = ({ isSmall, labels, onClickElement, quantities, title
 };
 
 const BaseDashboard = ({ getDashboard, getReport, title, userTypeTitle }) => {
-    const { getSizes, isSmall, onClickElement } = useBaseDashboardController();
+    const { getSizes, isTypeSmall, onClickElement } = useBaseDashboardController();
     const styles = useBaseDashboardStyles();
 
     return (
@@ -50,22 +50,26 @@ const BaseDashboard = ({ getDashboard, getReport, title, userTypeTitle }) => {
                                 requestFunction={() => getReport(value.type)}
                                 defaultValue={null}
                                 loaderChildren={
-                                    <Grid item xs={12} sm={8} md={4} lg={4} xl={2} sx={styles.grid}>
+                                    <Grid item {...getSizes(0, true)} sx={styles.grid}>
                                         <CircularProgress />
                                     </Grid>
                                 }
                             >
-                                {(data) => data && (
-                                    <Grid item {...getSizes(data.labels.length)} sx={styles.grid}>
-                                        <RecommendedGraphic
-                                            isSmall={isSmall(data.labels.length)}
-                                            title={data.title}
-                                            labels={data.labels}
-                                            quantities={data.quantities}
-                                            onClickElement={(e) => onClickElement(e, value.type)}
-                                        />
-                                    </Grid>
-                                )}
+                                {(data) => {
+                                    const isSmall = isTypeSmall(data.labels.length);
+                                    return data && (
+                                        <Grid item {...getSizes(data.title.length, isSmall)} sx={styles.grid}>
+                                            <RecommendedGraphic
+                                                isSmall={isSmall}
+                                                title={data.title}
+                                                labels={data.labels}
+                                                quantities={data.quantities}
+                                                onClickElement={(e) => onClickElement(e, value.type)}
+                                            />
+                                            <Typography sx={{ marginTop: '10px', textAlign: 'center' }}>{data.description || ''}</Typography>
+                                        </Grid>
+                                    );
+                                }}
                             </AsyncRequest>
                         ))
                     )}

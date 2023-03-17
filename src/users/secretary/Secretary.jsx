@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
 import BaseUserRoute from '../../components/bases/userRoute/BaseUserRoute';
 import { RedirectIfAuth, RequireAuth } from '../../providers/auth/Auth';
@@ -11,19 +11,13 @@ import useSecretaryService from './useSecretaryService';
 const Secretary = () => {
     const service = useSecretaryService();
 
-    const [isState, setState] = useState(service.getUser()?.user?.type === 'STATE');
-
-    useEffect(() => {
-        setState(service.getUser()?.user?.type === 'STATE');
-    }, [service, service?.getUser(), service?.getUser()?.user, service?.getUser()?.user?.type]);
-
     return (
         <BaseUserRoute
             baseRoute={'/secretaria'}
             userTypeTitle={'Secretaria'}
             userTypeTitleWithConjunction={'da Secretaria'}
             service={service}
-            metaRoutesLink={MetaLinkMenu(isState)}
+            metaRoutesLink={MetaLinkMenu(service.getUser().user?.type === 'STATE')}
             withDashboard={true}
             withNotifications={true}
             hasRegisterRoute={true}
