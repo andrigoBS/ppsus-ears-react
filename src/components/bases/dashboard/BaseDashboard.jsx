@@ -56,8 +56,11 @@ const BaseDashboard = ({ getDashboard, getReport, title, userTypeTitle }) => {
                                 }
                             >
                                 {(data) => {
+                                    if(!data || !data.labels) {
+                                        return (<></>);
+                                    }
                                     const isSmall = isTypeSmall(data.labels.length);
-                                    return data && (
+                                    return (
                                         <Grid item {...getSizes(data.title.length, isSmall)} sx={styles.grid}>
                                             <RecommendedGraphic
                                                 isSmall={isSmall}
