@@ -5,7 +5,7 @@ import { Home } from '@mui/icons-material';
 
 const getData = (isState) => {
     return [
-        ...(isState && [{
+        (isState? {
             options: [
                 {
                     subOptions: [
@@ -19,7 +19,7 @@ const getData = (isState) => {
                 }
             ],
             title: 'Atualizar'
-        }]),
+        } : {}),
         {
             options: [
                 {

@@ -17,7 +17,7 @@ const Secretary = () => {
             userTypeTitle={'Secretaria'}
             userTypeTitleWithConjunction={'da Secretaria'}
             service={service}
-            metaRoutesLink={MetaLinkMenu(service.getUser().user?.type === 'STATE')}
+            metaRoutesLink={MetaLinkMenu(service.getUser().user && service.getUser().user.type === 'STATE')}
             withDashboard={true}
             withNotifications={true}
             hasRegisterRoute={true}
