@@ -83,7 +83,6 @@ const RegisterResults = ({ register, setValue, watch }) => {
                             title={'IRDA'}
                             values={values}
                             multiple
-                            required
                         />
                     )}
                 </AsyncRequest>
