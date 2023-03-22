@@ -164,6 +164,7 @@ const RegisterResults = ({ register, setValue, watch }) => {
                     size="small"
                     required={true}
                     value={resultConduct.name}
+                    InputLabelProps={{ shrink: true }}
                 />
             </Grid>
 
