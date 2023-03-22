@@ -1,6 +1,7 @@
 import React from 'react';
-import { BarElement, CategoryScale, Chart, Legend, LinearScale, Title, Tooltip } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { BarElement, CategoryScale, Chart, Legend, LinearScale, Title, Tooltip } from 'chart.js';
+import { FileHelper } from '../../helpers/FileHelper';
 import { getGraphicColors } from '../../Theme';
 
 Chart.register(BarElement, CategoryScale, LinearScale, Legend, Title, Tooltip);
@@ -13,7 +14,8 @@ export function GraphicBar({ isVertical, labels, onClickElement, quantities, tit
         },
         plugins: {
             legend: {
-                position: 'bottom'
+                display: false,
+                // position: 'false'
             },
             title: {
                 display: true,
@@ -34,13 +36,31 @@ export function GraphicBar({ isVertical, labels, onClickElement, quantities, tit
                 borderWidth: 1,
                 data: quantities,
                 hoverOffset: 4,
-                label: 'Bebês',
+                // label: [labels]
             },
         ],
-        labels: labels,
+        labels: labels.map(value =>{
+            if(value.length > 22){
+                return value.substr(0, 22) + '...';
+            }
+            return value;
+        }),
     };
+    const onClickExportExcelButton = React.useCallback(() =>{
+        FileHelper(labels).convertJsonToCsvGraphic(data.datasets[0].data, 'Relatorio ' + options.plugins.title.text);
+    }, [labels, data]);
 
     return (
-        <Bar type={'bar'} data={data} options={options}/>
+        <div style={{ alignItems: 'center', display: 'flex', height: '300px', justifyContent: 'center' }}>
+            <Bar type={'bar'} data={data} options={options}/>
+            {/*<Button sx={{ marginRight: 1 }}*/}
+            {/*    startIcon={<BsDownload/>}*/}
+            {/*    color="secondary"*/}
+            {/*    onClick={onClickExportExcelButton}*/}
+            {/*    variant="contained"*/}
+            {/*    // disabled={rows.length === 0}*/}
+            {/*/>*/}
+        </div>
+
     );
 }

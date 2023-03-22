@@ -4,9 +4,20 @@ export const FileHelper = (headers) => {
     const convertJsonToCsv = (rows, fileName) => {
         const csv = getHeaderWithSeparator();
 
+        console.log('rows', rows);
         rows.forEach(row => {
+            console.log('rows', row);
             csv.push(getRowWithSeparator(row));
         });
+
+        downloadExcel(csv.join('\n'), fileName);
+    };
+
+    const convertJsonToCsvGraphic = (rows, fileName) => {
+        const csv = getHeaderWithSeparatorGraphic();
+
+        console.log('rows', rows);
+        csv.push(rows.map(row => row).join(';'));
 
         downloadExcel(csv.join('\n'), fileName);
     };
@@ -15,12 +26,20 @@ export const FileHelper = (headers) => {
         return [headers.map(header => getHeaderColumn(header)).join(';')];
     };
 
+    const getHeaderWithSeparatorGraphic = () => {
+        return [headers.map(header => getHeaderColumnGraphic(header)).join(';')];
+    };
+
     const getRowWithSeparator = (row) => {
         return headers.map(header => getColumn(row, header)).join(';');
     };
 
     const getHeaderColumn = (header) => {
         return `"${header.title}"`;
+    };
+
+    const getHeaderColumnGraphic = (header) => {
+        return `"${header}"`;
     };
 
     const getColumn = (row, header) => {
@@ -36,5 +55,5 @@ export const FileHelper = (headers) => {
         hiddenElement.click();
     };
 
-    return { convertJsonToCsv };
+    return { convertJsonToCsv, convertJsonToCsvGraphic };
 };
