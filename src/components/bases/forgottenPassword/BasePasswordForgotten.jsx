@@ -5,7 +5,6 @@ const BasePasswordForgotten = ({ userTypeTitle }) => {
     return (
         <>
             <HtmlHead userType={userTypeTitle} subTitle={'Esqueci minha senha'} />
-            <b>implementar</b>
         </>
     );
 };
