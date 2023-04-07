@@ -69,27 +69,27 @@ const RegisterInstitutionUser = () => {
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
-                    {...register('email')} label="E-mail preferencial"
+                    {...register('emails[0]')} label="E-mail preferencial"
                     inputProps={inputProps.general}
                     variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
-                    {...register('alternativeEmail')} label="E-mail alternativo"
+                    {...register('emails[1]')} label="E-mail alternativo"
                     inputProps={inputProps.general}
                     variant="outlined" size="small"
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <BrazilianPhoneField
-                    register={register} name="phonePrimary"
+                    register={register} name="phones[0]"
                     formErrors={errors} label="Telefone principal" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <BrazilianPhoneField
-                    register={register} name="phoneSecond"
+                    register={register} name="phones[1]"
                     formErrors={errors} label="Telefone alternativo"
                 />
             </Grid>
