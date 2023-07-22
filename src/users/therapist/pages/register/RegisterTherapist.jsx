@@ -27,6 +27,9 @@ const inputProps = {
 const RegisterTherapist = () => {
     const { formState: { errors }, handleSubmit, register } = useForm();
     const service = useTherapistService();
+    const [focused, setFocused] = React.useState(false);
+    const onFocus = () => setFocused(true);
+    const onBlur = () => setFocused(false);
 
     return (
         <BaseRegisterPaper handleSubmit={handleSubmit} title={'Fonoaudiólogo'} serviceFunction={service.register} baseRoute={'/fono'}>
@@ -42,7 +45,8 @@ const RegisterTherapist = () => {
                     {...register('login')} label={'Login'}
                     inputProps={inputProps.login}
                     variant="outlined" size="small"
-                    helperText={<p>Nome que será usado para acessar a plataforma junto a senha</p>} required
+                    onFocus={onFocus} onBlur={onBlur}
+                    helperText={focused && <p>Nome que será usado para acessar a plataforma junto a senha</p>} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>

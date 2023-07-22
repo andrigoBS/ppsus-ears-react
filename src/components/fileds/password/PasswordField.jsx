@@ -6,6 +6,9 @@ import usePasswordController from './usePasswordController';
 
 const PasswordField = ({ onChange, register, ...props }) => {
     const { getColorIfIsValid, handleOnChange, validate, value } = usePasswordController(register, onChange);
+    const [focused, setFocused] = React.useState(false);
+    const onFocus = () => setFocused(true);
+    const onBlur = () => setFocused(false);
 
     const getTopicsAndIcons = () => {
         return [
@@ -33,8 +36,9 @@ const PasswordField = ({ onChange, register, ...props }) => {
             {...register('password', { validate })}
             {...props}
             type="password" onChange={handleOnChange}
+            onFocus={onFocus} onBlur={onBlur}
             helperText={
-                <TopicListIcon topicsAndIcons={getTopicsAndIcons()}/>
+                focused && <TopicListIcon topicsAndIcons={getTopicsAndIcons()}/>
             } required
         />
     );

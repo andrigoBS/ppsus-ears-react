@@ -22,6 +22,9 @@ const RegisterInstitutionUser = () => {
     const { formState: { errors }, handleSubmit, register, setValue, watch } = useForm();
     const service = useInstitutionService();
     const [isRegisterInstitutionOpen, setIsRegisterInstitutionOpen] = useState(false);
+    const [focused, setFocused] = React.useState(false);
+    const onFocus = () => setFocused(true);
+    const onBlur = () => setFocused(false);
 
     const handleRegisterInstitution = React.useCallback(() => {
         setValue('institution.id', undefined);
@@ -42,7 +45,8 @@ const RegisterInstitutionUser = () => {
                     {...register('login')} label="Login"
                     inputProps={inputProps.general}
                     variant="outlined" size="small" required
-                    helperText={<p>Nome que será usado para acessar a plataforma junto a senha</p>}
+                    onFocus={onFocus} onBlur={onBlur}
+                    helperText={focused && <p>Nome que será usado para acessar a plataforma junto a senha</p>}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
