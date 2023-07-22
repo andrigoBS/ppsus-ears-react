@@ -1,6 +1,6 @@
 import React from 'react';
-import { Badge, Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
-import { AccountCircle as AccountCircleIcon, Comment as CommentIcon, Logout as LogoutIcon } from '@mui/icons-material';
+import { Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
+import { AccountCircle as AccountCircleIcon, Logout as LogoutIcon } from '@mui/icons-material';
 import useUserDropDownController from './useUserDropDownController';
 import useUserDropDownStyles from './useUserDropDownStyles';
 
@@ -29,15 +29,15 @@ const UserDropDown = ({ editRoute, loginRoute, logoutRoute, withNotification }) 
 
     return (
         <Box sx={styles.container}>
-            {withNotification &&
-                <Tooltip title={title} arrow>
-                    <IconButton color="inherit" component="span" aria-label={title}>
-                        <Badge badgeContent={notificationsNumber} color="secondary">
-                            <CommentIcon/>
-                        </Badge>
-                    </IconButton>
-                </Tooltip>
-            }
+            {/*{withNotification &&*/}
+            {/*    <Tooltip title={title} arrow>*/}
+            {/*        <IconButton color="inherit" component="span" aria-label={title}>*/}
+            {/*            <Badge badgeContent={notificationsNumber} color="secondary">*/}
+            {/*                <CommentIcon/>*/}
+            {/*            </Badge>*/}
+            {/*        </IconButton>*/}
+            {/*    </Tooltip>*/}
+            {/*}*/}
             <Tooltip title={'Minha conta'} arrow>
                 <IconButton color="inherit" component="span"
                     aria-label="Minha conta"
