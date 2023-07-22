@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
+import { Box, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 import { AccountCircle as AccountCircleIcon, Logout as LogoutIcon } from '@mui/icons-material';
 import useUserDropDownController from './useUserDropDownController';
 import useUserDropDownStyles from './useUserDropDownStyles';
@@ -59,13 +59,13 @@ const UserDropDown = ({ editRoute, loginRoute, logoutRoute, withNotification }) 
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={onClickUserName}>
-                    <ListItemIcon>
-                        <AccountCircleIcon fontSize="small" />
-                    </ListItemIcon>
-                    {user.name}
-                </MenuItem>
-                <Divider />
+                {/*<MenuItem onClick={onClickUserName}>*/}
+                {/*    <ListItemIcon>*/}
+                {/*        <AccountCircleIcon fontSize="small" />*/}
+                {/*    </ListItemIcon>*/}
+                {/*    {user.name}*/}
+                {/*</MenuItem>*/}
+                {/*<Divider />*/}
                 <MenuItem onClick={onClickExit}>
                     <ListItemIcon>
                         <LogoutIcon fontSize="small" />
