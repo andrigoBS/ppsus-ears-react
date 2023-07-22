@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Grid, Link, Typography } from '@mui/material';
 import CNPqIcon from '../../../components/icons/CNPqIcon';
 import CrefonoIcon from '../../../components/icons/CrefonoIcon';
+import FapescIcon from '../../../components/icons/FapescIcon';
 import NascerIcon from '../../../components/icons/NascerIcon';
 import SecretaryIcon from '../../../components/icons/SecretaryIcon';
 import UnieduIcon from '../../../components/icons/UnieduIcon';
@@ -35,6 +36,10 @@ const Partners = () => {
             element: <NascerIcon size={'320px'}/>,
             url: 'https://fapesc.sc.gov.br/programa-nascer/'
         },
+        {
+            element: <FapescIcon size={'320px'}/>,
+            url: 'https://fapesc.sc.gov.br/programa-nascer/'
+        }
     ];
 
     return (
