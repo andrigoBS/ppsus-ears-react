@@ -26,11 +26,11 @@ const Site = () => {
                 </Button>
             }
         >
-            <TextParagraph title={'Bem-Vindo à Meu primeiro alô'}>
+            <TextParagraph title={'Bem-Vindo a Meu primeiro alô'}>
                 Uma plataforma de rastreamento do teste da orelhinha,
                 que foi desenvolvida pelo programa de pesquisa para o SUS, edital FAPESC 16/2020.
-                O desenvolvimento foi realizado por acadêmicos e docentes dos cursos de ciência da
-                computação e fonoaudiologia da Univali, em parceria com a Secretaria de Estado da Saúde de
+                O desenvolvimento foi realizado por acadêmicos e docentes dos cursos de Ciência da
+                Computação e Fonoaudiologia da Univali, em parceria com a Secretaria de Estado da Saúde de
                 Santa Catarina e apoio do Conselho Regional de Fonoaudiologia 3ª Região.
             </TextParagraph>
             <VideoParagraph title={'Bem-vindo'} url={'https://www.youtube.com/embed/I7CnUPAMajs'} />
