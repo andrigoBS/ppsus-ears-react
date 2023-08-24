@@ -183,11 +183,21 @@ const TherapistService = (genericLog) => {
         return HttpHelper.deleted(`${generic.pathName}/orientation/${id}`, generic.getUser().token).then(genericLog);
     };
 
+    const getFileTriageReports = (id, file) => {
+        return HttpHelper.get(`${generic.pathName}/triage/reports/${id}/${file}`, generic.getUser().token, 'application/pdf, application/json').then(genericLog);
+    };
+
+    const getFileTriageReportsOrientations = (id) => getFileTriageReports(id, 'orientations');
+    const getFileTriageReportsTest = (id) => getFileTriageReports(id, 'test');
+    const getFileTriageReportsRetest = (id) => getFileTriageReports(id, 'retest');
+
     return {
         ...generic,
-        conductRegister, consultationRegister, deleteEquipment, deleteOrientation, equipmentRegister,getAllBabies, getAllConducts,
-        getAllEquipments, getAllEquipmentsActives, getAllIndicators, getAllInstitutions, getAllOrientations, getAllOrientationsActives,
-        getAllTriages, getChildBirthType, getConduct, getTriageTypes, getXpTypes, indicatorRegister, orientationRegister
+        conductRegister,
+        consultationRegister, deleteEquipment, deleteOrientation, equipmentRegister, getAllBabies,getAllConducts, getAllEquipments,
+        getAllEquipmentsActives, getAllIndicators, getAllInstitutions, getAllOrientations, getAllOrientationsActives, getAllTriages,
+        getChildBirthType, getConduct, getFileTriageReportsOrientations, getFileTriageReportsRetest, getFileTriageReportsTest, getTriageTypes,
+        getXpTypes, indicatorRegister, orientationRegister,
     };
 };
 

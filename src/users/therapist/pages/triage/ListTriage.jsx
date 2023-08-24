@@ -15,31 +15,35 @@ const headers = [
     { name: 'conduct', title: 'Conduta' },
 ];
 
-const tableProperties = {
-    // actions: {
-    //     pdf: {
-    //         options: [
-    //             {
-    //                 href: '',
-    //                 name: 'detalhado da triagem'
-    //             },
-    //             {
-    //                 href: 'orientation/file',
-    //                 name: 'de orientação'
-    //             },
-    //             {
-    //                 href: '',
-    //                 name: 'de conduta'
-    //             }
-    //         ]
-    //     },
-    //     route: '',
-    // }
-};
+const makeTableProperties = (service) => ({
+    actions: {
+        pdf: {
+            options: [
+                // {
+                //     href: '',
+                //     name: 'detalhado da triagem'
+                // },
+                {
+                    requestFunction: service.getFileTriageReportsOrientations,
+                    title: 'Orientações fonoaudiológicas',
+                },
+                {
+                    requestFunction: service.getFileTriageReportsTest,
+                    title: 'Relatório do teste',
+                },
+                {
+                    requestFunction: service.getFileTriageReportsRetest,
+                    title: 'Relatório do reteste',
+                }
+            ]
+        },
+    }
+});
 
 const ListTriage = () => {
     const { formState: { errors }, handleSubmit, register } = useForm();
     const service = useTherapistService();
+    const tableProperties = React.useMemo(() => makeTableProperties(service), [service]);
 
     return(
         <BaseConsult

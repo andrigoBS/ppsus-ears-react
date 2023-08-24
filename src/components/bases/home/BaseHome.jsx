@@ -13,8 +13,8 @@ const BaseHome = ({ meta }) => {
                 Olá {auth.user.name}
             </Typography>
 
-            {meta && meta.map((item) => (
-                <>
+            {meta && meta.map((item, key) => (
+                <React.Fragment key={'home'+key}>
                     <Typography style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '5px', marginTop: '25px' }} color={'primary'}>
                         {item.title}
                     </Typography>
@@ -22,8 +22,8 @@ const BaseHome = ({ meta }) => {
                     <Paper sx={{ padding: '5px 20px 20px 20px'  }} >
                         <Box>
                             <Grid container>
-                                {item.options && item.options.map((option) => (
-                                    <>
+                                {item.options && item.options.map((option, key2) => (
+                                    <React.Fragment key={'home-item-'+key2}>
                                         <Grid item xs={12} sm={12} md={12}>
                                             <Typography style={{ fontWeight: 'bold', marginTop: '25px' }}>
                                                 {option.subTitle}
@@ -38,12 +38,12 @@ const BaseHome = ({ meta }) => {
                                                 </Button>
                                             </Grid>
                                         ))}
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </Grid>
                         </Box>
                     </Paper>
-                </>
+                </React.Fragment>
             ))}
         </Container>
     );

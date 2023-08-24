@@ -1,12 +1,10 @@
 import { FormatterHelper } from './FormatterHelper';
 
-export const FileHelper = (headers) => {
+export const FileHelper = (headers=[]) => {
     const convertJsonToCsv = (rows, fileName) => {
         const csv = getHeaderWithSeparator();
 
-        console.log('rows', rows);
         rows.forEach(row => {
-            console.log('rows', row);
             csv.push(getRowWithSeparator(row));
         });
 
@@ -16,7 +14,6 @@ export const FileHelper = (headers) => {
     const convertJsonToCsvGraphic = (rows, fileName) => {
         const csv = getHeaderWithSeparatorGraphic();
 
-        console.log('rows', rows);
         csv.push(rows.map(row => row).join(';'));
 
         downloadExcel(csv.join('\n'), fileName);
@@ -46,14 +43,21 @@ export const FileHelper = (headers) => {
         return `"${FormatterHelper().formatValue(header.formatter, row[header.name])}"`;
     };
 
-    const downloadExcel = (csv, fileName) => {
+    const baseDownload = (data, fileName) => {
         const hiddenElement = document.createElement('a');
-        hiddenElement.href = 'data:text/csv;charset=UTF-8,%EF%BB%BF' + encodeURI(csv);
+        hiddenElement.href = data;
         hiddenElement.target = '_blank';
-
-        hiddenElement.download = fileName + '.csv';
+        hiddenElement.download = fileName;
         hiddenElement.click();
     };
 
-    return { convertJsonToCsv, convertJsonToCsvGraphic };
+    const downloadExcel = (csv, fileName) => {
+        baseDownload('data:text/csv;charset=UTF-8,%EF%BB%BF' + encodeURI(csv), fileName + '.csv');
+    };
+
+    const downloadPDF = (pdf, fileName) => {
+        baseDownload(window.URL.createObjectURL(pdf), fileName + '.pdf');
+    };
+
+    return { convertJsonToCsv, convertJsonToCsvGraphic, downloadExcel, downloadPDF };
 };

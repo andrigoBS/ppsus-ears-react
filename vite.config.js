@@ -1,14 +1,14 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import envCompatible from 'vite-plugin-env-compatible';
 import NodeGlobalsPolyfillPlugin from '@esbuild-plugins/node-globals-polyfill';
+import { defineConfig } from 'vite';
+import envCompatible from 'vite-plugin-env-compatible';
 import svgrPlugin from 'vite-plugin-svgr';
 
 export default defineConfig({
-    envPrefix: 'REACT_APP_',
     build: {
         outDir: 'build',
     },
+    envPrefix: 'REACT_APP_',
     optimizeDeps: {
         esbuildOptions: {
             define: {

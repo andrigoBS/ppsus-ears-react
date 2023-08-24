@@ -21,7 +21,7 @@ export const LoggerProvider = ({ children }) => {
     const pushAlert = useCallback((type, message) => {
         if(!message || !isValidAlertType(type)) {
             if(import.meta.env.NODE_ENV === 'development'){
-                console.log('Invalid Alert', type, message);
+                console.error('Invalid Alert', type, message);
             }
             return;
         }
@@ -37,12 +37,12 @@ export const LoggerProvider = ({ children }) => {
         if(response.isSuccess) {
             if(import.meta.env.NODE_ENV === 'development'){
                 pushAlert('success', `${response.status} - ${response.body.fancyMessage || response.body.message || response.fancyMessage || response.message || 'OK'}`);
-                console.log(response);
+                console.error(response);
             }
         }else{
             pushAlert('error', `${response.status} - ${response.body.fancyMessage || response.body.message || response.fancyMessage || response.message || 'Error'}`);
             if(import.meta.env.NODE_ENV === 'development'){
-                console.log(`${response.status} - ${response.body.message || response.body.message || response.message || response.fancyMessage }`);
+                console.error(`${response.status} - ${response.body.message || response.body.message || response.message || response.fancyMessage }`);
             }
         }
         return response;

@@ -22,8 +22,6 @@ const useBaseConsultController = (serviceFunction, headers, title, fileName) => 
         setRows([...rows]);
     }, [rows]);
 
-    console.log(rows);
-
     return { onClickExportExcelButton, onReloadRow, onSubmit, rows, setRows };
 };
 

@@ -24,7 +24,6 @@ const useEditZonesController = () => {
     };
 
     const onNewZone = (zone) => {
-        console.log(zone);
         // service.createZone().then();
         //TODO: criar zona
     };

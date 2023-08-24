@@ -2,7 +2,7 @@ import React from 'react';
 import { IconButton, TableCell } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteDialog from '../../dialogs/DeleteDialog';
-import PdfDialog from '../../dialogs/PdfDialog';
+import DownloadDialog from '../../dialogs/DownloadDialog';
 import useGenericTableStyles from './useGenericTableStyles';
 
 const ActionsButtons = ({ actions, onReload, row }) => {
@@ -26,7 +26,7 @@ const ActionsButtons = ({ actions, onReload, row }) => {
                     }
 
                     {actions.pdf &&
-                        <PdfDialog actions={actions} row={row}/>
+                        <DownloadDialog actions={actions.pdf} row={row} title={'Escolha o relatório para baixar'}/>
                     }
 
                 </React.Fragment>

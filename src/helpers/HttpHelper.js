@@ -34,8 +34,25 @@ const _genericFetch = (method, path, data, auth, accept = 'application/json') =>
     };
     if(auth) { init.headers['authorization'] = auth; }
     if(data) { init['body'] = JSON.stringify(data); }
-    return fetch(import.meta.env.REACT_APP_SERVER_URL+'/'+path, init)
-        .then(response => response.json().then(body => ({ body, isSuccess: _isSuccess(response.status), message: response.message, status: response.status })));
+
+    return fetch(makeUrl(path), init).then(response => {
+        let responseBodyPromise;
+
+        if(response.headers.get('Content-Type').includes('application/json')) {
+            responseBodyPromise = response.json();
+        }else {
+            responseBodyPromise = response.blob();
+        }
+
+        return responseBodyPromise.then(body => ({
+            body,
+            isSuccess: _isSuccess(response.status),
+            message: response.message,
+            status: response.status
+        }));
+    });
 };
 
-export default { deleted, get, login, logout, post, put };
+const makeUrl = (path) => import.meta.env.REACT_APP_SERVER_URL+'/'+path;
+
+export default { deleted, get, login, logout, makeUrl, post, put };
