@@ -27,11 +27,12 @@ const Site = () => {
             }
         >
             <TextParagraph title={'Bem-Vindo a Meu primeiro alô'}>
-                Uma plataforma de rastreamento do teste da orelhinha,
-                que foi desenvolvida pelo programa de pesquisa para o SUS, edital FAPESC 16/2020.
-                O desenvolvimento foi realizado por acadêmicos e docentes dos cursos de Ciência da
-                Computação e Fonoaudiologia da Univali, em parceria com a Secretaria de Estado da Saúde de
-                Santa Catarina e apoio do Conselho Regional de Fonoaudiologia 3ª Região.
+                Uma plataforma de rastreamento do teste da orelhinha sob LEI Nº 18.267, de 9 de dezembro de 2021.
+                Dispõe sobre a notificação compulsória do teste de triagem neonatal, para todas as crianças no Estado de Santa Catarina.
+                A plataforma foi então desenvolvida a partir do programa de pesquisa para o SUS (PPSUS edital FAPESC 16/2020).
+                O desenvolvimento foi realizado por acadêmicos e docentes dos cursos de ciência da computação, fonoaudiologia
+                e mestrado profissional em Gestão de Políticas Públicas da UNIVALI, em parceria com a Secretaria de Estado da Saúde
+                de Santa Catarina e apoio do Conselho Regional de Fonoaudiologia 3ª Região.
             </TextParagraph>
             <VideoParagraph title={'Bem-vindo'} url={'https://www.youtube.com/embed/I7CnUPAMajs'} />
 
@@ -41,11 +42,12 @@ const Site = () => {
                         Objetivos
                     </Typography>
                     <Typography variant={'body1'}>
-                        Nosso objetivo é <Typography variant={'subtitle1'} component={'b'} color={'secondary'}>rastrear </Typography>
-                        os bebês que realizaram o teste da orelhinha,
-                        para <Typography variant={'subtitle1'} component={'b'} color={'secondary'}>identificar </Typography>
-                        aqueles com teste alterado, a fim de <Typography variant={'subtitle1'} component={'b'} color={'secondary'}>acompanhar  </Typography>
-                        aqueles com suspeita de deficiência auditiva.
+                        Nosso objetivo é implementar um sistema de <Typography variant={'subtitle1'} component={'b'} color={'secondary'}>rastreamento </Typography>
+                        para bebês que tenham passado pelo <Typography variant={'subtitle1'} component={'b'} color={'secondary'}>teste da orelhinha</Typography>,
+                        com o propósito de <Typography variant={'subtitle1'} component={'b'} color={'secondary'}>identificar</Typography> qualquer resultado
+                        que indique uma possível <Typography variant={'subtitle1'} component={'b'} color={'secondary'}>deficiência auditiva</Typography>.
+                        Essa iniciativa visa informatizar o processo e estabelecer um acompanhamento dedicado para bebês que apresentem
+                        suspeita de deficiência auditiva, assegurando uma intervenção precoce e eficaz, quando necessário.
                     </Typography>
                     <br/>
                     <Typography variant={'h6'} color={'secondary'}>
@@ -79,7 +81,7 @@ const Site = () => {
             </TextParagraph>
 
             <VideoAndText title={'Dicas para os pais'} videoUrl={'https://www.youtube.com/embed/TF0xR6EiHEg'}>
-                <b>Olá,</b> mamães e papais
+                <Typography variant={'subtitle1'} component={'b'} color={'primary'}>Olá, </Typography> mamães e papais
                 <TopicListIcon icon={<FavoriteTwoToneIcon color='primary'/>} topics={[
                     'Antes de seu bebê sair da maternidade ele deverá realizar o teste da orelhinha.',
                     'Para realizar este exame o fonoaudiólogo irá colocar uma borrachinha (oliva) ligada a um aparelho na orelha do seu bebê.',
