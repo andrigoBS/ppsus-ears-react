@@ -44,7 +44,7 @@ const Footer = () => {
             </Grid>
             <Grid item xs={12} sx={styles.toCenter}>
                 <Typography variant="p" color='white' sx={styles.padding} >
-                    2022 - Univali - Equipe PPSUS
+                    2023 - Univali - Equipe PPSUS
                 </Typography>
             </Grid>
         </Grid>

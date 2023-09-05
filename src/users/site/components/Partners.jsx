@@ -17,7 +17,7 @@ const Partners = () => {
             url: 'https://univali.br'
         },
         {
-            element: <SecretaryIcon size={'200px'}/>,
+            element: <SecretaryIcon size={'320px'}/>,
             url: 'https://saude.sc.gov.br/'
         },
         {
@@ -33,11 +33,11 @@ const Partners = () => {
             url: 'https://crefono3.org.br/'
         },
         {
-            element: <NascerIcon size={'320px'}/>,
+            element: <FapescIcon size={'310px'}/>,
             url: 'https://fapesc.sc.gov.br/programa-nascer/'
         },
         {
-            element: <FapescIcon size={'320px'}/>,
+            element: <NascerIcon size={'280px'}/>,
             url: 'https://fapesc.sc.gov.br/programa-nascer/'
         }
     ];
