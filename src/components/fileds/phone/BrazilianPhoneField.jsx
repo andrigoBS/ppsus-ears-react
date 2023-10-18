@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
-import { TextField } from '@mui/material';
 import { IMaskInput } from 'react-imask';
+import { TextField } from '@mui/material';
 import usePhoneMaskController from './usePhoneMaskController';
 
 const BrazilianPhoneField = ({ name, register, ...other }) => {

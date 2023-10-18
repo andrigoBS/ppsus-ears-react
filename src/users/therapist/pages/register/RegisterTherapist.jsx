@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import AsyncRequest from '../../../../components/api/AsyncRequest';
 import BaseRegisterPaper from '../../../../components/bases/register/BaseRegisterPaper';
-import PasswordField from '../../../../components/fileds/password/PasswordField';
+import UserFieldsRegister from '../../../../components/bases/register/userFields/UserFieldsRegister';
 import BrazilianPhoneField from '../../../../components/fileds/phone/BrazilianPhoneField';
 import SelectField from '../../../../components/fileds/select/SelectField';
 import useTherapistService from '../../useTherapistService';
@@ -16,20 +16,11 @@ const inputProps = {
     general: {
         maxLength: '255'
     },
-    login: {
-        maxLength: '255',
-    },
-    password: {
-        maxLength: '8'
-    }
 };
 
 const RegisterTherapist = () => {
     const { formState: { errors }, handleSubmit, register } = useForm();
     const service = useTherapistService();
-    const [focused, setFocused] = React.useState(false);
-    const onFocus = () => setFocused(true);
-    const onBlur = () => setFocused(false);
 
     return (
         <BaseRegisterPaper handleSubmit={handleSubmit} title={'Fonoaudiólogo'} serviceFunction={service.register} baseRoute={'/fono'}>
@@ -38,32 +29,16 @@ const RegisterTherapist = () => {
                     {...register('name')} label="Nome completo"
                     inputProps={inputProps.general}
                     variant="outlined" size="small" required
+                    error={errors?.name}
                 />
             </Grid>
-            <Grid item xs={12} sm={12} md={6}>
-                <TextField
-                    {...register('login')} label={'Login'}
-                    inputProps={inputProps.login}
-                    variant="outlined" size="small"
-                    onFocus={onFocus} onBlur={onBlur}
-                    helperText={focused && <p>Nome que será usado para acessar a plataforma junto a senha</p>} required
-                />
-            </Grid>
-            <Grid item xs={12} sm={12} md={6}>
-                <PasswordField register={register} inputProps={inputProps.password}/>
-            </Grid>
-            <Grid item xs={12} sm={12} md={6}>
-                <TextField
-                    {...register('passwordConfirm')} label="Confirmação de senha"
-                    inputProps={inputProps.password}
-                    type="password" variant="outlined" size="small" required
-                />
-            </Grid>
+            <UserFieldsRegister register={register} errors={errors}/>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register('crfa')} label="CRFa"
                     inputProps={inputProps.crfa}
                     variant="outlined" size="small" required
+                    error={errors?.crfa}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
@@ -98,6 +73,7 @@ const RegisterTherapist = () => {
                     {...register('emails.0')} label="E-mail preferencial"
                     inputProps={inputProps.general}
                     variant="outlined" size="small" required
+                    error={errors?.emails && errors?.emails[0]}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
@@ -105,15 +81,18 @@ const RegisterTherapist = () => {
                     {...register('emails.1')} label="E-mail alternativo"
                     inputProps={inputProps.general}
                     variant="outlined" size="small"
+                    error={errors?.emails && errors?.emails[1]}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField  register={register} name="phones.0" formErrors={errors}
+                <BrazilianPhoneField
+                    register={register} name="phones.0" error={errors?.phones && errors?.phones[0]}
                     label="Telefone principal" variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField  register={register} name="phones.1" formErrors={errors}
+                <BrazilianPhoneField
+                    register={register} name="phones.1" error={errors?.phones && errors?.phones[1]}
                     label="Telefone alternativo" variant="outlined" size="small"
                 />
             </Grid>
