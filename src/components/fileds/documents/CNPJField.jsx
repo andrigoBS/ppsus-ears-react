@@ -10,7 +10,7 @@ const CNPJField = ({ name, register, ...other }) => {
             size="small"
             {...other}
             {...register(name, {
-                pattern: /(\([0-9]{2}\)[.]\([0-9]{3}\)[.]\([0-9]{3}\)[/]\([0-9]{4}\)[-]\([0-9]{2}\))/,
+                pattern: /([0-9]{2}[.][0-9]{3}[.][0-9]{3}\/[0-9]{4}-[0-9]{2})/,
             })}
             InputProps={{
                 inputComponent: CNPJMask,
@@ -21,13 +21,14 @@ const CNPJField = ({ name, register, ...other }) => {
 
 // eslint-disable-next-line react/display-name
 const CNPJMask = forwardRef((props, ref) => {
-    const { name, onAccept, other } = useCNPJController(props);
+    const { data, name, onAccept, other } = useCNPJController(props);
 
     return (
         <IMaskInput
             {...other}
             name={name}
             mask={'00.000.000/0000-00'}
+            value={data}
             inputRef={ref}
             onAccept={onAccept}
             overwrite

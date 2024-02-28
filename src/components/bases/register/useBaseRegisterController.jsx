@@ -5,6 +5,7 @@ const useBaseRegisterController = (serviceFunction, baseRoute) => {
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
+        console.log(data);
         serviceFunction(data).then((response) => {
             if(response.isSuccess){
                 navigate(baseRoute);
