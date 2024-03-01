@@ -46,7 +46,7 @@ const BaseUserRoute = ({ baseRoute, children, hasRegisterRoute, metaRoutesLink, 
                                 userTypeTitle={userTypeTitle}
                                 title={`Seja bem-vindo a Área ${userTypeTitleWithConjunction}`}
                                 registerRoute={hasRegisterRoute? '../cadastro' : undefined}
-                                forgotPasswordRoute={'../esqueci-minha-senha'}
+                                // forgotPasswordRoute={'../esqueci-minha-senha'}
                             />
                         </RedirectIfAuth>
                     } />

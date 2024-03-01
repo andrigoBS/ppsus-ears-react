@@ -67,11 +67,11 @@ const BaseLoginPaper = ({ forgotPasswordRoute, registerRoute, title, userTypeTit
                                         </Grid>
                                     </>
                                 }
-                                <Grid item xs={12} sm={12} md={12} sx={styles.forgotPassword}>
-                                    <RouterLink to={forgotPasswordRoute}>
-                                        Esqueci minha senha
-                                    </RouterLink>
-                                </Grid>
+                                {/*<Grid item xs={12} sm={12} md={12} sx={styles.forgotPassword}>*/}
+                                {/*    <RouterLink to={forgotPasswordRoute}>*/}
+                                {/*        Esqueci minha senha*/}
+                                {/*    </RouterLink>*/}
+                                {/*</Grid>*/}
                             </Grid>
                         </form>
                     </Paper>

@@ -9,7 +9,7 @@ const LoginInstitution = () => {
             <BaseLoginPaper
                 title={'Seja bem-vindo a Área da Instituição'}
                 registerRoute={'../cadastro'}
-                forgotPasswordRoute={'../esqueci-minha-senha'}
+                // forgotPasswordRoute={'../esqueci-minha-senha'}
             />
         </>
     );
