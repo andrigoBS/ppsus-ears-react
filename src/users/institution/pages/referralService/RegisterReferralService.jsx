@@ -43,12 +43,12 @@ const RegisterReferralService = () => {
             <Grid item xs={12} sm={12} md={6}>
                 <CNPJField
                     register={register} label="CNPJ"
-                    name={'referralService.cnpj'}
+                    name={'cnpj'}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
-                    {...register('CNES')} label="CNES"
+                    {...register('cnes')} label="CNES"
                     variant="outlined" size="small" inputProps={inputProps.cnes} required
                 />
             </Grid>
@@ -57,7 +57,7 @@ const RegisterReferralService = () => {
                     {(referralServiceTypes) => (
                         <RadioField
                             title={'Tipo de serviço'}
-                            register={{ ...register('referralServiceType') }}
+                            register={{ ...register('typeService') }}
                             values={referralServiceTypes}
                         />
                     )}
@@ -70,23 +70,23 @@ const RegisterReferralService = () => {
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
-                    {...register('preferentialEmail')} label="E-mail preferencial"
+                    {...register('emails[0]')} label="E-mail preferencial"
                     variant="outlined" size="small" inputProps={inputProps.general} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
-                    {...register('alternativeEmail')} label="E-mail alternativo"
+                    {...register('emails[1]')} label="E-mail alternativo"
                     variant="outlined" size="small" inputProps={inputProps.general}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField  register={register} name="phonePrimary" formErrors={errors}
+                <BrazilianPhoneField  register={register} name="phones[0]" formErrors={errors}
                     label="Telefone institucional" variant="outlined" size="small" required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-                <BrazilianPhoneField  register={register} name="phoneSecond" formErrors={errors}
+                <BrazilianPhoneField  register={register} name="phones[1]" formErrors={errors}
                     label="Telefone celular institucional" variant="outlined" size="small"
                 />
             </Grid>
@@ -97,13 +97,13 @@ const RegisterReferralService = () => {
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
-                    {...register('CEP')} label="CEP"
+                    {...register('address.cep')} label="CEP"
                     variant="outlined" size="small" inputProps={inputProps.cep} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
-                    {...register('street')} label="Logradouro"
+                    {...register('address.street')} label="Logradouro"
                     variant="outlined" size="small" inputProps={inputProps.general} required
                 />
             </Grid>
@@ -111,7 +111,7 @@ const RegisterReferralService = () => {
                 <AsyncRequest requestFunction={getStates} loaderChildren={<CircularProgress />}>
                     {(states) => (
                         <SelectField
-                            title={'Estado'} register={{ ...register('referralService.address.state') }}
+                            title={'Estado'} register={{ ...register('address.state') }}
                             onChange={onChangeState} required values={states}
                         />
                     )}
@@ -121,7 +121,7 @@ const RegisterReferralService = () => {
                 <AsyncRequest requestFunction={state ? getCities : null} loaderChildren={<CircularProgress />}>
                     {(cities) => (
                         <SelectField
-                            title={'Cidade'} register={register('referralService.address.city.id')}
+                            title={'Cidade'} register={register('address.city.id')}
                             disabled={!state} required values={cities}
                         />
                     )}
@@ -129,25 +129,25 @@ const RegisterReferralService = () => {
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
-                    {...register('number')} label="Número"
+                    {...register('address.number')} label="Número"
                     variant="outlined" size="small" inputProps={inputProps.number}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
-                    {...register('complement')} label="Complemento"
+                    {...register('address.adjunct')} label="Complemento"
                     variant="outlined" size="small" inputProps={inputProps.general}
                 />
             </Grid>
-            <Grid item xs={12} sm={12} md={12}>
-                <Typography  variant={'h6'}>
-                    Dados do responsável do serviço
-                </Typography>
-                <TextField
-                    {...register('nameOfResponsible')} label="Nome do responsável"
-                    variant="outlined" size="small" inputProps={inputProps.general} required
-                />
-            </Grid>
+            {/*<Grid item xs={12} sm={12} md={12}>*/}
+            {/*    <Typography  variant={'h6'}>*/}
+            {/*        Dados do responsável do serviço*/}
+            {/*    </Typography>*/}
+            {/*    <TextField*/}
+            {/*        {...register('nameOfResponsible')} label="Nome do responsável"*/}
+            {/*        variant="outlined" size="small" inputProps={inputProps.general} required*/}
+            {/*    />*/}
+            {/*</Grid>*/}
         </BaseRegisterPaper>
     );
 };
