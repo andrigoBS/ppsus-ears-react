@@ -3,6 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Button, Divider, Grid, Paper, TextField, Typography } from '@mui/material';
 import Footer from '../../../users/site/components/Footer';
 import Partners from '../../../users/site/components/Partners';
+import PasswordField from '../../fileds/login/password/PasswordField';
 import HtmlHead from '../../HtmlHead';
 import useBaseLoginController from './useBaseLoginController';
 import useBaseLoginStyles from './useBaseLoginStyles';
@@ -11,9 +12,6 @@ const inputProps = {
     login: {
         maxLength: '255',
     },
-    password: {
-        maxLength: '8'
-    }
 };
 
 const BaseLoginPaper = ({ forgotPasswordRoute, registerRoute, title, userTypeTitle }) => {
@@ -44,10 +42,10 @@ const BaseLoginPaper = ({ forgotPasswordRoute, registerRoute, title, userTypeTit
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <TextField
-                                        {...register('password')} label="Senha"
-                                        inputProps={inputProps.password}
-                                        type="password" variant="outlined" size="small" required/>
+                                    <PasswordField
+                                        label="Senha" name="password"
+                                        register={register}
+                                    />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
                                     <Button

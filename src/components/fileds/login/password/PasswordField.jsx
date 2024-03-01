@@ -48,7 +48,7 @@ const PasswordField = ({ error, focused, label, name, onChange, register, valida
                     </InputAdornment>
                 }
                 label={label+' *'}
-                inputProps={{ maxLength: '8' }}
+                inputProps={{ maxLength: '255' }}
                 {...register(name, { onChange: handleOnChange, validate })}
                 {...props}
             />
