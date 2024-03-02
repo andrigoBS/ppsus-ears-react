@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
+import { CircularProgress, Grid, Link, TextField, Typography } from '@mui/material';
+import ReplayIcon from '@mui/icons-material/Replay';
 import AsyncRequest from '../../../../../components/api/AsyncRequest';
 import RadioField from '../../../../../components/fileds/radio/RadioField';
 import SelectField from '../../../../../components/fileds/select/SelectField';
@@ -171,6 +172,7 @@ const RegisterResults = ({ register, setValue, watch }) => {
                 <AsyncRequest
                     requestFunction={service.getAllOrientationsActives}
                     loaderChildren={<CircularProgress/>}
+                    isReloadAllowed
                 >
                     {(values) => (
                         <SelectField
@@ -182,6 +184,9 @@ const RegisterResults = ({ register, setValue, watch }) => {
                         />
                     )}
                 </AsyncRequest>
+                <Link href={'/fono/orientacao/cadastro'} underline="hover" target={'_blank'} style={{ marginTop: '10px' }}>
+                    Clique aqui para cadastrar uma nova orientação. (OBS: Após cadastrar clique no <ReplayIcon size={'small'} style={{ height: '20px', verticalAlign: 'top', width: '20px' }}/> )
+                </Link>
             </Grid>
 
             <Grid item xs={12} sm={12} md={12}>

@@ -86,7 +86,7 @@ const BaseRegisterResponsible = ({ errors, prefixName, register, states }) => {
             <Grid item xs={12} sm={12} md={6}>
                 <TextField
                     {...register(`${prefixName}.address.street`)} label="Logradouro"
-                    variant="outlined" size="small"inputProps={inputProps.general} required
+                    variant="outlined" size="small" inputProps={inputProps.general} required
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
